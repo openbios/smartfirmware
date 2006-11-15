@@ -1,0 +1,209 @@
+\ (c) Copyright 1996 by CodeGen, Inc.  All Rights Reserved.
+\
+\ test routines in "forth.c"
+\
+
+\ display and evaluate a test string
+: test ( eval-str strlen ) 2dup cr " test: " type type cr ' evaluate catch drop .s clear ;
+
+" 1 2 3 4 3dup" test
+" 1 clear" test
+" 1 2 3 4 3drop" test
+
+" 2 3 u*" test
+" -2 3 u*" test
+
+" 2 3 4 */" test
+" 2 3 4 */mod" test
+
+" 2 1+" test
+" 2 1-" test
+" 2 2+" test
+" 2 2-" test
+
+" 2 even" test
+" 3 even" test
+
+" 1 s>d" test
+" -1 s>d" test
+
+\ TODO: m* fm/mod sm/rem
+
+" here 12 dump" test
+" here 12 blank here 12 dump" test
+" here 12 erase here 12 dump" test
+
+( paren comment test )
+\ line comment test
+
+" >in" test
+" 33 parse foobar! type cr" test		\ 33 is ASCII for !
+" parse-word barfoo type cr" test
+" source type cr" test
+" 33 word !!!boofar! count type cr" test
+\ " here dup 50 accept 1- type cr" test	\ avoid printing ending \r, if any
+\ This is only a test.
+\ .rs
+
+" ascii !" test
+" char !" test
+: test-[char] [char] ! ;
+" test-[char]" test
+" control a" test
+
+" ."(22) test str"(22) cr" test
+" .( test str) cr" test
+" .( space->)space .( <-here) cr" test
+" .( spaces->)5 spaces .( <-here) cr" test
+
+\ TODO: exit?
+
+\ " string parsing tested above and below
+s" 1 2 +" test
+" "(22) begin end   "(22) .( <) type .( >) cr" test
+" "(22) begin end   "(22) -trailing .( <) type .( >) cr" test
+
+" hex 35 octal 35 decimal 35" test
+" 3 "(22) 5end"(22) >number type cr" test
+" d# 35 h# 35 o# 35" test
+" 35 hex s. space decimal 35 octal s. space decimal 35 s. cr" test
+" 35 .d space 35 .h cr" test
+
+
+\ test if statement
+" 1 if 3 then" test
+" -1 0 if 4 then" test
+" 1 if 3 else -5 then" test
+" 0 if 4 else -6 then" test
+
+
+\ test case statements
+" 0 case 0 of 10 endof 1 of 20 endof 2 of 30 endof 8 swap endcase" test
+" 1 case 0 of 10 endof 1 of 20 endof 2 of 30 endof 8 swap endcase" test
+" 2 case 0 of 10 endof 1 of 20 endof 2 of 30 endof 8 swap endcase" test
+" 3 case 0 of 10 endof 1 of 20 endof 2 of 30 endof 8 swap endcase" test
+
+
+\ test do/?do-loop/+loop
+" 0 10 0 do 100 + loop" test
+" 0 10 10 do 100 + loop" test
+" 0 10 0 ?do 100 + loop" test
+" 0 10 10 ?do 100 + loop" test
+
+" 0 10 0 do 100 + 2 +loop" test
+" 0 10 10 do 100 + 2 +loop" test
+
+" "(22) pci"(22) bounds swap 1- ?do i c@ emit -1 +loop cr" test
+" "(22) pci"(22) bounds ?do i c@ emit 1 +loop cr" test
+
+
+\ test i/j
+" 0 10 0 do i + loop" test
+" 0 10 0 do   5 0 do j + loop   loop" test
+" 0 3 1 do 5 2  do j + i + loop  loop" test
+
+\ test leave
+" 0 10 0 do 100 + dup 300 > if leave then loop" test
+" 0 10 0 do 100 + dup 300 > ?leave loop" test
+
+\ test begin-until/while-repeat/again loops
+" 0 begin 1+ .( x) dup 5 > until cr" test
+" 0 begin dup 5 < while 1+ .( x) repeat cr" test
+" 0 begin 1+ .( x) dup 5 > if exit then again cr" test
+
+
+" quit" test
+
+" 0 abort"(22) test"(22)" test
+" 1 abort"(22) test"(22)" test
+
+
+\ now test variable stuff
+
+" 23 constant fc" test
+" fc" test
+" 23 -46 2constant fc2" test
+" fc2" test
+" -12 to fc" test clear
+
+" 43 value fv" test
+" fv" test
+" -12 to fv" test
+" fv" test
+
+" variable fvar" test
+" 74 fvar .s !" test
+" fvar @" test
+
+" 9 buffer: fbuf" test
+" fbuf 9 112 fill fbuf 9 dump" test
+
+\ ":" and ";" are tested above when creating "test"
+
+" alias foo fv" test
+" foo" test
+
+" defer bar" test
+" bar" test
+" ' 1 to bar" test
+" bar" test
+
+
+" struct /n field >name /n field >val /c field >flag dup constant /data" test
+" /data buffer: buf" test
+" 1045 buf >val !" test
+" buf >val @" test
+
+" : boo create does> swap 12 + ;" test
+" boo hoo" test
+" 34 hoo" test
+
+: boo2 $create does> swap 12 + ;
+" coo" boo2
+" 22 coo" test
+
+" forget coo 22 coo" test clear
+
+" here 7 allot here" test
+" here 1 allot align here 1 allot align here" test
+" here aligned ? cr" test
+
+" : test-imm 3 4 + ; immediate" test
+" test-imm" test
+" : t test-imm ;" test
+
+" : test-brackets 1 [ .rs ] 2 + ;" test
+" test-brackets" test
+
+" : test-compile compile 1 2 ;" test
+" : test-c [ test-compile ] ;" test
+" test-c" test
+
+" : test-bcompileb [compile] 1 ;" test
+" test-bcompileb" test
+
+" 17 : test-literal literal ;" test
+" test-literal" test
+
+" : test-bquoteb ['] noop ;" test
+" test-bquoteb" test
+
+" ' noop" test
+
+" noop" here pack " find" test
+" nxxp" here pack " find" test
+
+\ "to" is tested up above with defer/var tests
+
+" : test-recursive recursive dup 0<= if exit then 1- test-recursive ;" test
+" 11 test-recursive" test
+
+" : test-recurse dup 0<= if exit then 1- recurse ;" test
+" 7 test-recurse" test
+
+" forth" test
+
+" "(22) boot-command"(22) environment?" test
+" "(22) eat-me"(22) environment?" test
+
+cr " END OF TESTS" type cr

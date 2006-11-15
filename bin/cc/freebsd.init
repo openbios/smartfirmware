@@ -1,0 +1,37 @@
+min_addressable		8
+size_pointer		32
+align_pointer		32
+size_wchar_t		32
+size_size_t		32
+
+size_char		8
+align_char		8
+size_short		16
+align_short		16
+size_int		32
+align_int		32
+size_long		32
+align_long		32
+size_longlong		64
+align_longlong		32
+
+size_float_mantissa		24
+size_float_exponent		8
+align_float			32
+size_shortdouble_mantissa	24
+size_shortdouble_exponent	8
+align_shortdouble		32
+size_double_mantissa		53
+size_double_exponent		11
+align_double			32
+size_longdouble_mantissa	113
+size_longdouble_exponent	15
+align_longdouble		32
+
+define		unix
+define		__FreeBSD__	2
+define		i386
+define		__i386__
+
+include		/usr/include
+include		/usr/local/include

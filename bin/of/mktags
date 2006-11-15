@@ -1,0 +1,17 @@
+#!/bin/sh
+
+# create tags file, then edit it to fix all macro-created
+# function declarations to be the actual function names
+
+cxxtags $*
+sed -e '/^C	.*(.*)/s/^C//' \
+		-e '/^CC	.*(.*)/s/^CC//' \
+		-e '/^S	.*(.*)/s/^S//' \
+		-e '/^PCI	.*(.*)/s/^PCI//' \
+		-e '/^ISA	.*(.*)/s/^ISA//' \
+		-e '/^SCSIDEV	.*(.*)/s/^SCSIDEV//' \
+		-e '/^	/s/.*(\(.*\))/\1&/' \
+		-e '/.*/p' \
+		-e '/^f_/s/f_//' \
+	<tags | sort -u >tags.new
+mv tags.new tags

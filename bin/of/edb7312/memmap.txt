@@ -1,0 +1,46 @@
+
+Phys Range		Size	Description
+0000.0000-00ff.ffff	16M	Intel Strata Flash
+1000.0000-10ff.ffff	16M	NAND Flash
+2000.0000-2000.000f	16	CS8900A Ethernet
+2000.0300-2000.030f	16	CS8900A Ethernet (ISA)
+3000.0000-3000.0001	2	LPT
+3001.0000-3001.0000	1	Keybaord Extended Row
+4000.0000-4000.000f	16	USB Controller
+4001.0000-4001.0001	2	PS/2 Controller
+5000.0000-5000.0007	8	IDE Interface
+6000.0000-6000.bfff	48K	SRAM
+7000.0000-7000.007f	128	Boot ROM
+8000.0000-8000.3fff	16K	EP7312 Registers
+c000.0000-c0ff.ffff	16M	SDRAM
+
+Virtual Range
+0000.0000-0000.0fff	Vectors, shared between OpenFirmware and cleint
+0000.1000-efff.ffff	Reserved for use by client
+f000.0000-f6ff.ffff	RAM upto 112MB
+f700.0000-f7ff.ffff	OpenFirmware
+f800.0000-f8ff.ffff	OpenFirmware Used to map flash
+f900.0000-ffff.ffff	Reserved for use by cleint
+
+Initial mappings prior to starting client program
+
+Virtual Range		Phys Range		Size	Description
+0000.0000-0000.0fff	c00x.x000-c00x.xfff	4K	SDRAM
+0000.1000-efff.ffff					Reserved
+f000.0000-f0ef.ffff	c010.0000-c0ff.ffff	15M	SDRAM
+f0f0.0000-f6ff.ffff					Reserved
+f700.0000-f70f.ffff	c000.0000-c00f.ffff	1M	SDRAM low
+f710.0000-f71f.ffff	0000.0000-000f.ffff	1M	Flash low
+f720.0000-f720.3fff	8000.0000-8000.3fff	16K	EP7312 Registers
+f720.4000-f720.ffff	6000.0000-6000.bfff	48K	SRAM
+f721.0000-f721.0fff	c000.0000-c000.0fff	4K	Reserved
+f721.1000-f721.1fff	2000.0000-2000.0fff	16	CS8900A Ethernet
+f721.2000-f721.2fff	3000.0000-3000.0fff	2	LPT
+f721.3000-f721.3fff	3001.0000-3001.0fff	1	Keybaord Extended Row
+f721.4000-f721.4fff	4000.0000-4000.0fff	16	USB Controller
+f721.5000-f721.5fff	4001.0000-4001.0fff	2	PS/2 Controller
+f721.6000-f721.6fff	5000.0000-5000.0fff	8	IDE Interface
+f721.7000-f721.8fff	000e.0000-000e.1fff	8K	Flash NVRAM space
+f721.9000-f7ff.ffff				13.9M	OF map-in space
+f800.0000-f8ff.ffff	0000.0000-00ff.ffff	16M	StrataFlash
+f900.0000-ffff.ffff					Reserved

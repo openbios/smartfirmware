@@ -1,0 +1,22 @@
+fcode-version2
+
+\ test if statement
+: test-if if " yes" else " no" then type cr ;
+
+12 test-if
+0 test-if
+-1 test-if
+
+12 if " yes" else " no" then type cr
+0 if " yes" else " no" then type cr
+-1 if " yes" else " no" then type cr
+
+0 10 0 do 100 + loop . cr
+0 10 0 do i + loop . cr
+0 10 0 do   5 0 do j + loop   loop  . cr 
+
+0 begin 1+ .( x) dup 5 > until cr . cr
+0 begin dup 5 < while 1+ .( x) repeat cr . cr 
+0 begin 1+ .( x) dup 5 > if exit then again cr . cr
+
+fcode-end

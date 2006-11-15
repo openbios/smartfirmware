@@ -1,0 +1,108 @@
+CC = gcc
+COMPFLAGS = -O -D_DJGPP_SOURCE -DGETTIMEOFDAY
+INCLUDES = -I../cgt
+CFLAGS = $(COMPFLAGS) $(INCLUDES)
+RUNLOGOBJS=runlogc.o stopwch.o stopwcha.o
+RUNLOGS=runloga runlogb runlogf runlogg runlogg2 runlogi runlogw runlogx
+
+OBJS = aoa.o
+HDRS =
+FILES = Makefile $(HDRS) aoa.c memtest.cc memt.c memt2.c
+LIB = libaoa.a
+LIBS = ../cgt/libcgt.a
+TARGET = /cgt
+
+all:	$(LIB) $(HDRS) memtest memt memt2 memt3 munge hist mega $(RUNLOGS)
+
+export:	$(LIB) $(HDRS) 
+	cp $(LIB) $(TARGET)/lib
+
+$(LIB):	$(OBJS)
+	rm -f $(LIB)
+	ar r $(LIB) $(OBJS)
+	ar rs $(LIB)
+
+memtest:	memtest.o $(LIB)
+	$(CC) $(CFLAGS) -o memtest memtest.o $(LIB) $(LIBS)
+
+memt:	memt.o $(LIB)
+	$(CC) $(CFLAGS) -o memt memt.o $(LIB) $(LIBS)
+
+memt2:	memt2.o $(LIB)
+	$(CC) $(CFLAGS) -o memt2 memt2.o $(LIB) $(LIBS)
+
+memt3:	memt3.o $(LIB)
+	$(CC) $(CFLAGS) -o memt3 memt3.o $(LIB) $(LIBS)
+
+munge:	munge.o
+	$(CC) $(CFLAGS) -o munge munge.o $(LIBS)
+
+hist:	hist.o
+	$(CC) $(CFLAGS) -o hist hist.o $(LIBS)
+
+mega:	megac.o
+	$(CC) $(CFLAGS) -o mega megac.o $(LIBS)
+
+runloga:	$(RUNLOGOBJS) $(LIB)
+	$(CC) $(CFLAGS) -o runloga $(RUNLOGOBJS) $(LIB) $(LIBS)
+#	aout2exe runloga
+
+runlogb:	$(RUNLOGOBJS) memalign.o
+	$(CC) $(CFLAGS) -o runlogb $(RUNLOGOBJS) memalign.o
+
+runlogf:	$(RUNLOGOBJS) memalign.o
+	echo $(CFLAGS) -o runlogf $(RUNLOGOBJS) memalign.o ../fmalloc/libfmalloc.a ../cgt/libcgt.a >linkit
+	$(CC) @linkit
+
+runlogg:	$(RUNLOGOBJS)
+	echo $(CFLAGS) -o runlogg $(RUNLOGOBJS) ../gmalloc/alloc.o ../cgt/libcgt.a >linkit
+	$(CC) @linkit
+
+runlogg2:	$(RUNLOGOBJS)
+	echo $(CFLAGS) -o runlogg2 $(RUNLOGOBJS) ../gmalloc2/gmalloc.o ../cgt/libcgt.a >linkit
+	$(CC) @linkit
+
+runlogi:	$(RUNLOGOBJS) aoa_i.o
+	$(CC) $(CFLAGS) -o runlogi $(RUNLOGOBJS) aoa_i.o $(LIBS)
+
+runlogw:	$(RUNLOGOBJS) memalign.o
+	echo $(CFLAGS) -o runlogw $(RUNLOGOBJS) memalign.o ../wfmalloc/libwfmalloc.a ../cgt/libcgt.a >linkit
+	$(CC) @linkit
+
+runlogx:	$(RUNLOGOBJS) base.o
+	echo $(CFLAGS) -o runlogx $(RUNLOGOBJS) base.o ../cgt/libcgt.a >linkit
+	$(CC) @linkit
+
+aoa_i.o:	aoa.c
+	cp aoa.c aoa_i.c
+	$(CC) $(CFLAGS) -DINSTRUMENT -c aoa_i.c
+
+aoa.o:	aoa.c
+aoa_i.o:	aoa_i.c
+memtest.o:	memtest.cc
+memt.o:	memt.c
+memt2.o:	memt2.c
+stopwch.o:	stopwch.cc
+
+stopwcha.o:	stopwcha.s
+	as -o stopwcha.o stopwcha.s
+
+clean:
+	$(RM) -f *.o *.a test
+
+.SUFFIXES:	.c .cc .o
+
+.c.o:
+	$(CC) -c $(CFLAGS) $<
+
+.cc.o:
+	$(CC) -c $(CFLAGS) $<
+
+tar:
+	tar -cf - $(FILES) | compress -b14 >aoa.trx
+
+tarall:
+	tar -cf - $(FILES) RCS | compress -b14 >aoa.trz
+
+files:
+	@echo $(FILES)

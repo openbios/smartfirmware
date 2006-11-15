@@ -1,0 +1,168 @@
+.\" Copyright (c) 1991,1993,1997,2000 by Parag Patel.  All Rights Reserved.
+.TH WACCO 1 CodeGen
+.ad b
+.SH NAME
+wacco \- why another compiler-compiler?
+.SH SYNOPSIS
+.B wacco
+.RB [ -ciDOCLPRtTV ]
+.RB [ -h
+header]
+.RB [ -p
+parser]
+.RB [ -s
+scanner]
+.RB [ -l
+language]
+[file]
+.SH DESCRIPTION
+.I wacco
+is another compiler-compiler.
+(Why another compiler-compiler you may ask?  Why not!)
+It has some rather convenient features with a lot of
+syntactic sugar tossed on top over what
+.IR yacc (1)
+provides, and generates
+a top-down recursive-descent LL(1) C/C++ parser instead
+of a bottom-up LALR parser.
+.PP
+The grammar format is described in the file
+.I wacco.doc
+as it is rather lengthy.
+.SS Options
+.I wacco
+expects a grammar on stdin if
+.I file
+is not specified on the command line.
+A token header file and a parser code file are generated.
+If there is a scanner section in the input grammar,
+then an output scanner file will also be generated.
+The generated files are named explicitly (below) or by defaults
+selected depending on the generated language (also below).
+.TP
+.B -i
+Do not generate code for scanning case-insensitive strings.
+If the
+.B "string"
+construct is used in the grammer source,
+.I wacco
+will normally generate code like
+.BR [Ss][Tr][Ii][Nn][Gg] .
+This option inhibits such behavior to allow exact matches.
+.TP
+.B -c
+Normally,
+.I wacco
+will generate temporary output files and then compare them with
+the originals, if any.
+The originals are replaced only if the new versions are different,
+which can be useful with makefiles to avoid unnecessary recompilation.
+This option turns off the comparisons and always replaces the
+output files.
+.TP
+.B -D
+Dump mode.
+Only prints (somewhat) interesting information about what
+.I wacco
+thinks the grammar looks like, first and follow sets, and other
+miscellaneous stuff.
+.TP
+.B -O
+Turns off optimization.
+Normally,
+.I wacco
+expands non-terminals that are only used once in the code rather
+than creating functions for them.
+If you use the "return" operator, you must use this option for now.
+If you use the "$?" construct, optimization will be automatically
+turned off.
+.TP
+.B -C
+Do not output the embedded user code within the grammer.
+This generates a parser that either accepts or rejects
+its input, only printing errors.
+It is handy for verifying a grammer.
+.TP
+.B -P
+Do not output common parsing/scanning routines in the generated parser.
+This generates only code to parse the rules and expects the user to
+provide all the other necessary routines to make these rules work,
+especially w_scantoken().  For experts only.
+.TP
+.B -L
+Do not generate the "#line" entries for the original
+.I wacco
+source file within the parser code.
+.TP
+.B -R
+Do not generate any code to automatically resync after an error, and
+instead skip tokens until the expected token is found.
+This is most useful if the input is very simple or machine-generated.
+.TP
+.B -t
+Generate code which is indented solely by tab characters (the default).
+.TP
+.B -T
+Generate code indented by 4 spaces but where tabs are set at 8.
+.TP
+.B -V
+Display wacco's version information and exit.  Does nothing else.
+.TP
+.BI "-h " header
+Create a file named
+.I header
+instead of the default (below).
+.TP
+.BI "-p " parser
+Create a file named
+.I parser
+instead of the default (below).
+.TP
+.BI "-s " scanner
+Create a file named
+.I scanner
+instead of the default (below).
+.TP
+.BI "-l " language
+Generate output for the specified
+.I language
+instead of the default of "C".
+"Java" and "Modula-3" are supported along with "C".
+.SH FILES
+wacco.doc
+.br
+$PWD/.wacco.tmp
+.br
+.TS
+box;
+lB|lI lI lI
+l|l l l
+.
+language	header	scanner	parser
+=
+C	tokens.h	scanner.l	parser.cc
+_
+Java	Wtoken.java	Wscan.l	Wparse.java
+_
+Modula-3	Wparse.i3	Wscanner.l	Wparse.m3
+.TE
+.SH NOTES
+The
+.B -c
+option currently only works on UN*X systems.
+For other systems, this option is a no-op because
+the generated output files are always replaced.
+.PP
+.I wacco
+generated code may be compiled with a C++, ANSI C, or K&R C compiler.
+This same guarantee cannot be made for any embedded code (actions).
+.PP
+The scanner generated may be ``compiled'' by either
+.IR lex (1)
+or
+.IR flex (1),
+although
+.I flex
+is highly recommended.
+.SH AUTHOR
+Copyright (c) 1991-2002 by Parag Patel.  All Rights Reserved.

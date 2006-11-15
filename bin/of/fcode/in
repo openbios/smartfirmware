@@ -1,0 +1,7 @@
+\ trace-all
+load-file fcdisp.fc
+\ debug-off
+show-devs
+cd /pci/screen
+dump-curr-pkg
+cr " Stack is " type .s

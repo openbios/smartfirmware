@@ -1,0 +1,20 @@
+program test(input);
+
+var
+	x a: integer;
+	ara: array [1...10] of integer;
+
+procedure try(a:integer):result integer;
+	u,v:integer;
+	begin
+		if not not a try:=u+ else try:=a;
+	end
+end
+
+begin
+	while not x a do
+		x = a-1;
+		a2:=5**a;
+		x:= ara[3]*(ara[x+x)
+	end
+end

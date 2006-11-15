@@ -1,0 +1,45 @@
+TODO:
+----
+see if it is possible to use cache as a small stack+bss memory
+probe DRAM ROMs to init Hammer properly (start1.as86)
+generalize HT init code - probably in asm
+add ACPI/intr info into device tree
+Adaptec and Tekram SCSI drivers
+builtin ethernet driver
+EHCI USB driver
+modify NetBSD to boot under SF in 64-bit mode using OF interface:
+    pass in command-line args
+    set boot/root disk
+    walk OF tree using client-interface
+    do not switch to 64-bit mode if already in 64-bit mode
+port Linux to boot under SF in 64-bit mode using OF interface
+add proper BSD/Linux boot-loaders that understand OF
+shipping mobos and specs
+write HT and AMD64 OF bindings
+compress primary firmware image - support two for failsafe?
+multiple CPU support/init
+Add NVRAM in flash support
+Fix problem with flash driver that prevents SST49LF080A from programming
+	correctly.  Working with SST on the problem currently.
+Add named NVRAM parameter sets, so that it is easy to switch configurations.
+Add operating-system type auto that uses elf header info to figure out
+	what OS just got loaded.
+
+
+DONE or irrelevant:
+------------------
+see what problem with ISA-compat timer is, or use other timer - u_sleep()
+SIO chip inited
+init CPU ID reg (move dump_hammer to of.ram & dump it out)
+init IRQ regs in PCI devs
+PCI bug re Sparc?
+
+
+FLASH REGIONS:
+-------------
+nvram
+nvram.prev
+mini-firmware (highest 64Kb)
+primary firmware (SF)
+additional fcode drivers (users may add?)
+kernel?

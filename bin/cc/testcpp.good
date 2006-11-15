@@ -1,0 +1,14 @@
+#include testcpp.h
+
+ f '(' #2 '*' '(' y '+' #1 ')' ')' '+' f '(' #2 '*' '(' f '(' #2 '*' '(' z '[' #0 ']' ')' ')' ')' ')' '%' f '(' #2 '*' '(' #0 ')' ')' '+' t '(' #1 ')' ';'
+ f '(' #2 '*' '(' #2 '+' '(' #3 ',' #4 ')' '-' #0 ',' #1 ')' ')' '|' f '(' #2 '*' '(' '~' #5 ')' ')' '&' f '(' #2 '*' '(' #0 ',' #1 ')' ')' '^' m '(' #0 ',' #1 ')' ';'
+ printf '(' "x" "1" "= %d, x" "2" "= %s" ',' x1 ',' x2 ')' ';'
+ fputs '(' "strncmp(\"abc\\0d\", \"abc\", '\\4') == 0" ": @\n" ',' s ')' ';'
+ include "vers2.hdr"
+ "hello"
+ "hello" ", world"
+testcpp.h:41: warning: macro "OBJ_LIKE" defined on line 40 is redefined here.
+testcpp.h:46: warning: macro "FTN_LIKE" defined on line 43 is redefined here.
+ part1part2
+ part1part2
+ func '(' func '(' #77 '+' #2 '+' #1 ')' '+' #1 ')'

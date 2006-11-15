@@ -1,0 +1,6 @@
+#include cpp04.h
+
+ main '(' ')' '{'
+ puts '(' "good" ')' ';'
+ return #0 ';'
+ '}'

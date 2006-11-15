@@ -1,0 +1,60 @@
+Index: funcs.c
+===================================================================
+--- funcs.c	(revision 3829)
++++ funcs.c	(working copy)
+@@ -713,17 +713,17 @@
+ 		t &= QUADLET_MASK;
+ 
+ 		#ifdef SUN_COMPATIBILITY
+-			e->sp[0] = *(uQuadlet*)(uPtr)t;
+-			PUSH(e, *(uQuadlet*)(uPtr)(t + sizeof (uQuadlet)));
++			e->sp[0] = *(uQuadlet*)(uPtr)(t + sizeof (uQuadlet));
++			PUSH(e, *(uQuadlet*)(uPtr)t);
+ 		#else
+-			e->sp[0] = *(Quadlet*)(uPtr)t;
+-			PUSH(e, *(Quadlet*)(uPtr)(t + sizeof (Quadlet)));
++			e->sp[0] = *(Quadlet*)(uPtr)(t + sizeof (uQuadlet));
++			PUSH(e, *(Quadlet*)(uPtr)t);
+ 		#endif
+ 	}
+ 	else
+ 	{
+-		e->sp[0] = *(Cell*)(uPtr)t;
+-		PUSH(e, *(Cell*)(uPtr)(t + sizeof (Cell)));
++		e->sp[0] = *(Cell*)(uPtr)(t + sizeof (Cell));
++		PUSH(e, *(Cell*)(uPtr)t);
+ 	}
+ 
+ 	return NO_ERROR;
+@@ -756,24 +756,24 @@
+ 
+ C(f_2set)			/* 2! (x1 x2 a-addr --) 0x77 */
+ {
+-	Cell *t, t2, t3;
++	Cell *t, x1, x2;
+ 	
+ 	IFCKSP(e, 3, 0);
+ 	DO_UMASK32(e, e->sp[0]);
+ 	POPT(e, t, Cell*);
+-	POP(e, t2);
+-	POP(e, t3);
++	POP(e, x2);
++	POP(e, x1);
+ 
+ 	if (e->fcode32)
+ 	{
+ 		Quadlet *q = (Quadlet*)(uPtr)t;
+-		*(q + 1) = (Quadlet)t2;
+-		*q = (Quadlet)t3;
++		*(q + 1) = (Quadlet)x1;
++		*q = (Quadlet)x2;
+ 	}
+ 	else
+ 	{
+-		*(t + 1) = t2;
+-		*t = t3;
++		*(t + 1) = x1;
++		*t = x2;
+ 	}
+ 
+ 	return NO_ERROR;

@@ -1,0 +1,35 @@
+
+
+
+
+
+
+
+
+	vec[num++] = strdup(str);
+    	expand((void *)vec, veclen, num + 1, sizeof (char *));
+    	printf("%s\n", vec[i]);
+    char **vec = NULL;
+    char *str;
+    exit(0);
+    for (int i = 0; i < num; i++)
+    int num = 0;
+    int veclen = 0;
+    qsort(vec, num, sizeof (char *), elemcmp);
+    return strcmp(*(char **)p1, *(char **)p2);
+    while ((str = xgets(stdin)) != NULL)
+    {
+    }
+#include <expand.h>
+#include <stdio.h>
+#include <stdiox.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stringx.h>
+elemcmp(void const *p1, void const *p2)
+int
+main()
+{
+{
+}
+}

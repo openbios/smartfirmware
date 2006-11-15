@@ -1,0 +1,15 @@
+arg -a
+arg -b = "b"
+arg -c
+arg +foo
+arg +foo
+arg +b = "foobar"
+numeric arg = -0
+numeric arg = +1
+arg -debug
+arg -debuglevel = 3
+arg -?
+arg +x
+arg +y = "y"
+arg +z
+stuff

@@ -1,0 +1,1395 @@
+:Array_ref_node	ccnode.h	/^class Array_ref_node : public Expr_node$/
+:Array_type	cctype.h	/^class Array_type : public Type$/
+:Asm_node	ccnode.h	/^class Asm_node : public Node$/
+:Bitfield_type	cctype.h	/^class Bitfield_type : public Int_type$/
+:Break_node	ccnode.h	/^class Break_node : public Node$/
+:C_keyword	cc.h	/^class C_keyword$/
+:Case_node	ccnode.h	/^class Case_node : public Node$/
+:Cast_node	ccnode.h	/^class Cast_node : public Expr_node$/
+:Compound_node	ccnode.h	/^class Compound_node : public Node$/
+:Const_expr	ccnode.h	/^class Const_expr$/
+:Continue_node	ccnode.h	/^class Continue_node : public Node$/
+:Cpp	cpp.h	/^class Cpp$/
+:Cpp_control	cpp.h	/^class Cpp_control$/
+:Cpp_file	cpp.h	/^class Cpp_file$/
+:Cpp_macro	cpp.h	/^class Cpp_macro$/
+:Cpp_node	cpp.h	/^class Cpp_node$/
+:Cpp_stack_elt	cpp.h	/^class Cpp_stack_elt$/
+:Delete_node	ccnode.h	/^class Delete_node : public Expr_node$/
+:Dowhile_node	ccnode.h	/^class Dowhile_node : public Node$/
+:Enum_type	cctype.h	/^class Enum_type : public Struct_type$/
+:Expr_node	ccnode.h	/^class Expr_node : public Node$/
+:File_use	fileuse.cc	/^class File_use$/
+:Float_node	ccnode.h	/^class Float_node : public Expr_node$/
+:Float_type	cctype.h	/^class Float_type : public Type$/
+:For_node	ccnode.h	/^class For_node : public Node$/
+:Func_call_node	ccnode.h	/^class Func_call_node : public Expr_node$/
+:Function_type	cctype.h	/^class Function_type : public Type$/
+:Goto_node	ccnode.h	/^class Goto_node : public Node$/
+:If_node	ccnode.h	/^class If_node : public Node$/
+:Initializer_node	ccnode.h	/^class Initializer_node : public Expr_node$/
+:Int_type	cctype.h	/^class Int_type : public Type$/
+:Integer_node	ccnode.h	/^class Integer_node : public Expr_node$/
+:Label_node	ccnode.h	/^class Label_node : public Node$/
+:New_node	ccnode.h	/^class New_node : public Expr_node$/
+:Node	ccnode.h	/^class Node$/
+:Noop_node	cctree.cc	/^class Noop_node : public Node$/
+:Noop_node	cctst.cc	/^class Noop_node : public Node$/
+:Noop_node	fcode.cc	/^class Noop_node : public Node$/
+:Operator2_node	ccnode.h	/^class Operator2_node : public Expr_node$/
+:Operator3_node	ccnode.h	/^class Operator3_node : public Expr_node$/
+:Operator_node	ccnode.h	/^class Operator_node : public Expr_node$/
+:Overload_type	cctype.h	/^class Overload_type : public Type$/
+:Param	cctype.h	/^class Param$/
+:Pointer_type	cctype.h	/^class Pointer_type : public Type$/
+:Return_node	ccnode.h	/^class Return_node : public Node$/
+:Scope	ccsym.h	/^class Scope$/
+:Sizeof_node	ccnode.h	/^class Sizeof_node : public Expr_node$/
+:StorageAllocator	fcode.cc	/^class StorageAllocator$/
+:Storage_thing	cc.h	/^class Storage_thing$/
+:String_node	ccnode.h	/^class String_node : public Expr_node$/
+:Struct_info	cctype.h	/^class Struct_info$/
+:Struct_ref_node	ccnode.h	/^class Struct_ref_node : public Expr_node$/
+:Struct_type	cctype.h	/^class Struct_type : public Type$/
+:Switch_node	ccnode.h	/^class Switch_node : public Node$/
+:Symbol	ccsym.h	/^class Symbol$/
+:Symbol_node	ccnode.h	/^class Symbol_node : public Expr_node$/
+:Type	cctype.h	/^class Type$/
+:Typeptr	cctype2.cc	/^class Typeptr$/
+:Union_type	cctype.h	/^class Union_type : public Struct_type$/
+:Void_type	cctype.h	/^class Void_type : public Type$/
+:While_node	ccnode.h	/^class While_node : public Node$/
+ANDAND	tokens.h	/^#define ANDAND/
+ANDEQ	tokens.h	/^#define ANDEQ/
+ARROW	tokens.h	/^#define ARROW/
+ASM	tokens.h	/^#define ASM/
+ASMCHAR	cctree.h	/^#define ASMCHAR/
+AUTO	tokens.h	/^#define AUTO/
+Array_ref_node	ccnode.cc	/^Array_ref_node::Array_ref_node(Scope *s, Expr_node *arr, Expr_node *expr)$/
+Array_ref_node	ccnode.h	/^class Array_ref_node : public Expr_node$/
+Array_ref_node::Array_ref_node	ccnode.cc	/^Array_ref_node::Array_ref_node(Scope *s, Expr_node *arr, Expr_node *expr)$/
+Array_ref_node::debug	ccdebug.cc	/^Array_ref_node::debug()$/
+Array_ref_node::eval_const_expr	cceval.cc	/^Array_ref_node::eval_const_expr(Const_expr &ret)$/
+Array_ref_node::is_lvalue	ccinit.cc	/^Array_ref_node::is_lvalue()$/
+Array_ref_node::is_static_init	ccinit.cc	/^Array_ref_node::is_static_init(int *ref)$/
+Array_ref_node::mark_symbol	ccnode2.cc	/^Array_ref_node::mark_symbol(boolean read, boolean wrote, boolean /
+Array_ref_node::mklval	cctree.cc	/^Array_ref_node::mklval()$/
+Array_ref_node::mklval	cctst.cc	/^Array_ref_node::mklval()$/
+Array_ref_node::mklval	fcode.cc	/^Array_ref_node::mklval()$/
+Array_ref_node::mktree	cctree.cc	/^Array_ref_node::mktree()$/
+Array_ref_node::mktree	cctst.cc	/^Array_ref_node::mktree()$/
+Array_ref_node::mktree	fcode.cc	/^Array_ref_node::mktree()$/
+Array_ref_node::~Array_ref_node	ccnode2.cc	/^Array_ref_node::~Array_ref_node()$/
+Array_type	cctype.cc	/^Array_type::Array_type(Array_type &a) : Type(a),$/
+Array_type	cctype.cc	/^Array_type::Array_type(Type *t, Integer &l, boolean c) :$/
+Array_type	cctype.h	/^class Array_type : public Type$/
+Array_type::Array_type	cctype.cc	/^Array_type::Array_type(Array_type &a) : Type(a),$/
+Array_type::Array_type	cctype.cc	/^Array_type::Array_type(Type *t, Integer &l, boolean c) :$/
+Array_type::debug	ccdebug.cc	/^Array_type::debug()$/
+Array_type::free	cctype.cc	/^Array_type::free()$/
+Asm_node	ccnode.h	/^class Asm_node : public Node$/
+Asm_node::debug	ccdebug.cc	/^Asm_node::debug()$/
+Asm_node::mktree	cctree2.cc	/^Asm_node::mktree()$/
+Asm_node::mktree	cctst.cc	/^Asm_node::mktree()$/
+Asm_node::mktree	fcode.cc	/^Asm_node::mktree()$/
+BREAK	tokens.h	/^#define BREAK/
+Bitfield_type	cctype.h	/^class Bitfield_type : public Int_type$/
+Bitfield_type::debug	ccdebug.cc	/^Bitfield_type::debug()$/
+Bitfield_type::size	cctype.cc	/^Bitfield_type::size(Integer &s)$/
+Break_node	ccnode.h	/^class Break_node : public Node$/
+Break_node::debug	ccdebug.cc	/^Break_node::debug()$/
+Break_node::mktree	cctree2.cc	/^Break_node::mktree()$/
+Break_node::mktree	cctst.cc	/^Break_node::mktree()$/
+Break_node::mktree	fcode.cc	/^Break_node::mktree()$/
+CASE	tokens.h	/^#define CASE/
+CHAR	tokens.h	/^#define CHAR/
+CHARACTER	tokens.h	/^#define CHARACTER/
+CLASS	tokens.h	/^#define CLASS/
+CLASSNAME	tokens.h	/^#define CLASSNAME/
+COLONCOLON	tokens.h	/^#define COLONCOLON/
+CONST	tokens.h	/^#define CONST/
+CONTINUE	tokens.h	/^#define CONTINUE/
+CR	cppdefs.h	/^#   define CR/
+C_BACKSLASH	cppscan.cc	/^#define C_BACKSLASH/
+C_CR	cppscan.cc	/^#define C_CR/
+C_DQUOTE	cppscan.cc	/^#define C_DQUOTE/
+C_NL	cppscan.cc	/^#define C_NL/
+C_NULL	cppscan.cc	/^#define C_NULL/
+C_QUESTION	cppscan.cc	/^#define C_QUESTION/
+C_SLASH	cppscan.cc	/^#define C_SLASH/
+C_SQUOTE	cppscan.cc	/^#define C_SQUOTE/
+C_keyword	cc.h	/^class C_keyword$/
+Case_node	ccnode.h	/^class Case_node : public Node$/
+Case_node::debug	ccdebug.cc	/^Case_node::debug()$/
+Case_node::mktree	cctree2.cc	/^Case_node::mktree()$/
+Case_node::mktree	cctst.cc	/^Case_node::mktree()$/
+Case_node::mktree	fcode.cc	/^Case_node::mktree()$/
+Cast_node	ccnode.cc	/^Cast_node::Cast_node(Scope *s, Type *t, Expr_node *cast) :$/
+Cast_node	ccnode.h	/^class Cast_node : public Expr_node$/
+Cast_node::Cast_node	ccnode.cc	/^Cast_node::Cast_node(Scope *s, Type *t, Expr_node *cast) :$/
+Cast_node::debug	ccdebug.cc	/^Cast_node::debug()$/
+Cast_node::eval_const_expr	cceval.cc	/^Cast_node::eval_const_expr(Const_expr &ret)$/
+Cast_node::is_int_expr	cceval.cc	/^Cast_node::is_int_expr() $/
+Cast_node::mark_symbol	ccnode2.cc	/^Cast_node::mark_symbol(boolean read, boolean wrote, boolean ref)$/
+Cast_node::mkinit	cctree2.cc	/^Cast_node::mkinit()$/
+Cast_node::mkinit	cctst.cc	/^Cast_node::mkinit()$/
+Cast_node::mkinit	fcode.cc	/^Cast_node::mkinit()$/
+Cast_node::mklval	cctree2.cc	/^Cast_node::mklval()$/
+Cast_node::mklval	cctst.cc	/^Cast_node::mklval()$/
+Cast_node::mklval	fcode.cc	/^Cast_node::mklval()$/
+Cast_node::mktree	cctree2.cc	/^Cast_node::mktree()$/
+Cast_node::mktree	cctst.cc	/^Cast_node::mktree()$/
+Cast_node::mktree	fcode.cc	/^Cast_node::mktree()$/
+Compound_node	ccnode.h	/^class Compound_node : public Node$/
+Compound_node::check_break	ccnode2.cc	/^Compound_node::check_break()$/
+Compound_node::check_return	ccnode2.cc	/^Compound_node::check_return()$/
+Compound_node::debug	ccdebug.cc	/^Compound_node::debug()$/
+Compound_node::mktree	cctree2.cc	/^Compound_node::mktree()$/
+Compound_node::mktree	cctst.cc	/^Compound_node::mktree()$/
+Compound_node::mktree	fcode.cc	/^Compound_node::mktree()$/
+Compound_node::~Compound_node	ccnode2.cc	/^Compound_node::~Compound_node()$/
+Const_expr	ccnode.h	/^class Const_expr$/
+Continue_node	ccnode.h	/^class Continue_node : public Node$/
+Continue_node::debug	ccdebug.cc	/^Continue_node::debug()$/
+Continue_node::mktree	cctree2.cc	/^Continue_node::mktree()$/
+Continue_node::mktree	cctst.cc	/^Continue_node::mktree()$/
+Continue_node::mktree	fcode.cc	/^Continue_node::mktree()$/
+Cpp	cpp.h	/^class Cpp$/
+Cpp	cppdir.cc	/^Cpp::Cpp()$/
+Cpp::Cpp	cppdir.cc	/^Cpp::Cpp()$/
+Cpp::add_include_dir	cppdir.cc	/^Cpp::add_include_dir(const char *dir)$/
+Cpp::check_control	cppdir.cc	/^Cpp::check_control(const char *fn)$/
+Cpp::cleanupbuf	cppscan.cc	/^Cpp::cleanupbuf()$/
+Cpp::define_directive	cppdir.cc	/^Cpp::define_directive()$/
+Cpp::define_macro	cppmac.cc	/^Cpp::define_macro(const char *macro, const char *def, Cpp_macro_type mtype)$/
+Cpp::do_defined	cppif.cc	/^Cpp::do_defined(Cpp_node_list &buf, Cpp_node *arr)$/
+Cpp::elif_directive	cppif.cc	/^Cpp::elif_directive()$/
+Cpp::else_directive	cppif.cc	/^Cpp::else_directive()$/
+Cpp::endif_directive	cppif.cc	/^Cpp::endif_directive()$/
+Cpp::error_directive	cppdir.cc	/^Cpp::error_directive()$/
+Cpp::expand_all_macros	cppmac.cc	/^Cpp::expand_all_macros(Cpp_node_list &buf)$/
+Cpp::expand_macro	cppmac.cc	/^Cpp::expand_macro(Cpp_macro &macro, Cpp_node_list &buf)$/
+Cpp::expand_macro_body	cppmac.cc	/^Cpp::expand_macro_body(Cpp_macro &macro, Cpp_node_list_vec &params,$/
+Cpp::if_directive	cppif.cc	/^Cpp::if_directive()$/
+Cpp::ifdef_directive	cppif.cc	/^Cpp::ifdef_directive(boolean expected)$/
+Cpp::include_directive	cppdir.cc	/^Cpp::include_directive()$/
+Cpp::line_directive	cppdir.cc	/^Cpp::line_directive()$/
+Cpp::open	cppdir.cc	/^Cpp::open(const char *fname)$/
+Cpp::pragma_directive	cppdir.cc	/^Cpp::pragma_directive()$/
+Cpp::scan	cppscan.cc	/^Cpp::scan(Cpp_node_list *buf, boolean retwhsp)$/
+Cpp::skip_if	cppif.cc	/^Cpp::skip_if(boolean stop_at_else)		/
+Cpp::test_if_expr	cppif.cc	/^Cpp::test_if_expr(Cpp_node_list *expr)$/
+Cpp::undef_directive	cppdir.cc	/^Cpp::undef_directive()$/
+Cpp::undef_macro	cppmac.cc	/^Cpp::undef_macro(const char *macro)$/
+Cpp_control	cpp.h	/^class Cpp_control$/
+Cpp_file	cpp.h	/^class Cpp_file$/
+Cpp_file::close	cppdir.cc	/^Cpp_file::close()$/
+Cpp_file::open	cppdir.cc	/^Cpp_file::open(const char *fn)$/
+Cpp_file::rescan	cppdir.cc	/^Cpp_file::rescan(const char *str)$/
+Cpp_macro	cpp.h	/^class Cpp_macro$/
+Cpp_macro::define_macro	cppmac.cc	/^Cpp_macro::define_macro(Cpp_node_list *list, Cpp_macro_type mtype)$/
+Cpp_node	cpp.h	/^class Cpp_node$/
+Cpp_node::tok2str	cppmac.cc	/^Cpp_node::tok2str()$/
+Cpp_stack_elt	cpp.h	/^class Cpp_stack_elt$/
+DECR	tokens.h	/^#define DECR/
+DEFAULT	tokens.h	/^#define DEFAULT/
+DELETE	tokens.h	/^#define DELETE/
+DIVEQ	tokens.h	/^#define DIVEQ/
+DO	tokens.h	/^#define DO/
+DOTDOTDOT	tokens.h	/^#define DOTDOTDOT/
+DOUBLE	tokens.h	/^#define DOUBLE/
+DOUBLEVAL	tokens.h	/^#define DOUBLEVAL/
+DPRINTF	error.h	/^#define DPRINTF/
+Delete_node	ccnode.cc	/^Delete_node::Delete_node(Scope *s, Expr_node *e, Expr_node *ae, boolean a) :$/
+Delete_node	ccnode.h	/^class Delete_node : public Expr_node$/
+Delete_node::Delete_node	ccnode.cc	/^Delete_node::Delete_node(Scope *s, Expr_node *e, Expr_node *ae, boolean a) :$/
+Delete_node::debug	ccdebug.cc	/^Delete_node::debug()$/
+Delete_node::mark_symbol	ccnode2.cc	/^Delete_node::mark_symbol(boolean /
+Delete_node::mktree	cctree.cc	/^Delete_node::mktree()$/
+Delete_node::mktree	cctst.cc	/^Delete_node::mktree()$/
+Delete_node::mktree	fcode.cc	/^Delete_node::mktree()$/
+Delete_node::~Delete_node	ccnode2.cc	/^Delete_node::~Delete_node()$/
+Dowhile_node	ccnode.h	/^class Dowhile_node : public Node$/
+Dowhile_node::check_return	ccnode2.cc	/^Dowhile_node::check_return()$/
+Dowhile_node::debug	ccdebug.cc	/^Dowhile_node::debug()$/
+Dowhile_node::mktree	cctree2.cc	/^Dowhile_node::mktree()$/
+Dowhile_node::mktree	cctst.cc	/^Dowhile_node::mktree()$/
+Dowhile_node::mktree	fcode.cc	/^Dowhile_node::mktree()$/
+E8r	MWProjects.hqx	/^E8r(N@,MpkqH'fjFZaV10Gb@mLpL`F2Zeqr"mM2I$GT-ah2lSBTirmIYCl-NkAl5$/
+ELSE	tokens.h	/^#define ELSE/
+ENUM	tokens.h	/^#define ENUM/
+EQUAL	tokens.h	/^#define EQUAL/
+EXTERN	tokens.h	/^#define EXTERN/
+EXTERN_C	tokens.h	/^#define EXTERN_C/
+Enum_type	cctype.h	/^class Enum_type : public Struct_type$/
+Enum_type::add	cctype.cc	/^Enum_type::add(char const *name, const char *file, int line)$/
+Enum_type::add	cctype.cc	/^Enum_type::add(char const *name, const char *file, int line, Integer &id)$/
+Enum_type::debug	ccdebug.cc	/^Enum_type::debug()$/
+Enum_type::size	cctype.cc	/^Enum_type::size(Integer &s)$/
+Expr_node	ccnode.h	/^class Expr_node : public Node$/
+Expr_node::check_init_type	ccinit.cc	/^Expr_node::check_init_type(Type *t, Integer &)$/
+Expr_node::debug	ccdebug.cc	/^Expr_node::debug()$/
+Expr_node::eval_const_expr	cceval.cc	/^Expr_node::eval_const_expr(Const_expr &)$/
+Expr_node::mark_symbol	ccnode2.cc	/^Expr_node::mark_symbol(boolean /
+Expr_node::mkinit	cctst.cc	/^Expr_node::mkinit()$/
+Expr_node::mkinit	fcode.cc	/^Expr_node::mkinit()$/
+Expr_node::mklval	cctree.cc	/^Expr_node::mklval()$/
+Expr_node::mklval	cctst.cc	/^Expr_node::mklval()$/
+Expr_node::mklval	fcode.cc	/^Expr_node::mklval()$/
+Expr_node::mktree	cctst.cc	/^Expr_node::mktree()$/
+Expr_node::mktree	fcode.cc	/^Expr_node::mktree()$/
+FLOAT	tokens.h	/^#define FLOAT/
+FLOATVAL	tokens.h	/^#define FLOATVAL/
+FOR	tokens.h	/^#define FOR/
+FORTRAN	tokens.h	/^#define FORTRAN/
+FRIEND	tokens.h	/^#define FRIEND/
+FTN_LIKE	testcpp.h	/^#define FTN_LIKE/
+File_use	fileuse.cc	/^class File_use$/
+Float_node	ccnode.cc	/^Float_node::Float_node(Float_type *t, Scope *s, const char *text)$/
+Float_node	ccnode.h	/^class Float_node : public Expr_node$/
+Float_node::Float_node	ccnode.cc	/^Float_node::Float_node(Float_type *t, Scope *s, const char *text)$/
+Float_node::debug	ccdebug.cc	/^Float_node::debug()$/
+Float_node::eval_const_expr	cceval.cc	/^Float_node::eval_const_expr(Const_expr &ret)$/
+Float_node::mkinit	cctree.cc	/^Float_node::mkinit()$/
+Float_node::mkinit	cctst.cc	/^Float_node::mkinit()$/
+Float_node::mkinit	fcode.cc	/^Float_node::mkinit()$/
+Float_node::mktree	cctree.cc	/^Float_node::mktree()$/
+Float_node::mktree	cctst.cc	/^Float_node::mktree()$/
+Float_node::mktree	fcode.cc	/^Float_node::mktree()$/
+Float_type	cctype.h	/^class Float_type : public Type$/
+Float_type::align	cctype.cc	/^Float_type::align()$/
+Float_type::debug	ccdebug.cc	/^Float_type::debug()$/
+Float_type::hash	cctype.cc	/^Float_type::hash() $/
+Float_type::size	cctype.cc	/^Float_type::size(Integer &s)$/
+For_node	ccnode.h	/^class For_node : public Node$/
+For_node::check_return	ccnode2.cc	/^For_node::check_return()$/
+For_node::debug	ccdebug.cc	/^For_node::debug()$/
+For_node::mktree	cctree2.cc	/^For_node::mktree()$/
+For_node::mktree	cctst.cc	/^For_node::mktree()$/
+For_node::mktree	fcode.cc	/^For_node::mktree()$/
+For_node::~For_node	ccnode2.cc	/^For_node::~For_node()$/
+Func_call_node	ccnode.cc	/^Func_call_node::Func_call_node(Scope *scp, Expr_node *f, Expr_arr *a)$/
+Func_call_node	ccnode.h	/^class Func_call_node : public Expr_node$/
+Func_call_node::Func_call_node	ccnode.cc	/^Func_call_node::Func_call_node(Scope *scp, Expr_node *f, Expr_arr *a)$/
+Func_call_node::debug	ccdebug.cc	/^Func_call_node::debug()$/
+Func_call_node::is_lvalue	ccinit.cc	/^Func_call_node::is_lvalue()$/
+Func_call_node::mark_symbol	ccnode2.cc	/^Func_call_node::mark_symbol(boolean, boolean, boolean)$/
+Func_call_node::mklval	cctree.cc	/^Func_call_node::mklval()$/
+Func_call_node::mklval	cctst.cc	/^Func_call_node::mklval()$/
+Func_call_node::mklval	fcode.cc	/^Func_call_node::mklval()$/
+Func_call_node::mktree	cctree.cc	/^Func_call_node::mktree()$/
+Func_call_node::mktree	cctst.cc	/^Func_call_node::mktree()$/
+Func_call_node::mktree	fcode.cc	/^Func_call_node::mktree()$/
+Func_call_node::~Func_call_node	ccnode2.cc	/^Func_call_node::~Func_call_node()$/
+Function_type	cctype.cc	/^Function_type::Function_type(Function_type &f) : Type(f)$/
+Function_type	cctype.h	/^class Function_type : public Type$/
+Function_type::Function_type	cctype.cc	/^Function_type::Function_type(Function_type &f) : Type(f)$/
+Function_type::debug	ccdebug.cc	/^Function_type::debug()$/
+Function_type::free	cctype.cc	/^Function_type::free()$/
+Function_type::hash	cctype.cc	/^Function_type::hash() $/
+GOTO	tokens.h	/^#define GOTO/
+GREATEQ	tokens.h	/^#define GREATEQ/
+Goto_node	ccnode.h	/^class Goto_node : public Node$/
+Goto_node::debug	ccdebug.cc	/^Goto_node::debug()$/
+Goto_node::mktree	cctree2.cc	/^Goto_node::mktree()$/
+Goto_node::mktree	cctst.cc	/^Goto_node::mktree()$/
+Goto_node::mktree	fcode.cc	/^Goto_node::mktree()$/
+HIGHLOW	testcpp.h	/^#define HIGHLOW/
+IDENTIFIER	tokens.h	/^#define IDENTIFIER/
+IF	tokens.h	/^#define IF/
+INCFILE	testcpp.h	/^#define INCFILE/
+INCR	tokens.h	/^#define INCR/
+INLINE	tokens.h	/^#define INLINE/
+INT	tokens.h	/^#define INT/
+INTVAL	tokens.h	/^#define INTVAL/
+ITOSTR	fcode.cc	/^#define ITOSTR/
+If_node	ccnode.h	/^class If_node : public Node$/
+If_node::check_break	ccnode2.cc	/^If_node::check_break()$/
+If_node::check_return	ccnode2.cc	/^If_node::check_return()$/
+If_node::debug	ccdebug.cc	/^If_node::debug()$/
+If_node::mktree	cctree2.cc	/^If_node::mktree()$/
+If_node::mktree	cctst.cc	/^If_node::mktree()$/
+If_node::mktree	fcode.cc	/^If_node::mktree()$/
+Initializer_node	ccnode.cc	/^Initializer_node::Initializer_node(Scope *s) : Expr_node(s)$/
+Initializer_node	ccnode.h	/^class Initializer_node : public Expr_node$/
+Initializer_node::Initializer_node	ccnode.cc	/^Initializer_node::Initializer_node(Scope *s) : Expr_node(s)$/
+Initializer_node::append	ccnode2.cc	/^Initializer_node::append(Expr_node *elt, Expr_node *indx)$/
+Initializer_node::check_init_type	ccinit.cc	/^Initializer_node::check_init_type(Type *t, Integer &newlen)$/
+Initializer_node::debug	ccdebug.cc	/^Initializer_node::debug()$/
+Initializer_node::is_static_init	ccinit.cc	/^Initializer_node::is_static_init(int*)$/
+Initializer_node::mkinit	cctree2.cc	/^Initializer_node::mkinit()$/
+Initializer_node::mkinit	cctst.cc	/^Initializer_node::mkinit()$/
+Initializer_node::mkinit	fcode.cc	/^Initializer_node::mkinit()$/
+Initializer_node::mktree	cctree2.cc	/^Initializer_node::mktree()$/
+Initializer_node::mktree	cctst.cc	/^Initializer_node::mktree()$/
+Initializer_node::mktree	fcode.cc	/^Initializer_node::mktree()$/
+Initializer_node::~Initializer_node	ccnode2.cc	/^Initializer_node::~Initializer_node()$/
+Int_type	cctype.h	/^class Int_type : public Type$/
+Int_type::align	cctype.cc	/^Int_type::align()$/
+Int_type::debug	ccdebug.cc	/^Int_type::debug()$/
+Int_type::hash	cctype.cc	/^Int_type::hash() $/
+Int_type::size	cctype.cc	/^Int_type::size(Integer &s)$/
+Integer_node	ccnode.cc	/^Integer_node::Integer_node(Int_type *t, Scope *s, const char *text) :$/
+Integer_node	ccnode.cc	/^Integer_node::Integer_node(Int_type *t, Scope *s, long val) : Expr_node(t, s)$/
+Integer_node	ccnode.cc	/^Integer_node::Integer_node(Type *t, Scope *s, Integer *val) : Expr_node(t, s)$/
+Integer_node	ccnode.h	/^class Integer_node : public Expr_node$/
+Integer_node::Integer_node	ccnode.cc	/^Integer_node::Integer_node(Int_type *t, Scope *s, const char *text) :$/
+Integer_node::Integer_node	ccnode.cc	/^Integer_node::Integer_node(Int_type *t, Scope *s, long val) : Expr_node(t, s)$/
+Integer_node::Integer_node	ccnode.cc	/^Integer_node::Integer_node(Type *t, Scope *s, Integer *val) : Expr_node(t, s)$/
+Integer_node::check_init_type	ccinit.cc	/^Integer_node::check_init_type(Type *t, Integer &)$/
+Integer_node::debug	ccdebug.cc	/^Integer_node::debug()$/
+Integer_node::eval_const_expr	cceval.cc	/^Integer_node::eval_const_expr(Const_expr &ret)$/
+Integer_node::mkinit	cctree.cc	/^Integer_node::mkinit()$/
+Integer_node::mkinit	cctst.cc	/^Integer_node::mkinit()$/
+Integer_node::mkinit	fcode.cc	/^Integer_node::mkinit()$/
+Integer_node::mktree	cctree.cc	/^Integer_node::mktree()$/
+Integer_node::mktree	cctst.cc	/^Integer_node::mktree()$/
+Integer_node::mktree	fcode.cc	/^Integer_node::mktree()$/
+LESSEQ	tokens.h	/^#define LESSEQ/
+LONG	tokens.h	/^#define LONG/
+LONGDOUBLEVAL	tokens.h	/^#define LONGDOUBLEVAL/
+LONGLONGVAL	tokens.h	/^#define LONGLONGVAL/
+LONGVAL	tokens.h	/^#define LONGVAL/
+LOW	testcpp.h	/^#define LOW/
+LSHIFT	tokens.h	/^#define LSHIFT/
+LSHIFTEQ	tokens.h	/^#define LSHIFTEQ/
+Label_node	ccnode.h	/^class Label_node : public Node$/
+Label_node::debug	ccdebug.cc	/^Label_node::debug()$/
+Label_node::mktree	cctree2.cc	/^Label_node::mktree()$/
+Label_node::mktree	cctst.cc	/^Label_node::mktree()$/
+Label_node::mktree	fcode.cc	/^Label_node::mktree()$/
+MINUSEQ	tokens.h	/^#define MINUSEQ/
+MODEQ	tokens.h	/^#define MODEQ/
+MULTEQ	tokens.h	/^#define MULTEQ/
+N	MWProjects.hqx	/^N(mSTbVqBGjUKFPrqAp4HaPIL!!TD$LeacV`TG)Dc3BQ!R5b`BDh0KV@SMrQK-9'$/
+NEW	tokens.h	/^#define NEW/
+NL	cppdefs.h	/^#   define NL/
+NOTEQ	tokens.h	/^#define NOTEQ/
+New_node	ccnode.cc	/^New_node::New_node(Scope *scp, Type *t, Expr_arr *args, Expr_node *arrlen) :$/
+New_node	ccnode.h	/^class New_node : public Expr_node$/
+New_node::New_node	ccnode.cc	/^New_node::New_node(Scope *scp, Type *t, Expr_arr *args, Expr_node *arrlen) :$/
+New_node::debug	ccdebug.cc	/^New_node::debug()$/
+New_node::mark_symbol	ccnode2.cc	/^New_node::mark_symbol(boolean /
+New_node::mktree	cctree.cc	/^New_node::mktree()$/
+New_node::mktree	cctst.cc	/^New_node::mktree()$/
+New_node::mktree	fcode.cc	/^New_node::mktree()$/
+New_node::~New_node	ccnode2.cc	/^New_node::~New_node()$/
+Node	ccnode.h	/^class Node$/
+Node::brklabel	ccnode2.cc	/^Node::brklabel()$/
+Node::contlabel	ccnode2.cc	/^Node::contlabel()$/
+Node::debug	ccdebug.cc	/^Node::debug()$/
+Node::mkinit	cctree.cc	/^Node::mkinit()$/
+Node::mkinit	cctst.cc	/^Node::mkinit()$/
+Node::mkinit	fcode.cc	/^Node::mkinit()$/
+Node::mktree	cctree.cc	/^Node::mktree()$/
+Node::mktree	cctst.cc	/^Node::mktree()$/
+Node::mktree	fcode.cc	/^Node::mktree()$/
+Node::~Node	ccnode2.cc	/^Node::~Node() { }$/
+Noop_node	cctree.cc	/^class Noop_node : public Node$/
+Noop_node	cctst.cc	/^class Noop_node : public Node$/
+Noop_node	fcode.cc	/^class Noop_node : public Node$/
+OBJ_LIKE	testcpp.h	/^#define OBJ_LIKE/
+OPERATOR	tokens.h	/^#define OPERATOR/
+OREQ	tokens.h	/^#define OREQ/
+OROR	tokens.h	/^#define OROR/
+Operator2_node	ccnode.cc	/^Operator2_node::Operator2_node(Scope *s, int tok, Expr_node *a1, Expr_node *a2)$/
+Operator2_node	ccnode.h	/^class Operator2_node : public Expr_node$/
+Operator2_node::Operator2_node	ccnode.cc	/^Operator2_node::Operator2_node(Scope *s, int tok, Expr_node *a1, Expr_node *a2)$/
+Operator2_node::check_init_type	ccinit.cc	/^Operator2_node::check_init_type(Type *t, Integer &)$/
+Operator2_node::debug	ccdebug.cc	/^Operator2_node::debug()$/
+Operator2_node::eval_const_expr	cceval.cc	/^Operator2_node::eval_const_expr(Const_expr &val1)$/
+Operator2_node::is_static_init	ccinit.cc	/^Operator2_node::is_static_init(int *ref)$/
+Operator2_node::mark_symbol	ccnode2.cc	/^Operator2_node::mark_symbol(boolean read, boolean wrote, boolean ref)$/
+Operator2_node::mkinit	cctree2.cc	/^Operator2_node::mkinit()$/
+Operator2_node::mkinit	cctst.cc	/^Operator2_node::mkinit()$/
+Operator2_node::mkinit	fcode.cc	/^Operator2_node::mkinit()$/
+Operator2_node::mklval	cctree2.cc	/^Operator2_node::mklval()$/
+Operator2_node::mklval	cctst.cc	/^Operator2_node::mklval()$/
+Operator2_node::mklval	fcode.cc	/^Operator2_node::mklval()$/
+Operator2_node::mktree	cctree2.cc	/^Operator2_node::mktree()$/
+Operator2_node::mktree	cctst.cc	/^Operator2_node::mktree()$/
+Operator2_node::mktree	fcode.cc	/^Operator2_node::mktree()$/
+Operator3_node	ccnode.cc	/^Operator3_node::Operator3_node(Scope *s, int tok, Expr_node *a1,$/
+Operator3_node	ccnode.h	/^class Operator3_node : public Expr_node$/
+Operator3_node::Operator3_node	ccnode.cc	/^Operator3_node::Operator3_node(Scope *s, int tok, Expr_node *a1,$/
+Operator3_node::debug	ccdebug.cc	/^Operator3_node::debug()$/
+Operator3_node::eval_const_expr	cceval.cc	/^Operator3_node::eval_const_expr(Const_expr &ret)$/
+Operator3_node::is_static_init	ccinit.cc	/^Operator3_node::is_static_init(int *ref)$/
+Operator3_node::mark_symbol	ccnode2.cc	/^Operator3_node::mark_symbol(boolean read, boolean wrote, boolean ref)$/
+Operator3_node::mkinit	cctree2.cc	/^Operator3_node::mkinit()$/
+Operator3_node::mkinit	cctst.cc	/^Operator3_node::mkinit()$/
+Operator3_node::mkinit	fcode.cc	/^Operator3_node::mkinit()$/
+Operator3_node::mklval	cctree2.cc	/^Operator3_node::mklval()$/
+Operator3_node::mklval	cctst.cc	/^Operator3_node::mklval()$/
+Operator3_node::mklval	fcode.cc	/^Operator3_node::mklval()$/
+Operator3_node::mktree	cctree2.cc	/^Operator3_node::mktree()$/
+Operator3_node::mktree	cctst.cc	/^Operator3_node::mktree()$/
+Operator3_node::mktree	fcode.cc	/^Operator3_node::mktree()$/
+Operator_node	ccnode.cc	/^Operator_node::Operator_node(Scope *s, int tok, Expr_node *a, boolean p)$/
+Operator_node	ccnode.h	/^class Operator_node : public Expr_node$/
+Operator_node::Operator_node	ccnode.cc	/^Operator_node::Operator_node(Scope *s, int tok, Expr_node *a, boolean p)$/
+Operator_node::check_init_type	ccinit.cc	/^Operator_node::check_init_type(Type *t, Integer &)$/
+Operator_node::debug	ccdebug.cc	/^Operator_node::debug()$/
+Operator_node::eval_const_expr	cceval.cc	/^Operator_node::eval_const_expr(Const_expr &ret)$/
+Operator_node::is_int_expr	cceval.cc	/^Operator_node::is_int_expr()$/
+Operator_node::is_lvalue	ccinit.cc	/^Operator_node::is_lvalue()$/
+Operator_node::is_static_init	ccinit.cc	/^Operator_node::is_static_init(int *ref)$/
+Operator_node::mark_symbol	ccnode2.cc	/^Operator_node::mark_symbol(boolean read, boolean wrote, boolean ref)$/
+Operator_node::mkinit	cctree.cc	/^Operator_node::mkinit()$/
+Operator_node::mkinit	cctst.cc	/^Operator_node::mkinit()$/
+Operator_node::mkinit	fcode.cc	/^Operator_node::mkinit()$/
+Operator_node::mklval	cctree.cc	/^Operator_node::mklval()$/
+Operator_node::mklval	cctst.cc	/^Operator_node::mklval()$/
+Operator_node::mklval	fcode.cc	/^Operator_node::mklval()$/
+Operator_node::mktree	cctree.cc	/^Operator_node::mktree()$/
+Operator_node::mktree	cctst.cc	/^Operator_node::mktree()$/
+Operator_node::mktree	fcode.cc	/^Operator_node::mktree()$/
+Overload_type	cctype.h	/^class Overload_type : public Type$/
+Overload_type::debug	ccdebug.cc	/^Overload_type::debug()$/
+P	MWProjects.hqx	/^P(r(`*2*5Bk`PN[$L(LRd[!!QVBhFer8!#AYSVVY"Xp3'GlqZ*Z&&KX14`"`HmN$$/
+PASCAL	tokens.h	/^#define PASCAL/
+PLUSEQ	tokens.h	/^#define PLUSEQ/
+PRIVATE	tokens.h	/^#define PRIVATE/
+PROTECTED	tokens.h	/^#define PROTECTED/
+PUBLIC	tokens.h	/^#define PUBLIC/
+Param	cctype.h	/^class Param$/
+Pointer_type	cctype.h	/^class Pointer_type : public Type$/
+Pointer_type::debug	ccdebug.cc	/^Pointer_type::debug()$/
+Pointer_type::free	cctype.cc	/^Pointer_type::free()$/
+Pointer_type::size	cctype.cc	/^Pointer_type::size(Integer &s)$/
+REGISTER	tokens.h	/^#define REGISTER/
+RETURN	tokens.h	/^#define RETURN/
+RSHIFT	tokens.h	/^#define RSHIFT/
+RSHIFTEQ	tokens.h	/^#define RSHIFTEQ/
+RcfeJ	MWProjects.hqx	/^RcfeJ(,'16G-l%2X9mP[1A8ED6B[Pr&J2bQmF'A(Yf!GPVc1i$R3dYe('0X8Zc`+$/
+Ret	cppif.cc	/^struct Ret$/
+Return_node	ccnode.cc	/^Return_node::Return_node(Scope *s, Expr_node *expr) : Node(s)$/
+Return_node	ccnode.h	/^class Return_node : public Node$/
+Return_node::Return_node	ccnode.cc	/^Return_node::Return_node(Scope *s, Expr_node *expr) : Node(s)$/
+Return_node::debug	ccdebug.cc	/^Return_node::debug()$/
+Return_node::mktree	cctree2.cc	/^Return_node::mktree()$/
+Return_node::mktree	cctst.cc	/^Return_node::mktree()$/
+Return_node::mktree	fcode.cc	/^Return_node::mktree()$/
+SHORT	tokens.h	/^#define SHORT/
+SHORTDOUBLEVAL	tokens.h	/^#define SHORTDOUBLEVAL/
+SIGNED	tokens.h	/^#define SIGNED/
+SIZEOF	tokens.h	/^#define SIZEOF/
+STATIC	tokens.h	/^#define STATIC/
+STRCMP	fileuse.cc	/^#  define STRCMP/
+STRGET	cppdir.cc	/^#  define STRGET/
+STRGET	fileuse.cc	/^#  define STRGET/
+STRHASH	fileuse.cc	/^#  define STRHASH/
+STRING	tokens.h	/^#define STRING/
+STRUCT	tokens.h	/^#define STRUCT/
+SWITCH	tokens.h	/^#define SWITCH/
+S_CONST	cc.h	/^#define S_CONST/
+S_FAR	cc.h	/^#define S_FAR/
+S_FORTRAN	cc.h	/^#define S_FORTRAN/
+S_FRIEND	cc.h	/^#define S_FRIEND/
+S_FUNCMASK	cc.h	/^#define S_FUNCMASK/
+S_INLINE	cc.h	/^#define S_INLINE/
+S_LONG	cc.h	/^#define S_LONG/
+S_LONGLONG	cc.h	/^#define S_LONGLONG/
+S_NEAR	cc.h	/^#define S_NEAR/
+S_NONE	cc.h	/^#define S_NONE/
+S_PASCAL	cc.h	/^#define S_PASCAL/
+S_QUALMASK	cc.h	/^#define S_QUALMASK/
+S_REFERENCE	cc.h	/^#define S_REFERENCE/
+S_SHORT	cc.h	/^#define S_SHORT/
+S_SIGNED	cc.h	/^#define S_SIGNED/
+S_SPECMASK	cc.h	/^#define S_SPECMASK/
+S_UNKNOWN	cc.h	/^#define S_UNKNOWN/
+S_UNSIGNED	cc.h	/^#define S_UNSIGNED/
+S_VIRTUAL	cc.h	/^#define S_VIRTUAL/
+S_VOLATILE	cc.h	/^#define S_VOLATILE/
+Scope	ccsym.cc	/^Scope::Scope(const char *fname, int fline, Scope *parent)$/
+Scope	ccsym.h	/^class Scope$/
+Scope::Scope	ccsym.cc	/^Scope::Scope(const char *fname, int fline, Scope *parent)$/
+Scope::calclocals	cctree.cc	/^Scope::calclocals(StorageAllocator &stkalloc)$/
+Scope::calclocals	cctst.cc	/^Scope::calclocals(StorageAllocator &/
+Scope::calclocals	fcode.cc	/^Scope::calclocals(StorageAllocator &stkalloc)$/
+Scope::cleanup	ccsym.cc	/^Scope::cleanup()$/
+Scope::debug	ccdebug.cc	/^Scope::debug()$/
+Scope::lookup_member	ccsym.cc	/^Scope::lookup_member(const char *name)$/
+Scope::lookup_sue	ccsym.cc	/^Scope::lookup_sue(const char *name)$/
+Scope::lookup_sym	ccsym.cc	/^Scope::lookup_sym(const char *name)$/
+Scope::mktree	cctree.cc	/^Scope::mktree()$/
+Scope::mktree	cctst.cc	/^Scope::mktree()$/
+Scope::mktree	fcode.cc	/^Scope::mktree()$/
+Scope::~Scope	ccsym.cc	/^Scope::~Scope()$/
+Sizeof_node	ccnode.cc	/^Sizeof_node::Sizeof_node(Scope *s, Expr_node *obj)$/
+Sizeof_node	ccnode.cc	/^Sizeof_node::Sizeof_node(Scope *s, Type *t)$/
+Sizeof_node	ccnode.h	/^class Sizeof_node : public Expr_node$/
+Sizeof_node::Sizeof_node	ccnode.cc	/^Sizeof_node::Sizeof_node(Scope *s, Expr_node *obj)$/
+Sizeof_node::Sizeof_node	ccnode.cc	/^Sizeof_node::Sizeof_node(Scope *s, Type *t)$/
+Sizeof_node::debug	ccdebug.cc	/^Sizeof_node::debug()$/
+Sizeof_node::eval_const_expr	cceval.cc	/^Sizeof_node::eval_const_expr(Const_expr &ret)$/
+Sizeof_node::mkinit	cctree.cc	/^Sizeof_node::mkinit()$/
+Sizeof_node::mkinit	cctst.cc	/^Sizeof_node::mkinit()$/
+Sizeof_node::mkinit	fcode.cc	/^Sizeof_node::mkinit()$/
+Sizeof_node::mktree	cctree.cc	/^Sizeof_node::mktree()$/
+Sizeof_node::mktree	cctst.cc	/^Sizeof_node::mktree()$/
+Sizeof_node::mktree	fcode.cc	/^Sizeof_node::mktree()$/
+StorageAllocator	fcode.cc	/^class StorageAllocator$/
+StorageAllocator::allocparam	fcode.cc	/^StorageAllocator::allocparam(Integer &size, int align, Integer *val)$/
+Storage_thing	cc.h	/^class Storage_thing$/
+Storage_thing::do_declaration	ccstor.cc	/^Storage_thing::do_declaration()$/
+Storage_thing::do_member_decl	ccstor.cc	/^Storage_thing::do_member_decl(Struct_type *stype, int access)$/
+Storage_thing::make_type	ccstor.cc	/^Storage_thing::make_type(boolean bitfieldok)$/
+Storage_thing::merge_basic	ccstor.cc	/^Storage_thing::merge_basic(int b)$/
+Storage_thing::merge_storage	ccstor.cc	/^Storage_thing::merge_storage(int s)$/
+String_node	ccnode.cc	/^String_node::String_node(Scope *s, boolean wide)$/
+String_node	ccnode.cc	/^String_node::String_node(String_node &str)$/
+String_node	ccnode.h	/^class String_node : public Expr_node$/
+String_node::String_node	ccnode.cc	/^String_node::String_node(Scope *s, boolean wide)$/
+String_node::String_node	ccnode.cc	/^String_node::String_node(String_node &str)$/
+String_node::append	ccnode2.cc	/^String_node::append(const char *str)$/
+String_node::check_init_type	ccinit.cc	/^String_node::check_init_type(Type *t, Integer &newlen)$/
+String_node::debug	ccdebug.cc	/^String_node::debug()$/
+String_node::finish	ccnode.cc	/^String_node::finish()$/
+String_node::mkinit	cctree.cc	/^String_node::mkinit()$/
+String_node::mkinit	cctst.cc	/^String_node::mkinit()$/
+String_node::mkinit	fcode.cc	/^String_node::mkinit()$/
+String_node::mklval	cctree.cc	/^String_node::mklval()$/
+String_node::mklval	cctst.cc	/^String_node::mklval()$/
+String_node::mklval	fcode.cc	/^String_node::mklval()$/
+String_node::mktree	cctree.cc	/^String_node::mktree()$/
+String_node::mktree	cctst.cc	/^String_node::mktree()$/
+String_node::mktree	fcode.cc	/^String_node::mktree()$/
+String_node::~String_node	ccnode2.cc	/^String_node::~String_node()$/
+Struct_decl	ccgram.w	/^struct Struct_decl$/
+Struct_decl	parser.cc	/^struct Struct_decl$/
+Struct_info	cctype.cc	/^Struct_info::Struct_info()$/
+Struct_info	cctype.h	/^class Struct_info$/
+Struct_info::Struct_info	cctype.cc	/^Struct_info::Struct_info()$/
+Struct_info::do_align	cctype.cc	/^Struct_info::do_align()$/
+Struct_info::free	cctype.cc	/^Struct_info::free()$/
+Struct_info::size	cctype.cc	/^Struct_info::size(Integer &retsize)$/
+Struct_ref_node	ccnode.cc	/^Struct_ref_node::Struct_ref_node(Scope *scp, Expr_node *sref, const char *tag,$/
+Struct_ref_node	ccnode.h	/^class Struct_ref_node : public Expr_node$/
+Struct_ref_node::Struct_ref_node	ccnode.cc	/^Struct_ref_node::Struct_ref_node(Scope *scp, Expr_node *sref, const char *tag,$/
+Struct_ref_node::debug	ccdebug.cc	/^Struct_ref_node::debug()$/
+Struct_ref_node::eval_const_expr	cceval.cc	/^Struct_ref_node::eval_const_expr(Const_expr &ret)$/
+Struct_ref_node::is_lvalue	ccinit.cc	/^Struct_ref_node::is_lvalue()$/
+Struct_ref_node::is_static_init	ccinit.cc	/^Struct_ref_node::is_static_init(int *ref)$/
+Struct_ref_node::mark_symbol	ccnode2.cc	/^Struct_ref_node::mark_symbol(boolean read, boolean wrote, boolean /
+Struct_ref_node::mkinit	cctree.cc	/^Struct_ref_node::mkinit()$/
+Struct_ref_node::mkinit	cctst.cc	/^Struct_ref_node::mkinit()$/
+Struct_ref_node::mkinit	fcode.cc	/^Struct_ref_node::mkinit()$/
+Struct_ref_node::mklval	cctree.cc	/^Struct_ref_node::mklval()$/
+Struct_ref_node::mklval	cctst.cc	/^Struct_ref_node::mklval()$/
+Struct_ref_node::mklval	fcode.cc	/^Struct_ref_node::mklval()$/
+Struct_ref_node::mktree	cctree.cc	/^Struct_ref_node::mktree()$/
+Struct_ref_node::mktree	cctst.cc	/^Struct_ref_node::mktree()$/
+Struct_ref_node::mktree	fcode.cc	/^Struct_ref_node::mktree()$/
+Struct_type	cctype.h	/^class Struct_type : public Type$/
+Struct_type::add	cctype.cc	/^Struct_type::add(char const *name, Type *type, int line,$/
+Struct_type::add_base_class	cctype.cc	/^Struct_type::add_base_class(Type *base, int access, boolean /
+Struct_type::add_friend	cctype.cc	/^Struct_type::add_friend(Symbol *sym)$/
+Struct_type::align	cctype.cc	/^Struct_type::align()$/
+Struct_type::debug	ccdebug.cc	/^Struct_type::debug()$/
+Struct_type::free	cctype.cc	/^Struct_type::free()$/
+Struct_type::hash	cctype.cc	/^Struct_type::hash()$/
+Struct_type::size	cctype.cc	/^Struct_type::size(Integer &retsize)$/
+Switch_node	ccnode.h	/^class Switch_node : public Node$/
+Switch_node::check_cases	ccnode2.cc	/^Switch_node::check_cases()$/
+Switch_node::check_return	ccnode2.cc	/^Switch_node::check_return()$/
+Switch_node::debug	ccdebug.cc	/^Switch_node::debug()$/
+Switch_node::mktree	cctree2.cc	/^Switch_node::mktree()$/
+Switch_node::mktree	cctst.cc	/^Switch_node::mktree()$/
+Switch_node::mktree	fcode.cc	/^Switch_node::mktree()$/
+Symbol	ccsym.cc	/^Symbol::Symbol()$/
+Symbol	ccsym.cc	/^Symbol::Symbol(Symbol &s)$/
+Symbol	ccsym.cc	/^Symbol::Symbol(const char *n)$/
+Symbol	ccsym.h	/^class Symbol$/
+Symbol::Symbol	ccsym.cc	/^Symbol::Symbol()$/
+Symbol::Symbol	ccsym.cc	/^Symbol::Symbol(Symbol &s)$/
+Symbol::Symbol	ccsym.cc	/^Symbol::Symbol(const char *n)$/
+Symbol::add_overload	ccsym.cc	/^Symbol::add_overload(Type *type)$/
+Symbol::cleanup_labels	ccsym.cc	/^Symbol::cleanup_labels()$/
+Symbol::cost_overload_match	ccsym.cc	/^Symbol::cost_overload_match(Expr_arr *a)$/
+Symbol::debug	ccdebug.cc	/^Symbol::debug()$/
+Symbol::exact_match	ccsym.cc	/^Symbol::exact_match(Type *type)$/
+Symbol::mktree	cctree.cc	/^Symbol::mktree()$/
+Symbol::mktree	cctst.cc	/^Symbol::mktree()$/
+Symbol::mktree	fcode.cc	/^Symbol::mktree()$/
+Symbol::overload_match	ccsym.cc	/^Symbol::overload_match(Expr_arr *args)$/
+Symbol::~Symbol	ccsym.cc	/^Symbol::~Symbol()$/
+Symbol_node	ccnode.cc	/^Symbol_node::Symbol_node(Scope *scp, Symbol *sym, const char *file, int line)$/
+Symbol_node	ccnode.cc	/^Symbol_node::Symbol_node(Scope *scp, const char *sym, const char *file,$/
+Symbol_node	ccnode.h	/^class Symbol_node : public Expr_node$/
+Symbol_node::Symbol_node	ccnode.cc	/^Symbol_node::Symbol_node(Scope *scp, Symbol *sym, const char *file, int line)$/
+Symbol_node::Symbol_node	ccnode.cc	/^Symbol_node::Symbol_node(Scope *scp, const char *sym, const char *file,$/
+Symbol_node::check_init_type	ccinit.cc	/^Symbol_node::check_init_type(Type *t, Integer &)$/
+Symbol_node::debug	ccdebug.cc	/^Symbol_node::debug()$/
+Symbol_node::eval_const_expr	cceval.cc	/^Symbol_node::eval_const_expr(Const_expr &ret)$/
+Symbol_node::is_int_expr	cceval.cc	/^Symbol_node::is_int_expr()$/
+Symbol_node::is_lvalue	ccinit.cc	/^Symbol_node::is_lvalue()$/
+Symbol_node::is_static_init	ccinit.cc	/^Symbol_node::is_static_init(int *ref)$/
+Symbol_node::mark_symbol	ccnode2.cc	/^Symbol_node::mark_symbol(boolean read, boolean wrote, boolean ref)$/
+Symbol_node::mkinit	cctree.cc	/^Symbol_node::mkinit()$/
+Symbol_node::mkinit	cctst.cc	/^Symbol_node::mkinit()$/
+Symbol_node::mkinit	fcode.cc	/^Symbol_node::mkinit()$/
+Symbol_node::mklval	cctree.cc	/^Symbol_node::mklval()$/
+Symbol_node::mklval	cctst.cc	/^Symbol_node::mklval()$/
+Symbol_node::mklval	fcode.cc	/^Symbol_node::mklval()$/
+Symbol_node::mktree	cctree.cc	/^Symbol_node::mktree()$/
+Symbol_node::mktree	cctst.cc	/^Symbol_node::mktree()$/
+Symbol_node::mktree	fcode.cc	/^Symbol_node::mktree()$/
+THIS	tokens.h	/^#define THIS/
+TYPEDEF	tokens.h	/^#define TYPEDEF/
+TYPENAME	tokens.h	/^#define TYPENAME/
+Token	cc.h	/^struct Token$/
+Type	cctype.h	/^class Type$/
+Type::align	cctype.cc	/^Type::align()$/
+Type::debug	ccdebug.cc	/^Type::debug()$/
+Type::dosize	cctype.cc	/^Type::dosize()$/
+Type::free	cctype.cc	/^Type::free()$/
+Type::getwidth	cctype.cc	/^Type::getwidth()$/
+Type::hash	cctype.cc	/^Type::hash()$/
+Type::isclass	cctype.h	/^Type::isclass()$/
+Type::ismemfunc	cctype.h	/^Type::ismemfunc()$/
+Type::sign	cctype.h	/^Type::sign()$/
+Typeptr	cctype2.cc	/^class Typeptr$/
+UINTVAL	tokens.h	/^#define UINTVAL/
+ULONGLONGVAL	tokens.h	/^#define ULONGLONGVAL/
+ULONGVAL	tokens.h	/^#define ULONGVAL/
+UNION	tokens.h	/^#define UNION/
+UNNAMED_CHAR	cc.h	/^#define UNNAMED_CHAR/
+UNSIGNED	tokens.h	/^#define UNSIGNED/
+URRNiUH9mI4	MWProjects.hqx	/^URRNiUH9mI4(YCmN@GD)j9-KAED9X4&dcr6Xj2-pcR0)b9*LJlV5LJ!lP@3lC-@-$/
+Union_type	cctype.h	/^class Union_type : public Struct_type$/
+Union_type::debug	ccdebug.cc	/^Union_type::debug()$/
+Union_type::size	cctype.cc	/^Union_type::size(Integer &retsize)$/
+VIRTUAL	tokens.h	/^#define VIRTUAL/
+VOID	tokens.h	/^#define VOID/
+VOLATILE	tokens.h	/^#define VOLATILE/
+Void_type	cctype.h	/^class Void_type : public Type$/
+Void_type::debug	ccdebug.cc	/^Void_type::debug()$/
+WCHARACTER	tokens.h	/^#define WCHARACTER/
+WHILE	tokens.h	/^#define WHILE/
+WSTRING	tokens.h	/^#define WSTRING/
+W_EMPTY	tokens.h	/^#define W_EMPTY/
+W_EOI	tokens.h	/^#define W_EOI/
+W_LAST_TOKEN	tokens.h	/^#define W_LAST_TOKEN/
+W_RETERR	tokens.h	/^#define W_RETERR/
+W_RETOK	tokens.h	/^#define W_RETOK/
+W_Tarray	parser.cc	/^struct W_Tarray$/
+W_Texpr	parser.cc	/^struct W_Texpr$/
+W_Toperator	parser.cc	/^struct W_Toperator$/
+W_Toperator_func	parser.cc	/^struct W_Toperator_func$/
+While_node	ccnode.h	/^class While_node : public Node$/
+While_node::check_return	ccnode2.cc	/^While_node::check_return()$/
+While_node::debug	ccdebug.cc	/^While_node::debug()$/
+While_node::mktree	cctree2.cc	/^While_node::mktree()$/
+While_node::mktree	cctst.cc	/^While_node::mktree()$/
+While_node::mktree	fcode.cc	/^While_node::mktree()$/
+X610e	MWProjects.hqx	/^X610e(ADQJc`Z1p0c22lT6-mAj)Sc(H)al%c2dEMQ6#r`S+%3i#KVh0iCdmfV#fD$/
+XOREQ	tokens.h	/^#define XOREQ/
+XYp6DRPTI69eHkZYJRFGBISR	MWProjects.hqx	/^XYp6DRPTI69eHkZYJRFGBISR(r8jIC9hAp+@qpMSk'e'bFX'S0q5)`b1GeBE&V&($/
+X_CLASSNAME	tokens.h	/^#define X_CLASSNAME/
+X_CTOR	tokens.h	/^#define X_CTOR/
+X_CTORINIT	tokens.h	/^#define X_CTORINIT/
+X_DECLARATION	tokens.h	/^#define X_DECLARATION/
+X_DTOR	tokens.h	/^#define X_DTOR/
+X_LABEL	tokens.h	/^#define X_LABEL/
+X_MEMFUNC	tokens.h	/^#define X_MEMFUNC/
+X_TILDE	tokens.h	/^#define X_TILDE/
+X_TYPENAME	tokens.h	/^#define X_TYPENAME/
+YYTEXT_DECL	parser.cc	/^#define YYTEXT_DECL/
+__CCNODE_H_	ccnode.h	/^#define __CCNODE_H_/
+__CCSETUP_H_	ccsetup.h	/^#define __CCSETUP_H_/
+__CCSYM_H_	ccsym.h	/^#define __CCSYM_H_/
+__CCTREE_H_	cctree.h	/^#define __CCTREE_H_/
+__CCTYPES_H_	cctype.h	/^#define __CCTYPES_H_/
+__CC_H_	cc.h	/^#define __CC_H_/
+__CPPDEFS_H_	cppdefs.h	/^#define __CPPDEFS_H_/
+__CPP_H_	cpp.h	/^#define __CPP_H_/
+__ERROR_H_	error.h	/^#define __ERROR_H_/
+__FILEUSE_H_	fileuse.h	/^#define __FILEUSE_H_/
+__GLOBALS_H_	globals.h	/^#define __GLOBALS_H_/
+__TOKENS_H_	tokens.h	/^#define __TOKENS_H_/
+add	cctype.cc	/^Enum_type::add(char const *name, const char *file, int line)$/
+add	cctype.cc	/^Enum_type::add(char const *name, const char *file, int line, Integer &id)$/
+add	cctype.cc	/^Struct_type::add(char const *name, Type *type, int line,$/
+add_base_class	cctype.cc	/^Struct_type::add_base_class(Type *base, int access, boolean /
+add_cxx_keywords	cckey.cc	/^add_cxx_keywords()$/
+add_friend	cctype.cc	/^Struct_type::add_friend(Symbol *sym)$/
+add_include_dir	cppdir.cc	/^Cpp::add_include_dir(const char *dir)$/
+add_overload	ccsym.cc	/^Symbol::add_overload(Type *type)$/
+add_ref	fileuse.cc	/^add_ref(Charvec &ref, const char *file)$/
+additive	cppif.cc	/^additive(Cpp_node *&buf, struct Ret &ret)$/
+align	cctype.cc	/^Float_type::align()$/
+align	cctype.cc	/^Int_type::align()$/
+align	cctype.cc	/^Struct_type::align()$/
+align	cctype.cc	/^Type::align()$/
+alloca	README-Fcode	/^alloca() is not supported$/
+allocparam	fcode.cc	/^StorageAllocator::allocparam(Integer &size, int align, Integer *val)$/
+append	ccnode2.cc	/^Initializer_node::append(Expr_node *elt, Expr_node *indx)$/
+append	ccnode2.cc	/^String_node::append(const char *str)$/
+arith_conv	cctype2.cc	/^arith_conv(Type *t1, Type *t2)$/
+asm	README-Fcode	/^asm("Forth code") embeds arbitrary Fcode in the output$/
+base_type	cctype2.cc	/^base_type(Type *t)$/
+bitwise_and	cppif.cc	/^bitwise_and(Cpp_node *&buf, struct Ret &ret)$/
+boolean	ccfcode.cc	/^#define boolean/
+boolean	cctst.cc	/^#define boolean/
+boolean	cppdir.cc	/^#define boolean/
+brklabel	ccnode2.cc	/^Node::brklabel()$/
+bufskipwhsp	cppif.cc	/^bufskipwhsp(Cpp_node *&buf)$/
+bug	error.cc	/^bug(const char *fmt, ...)$/
+bump_file_use	fileuse.cc	/^bump_file_use(const char *file, const char *from_file)$/
+calclocals	cctree.cc	/^Scope::calclocals(StorageAllocator &stkalloc)$/
+calclocals	cctst.cc	/^Scope::calclocals(StorageAllocator &/
+calclocals	fcode.cc	/^Scope::calclocals(StorageAllocator &stkalloc)$/
+case_cmp	ccnode2.cc	/^case_cmp(const void *v1, const void *v2)$/
+check_array_type	ccinit.cc	/^check_array_type(Array_type *arr, Expr_arr &init, int &loc, Integer &newlen)$/
+check_break	ccnode2.cc	/^Compound_node::check_break()$/
+check_break	ccnode2.cc	/^If_node::check_break()$/
+check_cases	ccnode2.cc	/^Switch_node::check_cases()$/
+check_control	cppdir.cc	/^Cpp::check_control(const char *fn)$/
+check_for_return	ccrules.cc	/^check_for_return(Symbol *func)$/
+check_init_type	ccinit.cc	/^Expr_node::check_init_type(Type *t, Integer &)$/
+check_init_type	ccinit.cc	/^Initializer_node::check_init_type(Type *t, Integer &newlen)$/
+check_init_type	ccinit.cc	/^Integer_node::check_init_type(Type *t, Integer &)$/
+check_init_type	ccinit.cc	/^Operator2_node::check_init_type(Type *t, Integer &)$/
+check_init_type	ccinit.cc	/^Operator_node::check_init_type(Type *t, Integer &)$/
+check_init_type	ccinit.cc	/^String_node::check_init_type(Type *t, Integer &newlen)$/
+check_init_type	ccinit.cc	/^Symbol_node::check_init_type(Type *t, Integer &)$/
+check_init_type	ccinit.cc	/^check_init_type(Expr_node *&expr, Type *t, Integer &newlen)$/
+check_labels	ccrules.cc	/^check_labels(Symbol *func)$/
+check_old_function_def	ccrules.cc	/^check_old_function_def(Storage_thing &func)$/
+check_return	ccnode2.cc	/^Compound_node::check_return()$/
+check_return	ccnode2.cc	/^Dowhile_node::check_return()$/
+check_return	ccnode2.cc	/^For_node::check_return()$/
+check_return	ccnode2.cc	/^If_node::check_return()$/
+check_return	ccnode2.cc	/^Switch_node::check_return()$/
+check_return	ccnode2.cc	/^While_node::check_return()$/
+check_struct_type	ccinit.cc	/^check_struct_type(Struct_type *st, Expr_arr &init, int &loc)$/
+check_struct_type	ccstor.cc	/^check_struct_type(Type *st, int stok)$/
+check_union_type	ccinit.cc	/^check_union_type(Union_type *ut, Expr_arr &init, int &loc)$/
+check_unused_vars	ccrules.cc	/^check_unused_vars(Scope *scope, Symbol *func)$/
+cleanup	ccsym.cc	/^Scope::cleanup()$/
+cleanup_labels	ccsym.cc	/^Symbol::cleanup_labels()$/
+cleanupbuf	cppscan.cc	/^Cpp::cleanupbuf()$/
+close	cppdir.cc	/^Cpp_file::close()$/
+compare_args	cctype2.cc	/^compare_args(Param_arr *a1, Param_arr *a2)$/
+conditional	cppif.cc	/^conditional(Cpp_node *&buf, struct Ret &ret)$/
+contlabel	ccnode2.cc	/^Node::contlabel()$/
+cost_overload_match	ccsym.cc	/^Symbol::cost_overload_match(Expr_arr *a)$/
+crash	error.cc	/^#define crash/
+dL	MWProjects.hqx	/^dL(RKRk2[f0jj1@[,@EBC!p,fVX0l)6bMUU'll)(-hl-(VPe&q5!C2eJp'R0`&9)$/
+dbg	ccdebug.cc	/^dbg(Type *t)$/
+debug	ccdebug.cc	/^Array_ref_node::debug()$/
+debug	ccdebug.cc	/^Array_type::debug()$/
+debug	ccdebug.cc	/^Asm_node::debug()$/
+debug	ccdebug.cc	/^Bitfield_type::debug()$/
+debug	ccdebug.cc	/^Break_node::debug()$/
+debug	ccdebug.cc	/^Case_node::debug()$/
+debug	ccdebug.cc	/^Cast_node::debug()$/
+debug	ccdebug.cc	/^Compound_node::debug()$/
+debug	ccdebug.cc	/^Continue_node::debug()$/
+debug	ccdebug.cc	/^Delete_node::debug()$/
+debug	ccdebug.cc	/^Dowhile_node::debug()$/
+debug	ccdebug.cc	/^Enum_type::debug()$/
+debug	ccdebug.cc	/^Expr_node::debug()$/
+debug	ccdebug.cc	/^Float_node::debug()$/
+debug	ccdebug.cc	/^Float_type::debug()$/
+debug	ccdebug.cc	/^For_node::debug()$/
+debug	ccdebug.cc	/^Func_call_node::debug()$/
+debug	ccdebug.cc	/^Function_type::debug()$/
+debug	ccdebug.cc	/^Goto_node::debug()$/
+debug	ccdebug.cc	/^If_node::debug()$/
+debug	ccdebug.cc	/^Initializer_node::debug()$/
+debug	ccdebug.cc	/^Int_type::debug()$/
+debug	ccdebug.cc	/^Integer_node::debug()$/
+debug	ccdebug.cc	/^Label_node::debug()$/
+debug	ccdebug.cc	/^New_node::debug()$/
+debug	ccdebug.cc	/^Node::debug()$/
+debug	ccdebug.cc	/^Operator2_node::debug()$/
+debug	ccdebug.cc	/^Operator3_node::debug()$/
+debug	ccdebug.cc	/^Operator_node::debug()$/
+debug	ccdebug.cc	/^Overload_type::debug()$/
+debug	ccdebug.cc	/^Pointer_type::debug()$/
+debug	ccdebug.cc	/^Return_node::debug()$/
+debug	ccdebug.cc	/^Scope::debug()$/
+debug	ccdebug.cc	/^Sizeof_node::debug()$/
+debug	ccdebug.cc	/^String_node::debug()$/
+debug	ccdebug.cc	/^Struct_ref_node::debug()$/
+debug	ccdebug.cc	/^Struct_type::debug()$/
+debug	ccdebug.cc	/^Switch_node::debug()$/
+debug	ccdebug.cc	/^Symbol::debug()$/
+debug	ccdebug.cc	/^Symbol_node::debug()$/
+debug	ccdebug.cc	/^Type::debug()$/
+debug	ccdebug.cc	/^Union_type::debug()$/
+debug	ccdebug.cc	/^Void_type::debug()$/
+debug	ccdebug.cc	/^While_node::debug()$/
+debug	testcpp.h	/^#define debug/
+define_directive	cppdir.cc	/^Cpp::define_directive()$/
+define_macro	cppmac.cc	/^Cpp::define_macro(const char *macro, const char *def, Cpp_macro_type mtype)$/
+define_macro	cppmac.cc	/^Cpp_macro::define_macro(Cpp_node_list *list, Cpp_macro_type mtype)$/
+delete	error.cc	/^delete(void *p)$/
+do_align	cctype.cc	/^Struct_info::do_align()$/
+do_array	ccrules.cc	/^do_array(Expr_node *expr, Type *type, boolean isparam)$/
+do_cast	cctree2.cc	/^do_cast(Expr_node *expr, Type *from, Type *to)$/
+do_cast	fcode.cc	/^do_cast(Expr_node *expr, Type *from, Type *to)$/
+do_check	ccinit.cc	/^do_check(Expr_node *expr, Type *t, Expr_arr &init, int &loc)$/
+do_ctor_init	ccrules.cc	/^do_ctor_init(Symbol *sym, Expr_arr *init)$/
+do_cxx_typedef	ccstor.cc	/^do_cxx_typedef(Scope *scope, const char *id, Type *type)$/
+do_declaration	ccstor.cc	/^Storage_thing::do_declaration()$/
+do_defined	cppif.cc	/^Cpp::do_defined(Cpp_node_list &buf, Cpp_node *arr)$/
+do_function_def	ccrules.cc	/^do_function_def(Storage_thing &func)$/
+do_get	fcode.cc	/^do_get(Type &t)$/
+do_implicit_cast	ccnode3.cc	/^do_implicit_cast(Expr_node *e, Type *type)$/
+do_initializer	ccrules.cc	/^do_initializer(Symbol *sym, Expr_node *init, boolean isparam)$/
+do_look_for_extern	ccgram.w	/^do_look_for_extern()$/
+do_look_for_extern	parser.cc	/^do_look_for_extern()$/
+do_look_for_typename	ccgram.w	/^do_look_for_typename()$/
+do_look_for_typename	parser.cc	/^do_look_for_typename()$/
+do_member_decl	ccstor.cc	/^Storage_thing::do_member_decl(Struct_type *stype, int access)$/
+do_member_init	ccrules.cc	/^do_member_init(const char *symstr, Expr_arr *init)$/
+do_old_function_def	ccrules.cc	/^do_old_function_def(Storage_thing &func)$/
+do_point_to	ccgram.w	/^do_point_to(Storage_thing *spoint, Storage_thing *sto)$/
+do_point_to	parser.cc	/^do_point_to(Storage_thing *spoint, Storage_thing *sto)$/
+do_pragma_directive	ccfcode.cc	/^do_pragma_directive(Cpp_node_list &toks)$/
+do_pragma_directive	ccmain.cc	/^do_pragma_directive(Cpp_node_list &toks)$/
+do_pragma_directive	cctst.cc	/^do_pragma_directive(Cpp_node_list &toks)$/
+do_pragma_directive	cppmain.cc	/^do_pragma_directive(Cpp_node_list &/
+do_set	fcode.cc	/^do_set(Type &t)$/
+do_struct_display	ccrules.cc	/^do_struct_display(Type *cast, Initializer_node *init)$/
+do_sue_declaration	ccstor.cc	/^do_sue_declaration(int stok, const char *id)$/
+do_sue_definition	ccstor.cc	/^do_sue_definition(int stok, const char *id)$/
+do_tree	cctree.cc	/^do_tree(Node *node)$/
+do_tree	cctree.cc	/^do_tree(Symbol *sym)$/
+do_tree	cctst.cc	/^do_tree(Node * /
+do_tree	cctst.cc	/^do_tree(Symbol *sym)$/
+do_tree	fcode.cc	/^do_tree(Node *node)$/
+do_tree	fcode.cc	/^do_tree(Symbol *sym)$/
+do_unnamed_substruct	ccstor.cc	/^do_unnamed_substruct(Type *stype, Type *ptype)$/
+dosize	cctype.cc	/^Type::dosize()$/
+dprintf	error.cc	/^dprintf(const char *fmt, ...)$/
+dumpcexpr	ccdebug.cc	/^dumpcexpr(Const_expr *ce)$/
+dumpcppnode	cppdir.cc	/^dumpcppnode(Cpp_node &n)$/
+dumpexprarr	ccdebug.cc	/^dumpexprarr(const char *str, Expr_arr *arr)$/
+dumpnode	ccdebug.cc	/^dumpnode(Node *n)$/
+dumpstrnode	ccdebug.cc	/^dumpstrnode(const char *s, Node *n)$/
+dumpstrnodearr	ccdebug.cc	/^dumpstrnodearr(const char *s, Node_arr *arr)$/
+dumpsym	ccdebug.cc	/^dumpsym(Symbol *sym)$/
+dumpsymtab	ccdebug.cc	/^dumpsymtab(const char *str, Symbol_tab &tab, Scope *scope)$/
+dumptype	ccdebug.cc	/^dumptype(Type *t)$/
+elif_directive	cppif.cc	/^Cpp::elif_directive()$/
+else_directive	cppif.cc	/^Cpp::else_directive()$/
+endif_directive	cppif.cc	/^Cpp::endif_directive()$/
+enums	README-Fcode	/^enums (that are actually used) are defined as Forth "constant" words$/
+eprintf	error.cc	/^eprintf(const char *fmt, ...)$/
+equality	cppif.cc	/^equality(Cpp_node *&buf, struct Ret &ret)$/
+equivalent	cctype2.cc	/^equivalent(Type *t1, Type *t2)$/
+error	error.cc	/^error(Error e, ...)$/
+error_directive	cppdir.cc	/^Cpp::error_directive()$/
+eval_const_expr	cceval.cc	/^Array_ref_node::eval_const_expr(Const_expr &ret)$/
+eval_const_expr	cceval.cc	/^Cast_node::eval_const_expr(Const_expr &ret)$/
+eval_const_expr	cceval.cc	/^Expr_node::eval_const_expr(Const_expr &)$/
+eval_const_expr	cceval.cc	/^Float_node::eval_const_expr(Const_expr &ret)$/
+eval_const_expr	cceval.cc	/^Integer_node::eval_const_expr(Const_expr &ret)$/
+eval_const_expr	cceval.cc	/^Operator2_node::eval_const_expr(Const_expr &val1)$/
+eval_const_expr	cceval.cc	/^Operator3_node::eval_const_expr(Const_expr &ret)$/
+eval_const_expr	cceval.cc	/^Operator_node::eval_const_expr(Const_expr &ret)$/
+eval_const_expr	cceval.cc	/^Sizeof_node::eval_const_expr(Const_expr &ret)$/
+eval_const_expr	cceval.cc	/^Struct_ref_node::eval_const_expr(Const_expr &ret)$/
+eval_const_expr	cceval.cc	/^Symbol_node::eval_const_expr(Const_expr &ret)$/
+exact_match	ccsym.cc	/^Symbol::exact_match(Type *type)$/
+exclusive_or	cppif.cc	/^exclusive_or(Cpp_node *&buf, struct Ret &ret)$/
+expand_all_macros	cppmac.cc	/^Cpp::expand_all_macros(Cpp_node_list &buf)$/
+expand_macro	cppmac.cc	/^Cpp::expand_macro(Cpp_macro &macro, Cpp_node_list &buf)$/
+expand_macro_body	cppmac.cc	/^Cpp::expand_macro_body(Cpp_macro &macro, Cpp_node_list_vec &params,$/
+f	testcpp.h	/^#define		f/
+f30	MWProjects.hqx	/^f30([@-CB[#'!MZjKVKrMrkcAFhi5ia8f!U5mPbd,Y#LpF!31KaN&3F2PAiU9+rN$/
+fatal	error.cc	/^fatal(Error e, ...)$/
+find_operator	ccnode3.cc	/^find_operator(Expr_node *obj, int op, Expr_node *arg, Expr_arr *args)$/
+fini_function_def	ccrules.cc	/^fini_function_def(Symbol *func, Node_arr *body)$/
+fini_tree	cctree.cc	/^fini_tree()$/
+fini_tree	cctst.cc	/^fini_tree()$/
+fini_tree	fcode.cc	/^fini_tree()$/
+finish	ccnode.cc	/^String_node::finish()$/
+floattointeger	dummy.cc	/^floattointeger(Float &f)$/
+fputs	testcpp.h	/^fputs(str(strncmp("abc/
+free	cctype.cc	/^Array_type::free()$/
+free	cctype.cc	/^Function_type::free()$/
+free	cctype.cc	/^Pointer_type::free()$/
+free	cctype.cc	/^Struct_info::free()$/
+free	cctype.cc	/^Struct_type::free()$/
+free	cctype.cc	/^Type::free()$/
+fulltok	testcpp.h	/^#define fulltok/
+g	testcpp.h	/^#define		g/
+g	testcpp.h	/^g(x+(3,4)-w) | h 5) & m$/
+g_lvaltree_node	fcode.cc	/^#define g_lvaltree_node/
+g_tree_node	fcode.cc	/^#define g_tree_node/
+get_current_func	ccsym.cc	/^get_current_func()$/
+get_current_func	cppmain.cc	/^get_current_func()$/
+gettok	ccgram.w	/^gettok(boolean scanning = TRUE)$/
+gettok	cppmain.cc	/^gettok()$/
+gettok	parser.cc	/^gettok(boolean scanning = TRUE)$/
+getwidth	cctype.cc	/^Type::getwidth()$/
+glue	testcpp.h	/^#define glue/
+glue	testcpp.h	/^glue(HIGH, LOW)$/
+gluemacs	testcpp.h	/^#define gluemacs/
+gluetoks	testcpp.h	/^#define gluetoks/
+h	testcpp.h	/^#define h/
+hash	cctype.cc	/^Float_type::hash() $/
+hash	cctype.cc	/^Function_type::hash() $/
+hash	cctype.cc	/^Int_type::hash() $/
+hash	cctype.cc	/^Struct_type::hash()$/
+hash	cctype.cc	/^Type::hash()$/
+iPi	MWProjects.hqx	/^iPi(K$jZ*1HZB[ac5"cb%'299J1aIE*)TrIBa5-rEJ[IACi'J$HpN$[4-Gb$q,,q$/
+if_directive	cppif.cc	/^Cpp::if_directive()$/
+ifdef_directive	cppif.cc	/^Cpp::ifdef_directive(boolean expected)$/
+implicit_cast	ccnode.h	/^implicit_cast(Expr_node *e, Type *type)$/
+include_directive	cppdir.cc	/^Cpp::include_directive()$/
+inclusive_or	cppif.cc	/^inclusive_or(Cpp_node *&buf, struct Ret &ret)$/
+init_cmp	ccsetup.cc	/^init_cmp(const struct init_list *s1, const struct init_list *s2)$/
+init_keywords	cckey.cc	/^init_keywords()$/
+init_list	ccsetup.cc	/^struct init_list g_init[] =$/
+init_list	ccsetup.cc	/^struct init_list$/
+init_nodes	ccnode3.cc	/^init_nodes()$/
+init_parser	ccrules.cc	/^init_parser()$/
+init_strs	cppif.cc	/^init_strs()$/
+init_tree	cctree.cc	/^init_tree()$/
+init_tree	cctst.cc	/^init_tree()$/
+init_tree	fcode.cc	/^init_tree()$/
+init_type_sizes	ccmain.cc	/^init_type_sizes()$/
+init_types	cctype2.cc	/^init_types()$/
+integertofloat	dummy.cc	/^integertofloat(Integer &i)$/
+interrupt	ccfcode.cc	/^interrupt(int sig)$/
+interrupt	ccmain.cc	/^interrupt(int sig)$/
+interrupt	cctst.cc	/^interrupt(int sig)$/
+is_first	cppif.cc	/^is_first(const char *p)$/
+is_int_expr	cceval.cc	/^Cast_node::is_int_expr() $/
+is_int_expr	cceval.cc	/^Operator_node::is_int_expr()$/
+is_int_expr	cceval.cc	/^Symbol_node::is_int_expr()$/
+is_lvalue	ccinit.cc	/^Array_ref_node::is_lvalue()$/
+is_lvalue	ccinit.cc	/^Func_call_node::is_lvalue()$/
+is_lvalue	ccinit.cc	/^Operator_node::is_lvalue()$/
+is_lvalue	ccinit.cc	/^Struct_ref_node::is_lvalue()$/
+is_lvalue	ccinit.cc	/^Symbol_node::is_lvalue()$/
+is_static_init	ccinit.cc	/^Array_ref_node::is_static_init(int *ref)$/
+is_static_init	ccinit.cc	/^Initializer_node::is_static_init(int*)$/
+is_static_init	ccinit.cc	/^Operator2_node::is_static_init(int *ref)$/
+is_static_init	ccinit.cc	/^Operator3_node::is_static_init(int *ref)$/
+is_static_init	ccinit.cc	/^Operator_node::is_static_init(int *ref)$/
+is_static_init	ccinit.cc	/^Struct_ref_node::is_static_init(int *ref)$/
+is_static_init	ccinit.cc	/^Symbol_node::is_static_init(int *ref)$/
+isclass	cctype.h	/^Type::isclass()$/
+isidchar	cppdefs.h	/^#define isidchar/
+isidchar2	cppdefs.h	/^#define isidchar2/
+ismemfunc	cctype.h	/^Type::ismemfunc()$/
+isodigit	cppdefs.h	/^#define isodigit/
+iswhsp	cppdefs.h	/^#define iswhsp/
+j	MWProjects.hqx	/^j(AD3!)3+jaU[5c3Y%XA45D*U56!rS[j5""K'ZLFk@"+45)4BY'[X#,hXS$Z[G-[$/
+line_directive	cppdir.cc	/^Cpp::line_directive()$/
+logical_and	cppif.cc	/^logical_and(Cpp_node *&buf, struct Ret &ret)$/
+logical_or	cppif.cc	/^logical_or(Cpp_node *&buf, struct Ret &ret)$/
+lookup_member	ccsym.cc	/^Scope::lookup_member(const char *name)$/
+lookup_sue	ccsym.cc	/^Scope::lookup_sue(const char *name)$/
+lookup_sym	ccsym.cc	/^Scope::lookup_sym(const char *name)$/
+m	testcpp.h	/^#define		m/
+main	ccfcode.cc	/^main(int argc, char **argv)$/
+main	ccmain.cc	/^main(int argc, const char *argv[])$/
+main	cctst.cc	/^main(int argc, char **argv)$/
+main	cppmain.cc	/^main(int argc, char *argv[])$/
+make_array_ref_node	ccnode3.cc	/^make_array_ref_node(Scope *s, Expr_node *arr, Expr_node *expr)$/
+make_constructor_name	ccnode3.cc	/^make_constructor_name(const char *classname)$/
+make_destructor_name	ccnode3.cc	/^make_destructor_name(const char *classname)$/
+make_func_call_node	ccnode3.cc	/^make_func_call_node(Scope *s, Expr_node *f, Expr_arr *a)$/
+make_memfunc_name	ccnode3.cc	/^make_memfunc_name(const char *classname, const char *memfunc)$/
+make_opcast_name	ccnode3.cc	/^make_opcast_name(Type *type)$/
+make_operator2_node	ccnode3.cc	/^make_operator2_node(Scope *s, int tok, Expr_node *a1, Expr_node *a2)$/
+make_operator_name	ccnode3.cc	/^make_operator_name(int op)$/
+make_operator_node	ccnode3.cc	/^make_operator_node(Scope *s, int tok, Expr_node *a, boolean p)$/
+make_struct_ref_node	ccnode3.cc	/^make_struct_ref_node(Scope *s, Expr_node *sref, const char *tag,$/
+make_type	ccstor.cc	/^Storage_thing::make_type(boolean bitfieldok)$/
+make_unnamed_name	ccnode3.cc	/^make_unnamed_name()$/
+mark_needed	fileuse.cc	/^mark_needed(const char *fname)$/
+mark_symbol	ccnode2.cc	/^Array_ref_node::mark_symbol(boolean read, boolean wrote, boolean /
+mark_symbol	ccnode2.cc	/^Cast_node::mark_symbol(boolean read, boolean wrote, boolean ref)$/
+mark_symbol	ccnode2.cc	/^Delete_node::mark_symbol(boolean /
+mark_symbol	ccnode2.cc	/^Expr_node::mark_symbol(boolean /
+mark_symbol	ccnode2.cc	/^Func_call_node::mark_symbol(boolean, boolean, boolean)$/
+mark_symbol	ccnode2.cc	/^New_node::mark_symbol(boolean /
+mark_symbol	ccnode2.cc	/^Operator2_node::mark_symbol(boolean read, boolean wrote, boolean ref)$/
+mark_symbol	ccnode2.cc	/^Operator3_node::mark_symbol(boolean read, boolean wrote, boolean ref)$/
+mark_symbol	ccnode2.cc	/^Operator_node::mark_symbol(boolean read, boolean wrote, boolean ref)$/
+mark_symbol	ccnode2.cc	/^Struct_ref_node::mark_symbol(boolean read, boolean wrote, boolean /
+mark_symbol	ccnode2.cc	/^Symbol_node::mark_symbol(boolean read, boolean wrote, boolean ref)$/
+mark_used	fileuse.cc	/^mark_used(const char *fname)$/
+member	README-Fcode	/^struct member names are converted to Forth fields for readability$/
+merge_basic	ccstor.cc	/^Storage_thing::merge_basic(int b)$/
+merge_flags	ccstor.cc	/^merge_flags(unsigned short &flags, int f)$/
+merge_storage	ccstor.cc	/^Storage_thing::merge_storage(int s)$/
+mk_array_init	cctree2.cc	/^mk_array_init(Array_type *ta, Treevec &list, Expr_arr &init, boolean isinit)$/
+mk_array_init	fcode.cc	/^mk_array_init(Array_type *ta, Expr_arr &init, boolean isinit)$/
+mk_struct_init	cctree2.cc	/^mk_struct_init(Struct_type *ts, Treevec &list, Expr_arr &init, boolean isinit)$/
+mk_struct_init	fcode.cc	/^mk_struct_init(Struct_type *ts, Expr_arr &init, boolean isinit)$/
+mkassign	fcode.cc	/^mkassign(Symbol &s)$/
+mkfieldname	fcode.cc	/^mkfieldname(Symbol &s)$/
+mkinit	cctree.cc	/^Float_node::mkinit()$/
+mkinit	cctree.cc	/^Integer_node::mkinit()$/
+mkinit	cctree.cc	/^Node::mkinit()$/
+mkinit	cctree.cc	/^Operator_node::mkinit()$/
+mkinit	cctree.cc	/^Sizeof_node::mkinit()$/
+mkinit	cctree.cc	/^String_node::mkinit()$/
+mkinit	cctree.cc	/^Struct_ref_node::mkinit()$/
+mkinit	cctree.cc	/^Symbol_node::mkinit()$/
+mkinit	cctree2.cc	/^Cast_node::mkinit()$/
+mkinit	cctree2.cc	/^Initializer_node::mkinit()$/
+mkinit	cctree2.cc	/^Operator2_node::mkinit()$/
+mkinit	cctree2.cc	/^Operator3_node::mkinit()$/
+mkinit	cctst.cc	/^Cast_node::mkinit()$/
+mkinit	cctst.cc	/^Expr_node::mkinit()$/
+mkinit	cctst.cc	/^Float_node::mkinit()$/
+mkinit	cctst.cc	/^Initializer_node::mkinit()$/
+mkinit	cctst.cc	/^Integer_node::mkinit()$/
+mkinit	cctst.cc	/^Node::mkinit()$/
+mkinit	cctst.cc	/^Operator2_node::mkinit()$/
+mkinit	cctst.cc	/^Operator3_node::mkinit()$/
+mkinit	cctst.cc	/^Operator_node::mkinit()$/
+mkinit	cctst.cc	/^Sizeof_node::mkinit()$/
+mkinit	cctst.cc	/^String_node::mkinit()$/
+mkinit	cctst.cc	/^Struct_ref_node::mkinit()$/
+mkinit	cctst.cc	/^Symbol_node::mkinit()$/
+mkinit	fcode.cc	/^Cast_node::mkinit()$/
+mkinit	fcode.cc	/^Expr_node::mkinit()$/
+mkinit	fcode.cc	/^Float_node::mkinit()$/
+mkinit	fcode.cc	/^Initializer_node::mkinit()$/
+mkinit	fcode.cc	/^Integer_node::mkinit()$/
+mkinit	fcode.cc	/^Node::mkinit()$/
+mkinit	fcode.cc	/^Operator2_node::mkinit()$/
+mkinit	fcode.cc	/^Operator3_node::mkinit()$/
+mkinit	fcode.cc	/^Operator_node::mkinit()$/
+mkinit	fcode.cc	/^Sizeof_node::mkinit()$/
+mkinit	fcode.cc	/^String_node::mkinit()$/
+mkinit	fcode.cc	/^Struct_ref_node::mkinit()$/
+mkinit	fcode.cc	/^Symbol_node::mkinit()$/
+mklabelname	cctree.cc	/^mklabelname(Symbol &s)$/
+mklval	cctree.cc	/^Array_ref_node::mklval()$/
+mklval	cctree.cc	/^Expr_node::mklval()$/
+mklval	cctree.cc	/^Func_call_node::mklval()$/
+mklval	cctree.cc	/^Operator_node::mklval()$/
+mklval	cctree.cc	/^String_node::mklval()$/
+mklval	cctree.cc	/^Struct_ref_node::mklval()$/
+mklval	cctree.cc	/^Symbol_node::mklval()$/
+mklval	cctree2.cc	/^Cast_node::mklval()$/
+mklval	cctree2.cc	/^Operator2_node::mklval()$/
+mklval	cctree2.cc	/^Operator3_node::mklval()$/
+mklval	cctst.cc	/^Array_ref_node::mklval()$/
+mklval	cctst.cc	/^Cast_node::mklval()$/
+mklval	cctst.cc	/^Expr_node::mklval()$/
+mklval	cctst.cc	/^Func_call_node::mklval()$/
+mklval	cctst.cc	/^Operator2_node::mklval()$/
+mklval	cctst.cc	/^Operator3_node::mklval()$/
+mklval	cctst.cc	/^Operator_node::mklval()$/
+mklval	cctst.cc	/^String_node::mklval()$/
+mklval	cctst.cc	/^Struct_ref_node::mklval()$/
+mklval	cctst.cc	/^Symbol_node::mklval()$/
+mklval	fcode.cc	/^Array_ref_node::mklval()$/
+mklval	fcode.cc	/^Cast_node::mklval()$/
+mklval	fcode.cc	/^Expr_node::mklval()$/
+mklval	fcode.cc	/^Func_call_node::mklval()$/
+mklval	fcode.cc	/^Operator2_node::mklval()$/
+mklval	fcode.cc	/^Operator3_node::mklval()$/
+mklval	fcode.cc	/^Operator_node::mklval()$/
+mklval	fcode.cc	/^String_node::mklval()$/
+mklval	fcode.cc	/^Struct_ref_node::mklval()$/
+mklval	fcode.cc	/^Symbol_node::mklval()$/
+mkstackvars	fcode.cc	/^mkstackvars(Scope *sc)$/
+mksymbolname	cctree.cc	/^mksymbolname(Symbol &s)$/
+mksymbolname	fcode.cc	/^mksymbolname(Symbol &s)$/
+mktree	cctree.cc	/^Array_ref_node::mktree()$/
+mktree	cctree.cc	/^Delete_node::mktree()$/
+mktree	cctree.cc	/^Float_node::mktree()$/
+mktree	cctree.cc	/^Func_call_node::mktree()$/
+mktree	cctree.cc	/^Integer_node::mktree()$/
+mktree	cctree.cc	/^New_node::mktree()$/
+mktree	cctree.cc	/^Node::mktree()$/
+mktree	cctree.cc	/^Operator_node::mktree()$/
+mktree	cctree.cc	/^Scope::mktree()$/
+mktree	cctree.cc	/^Sizeof_node::mktree()$/
+mktree	cctree.cc	/^String_node::mktree()$/
+mktree	cctree.cc	/^Struct_ref_node::mktree()$/
+mktree	cctree.cc	/^Symbol::mktree()$/
+mktree	cctree.cc	/^Symbol_node::mktree()$/
+mktree	cctree2.cc	/^Asm_node::mktree()$/
+mktree	cctree2.cc	/^Break_node::mktree()$/
+mktree	cctree2.cc	/^Case_node::mktree()$/
+mktree	cctree2.cc	/^Cast_node::mktree()$/
+mktree	cctree2.cc	/^Compound_node::mktree()$/
+mktree	cctree2.cc	/^Continue_node::mktree()$/
+mktree	cctree2.cc	/^Dowhile_node::mktree()$/
+mktree	cctree2.cc	/^For_node::mktree()$/
+mktree	cctree2.cc	/^Goto_node::mktree()$/
+mktree	cctree2.cc	/^If_node::mktree()$/
+mktree	cctree2.cc	/^Initializer_node::mktree()$/
+mktree	cctree2.cc	/^Label_node::mktree()$/
+mktree	cctree2.cc	/^Operator2_node::mktree()$/
+mktree	cctree2.cc	/^Operator3_node::mktree()$/
+mktree	cctree2.cc	/^Return_node::mktree()$/
+mktree	cctree2.cc	/^Switch_node::mktree()$/
+mktree	cctree2.cc	/^While_node::mktree()$/
+mktree	cctst.cc	/^Array_ref_node::mktree()$/
+mktree	cctst.cc	/^Asm_node::mktree()$/
+mktree	cctst.cc	/^Break_node::mktree()$/
+mktree	cctst.cc	/^Case_node::mktree()$/
+mktree	cctst.cc	/^Cast_node::mktree()$/
+mktree	cctst.cc	/^Compound_node::mktree()$/
+mktree	cctst.cc	/^Continue_node::mktree()$/
+mktree	cctst.cc	/^Delete_node::mktree()$/
+mktree	cctst.cc	/^Dowhile_node::mktree()$/
+mktree	cctst.cc	/^Expr_node::mktree()$/
+mktree	cctst.cc	/^Float_node::mktree()$/
+mktree	cctst.cc	/^For_node::mktree()$/
+mktree	cctst.cc	/^Func_call_node::mktree()$/
+mktree	cctst.cc	/^Goto_node::mktree()$/
+mktree	cctst.cc	/^If_node::mktree()$/
+mktree	cctst.cc	/^Initializer_node::mktree()$/
+mktree	cctst.cc	/^Integer_node::mktree()$/
+mktree	cctst.cc	/^Label_node::mktree()$/
+mktree	cctst.cc	/^New_node::mktree()$/
+mktree	cctst.cc	/^Node::mktree()$/
+mktree	cctst.cc	/^Operator2_node::mktree()$/
+mktree	cctst.cc	/^Operator3_node::mktree()$/
+mktree	cctst.cc	/^Operator_node::mktree()$/
+mktree	cctst.cc	/^Return_node::mktree()$/
+mktree	cctst.cc	/^Scope::mktree()$/
+mktree	cctst.cc	/^Sizeof_node::mktree()$/
+mktree	cctst.cc	/^String_node::mktree()$/
+mktree	cctst.cc	/^Struct_ref_node::mktree()$/
+mktree	cctst.cc	/^Switch_node::mktree()$/
+mktree	cctst.cc	/^Symbol::mktree()$/
+mktree	cctst.cc	/^Symbol_node::mktree()$/
+mktree	cctst.cc	/^While_node::mktree()$/
+mktree	fcode.cc	/^Array_ref_node::mktree()$/
+mktree	fcode.cc	/^Asm_node::mktree()$/
+mktree	fcode.cc	/^Break_node::mktree()$/
+mktree	fcode.cc	/^Case_node::mktree()$/
+mktree	fcode.cc	/^Cast_node::mktree()$/
+mktree	fcode.cc	/^Compound_node::mktree()$/
+mktree	fcode.cc	/^Continue_node::mktree()$/
+mktree	fcode.cc	/^Delete_node::mktree()$/
+mktree	fcode.cc	/^Dowhile_node::mktree()$/
+mktree	fcode.cc	/^Expr_node::mktree()$/
+mktree	fcode.cc	/^Float_node::mktree()$/
+mktree	fcode.cc	/^For_node::mktree()$/
+mktree	fcode.cc	/^Func_call_node::mktree()$/
+mktree	fcode.cc	/^Goto_node::mktree()$/
+mktree	fcode.cc	/^If_node::mktree()$/
+mktree	fcode.cc	/^Initializer_node::mktree()$/
+mktree	fcode.cc	/^Integer_node::mktree()$/
+mktree	fcode.cc	/^Label_node::mktree()$/
+mktree	fcode.cc	/^New_node::mktree()$/
+mktree	fcode.cc	/^Node::mktree()$/
+mktree	fcode.cc	/^Operator2_node::mktree()$/
+mktree	fcode.cc	/^Operator3_node::mktree()$/
+mktree	fcode.cc	/^Operator_node::mktree()$/
+mktree	fcode.cc	/^Return_node::mktree()$/
+mktree	fcode.cc	/^Scope::mktree()$/
+mktree	fcode.cc	/^Sizeof_node::mktree()$/
+mktree	fcode.cc	/^String_node::mktree()$/
+mktree	fcode.cc	/^Struct_ref_node::mktree()$/
+mktree	fcode.cc	/^Switch_node::mktree()$/
+mktree	fcode.cc	/^Symbol::mktree()$/
+mktree	fcode.cc	/^Symbol_node::mktree()$/
+mktree	fcode.cc	/^While_node::mktree()$/
+mktype	fcode.cc	/^mktype(Type *t, boolean force = FALSE)$/
+mkzero	cctree2.cc	/^mkzero(Integer count)$/
+mkzero	fcode.cc	/^mkzero(Type &t)$/
+multiplicative	cppif.cc	/^multiplicative(Cpp_node *&buf, struct Ret &ret)$/
+never_called	ccfcode.cc	/^never_called()$/
+never_called	ccmain.cc	/^never_called()$/
+never_called	cctst.cc	/^never_called()$/
+never_called	cppmain.cc	/^never_called()$/
+new	error.cc	/^new(size_t sz)$/
+new_file_use	fileuse.cc	/^new_file_use(const char *file, const char *from_file,$/
+new_struct_type	ccstor.cc	/^new_struct_type(int stok, Symbol *sym)$/
+num_errors	error.cc	/^num_errors()$/
+one	testcpp.h	/^#define one/
+one	testcpp.h	/^one(two(77))$/
+op2str	ccnode3.cc	/^op2str(int tok)$/
+open	cppdir.cc	/^Cpp::open(const char *fname)$/
+open	cppdir.cc	/^Cpp_file::open(const char *fn)$/
+overload_match	ccsym.cc	/^Symbol::overload_match(Expr_arr *args)$/
+p	fcode.cc	/^p(const char *fmt, ...)$/
+peek_op_prec	ccgram.w	/^peek_op_prec()$/
+peek_op_prec	parser.cc	/^peek_op_prec()$/
+point_to	ccgram.w	/^point_to(Storage_thing *point, Storage_thing *to)$/
+point_to	parser.cc	/^point_to(Storage_thing *point, Storage_thing *to)$/
+pool_type	cctype2.cc	/^pool_type(Type *t)$/
+pragma_directive	cppdir.cc	/^Cpp::pragma_directive()$/
+primary	cppif.cc	/^primary(Cpp_node *&buf, struct Ret &ret)$/
+print_unused_files	fileuse.cc	/^print_unused_files(FILE *fp, const char *fname)$/
+printfile	error.cc	/^printfile()$/
+read_init_file	ccsetup.cc	/^read_init_file(const char *file)$/
+ref_cmp	fileuse.cc	/^ref_cmp(const void *v1, const void *v2)$/
+register_cmp	cctree.cc	/^register_cmp(const void *v1, const void *v2)$/
+relational	cppif.cc	/^relational(Cpp_node *&buf, struct Ret &ret)$/
+rescan	cppdir.cc	/^Cpp_file::rescan(const char *str)$/
+reset_errors	error.cc	/^reset_errors()$/
+scan	cppscan.cc	/^Cpp::scan(Cpp_node_list *buf, boolean retwhsp)$/
+shift	cppif.cc	/^shift(Cpp_node *&buf, struct Ret &ret)$/
+sign	cctype.h	/^Type::sign()$/
+size	cctype.cc	/^Bitfield_type::size(Integer &s)$/
+size	cctype.cc	/^Enum_type::size(Integer &s)$/
+size	cctype.cc	/^Float_type::size(Integer &s)$/
+size	cctype.cc	/^Int_type::size(Integer &s)$/
+size	cctype.cc	/^Pointer_type::size(Integer &s)$/
+size	cctype.cc	/^Struct_info::size(Integer &retsize)$/
+size	cctype.cc	/^Struct_type::size(Integer &retsize)$/
+size	cctype.cc	/^Union_type::size(Integer &retsize)$/
+skip_if	cppif.cc	/^Cpp::skip_if(boolean stop_at_else)		/
+sort_ref	fileuse.cc	/^sort_ref(Charvec &ref)$/
+str	testcpp.h	/^#define str/
+strtochar	ccrules.cc	/^strtochar(const char *s, boolean wide)$/
+sub_type	cctype2.cc	/^sub_type(Type *from, Type *to)$/
+switch_seg	cctree.cc	/^switch_seg(TreeNode *node, SegmentType seg, boolean ext)$/
+t	testcpp.h	/^#define t/
+test_if_expr	cppif.cc	/^Cpp::test_if_expr(Cpp_node_list *expr)$/
+tok1	testcpp.h	/^#define tok1/
+tok2str	cppmac.cc	/^Cpp_node::tok2str()$/
+translation_unit	parser.cc	/^translation_unit()$/
+translation_unit	parser.cc	/^translation_unit(void)$/
+two	testcpp.h	/^#define two/
+type2str	ccnode3.cc	/^type2str(Type *type)$/
+unary	cppif.cc	/^unary(Cpp_node *&buf, struct Ret &ret)$/
+undef_directive	cppdir.cc	/^Cpp::undef_directive()$/
+undef_macro	cppmac.cc	/^Cpp::undef_macro(const char *macro)$/
+us2minus	fcode.cc	/^us2minus(const char *str)$/
+use_cmp	fileuse.cc	/^use_cmp(const void *v1, const void *v2)$/
+valid_cast	cctype2.cc	/^valid_cast(Type *from, Type *to, boolean ptr)$/
+valid_ecast	ccnode3.cc	/^valid_ecast(Expr_node *&efrom, Type *to)$/
+valid_opcast	ccnode3.cc	/^valid_opcast(Type *from, Type *to)$/
+w	testcpp.h	/^#define		w/
+w_err_expected	ccgram.w	/^w_err_expected(const char *token)$/
+w_err_expected	parser.cc	/^w_err_expected(const char *token)$/
+w_err_illegal	ccgram.w	/^w_err_illegal(const char *token)$/
+w_err_illegal	parser.cc	/^w_err_illegal(const char *token)$/
+w_fabstract_declarator	parser.cc	/^w_fabstract_declarator(struct w_resynclink *w_lnk, int *w_resync, Storage_thing* *w_rr)$/
+w_fabstract_declarator	parser.cc	/^w_fabstract_declarator(w_lnk, w_resync, w_rr)$/
+w_faccess_specifier	parser.cc	/^w_faccess_specifier(struct w_resynclink *w_lnk, int *w_resync, int *w_rr)$/
+w_faccess_specifier	parser.cc	/^w_faccess_specifier(w_lnk, w_resync, w_rr)$/
+w_fargument_expr_list	parser.cc	/^w_fargument_expr_list(struct w_resynclink *w_lnk, int *w_resync, Expr_arr* *w_rr)$/
+w_fargument_expr_list	parser.cc	/^w_fargument_expr_list(w_lnk, w_resync, w_rr)$/
+w_farray	parser.cc	/^w_farray(struct w_resynclink *w_lnk, int *w_resync, struct W_Tarray *w_rr)$/
+w_farray	parser.cc	/^w_farray(w_lnk, w_resync, w_rr)$/
+w_fasm_statement	parser.cc	/^w_fasm_statement(struct w_resynclink *w_lnk, int *w_resync, Node* *w_rr)$/
+w_fasm_statement	parser.cc	/^w_fasm_statement(w_lnk, w_resync, w_rr)$/
+w_fassignment_expr	parser.cc	/^w_fassignment_expr(struct w_resynclink *w_lnk, int *w_resync, Expr_node* *w_rr)$/
+w_fassignment_expr	parser.cc	/^w_fassignment_expr(w_lnk, w_resync, w_rr)$/
+w_fbase_specifier	parser.cc	/^w_fbase_specifier(struct w_resynclink *w_lnk, int *w_resync, Struct_type* *w_rr)$/
+w_fbase_specifier	parser.cc	/^w_fbase_specifier(w_lnk, w_resync, w_rr)$/
+w_fbit_field	parser.cc	/^w_fbit_field(struct w_resynclink *w_lnk, int *w_resync, short *w_rr)$/
+w_fbit_field	parser.cc	/^w_fbit_field(w_lnk, w_resync, w_rr)$/
+w_fcast_expr	parser.cc	/^w_fcast_expr(struct w_resynclink *w_lnk, int *w_resync, Expr_node* *w_rr)$/
+w_fcast_expr	parser.cc	/^w_fcast_expr(w_lnk, w_resync, w_rr)$/
+w_fconstant_expr	parser.cc	/^w_fconstant_expr(struct w_resynclink *w_lnk, int *w_resync, Expr_node* *w_rr)$/
+w_fconstant_expr	parser.cc	/^w_fconstant_expr(w_lnk, w_resync, w_rr)$/
+w_fctor_initializer	parser.cc	/^w_fctor_initializer(struct w_resynclink *w_lnk, int *w_resync)$/
+w_fctor_initializer	parser.cc	/^w_fctor_initializer(w_lnk, w_resync)$/
+w_fdeclaration	parser.cc	/^w_fdeclaration(struct w_resynclink *w_lnk, int *w_resync)$/
+w_fdeclaration	parser.cc	/^w_fdeclaration(w_lnk, w_resync)$/
+w_fdeclaration_list	parser.cc	/^w_fdeclaration_list(struct w_resynclink *w_lnk, int *w_resync, boolean *w_rr)$/
+w_fdeclaration_list	parser.cc	/^w_fdeclaration_list(w_lnk, w_resync, w_rr)$/
+w_fdeclaration_specifiers	parser.cc	/^w_fdeclaration_specifiers(struct w_resynclink *w_lnk, int *w_resync, Storage_thing *w_rr)$/
+w_fdeclaration_specifiers	parser.cc	/^w_fdeclaration_specifiers(w_lnk, w_resync, w_rr)$/
+w_fdeclarator	parser.cc	/^w_fdeclarator(struct w_resynclink *w_lnk, int *w_resync, Storage_thing* *w_rr)$/
+w_fdeclarator	parser.cc	/^w_fdeclarator(w_lnk, w_resync, w_rr)$/
+w_fenumerator	parser.cc	/^w_fenumerator(struct w_resynclink *w_lnk, int *w_resync, Enum_type* *w_rr)$/
+w_fenumerator	parser.cc	/^w_fenumerator(w_lnk, w_resync, w_rr)$/
+w_fenumerator_list	parser.cc	/^w_fenumerator_list(struct w_resynclink *w_lnk, int *w_resync, Enum_type* *w_rr)$/
+w_fenumerator_list	parser.cc	/^w_fenumerator_list(w_lnk, w_resync, w_rr)$/
+w_fexpr	parser.cc	/^w_fexpr(struct w_resynclink *w_lnk, int *w_resync, struct W_Texpr *w_rr)$/
+w_fexpr	parser.cc	/^w_fexpr(w_lnk, w_resync, w_rr)$/
+w_fexpression	parser.cc	/^w_fexpression(struct w_resynclink *w_lnk, int *w_resync, Expr_node* *w_rr)$/
+w_fexpression	parser.cc	/^w_fexpression(w_lnk, w_resync, w_rr)$/
+w_fidentifier	parser.cc	/^w_fidentifier(struct w_resynclink *w_lnk, int *w_resync, const char* *w_rr)$/
+w_fidentifier	parser.cc	/^w_fidentifier(w_lnk, w_resync, w_rr)$/
+w_finit_declarator	parser.cc	/^w_finit_declarator(struct w_resynclink *w_lnk, int *w_resync, Storage_thing *w_rr)$/
+w_finit_declarator	parser.cc	/^w_finit_declarator(w_lnk, w_resync, w_rr)$/
+w_finitializer	parser.cc	/^w_finitializer(struct w_resynclink *w_lnk, int *w_resync, Expr_node* *w_rr)$/
+w_finitializer	parser.cc	/^w_finitializer(w_lnk, w_resync, w_rr)$/
+w_finitializer_list	parser.cc	/^w_finitializer_list(struct w_resynclink *w_lnk, int *w_resync, Initializer_node* *w_rr)$/
+w_finitializer_list	parser.cc	/^w_finitializer_list(w_lnk, w_resync, w_rr)$/
+w_fmark_expr	parser.cc	/^w_fmark_expr(struct w_resynclink *w_lnk, int *w_resync, Expr_node* *w_rr)$/
+w_fmark_expr	parser.cc	/^w_fmark_expr(w_lnk, w_resync, w_rr)$/
+w_fmem_initializer	parser.cc	/^w_fmem_initializer(struct w_resynclink *w_lnk, int *w_resync)$/
+w_fmem_initializer	parser.cc	/^w_fmem_initializer(w_lnk, w_resync)$/
+w_fmember_name	parser.cc	/^w_fmember_name(struct w_resynclink *w_lnk, int *w_resync, const char* *w_rr)$/
+w_fmember_name	parser.cc	/^w_fmember_name(w_lnk, w_resync, w_rr)$/
+w_fnew_type_name	parser.cc	/^w_fnew_type_name(struct w_resynclink *w_lnk, int *w_resync, Type* *w_rr)$/
+w_fnew_type_name	parser.cc	/^w_fnew_type_name(w_lnk, w_resync, w_rr)$/
+w_foperator	parser.cc	/^w_foperator(struct w_resynclink *w_lnk, int *w_resync, struct W_Toperator *w_rr)$/
+w_foperator	parser.cc	/^w_foperator(w_lnk, w_resync, w_rr)$/
+w_foperator_func	parser.cc	/^w_foperator_func(struct w_resynclink *w_lnk, int *w_resync, struct W_Toperator_func *w_rr)$/
+w_foperator_func	parser.cc	/^w_foperator_func(w_lnk, w_resync, w_rr)$/
+w_fopt_expr	parser.cc	/^w_fopt_expr(struct w_resynclink *w_lnk, int *w_resync, Expr_node* *w_rr)$/
+w_fopt_expr	parser.cc	/^w_fopt_expr(w_lnk, w_resync, w_rr)$/
+w_fparam_declarator	parser.cc	/^w_fparam_declarator(struct w_resynclink *w_lnk, int *w_resync, Storage_thing* *w_rr)$/
+w_fparam_declarator	parser.cc	/^w_fparam_declarator(w_lnk, w_resync, w_rr)$/
+w_fparameter_declaration	parser.cc	/^w_fparameter_declaration(struct w_resynclink *w_lnk, int *w_resync, Param_arr* *w_rr)$/
+w_fparameter_declaration	parser.cc	/^w_fparameter_declaration(w_lnk, w_resync, w_rr)$/
+w_fparameter_type_list	parser.cc	/^w_fparameter_type_list(struct w_resynclink *w_lnk, int *w_resync, Type* *w_rr)$/
+w_fparameter_type_list	parser.cc	/^w_fparameter_type_list(w_lnk, w_resync, w_rr)$/
+w_fpointer	parser.cc	/^w_fpointer(struct w_resynclink *w_lnk, int *w_resync, Storage_thing* *w_rr)$/
+w_fpointer	parser.cc	/^w_fpointer(w_lnk, w_resync, w_rr)$/
+w_fspecifier_qualifier_list	parser.cc	/^w_fspecifier_qualifier_list(struct w_resynclink *w_lnk, int *w_resync, Storage_thing *w_rr)$/
+w_fspecifier_qualifier_list	parser.cc	/^w_fspecifier_qualifier_list(w_lnk, w_resync, w_rr)$/
+w_fstatement	parser.cc	/^w_fstatement(struct w_resynclink *w_lnk, int *w_resync, Node* *w_rr)$/
+w_fstatement	parser.cc	/^w_fstatement(w_lnk, w_resync, w_rr)$/
+w_fstatement_list	parser.cc	/^w_fstatement_list(struct w_resynclink *w_lnk, int *w_resync, Node_arr* *w_rr)$/
+w_fstatement_list	parser.cc	/^w_fstatement_list(w_lnk, w_resync, w_rr)$/
+w_fstring_literal	parser.cc	/^w_fstring_literal(struct w_resynclink *w_lnk, int *w_resync, String_node* *w_rr)$/
+w_fstring_literal	parser.cc	/^w_fstring_literal(w_lnk, w_resync, w_rr)$/
+w_fstruct_declaration	parser.cc	/^w_fstruct_declaration(struct w_resynclink *w_lnk, int *w_resync, struct Struct_decl* *w_rr)$/
+w_fstruct_declaration	parser.cc	/^w_fstruct_declaration(w_lnk, w_resync, w_rr)$/
+w_fstruct_declaration_list	parser.cc	/^w_fstruct_declaration_list(struct w_resynclink *w_lnk, int *w_resync, struct Struct_decl *w_rr)$/
+w_fstruct_declaration_list	parser.cc	/^w_fstruct_declaration_list(w_lnk, w_resync, w_rr)$/
+w_fstruct_declarator	parser.cc	/^w_fstruct_declarator(struct w_resynclink *w_lnk, int *w_resync, struct Struct_decl *w_rr)$/
+w_fstruct_declarator	parser.cc	/^w_fstruct_declarator(w_lnk, w_resync, w_rr)$/
+w_ftranslation_unit	parser.cc	/^w_ftranslation_unit(struct w_resynclink *w_lnk, int *w_resync)$/
+w_ftranslation_unit	parser.cc	/^w_ftranslation_unit(w_lnk, w_resync)$/
+w_ftype_name	parser.cc	/^w_ftype_name(struct w_resynclink *w_lnk, int *w_resync, Type* *w_rr)$/
+w_ftype_name	parser.cc	/^w_ftype_name(w_lnk, w_resync, w_rr)$/
+w_ftype_qualifier	parser.cc	/^w_ftype_qualifier(struct w_resynclink *w_lnk, int *w_resync, int *w_rr)$/
+w_ftype_qualifier	parser.cc	/^w_ftype_qualifier(w_lnk, w_resync, w_rr)$/
+w_ftype_specifier	parser.cc	/^w_ftype_specifier(struct w_resynclink *w_lnk, int *w_resync, Storage_thing* *w_rr)$/
+w_ftype_specifier	parser.cc	/^w_ftype_specifier(w_lnk, w_resync, w_rr)$/
+w_funary_expr	parser.cc	/^w_funary_expr(struct w_resynclink *w_lnk, int *w_resync, Expr_node* *w_rr)$/
+w_funary_expr	parser.cc	/^w_funary_expr(w_lnk, w_resync, w_rr)$/
+w_looknext	ccgram.w	/^w_looknext(void)$/
+w_looknext	parser.cc	/^w_looknext(void)$/
+w_nexttoken	parser.cc	/^#define w_nexttoken/
+w_nexttoken	parser.cc	/^w_nexttoken()$/
+w_nexttoken	parser.cc	/^w_nexttoken(void)$/
+w_pushback	ccgram.w	/^w_pushback(int tok, const char *str = NULL)$/
+w_pushback	parser.cc	/^w_pushback(int tok, const char *str = NULL)$/
+w_resynclink	parser.cc	/^struct w_resynclink$/
+w_scantoken	parser.cc	/^w_scantoken(expect, lnk, resync)$/
+w_scantoken	parser.cc	/^w_scantoken(int expect, struct w_resynclink *lnk,int *resync)$/
+w_skiptoken	parser.cc	/^#define w_skiptoken/
+w_skiptoken	parser.cc	/^w_skiptoken()$/
+w_skiptoken	parser.cc	/^w_skiptoken(void)$/
+w_tokenname	parser.cc	/^w_tokenname(int tok)$/
+w_tokenname	parser.cc	/^w_tokenname(tok)$/
+warn	error.cc	/^warn(Error e, ...)$/
+x	testcpp.h	/^#define		x/
+xglue	testcpp.h	/^#define xglue/
+xglue	testcpp.h	/^xglue(HIGH, LOW)$/
+xstr	testcpp.h	/^#define xstr/
+z	testcpp.h	/^#define		z/
+~Array_ref_node	ccnode2.cc	/^Array_ref_node::~Array_ref_node()$/
+~Compound_node	ccnode2.cc	/^Compound_node::~Compound_node()$/
+~Delete_node	ccnode2.cc	/^Delete_node::~Delete_node()$/
+~For_node	ccnode2.cc	/^For_node::~For_node()$/
+~Func_call_node	ccnode2.cc	/^Func_call_node::~Func_call_node()$/
+~Initializer_node	ccnode2.cc	/^Initializer_node::~Initializer_node()$/
+~New_node	ccnode2.cc	/^New_node::~New_node()$/
+~Node	ccnode2.cc	/^Node::~Node() { }$/
+~Scope	ccsym.cc	/^Scope::~Scope()$/
+~String_node	ccnode2.cc	/^String_node::~String_node()$/
+~Symbol	ccsym.cc	/^Symbol::~Symbol()$/

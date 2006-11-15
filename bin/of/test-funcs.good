@@ -1,0 +1,966 @@
+Device 0x91011 found @0,7,0
+Device 0x91011 found @0,8,0
+Device 0x91011 found @0,9,0
+CodeGenInc alpha64 1.00
+SmartFirmware(tm) Copyright 1996 by CodeGen, Inc.  All Rights Reserved.
+
+test: 1 2 dup
+STACK: 
+[0x00000002] 2
+[0x00000002] 2
+[0x00000001] 1
+
+test: 1 2 3 2dup
+STACK: 
+[0x00000003] 3
+[0x00000002] 2
+[0x00000003] 3
+[0x00000002] 2
+[0x00000001] 1
+
+test: 1 ?dup
+STACK: 
+[0x00000001] 1
+[0x00000001] 1
+
+test: 0 ?dup
+STACK: 
+[0x00000000] 0
+
+test: 1 2 over
+STACK: 
+[0x00000001] 1
+[0x00000002] 2
+[0x00000001] 1
+
+test: 1 2 3 4 2over
+STACK: 
+[0x00000002] 2
+[0x00000001] 1
+[0x00000004] 4
+[0x00000003] 3
+[0x00000002] 2
+[0x00000001] 1
+
+test: 1 2 3 0 pick
+STACK: 
+[0x00000003] 3
+[0x00000003] 3
+[0x00000002] 2
+[0x00000001] 1
+
+test: 1 2 3 1 pick
+STACK: 
+[0x00000002] 2
+[0x00000003] 3
+[0x00000002] 2
+[0x00000001] 1
+
+test: 1 2 3 2 pick
+STACK: 
+[0x00000001] 1
+[0x00000003] 3
+[0x00000002] 2
+[0x00000001] 1
+
+test: 1 2 3 3 pick
+error: data stack underflow
+
+test: 1 2 3 tuck
+STACK: 
+[0x00000003] 3
+[0x00000002] 2
+[0x00000003] 3
+[0x00000001] 1
+
+test: 1 2 drop
+STACK: 
+[0x00000001] 1
+
+test: 1 2 3 2drop
+STACK: 
+[0x00000001] 1
+
+test: 1 2 3 nip
+STACK: 
+[0x00000003] 3
+[0x00000001] 1
+
+test: 1 2 3 4 5 3 roll
+STACK: 
+[0x00000002] 2
+[0x00000005] 5
+[0x00000004] 4
+[0x00000003] 3
+[0x00000001] 1
+
+test: 1 2 3 4 rot
+STACK: 
+[0x00000002] 2
+[0x00000004] 4
+[0x00000003] 3
+[0x00000001] 1
+
+test: 1 2 3 4 -rot
+STACK: 
+[0x00000003] 3
+[0x00000002] 2
+[0x00000004] 4
+[0x00000001] 1
+
+test: 1 2 3 4 5 6 7 2rot
+STACK: 
+[0x00000003] 3
+[0x00000002] 2
+[0x00000007] 7
+[0x00000006] 6
+[0x00000005] 5
+[0x00000004] 4
+[0x00000001] 1
+
+test: 1 2 3 swap
+STACK: 
+[0x00000002] 2
+[0x00000003] 3
+[0x00000001] 1
+
+test: 1 2 3 4 5 2swap
+STACK: 
+[0x00000003] 3
+[0x00000002] 2
+[0x00000005] 5
+[0x00000004] 4
+[0x00000001] 1
+
+test: 0 >r .rs .s r@ .rs r> .rs
+RETURN STACK: 
+.rs
+<NULL>
+>r
+evaluate
+test
+STACK: 
+RETURN STACK: 
+.rs
+<NULL>
+>r
+evaluate
+test
+RETURN STACK: 
+.rs
+evaluate
+test
+STACK: 
+[0x00000000] 0
+[0x00000000] 0
+
+test: 1 2 3 depth
+STACK: 
+[0x00000003] 3
+[0x00000003] 3
+[0x00000002] 2
+[0x00000001] 1
+
+test: 1 2 +
+STACK: 
+[0x00000003] 3
+
+test: 5 3 -
+STACK: 
+[0x00000002] 2
+
+test: 2 3 *
+STACK: 
+[0x00000006] 6
+
+test: 6 2 /
+STACK: 
+[0x00000003] 3
+
+test: 7 3 mod
+STACK: 
+[0x00000001] 1
+
+test: 7 3 /mod
+STACK: 
+[0x00000002] 2
+[0x00000001] 1
+
+test: -7 3 /mod
+STACK: 
+[0xFFFFFFFE] -2
+[0xFFFFFFFF] -1
+
+test: 7 3 u/mod
+STACK: 
+[0x00000002] 2
+[0x00000001] 1
+
+test: -7 3 u/mod
+STACK: 
+[0x55555553] 1431655763
+[0x00000000] 0
+
+test: -2 abs
+STACK: 
+[0x00000002] 2
+
+test: 2 abs
+STACK: 
+[0x00000002] 2
+
+test: 0 abs
+STACK: 
+[0x00000000] 0
+
+test: 3 negate
+STACK: 
+[0xFFFFFFFD] -3
+
+test: -3 negate
+STACK: 
+[0x00000003] 3
+
+test: 0 negate
+STACK: 
+[0x00000000] 0
+
+test: 1 2 max
+STACK: 
+[0x00000002] 2
+
+test: 2 1 max
+STACK: 
+[0x00000002] 2
+
+test: 1 1 max
+STACK: 
+[0x00000001] 1
+
+test: 1 2 min
+STACK: 
+[0x00000001] 1
+
+test: 2 1 min
+STACK: 
+[0x00000001] 1
+
+test: 1 1 min
+STACK: 
+[0x00000001] 1
+
+test: 5 2 bounds
+STACK: 
+[0x00000005] 5
+[0x00000007] 7
+
+test: 1 2 lshift
+STACK: 
+[0x00000004] 4
+
+test: 8 2 rshift
+STACK: 
+[0x00000002] 2
+
+test: 3 2*
+STACK: 
+[0x00000006] 6
+
+test: 3 2/
+STACK: 
+[0x00000001] 1
+
+test: 7 4 and
+STACK: 
+[0x00000004] 4
+
+test: 5 2 and
+STACK: 
+[0x00000000] 0
+
+test: 7 4 or
+STACK: 
+[0x00000007] 7
+
+test: 5 2 or
+STACK: 
+[0x00000007] 7
+
+test: 7 4 xor
+STACK: 
+[0x00000003] 3
+
+test: 5 2 xor
+STACK: 
+[0x00000007] 7
+
+test: 0 invert
+STACK: 
+[0xFFFFFFFF] -1
+
+test: -2 invert
+STACK: 
+[0x00000001] 1
+
+test: 1 -1 2 2 d+
+STACK: 
+[0x00000001] 1
+[0x00000003] 3
+
+test: 4 -4 3 3 d-
+STACK: 
+[0xFFFFFFF9] -7
+[0x00000001] 1
+
+test: 1 -1 2 2 um*
+STACK: 
+[0x00000002] 2
+[0x00000002] 2
+[0xFFFFFFFF] -1
+[0x00000001] 1
+
+test: 4 -4 3 3 um/mod
+STACK: 
+[0x00000003] 3
+[0xFFFFFFFC] -4
+[0x00000004] 4
+
+test: 0 char+
+STACK: 
+[0x00000001] 1
+
+test: 0 cell+
+STACK: 
+[0x00000004] 4
+
+test: 2 chars
+STACK: 
+[0x00000002] 2
+
+test: 2 cells
+STACK: 
+[0x00000008] 8
+
+test: 0 aligned
+STACK: 
+[0x00000000] 0
+
+test: 1 aligned
+STACK: 
+[0x00000004] 4
+
+test: 2 aligned
+STACK: 
+[0x00000004] 4
+
+test: 3 aligned
+STACK: 
+[0x00000004] 4
+
+test: 4 aligned
+STACK: 
+[0x00000004] 4
+
+test: 5 aligned
+STACK: 
+[0x00000008] 8
+
+test: 12 buf !
+STACK: 
+
+test: buf @
+STACK: 
+[0x0000000C] 12
+
+test: 3 buf +! buf @
+STACK: 
+[0x0000000F] 15
+
+test: 33 buf c!
+STACK: 
+
+test: buf c@
+STACK: 
+[0x00000021] 33
+
+test: 23 34 buf 2!
+STACK: 
+
+test: buf 2@
+STACK: 
+[0x00000022] 34
+[0x00000017] 23
+
+test: buf 12 45 fill
+STACK: 
+STACK: 
+[0x00000000] 0
+[0x2D2D2D2D] 757935405
+[0x2D2D2D2D] 757935405
+[0x2D2D2D2D] 757935405
+
+test: buf buf2 16 move
+STACK: 
+STACK: 
+[0x00000000] 0
+[0x2D2D2D2D] 757935405
+[0x2D2D2D2D] 757935405
+[0x2D2D2D2D] 757935405
+
+test: key? .s key .s here dup 50 expect span @ 1- type cr
+STACK: 
+[0xFFFFFFFF] -1
+STACK: 
+[0x00000054] 84
+[0xFFFFFFFF] -1
+his is only a test.
+STACK: 
+[0x00000054] 84
+[0xFFFFFFFF] -1
+
+test: bl
+STACK: 
+[0x00000020] 32
+
+test: bl 1 + emit cr
+!
+STACK: 
+
+test: " str" drop .s count type cr
+STACK: 
+[0x00EFFBF1] 15727601
+str
+STACK: 
+
+test: base @
+STACK: 
+[0x0000000A] 10
+
+test: 31 . cr
+31 
+STACK: 
+
+test: -31 . cr
+-31 
+STACK: 
+
+test: 31 u. cr
+31 
+STACK: 
+
+test: -31 u. cr
+4294967265 
+STACK: 
+
+test: 31 5 .r cr
+   31 
+STACK: 
+
+test: -31 5 .r cr
+  -31 
+STACK: 
+
+test: 31 5 u.r cr
+   31 
+STACK: 
+
+test: -31 5 u.r cr
+4294967265 
+STACK: 
+
+test: <# 12 # .s #> type cr
+STACK: 
+[0x00000001] 1
+2
+STACK: 
+
+test: <# 12 # #s .s #> type cr
+STACK: 
+[0x00000000] 0
+[0x00000000] 0
+12
+STACK: 
+[0x00000000] 0
+
+test: <# -12 dup # #s .s 2drop sign 33 hold 0 #> type cr
+STACK: 
+[0x00000000] 0
+[0x00000000] 0
+[0xFFFFFFF4] -12
+!-12
+STACK: 
+
+test: hex <# -12 dup # #s .s 2drop sign 21 hold 0 #> type decimal cr
+STACK: 
+[0x00000000] 0
+[0x00000000] 0
+[0xFFFFFFEE] -18
+!-12
+STACK: 
+
+test: 1 2 <
+STACK: 
+[0xFFFFFFFF] -1
+
+test: 2 1 <
+STACK: 
+[0x00000000] 0
+
+test: 1 1 <
+STACK: 
+[0x00000000] 0
+
+test: 1 2 <>
+STACK: 
+[0xFFFFFFFF] -1
+
+test: 1 1 <>
+STACK: 
+[0x00000000] 0
+
+test: 1 2 =
+STACK: 
+[0x00000000] 0
+
+test: 1 1 =
+STACK: 
+[0xFFFFFFFF] -1
+
+test: 1 2 >
+STACK: 
+[0x00000000] 0
+
+test: 2 1 >
+STACK: 
+[0xFFFFFFFF] -1
+
+test: 1 1 >
+STACK: 
+[0x00000000] 0
+
+test: 2 1 3 within
+STACK: 
+[0xFFFFFFFF] -1
+
+test: 2 1 2 within
+STACK: 
+[0x00000000] 0
+
+test: 2 2 3 within
+STACK: 
+[0xFFFFFFFF] -1
+
+test: 1 2 3 within
+STACK: 
+[0x00000000] 0
+
+test: 1 0<
+STACK: 
+[0x00000000] 0
+
+test: 0 0<
+STACK: 
+[0x00000000] 0
+
+test: -1 0<
+STACK: 
+[0xFFFFFFFF] -1
+
+test: 0 0<>
+STACK: 
+[0x00000000] 0
+
+test: 1 0<>
+STACK: 
+[0xFFFFFFFF] -1
+
+test: 0 0=
+STACK: 
+[0xFFFFFFFF] -1
+
+test: 1 0=
+STACK: 
+[0x00000000] 0
+
+test: 1 0>
+STACK: 
+[0xFFFFFFFF] -1
+
+test: 0 0>
+STACK: 
+[0x00000000] 0
+
+test: -1 0>
+STACK: 
+[0x00000000] 0
+
+test: 1 0 u<
+STACK: 
+[0x00000000] 0
+
+test: 0 0 u<
+STACK: 
+[0x00000000] 0
+
+test: -1 0 u<
+STACK: 
+[0x00000000] 0
+
+test: 1 0 u>
+STACK: 
+[0xFFFFFFFF] -1
+
+test: 0 0 u>
+STACK: 
+[0x00000000] 0
+
+test: -1 0 u>
+STACK: 
+[0xFFFFFFFF] -1
+
+test: /c
+STACK: 
+[0x00000001] 1
+
+test: /w
+STACK: 
+[0x00000002] 2
+
+test: /l
+STACK: 
+[0x00000004] 4
+
+test: /n
+STACK: 
+[0x00000004] 4
+
+test: 0 2 ca+
+STACK: 
+[0x00000002] 2
+
+test: 0 2 wa+
+STACK: 
+[0x00000004] 4
+
+test: 0 2 la+
+STACK: 
+[0x00000008] 8
+
+test: 0 2 na+
+STACK: 
+[0x00000008] 8
+
+test: 0 wa1+
+STACK: 
+[0x00000002] 2
+
+test: 0 la1+
+STACK: 
+[0x00000004] 4
+
+test: 2 /w*
+STACK: 
+[0x00000004] 4
+
+test: 2 /l*
+STACK: 
+[0x00000008] 8
+
+test: hex F1E2D3C4 decimal buf !
+STACK: 
+
+test: buf w@
+STACK: 
+[0x0000F1E2] 61922
+
+test: buf <w@
+STACK: 
+[0xFFFFF1E2] -3614
+
+test: buf l@
+STACK: 
+[0xF1E2D3C4] -236792892
+
+test: 1234 buf w! buf @
+STACK: 
+[0x04D2D3C4] 80925636
+
+test: 98765432 buf l! buf @
+STACK: 
+[0x05E30A78] 98765432
+
+test: here . cr 1234 w, here . cr
+14975615 
+14975618 
+STACK: 
+
+test: here . cr 98765432 l, here . cr
+14975618 
+14975622 
+STACK: 
+
+test: buf on buf @
+STACK: 
+[0xFFFFFFFF] -1
+
+test: buf off buf @
+STACK: 
+[0x00000000] 0
+
+test: <# -12 u# .s u#> type cr
+STACK: 
+[0x19999998] 429496728
+4
+STACK: 
+
+test: <# -12 u# u#s .s u#> type cr
+STACK: 
+[0x00000000] 0
+4294967284
+STACK: 
+
+test: buf buf2 16 comp
+STACK: 
+[0x00000000] 0
+
+test: buf buf2 16 comp
+STACK: 
+[0xFFFFFFFF] -1
+
+test: 12345678 lbsplit
+STACK: 
+[0x00000012] 18
+[0x00000034] 52
+[0x00000056] 86
+[0x00000078] 120
+
+test: 12345678 lwsplit
+STACK: 
+[0x00001234] 4660
+[0x00005678] 22136
+
+test: 1234 wbsplit
+STACK: 
+[0x00000012] 18
+[0x00000034] 52
+
+test: 12 34 56 78 bljoin
+STACK: 
+[0x78563412] 2018915346
+
+test: 12 34 bwjoin
+STACK: 
+[0x00003412] 13330
+
+test: 1234 5678 wljoin
+STACK: 
+[0x56781234] 1450709556
+
+test: 12345678 wbflip
+STACK: 
+[0x00007856] 30806
+
+test: 12345678 9ABCDEF0 buf 2!  buf 8 wbflips  buf 2@
+STACK: 
+[0xBC9AF0DE] -1130696482
+[0x34127856] 873625686
+
+test: 12345678 lbflip
+STACK: 
+[0x78563412] 2018915346
+
+test: 12345678 9ABCDEF0 buf 2!  buf 8 lbflips  buf 2@
+STACK: 
+[0xF0DEBC9A] -253838182
+[0x78563412] 2018915346
+
+test: 12345678 lwflip
+STACK: 
+[0x56781234] 1450709556
+
+test: 12345678 9ABCDEF0 buf 2!  buf 8 lwflips  buf 2@
+STACK: 
+[0xDEF09ABC] -554657092
+[0x56781234] 1450709556
+
+test: 3 u2/
+STACK: 
+[0x00000001] 1
+
+test: -1 u2/
+STACK: 
+[0x7FFFFFFF] 2147483647
+
+test: 2 1 3 between
+STACK: 
+[0xFFFFFFFF] -1
+
+test: 2 1 2 between
+STACK: 
+[0xFFFFFFFF] -1
+
+test: 2 2 3 between
+STACK: 
+[0xFFFFFFFF] -1
+
+test: 1 2 3 between
+STACK: 
+[0x00000000] 0
+
+test: 1 0 >=
+STACK: 
+[0xFFFFFFFF] -1
+
+test: 0 0 >=
+STACK: 
+[0xFFFFFFFF] -1
+
+test: -1 0 >=
+STACK: 
+[0x00000000] 0
+
+test: 1 0 <=
+STACK: 
+[0x00000000] 0
+
+test: 0 0 <=
+STACK: 
+[0xFFFFFFFF] -1
+
+test: -1 0 <=
+STACK: 
+[0xFFFFFFFF] -1
+
+test: 1 0<=
+STACK: 
+[0x00000000] 0
+
+test: 0 0<=
+STACK: 
+[0xFFFFFFFF] -1
+
+test: -1 0<=
+STACK: 
+[0xFFFFFFFF] -1
+
+test: 1 0>=
+STACK: 
+[0xFFFFFFFF] -1
+
+test: 0 0>=
+STACK: 
+[0xFFFFFFFF] -1
+
+test: -1 0>=
+STACK: 
+[0x00000000] 0
+
+test: 1 0 u<=
+STACK: 
+[0x00000000] 0
+
+test: 0 0 u<=
+STACK: 
+[0xFFFFFFFF] -1
+
+test: -1 0 u<=
+STACK: 
+[0x00000000] 0
+
+test: 1 0 u>=
+STACK: 
+[0xFFFFFFFF] -1
+
+test: 0 0 u>=
+STACK: 
+[0xFFFFFFFF] -1
+
+test: -1 0 u>=
+STACK: 
+[0xFFFFFFFF] -1
+
+test: 8 2 >>a
+STACK: 
+[0x00000002] 2
+
+test: bell
+STACK: 
+[0x00000007] 7
+
+test: bs
+STACK: 
+[0x00000008] 8
+
+test: #line @
+STACK: 
+[0x00000002] 2
+
+test: #out @
+STACK: 
+[0x00000000] 0
+
+test: " str" buf pack @
+STACK: 
+[0x03737472] 57898098
+
+test: 65 lcc
+STACK: 
+[0x00000061] 97
+
+test: 97 lcc
+STACK: 
+[0x00000061] 97
+
+test: 65 upc
+STACK: 
+[0x00000041] 65
+
+test: 97 upc
+STACK: 
+[0x00000041] 65
+
+test: (cr
+
+STACK: 
+
+test: " 37" $number
+STACK: 
+[0x00000000] 0
+[0x00000025] 37
+
+test: " nonum" $number
+STACK: 
+[0xFFFFFFFF] -1
+
+test: 57 10 digit
+STACK: 
+[0xFFFFFFFF] -1
+[0x00000009] 9
+
+test: 65 16 digit
+STACK: 
+[0xFFFFFFFF] -1
+[0x0000000A] 10
+
+test: 36 16 digit
+STACK: 
+[0x00000000] 0
+[0x00000024] 36
+
+test: " $find" $find
+STACK: 
+[0xFFFFFFFF] -1
+[0x000000CB] 203
+
+test: " bozo" $find
+STACK: 
+[0x00000000] 0
+[0x00000004] 4
+[0x00EFF6F1] 15726321
+
+test: 32 alloc-mem .s 32 free-mem
+STACK: 
+[0x00E37050] 14905424
+STACK: 
+
+END OF TESTS

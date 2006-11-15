@@ -1,0 +1,46 @@
+forth
+: strdup ( str len -- new-str len )
+	swap over		( len str len --)
+	alloc-mem		( len str new-str --)
+	tuck			( len new-str str new-str --)
+	3 pick			( len new-str str new-str len --)
+	move			( len new-str --)
+	swap			( new-str len --)
+;
+
+" /" select-dev		\ open "/" node
+
+\ create a new device node "/foo"
+new-device
+" foo" strdup " name" property
+" one" strdup " device_type" property
+: open " open foo" type cr
+	" " " dummy" find-package if interpose else 2drop then
+	true
+	;
+: close " close foo" type cr ;
+finish-device
+my-self close-dev
+
+
+\ create new device /foo/bar
+" /foo" select-dev
+new-device
+" bar" strdup " name" property
+" two" strdup " device_type" property
+: open " open bar" type cr true ;
+: close " close bar" type cr ;
+finish-device
+my-self close-dev
+
+
+cd /packages
+new-device
+" dummy" strdup " name" property
+: open " open dummy " type cr true ;
+\ : open " open dummy FAIL" type cr false ;
+: close " close dummy" type cr ;
+finish-device
+
+
+show-devs

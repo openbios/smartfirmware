@@ -1,0 +1,299 @@
+\ (c) Copyright 1996 by CodeGen, Inc.  All Rights Reserved.
+\
+\ test routines in "funcs.c"
+\
+
+\ display and evaluate a test string
+: test ( eval-str strlen ) 2dup cr " test: " type type cr ' evaluate catch drop .s clear ;
+
+" 1 2 dup" test
+
+" 1 2 3 2dup" test
+
+" 1 ?dup" test
+" 0 ?dup" test
+
+" 1 2 over" test
+
+" 1 2 3 4 2over" test
+
+" 1 2 3 0 pick" test
+" 1 2 3 1 pick" test
+" 1 2 3 2 pick" test
+" 1 2 3 3 pick" test clear
+
+" 1 2 3 tuck" test
+
+" 1 2 drop" test
+
+" 1 2 3 2drop" test
+
+" 1 2 3 nip" test
+
+" 1 2 3 4 5 3 roll" test
+
+" 1 2 3 4 rot" test
+
+" 1 2 3 4 -rot" test
+
+" 1 2 3 4 5 6 7 2rot" test
+
+" 1 2 3 swap" test
+
+" 1 2 3 4 5 2swap" test
+
+" 0 >r .rs .s r@ .rs r> .rs" test
+
+" 1 2 3 depth" test
+
+" 1 2 +" test
+" 5 3 -" test
+" 2 3 *" test
+" 6 2 /" test
+" 7 3 mod" test
+" 7 3 /mod" test
+" -7 3 /mod" test
+" 7 3 u/mod" test
+" -7 3 u/mod" test
+
+" -2 abs" test
+" 2 abs" test
+" 0 abs" test
+
+" 3 negate" test
+" -3 negate" test
+" 0 negate" test
+
+" 1 2 max" test
+" 2 1 max" test
+" 1 1 max" test
+" 1 2 min" test
+" 2 1 min" test
+" 1 1 min" test
+
+" 5 2 bounds" test
+
+" 1 2 lshift" test
+" 8 2 rshift" test
+
+" 3 2*" test
+" 3 2/" test
+
+" 7 4 and" test
+" 5 2 and" test
+" 7 4 or" test
+" 5 2 or" test
+" 7 4 xor" test
+" 5 2 xor" test
+
+" 0 invert" test
+" -2 invert" test
+
+" 1 -1 2 2 d+" test  \ TODO
+" 4 -4 3 3 d-" test  \ TODO
+" 1 -1 2 2 um*" test  \ TODO
+" 4 -4 3 3 um/mod" test  \ TODO
+
+" 0 char+" test
+" 0 cell+" test
+" 2 chars" test
+" 2 cells" test
+
+" 0 aligned" test
+" 1 aligned" test
+" 2 aligned" test
+" 3 aligned" test
+" 4 aligned" test
+" 5 aligned" test
+
+\ allocate some memory to test mem read and write routines
+32 buffer: buf
+
+" 12 buf !" test
+" buf @" test
+" 3 buf +! buf @" test
+" 33 buf c!" test
+" buf c@" test
+" 23 34 buf 2!" test
+" buf 2@" test
+
+\ some more memory to test mem-move/fill routines
+32 buffer: buf2
+
+" buf 12 45 fill" test
+buf 2@ buf 2 cells + 2@ .s clear
+buf2 16 1 fill
+" buf buf2 16 move" test
+buf 2@ buf 2 cells + 2@ .s clear
+
+\ test all of these at once: key? key expect span
+\ the line may have a terminating \r instead of \n, so avoid printing it
+\ " key? .s key .s here dup 50 expect span @ 1- type cr" test
+\ This is only a test.
+
+" bl" test
+" bl 1 + emit cr" test
+
+\ routine "test" defined above tests "type"
+
+\ 22 is ascii for double-quote ("), and 03 is the length of the following string
+" "(22) "(03)str"(22) drop .s count type cr" test
+
+" base @" test
+" 31 . cr" test
+" -31 . cr" test
+" 31 u. cr" test
+" -31 u. cr" test
+" 31 5 .r cr" test
+" -31 5 .r cr" test
+" 31 5 u.r cr" test
+" -31 5 u.r cr" test
+
+\ test picture-numeric conversions
+" <# 12 0 # .s #> type cr" test
+" <# 12 0 # #s .s #> type cr" test
+" <# -12 -1 2dup # #s .s 2drop drop sign 33 hold 0 0 #> type cr" test
+" hex <# -12 -1 2dup # #s .s 2drop drop sign 21 hold 0 0 #> type decimal cr" test
+
+\ comparison operators
+" 1 2 <" test
+" 2 1 <" test
+" 1 1 <" test
+" 1 2 <>" test
+" 1 1 <>" test
+" 1 2 =" test
+" 1 1 =" test
+" 1 2 >" test
+" 2 1 >" test
+" 1 1 >" test
+" 2 1 3 within" test
+" 2 1 2 within" test
+" 2 2 3 within" test
+" 1 2 3 within" test
+" 1 0<" test
+" 0 0<" test
+" -1 0<" test
+" 0 0<>" test
+" 1 0<>" test
+" 0 0=" test
+" 1 0=" test
+" 1 0>" test
+" 0 0>" test
+" -1 0>" test
+" 1 0 u<" test
+" 0 0 u<" test
+" -1 0 u<" test
+" 1 0 u>" test
+" 0 0 u>" test
+" -1 0 u>" test
+
+" /c" test
+" /w" test
+" /l" test
+" /n" test
+" 0 2 ca+" test
+" 0 2 wa+" test
+" 0 2 la+" test
+" 0 2 na+" test
+" 0 wa1+" test
+" 0 la1+" test
+" 2 /w*" test
+" 2 /l*" test
+
+\ setup to test word/quad fetch/set routines
+" hex F1E2D3C4 decimal buf !" test
+" buf w@" test
+" buf <w@" test
+" buf l@" test
+" 1234 buf w! buf @" test
+" 98765432 buf l! buf @" test
+
+" here . cr 1234 w, here . cr" test
+" here . cr 98765432 l, here . cr" test
+
+" buf on buf @" test
+" buf off buf @" test
+
+\ unsigned picture conversions
+" <# -12 u# .s u#> type cr" test
+" <# -12 u# u#s .s u#> type cr" test
+
+\ test "comp"
+buf 16 1 fill
+buf2 16 1 fill
+" buf buf2 16 comp" test
+1 buf !
+" buf buf2 16 comp" test
+
+\ test byte<->word<->quad stuff
+hex
+" 12345678 lbsplit" test
+" 12345678 lwsplit" test
+" 1234 wbsplit" test
+" 12 34 56 78 bljoin" test
+" 12 34 bwjoin" test
+" 1234 5678 wljoin" test
+" 12345678 wbflip" test
+" 12345678 9ABCDEF0 buf 2!  buf 8 wbflips  buf 2@" test
+" 12345678 lbflip" test
+" 12345678 9ABCDEF0 buf 2!  buf 8 lbflips  buf 2@" test
+" 12345678 lwflip" test
+" 12345678 9ABCDEF0 buf 2!  buf 8 lwflips  buf 2@" test
+decimal
+
+" 3 u2/" test
+" -1 u2/" test
+" 2 1 3 between" test
+" 2 1 2 between" test
+" 2 2 3 between" test
+" 1 2 3 between" test
+" 1 0 >=" test
+" 0 0 >=" test
+" -1 0 >=" test
+" 1 0 <=" test
+" 0 0 <=" test
+" -1 0 <=" test
+" 1 0<=" test
+" 0 0<=" test
+" -1 0<=" test
+" 1 0>=" test
+" 0 0>=" test
+" -1 0>=" test
+" 1 0 u<=" test
+" 0 0 u<=" test
+" -1 0 u<=" test
+" 1 0 u>=" test
+" 0 0 u>=" test
+" -1 0 u>=" test
+" 8 2 >>a" test
+
+" bell" test
+" bs" test
+" #line @" test    \ may not be portable
+" #out @" test     \ may not be portable
+
+\ 22 is ascii for double-quote (")
+" "(22) str"(22) buf pack @" test
+
+" 65 lcc" test
+" 97 lcc" test
+" 65 upc" test
+" 97 upc" test
+
+\ 0, 1, 2, and 3 have already been tested above
+
+" (cr" test
+
+" "(22) 37"(22) $number" test
+" "(22) nonum"(22) $number" test
+
+" 57 10 digit" test
+" 65 16 digit" test
+" 36 16 digit" test
+
+" "(22) $find"(22) $find" test
+" "(22) bozo"(22) $find" test
+
+" 32 alloc-mem .s 32 free-mem" test
+
+cr " END OF TESTS" type cr

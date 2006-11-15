@@ -1,0 +1,14 @@
+#include cpp03.h
+
+cpp03.h:1: error: badly formed number here with illegal suffix character '-'.
+cpp03.h:1: error: badly formed number here with illegal suffix character 'x'.
+completed scan with errors
+ i !296 #0xBE-0x0A ';'
+ ##.1250E+04 ';'
+ ##1.250E3 ';'
+ ##12.50E02 ';'
+ ##125.0e+1 ';'
+ ##1250e00 ';'
+ ##12500.e-01 ';'
+ ##125000e-2 ';'
+ ##1250. ';'

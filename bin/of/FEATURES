@@ -1,0 +1,83 @@
+SUPPORTED STANDARDS:
+
+Core 1275 doc + errata are implemented including most options and suggestions:
+    - device, client, and user interfaces
+    - standard packages: deblocker, disklabel, obp-tftp, fb8, terminal emulator
+    - "lines/page" Forth variable as suggested for "exit?" word
+    - nvedit one-screen emacs-style editor
+    - command-line emacs-style editing including command-completion
+    - security words:
+        - password security-password security-#badlogins security-mode
+        - does not allow these to be executed in nvramrc:
+            boot go nvedit password reset-all "setenv security-mode"
+    - optional Sun OBP compatibilty
+    - no assembler/disassembler or breakpoints for machine-level debugging
+      due to implementation in ANSI C
+	- complete Forth debugging capabilities
+
+Recommended practices that are implemented:
+    64-bit extensions
+        - includes support for a 32-bit runtime environment for older Fcode
+    16-color text extension
+    8-bit graphics extension
+    Forth source & Fcode image support (part of plug-in executable layer)
+    Generic Names
+    Interposition
+    PCI Bus Binding
+    SCSI-3 parallel interface (as part of generic SCSI code)
+    TFTP Booting Extension
+    partial ISA Bus Binding (no customer for it yet)
+    proposed network device extensions, specifically args to "open" method
+    proposed ping command
+        - this has some problems and isn't cooked yet, so a non-standard
+          version is provided for now
+
+Accepted proposals:
+#215: extensible client interface
+    - implemented
+#245: extended font definition
+    - not implemented yet
+    - still open questions about how to get info to display driver and what to
+      do if you have an older driver that can't recognize the new font format?
+#248: "size" and "#blocks" methods
+    - added to disklabel template, SCSI, and file-system code
+#268: standard "version" property
+    - not implemented yet
+    - seems to be useful only to certain types of drivers
+    - there are also some open questions at the end of the proposal
+#270: test-method client interface
+    - implemented
+#288: new property for wide SCSI
+    - added to scsi/scsi.c to probe for IDs 0..15 instead of 0..7
+      if the property "wide" is present
+    - otherwise, it's chip-driver and disk-dependent as both have to support it
+#370: 64-bit Extensions: Fcode32 Compatibility
+	- implemented
+
+
+
+NON-STANDARD EXTENSIONS:
+
+plug-in file-system layer for listing and reading files, handling partitions
+    - DOS partition, DOS FAT, BSD partition, BSD UFS/FFS, ISO-9660 CD-ROM
+custom "disk-label" package to support plug-in filesystems
+plug-in executable image loading, running, and symbol lookup layer
+    - ELF binary, COFF binary, and Forth/Fcode "images" supported
+"term" terminal-emulator word to connect console to a serial device
+additional debugging words (see debug.c for them)
+failsafe I/O device nodes to bring up a new port quickly
+"auto-boot-timeout" NV parameter
+    - specify how long to wait for a keypress before auto-booting
+"secondary-diag?" NV parameter
+    - control if secondary diagnostics should be turned on at bootup
+color logo support for "banner" in fb.c package using 8-bit color extension
+output-capture buffer to catch tail of large dumps to console
+de-tokenizer for disassembling and viewing Fcode images
+"scroll-step" Forth variable to speed up scrolling on dumb frame-buffers
+default fb8 package also supports 16-bit and 32-bit direct pixels while
+    still supporting the 16-color text specification
+obp-tftp package supports RARP and DHCP in addition to BOOTP,
+	and "rarp" and "dhcp" as boot-options in addition to "bootp"
+command-completion - TAB behaves as in bash and ESC-ESC ESC-/ ESC-? as in ksh
+fully supports both 64-bit pointers and 64-bit integers, if available
+detailed per-command help may be compiled in or out as desired

@@ -1,0 +1,12 @@
+#!/bin/sh
+
+PATH=$PATH:.
+
+for r in runloga runlogi runlogf runlogwf runlogwg runlogbsd runlogdl \
+		runloggnu runloggnu+ runlogg++ runlogcsri runlogqf runloggc
+do
+	if [ -x $r ]; then
+		echo -n "$r	: "
+		eval $r $1
+	fi
+done | expand -12

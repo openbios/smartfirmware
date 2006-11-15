@@ -1,0 +1,129 @@
+: strdup ( str len -- new-str len )
+	swap over		( len str len --)
+	alloc-mem		( len str new-str --)
+	tuck			( len new-str str new-str --)
+	3 pick			( len new-str str new-str len --)
+	move			( len new-str --)
+	swap			( new-str len --)
+;
+
+" /" select-dev		\ open "/" node
+
+\ create a new device node "/foo"
+new-device
+" foo" strdup " name" property
+" loser" strdup " device_type" property
+
+variable p-var
+34 p-var !
+
+43 value p-val
+
+instance variable i-var
+12 i-var !
+
+instance 21 value i-val
+
+6 instance buffer: b-var
+
+\ test setting args and probe-addr/space values
+" " " 4,8123abcd" set-args
+
+\ this should set the "reg" property - assume default #address-cells of 2
+0x8123abcd 4 2 reg
+
+: open -43 to p-val -21 to i-val -34 p-var ! -12 i-var ! 0x01020304 b-var ! true ;
+: close ;
+
+finish-device
+
+
+\ create a second "/foo" device node with different reg property
+new-device
+" foo" strdup " name" property
+" loser" strdup " device_type" property
+
+variable p-var
+78 p-var !
+
+87 value p-val
+
+instance variable i-var
+12 i-var !
+
+instance 21 value i-val
+
+6 instance buffer: b-var
+
+\ test setting args and probe-addr/space values
+" " " 4,12345678" set-args
+
+\ this should set the "reg" property - assume default #address-cells of 2
+0x12345678 4 2 reg
+
+: open -87 to p-val -45 to i-val -79 p-var ! -63 i-var ! 0x1a2b3c4d b-var ! true ;
+: close " close" type cr ;
+
+finish-device
+
+my-self close-dev 0 to my-self	\ close "/" node
+
+
+\ now test the new /foo device
+cr
+" /foo" select-dev
+
+" Properties for /foo: " type cr .properties cr
+
+" p-var: " type p-var @ . cr
+" p-val: " type p-val . cr
+" i-var: " type i-var @ . cr
+" i-val: " type i-val . cr
+" b-var: " b-var 6 dump
+
+" Setting /foo variables:" type cr
+112 p-var !
+123 to p-val
+134 i-var !
+145 to i-val
+0x98765432 b-var !
+" p-var: " type p-var @ . cr
+" p-val: " type p-val . cr
+" i-var: " type i-var @ . cr
+" i-val: " type i-val . cr
+" b-var: " b-var 6 dump
+cr
+
+" my-space: " type my-space . cr
+" my-address: " type my-address . cr
+" my-unit: " type my-unit . . cr
+cr
+
+my-self close-dev 0 to my-self
+
+
+12 alloc-mem .h cr
+
+
+\ re-open and see what the vars are
+cr
+" /foo" select-dev
+
+" Properties for /foo: " type cr .properties cr
+
+" p-var: " type p-var @ . cr
+" p-val: " type p-val . cr
+" i-var: " type i-var @ . cr
+" i-val: " type i-val . cr
+" b-var: " b-var 6 dump
+cr
+
+" my-space: " type my-space . cr
+" my-address: " type my-address . cr
+" my-unit: " type my-unit . . cr
+cr
+
+my-self close-dev 0 to my-self
+
+
+show-devs

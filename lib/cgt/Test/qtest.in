@@ -1,0 +1,35 @@
+
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+
+#include <stdiox.h>
+#include <stringx.h>
+#include <expand.h>
+
+int
+elemcmp(void const *p1, void const *p2)
+{
+    return strcmp(*(char **)p1, *(char **)p2);
+}
+
+main()
+{
+    char **vec = NULL;
+    int veclen = 0;
+    int num = 0;
+    char *str;
+
+    while ((str = xgets(stdin)) != NULL)
+    {
+    	expand((void *)vec, veclen, num + 1, sizeof (char *));
+	vec[num++] = strdup(str);
+    }
+
+    qsort(vec, num, sizeof (char *), elemcmp);
+
+    for (int i = 0; i < num; i++)
+    	printf("%s\n", vec[i]);
+
+    exit(0);
+}

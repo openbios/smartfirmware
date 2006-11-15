@@ -1,0 +1,74 @@
+
+CC=gcc
+INCLUDES=-I.
+CFLAGS=$(INCLUDES) -O -D_DJGPP_SOURCE
+OBJS=stdlibx.o stdiox.o strapp.o strbld.o strcmpi.o strhash.o strsplit.o \
+	strvec.o dynarray.o hashtable.o pool.o bitset.o merge.o \
+	back386.o getoptx.o path.o xprintf.o demangle.o meminfo.o expand.o
+HDRS=stdlibx.h stdiox.h stringx.h expand.h dynarray.h hashtable.h pool.h \
+	bitset.h pointer.h srchsort.h cachetable.h backtrace.h \
+	getoptx.h matrix.h
+GENS=expand.g dynarray.g hashtable.g pool.g pointer.g srchsort.g cachetable.g \
+	matrix.g
+LIB=libcgt.a
+
+all:		$(LIB) $(HDRS)
+
+export:		$(LIB) $(HDRS) 
+	cp $(HDRS) /cgt/include
+	cp $(GENS) /cgt/include
+	cp $(LIB) /cgt/lib
+
+$(LIB):		$(OBJS)
+	rm -f $(LIB)
+	sh -c 'echo $(OBJS) | xargs -n5 ar r $(LIB)'
+	ar rs $(LIB)
+
+stdlibx.o:	stdlibx.cc stdlibx.h
+stdiox.o:	stdiox.cc stdiox.h stdlibx.h
+xprintf.o:	xprintf.cc stdlibx.h stdiox.h
+path.o:		path.cc stdiox.h stdlibx.h
+strsplit.o:	strsplit.cc stringx.h stdlibx.h stdiox.h expand.h
+dynarray.o:	dynarray.cc dynarray.h
+hashtable.o:	hashtable.cc hashtable.h
+pool.o:		pool.cc pool.h stdlibx.h stringx.h
+bitset.o:	bitset.cc bitset.h stdlibx.h
+malloc.o:	malloc.cc stdlibx.h
+dmalloc.o:	dmalloc.cc stdlibx.h
+strapp.o:	strapp.cc stringx.h stdlibx.h
+strbld.o:	strbld.cc stringx.h stdlibx.h stdiox.h expand.h
+strcmpi.o:	strcmpi.cc stringx.h
+strhash.o:	strhash.cc stringx.h stdlibx.h
+strvec.o:	strvec.cc stringx.h stdlibx.h
+merge.o:	merge.cc srchsort.h
+back386.o:	backtrace.h
+
+expand.h:	expand.g
+	ccgen <expand.g >expand.h
+
+dynarray.h:	dynarray.g
+	ccgen <dynarray.g >dynarray.h
+
+hashtable.h:	hashtable.g
+	ccgen <hashtable.g >hashtable.h
+
+pool.h:		pool.g
+	ccgen <pool.g >pool.h
+
+pointer.h:	pointer.g
+	ccgen <pointer.g >pointer.h
+
+srchsort.h:	srchsort.g
+	ccgen <srchsort.g >srchsort.h
+
+cachetable.h:	cachetable.g
+	ccgen <cachetable.g >cachetable.h
+
+matrix.h:	matrix.g
+	ccgen <matrix.g >matrix.h
+
+.SUFFIXES:	.cc .o
+
+.cc.o:
+	$(CC) -c $(CFLAGS) $<
+

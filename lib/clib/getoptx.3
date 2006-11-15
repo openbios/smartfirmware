@@ -1,0 +1,221 @@
+.\" Copyright (c) 1993,1994,1998 by Parag Patel and Thomas J. Merritt.  All Rights Reserved.
+.TH getoptx 3X "CodeGen, Inc."
+.ad b
+.SH NAME
+getoptx \- parse command-line options
+.SH SYNOPSIS
+.nf
+#include <stdio.h>
+#include <getoptx.h>
+
+int getoptx(int argc, const char \(**\(**argv,
+		const char \(**minus_opts, const char \(**plus_opts);
+
+extern const char *optname;
+extern int optsign;
+extern int optind;
+extern char *optarg;
+.fi
+.SH DESCRIPTION
+.I getoptx
+is a replacement for the standard
+.IR getopt (3C)
+command-line argument parsing function.
+It is almost completely compatible with the standard routine but
+can parse word options (\fB-arg\fR) as well as single character
+options (\fB-a\fR), and handles numeric options (\fB-123\fR),
+minus (\fB-a\fR) options, and plus (\fB+a\fR) options
+which are also double-minus options (\fB--a\fR).
+.PP
+.I getoptx
+is called repeatedly within a loop and returns the value of each
+command-line option as it is parsed, or
+.B EOF
+at the end of all options.
+It will return the character value
+.B '?'
+if there is any error while parsing.
+.PP
+The
+.I minus_opts
+string contains a concatenated list of options
+to be parsed from the command-line.
+These options are expected to begin with a minus (\fB-\fR) and
+may have following arguments.
+This string format is compatible to the 3rd parameter to
+.IR getopt (3C)
+but may also contain these extensions:
+.IP "a" 1in
+Parse the single-letter option \fB-a\fR and return the character
+value \fB'a'\fR.
+Single-letter options may be catenated together on the command-line
+if they do not have any arguments.
+.IP "a:"
+This single-letter option \fB-a\fR has an argument, so set the global
+.I optarg
+to this argument which immediately follows the option as
+in \fB-astring\fR or follows the option after a space
+as in \fB-a\ string\fR.
+Return the character value \fB'a'\fR.
+.IP "(arg)"
+Parse the option \fB-arg\fR as a single word and return the first
+letter of the option \fB'a'\fR.
+.IP "(arg:q)"
+Parse the option \fB-arg\fR and return \fB'q'\fR.
+.IP "(arg:17)"
+Parse the single argument \fB-arg\fR and return the integer \fB17\fR
+rather than a character constant.
+.IP "(arg): (arg:q): (arg:17):"
+Parse the option \fB-arg\fR as a single word, point
+.I optarg
+to the following string as its argument, and then return as above.
+.IP "(arg/ument) (arg/ument:q) (arg/ument:17) (arg/ument): \.\.\."
+Parse the option \fB-argument\fR or any substring down to
+the option \fB-arg\fR as a single word, and return as above.
+This provides short-cuts for long options.
+.IP "(#)"
+The string following the plus or minus flag
+is a number like \fB-123\fR or \fB-123\fR so set
+.I optarg
+to the string value \fB123\fR.
+Usually returns \fB'#'\fR unless the alternate syntax described above
+is used, as in \fB(#:n)\fR or \fB(#:42)\fR.
+.PP
+The
+.I plus_opts
+parameter contains a string of options in the same format as
+.I minus_opts
+except that they are used to parse options beginning with a plus (\fB+\fR)
+or a double-minus \(fB--\fR).
+This parameter may be
+.B NULL
+if no such options are needed.
+.PP
+The global
+.I optname
+is always set to the name of the option parsed, whether it is a
+single-character option or a multi-character option.
+.PP
+The global
+.I optsign
+is used to determine if the option parsed was a minus or plus option.
+.PP
+The global
+.I optind
+is left pointing after the final argument parsed from the command line,
+which makes it easy to pick off any addition arguments.
+This and
+.I optarg
+are the only global variables that are compatible with
+.IR getopt (3C).
+.PP
+The option \fB--\fR terminates argument parsing and forces
+.I getoptx
+to return
+.BR EOF .
+.SH EXAMPLE
+.nf
+#include <stdio.h>
+#include "getoptx.h"
+
+int
+main(int argc, const char **argv)
+{
+    int c;
+    int err = 0;
+
+    while ((c = getoptx(argc, argv,
+            /* minus options */
+                "(#)ab:c(debug)(debugl/evel:1001):(?:1002)",
+            /* plus options (may be NULL) */
+                "(foo)(bar):(FOO:f)(BAR:b):(#)xy:z"
+            )) != EOF)
+        switch (c)
+        {
+        case 'a':        /* -a */
+            printf("arg %ca\\n", optsign);
+            break;
+
+        case 'b':        /* -b arg; +bar arg; +BAR arg */
+            printf("arg %cb = \\"%s\\"\\n", optsign, optarg);
+            break;
+
+        case 'c':        /* -c */
+            printf("arg %cc\\n",optsign);
+            break;
+
+        case 'd':        /* -debug */
+            printf("arg %cdebug\\n", optsign);
+            break;
+
+        case 'f':        /* +foo +FOO */
+            printf("arg %cfoo\\n", optsign);
+            break;
+
+        case 'x':        /* +x */
+        case 'z':        /* +z */
+            printf("arg %c%c\\n", optsign, c);
+            break;
+
+        case 'y':        /* +y arg */
+            printf("arg %cy = \\"%s\\"\\n", optsign, optarg);
+            break;
+
+        case '#':        /* +- numeric */
+            printf("numeric arg = %c%d\\n", optsign, atoi(optarg));
+            break;
+
+        case 1001:        /* -debugl/evel 123 */
+            printf("arg %cdebuglevel = %d\\n", optsign, atoi(optarg));
+            break;
+
+        case 1002:        /* -? (but not an error) */
+            printf("arg %c?\\n", optsign);
+            break;
+
+        default:	/* error */
+            printf("unknown arg %c%c\\n", optsign, c);
+            break;
+        }
+
+    if (optind >= argc)
+        err = 1;
+
+    if (err)
+        fprintf(stderr, "usage: %s [-options] stuff\\n", argv[0]);
+
+    for (; optind < argc ; optind++)
+        printf((optind < argc - 1) ? "%s " : "%s\\n", argv[optind]);
+
+    return err;
+}
+.nf
+.SH NOTES
+.PP
+The global variable
+.I opterr
+is not available and
+.I getoptx
+behaves as if
+.I opterr
+is set to zero, that is
+.I getoptx
+will never print anything to stderr or stdout.
+.PP
+The globals
+.I optind
+and
+.I optarg
+behave just as they do for
+.IR getopt (3C).
+.PP
+The options \fB-(\fR, \fB-)\fR, and \fB-#\fR may not be used
+as they can with
+.IR getopt (3C).
+This is probably not a big loss.
+.PP
+On the positive side, it is possible to parse \fB-?\fR as an option
+separate from the \fB'?'\fR error return value, as in the example above.
+.SH AUTHORS
+Copyright (c) 1993,1994,1998 by Parag Patel and Thomas J\. Merritt.
+All Rights Reserved.

@@ -1,0 +1,803 @@
+Copyright (c) 1991-2002 by Parag Patel.  All Rights Reserved.
+
+<< Please see the wacco(1) man page for details on its usage. >>
+<< Only the grammar file format is described here.            >>
+
+
+
+INTRODUCTION
+------------
+
+wacco is another compiler-compiler.  (Why another compiler-compiler you
+may ask?  Why not!)  It has some rather convenient features with a lot
+of syntactic sugar tossed on top over what yacc(1) provides, and
+generates a top-down recursive-descent LL(1) parser instead of a
+bottom-up LALR parser.
+
+wacco currently generates code which may be compiled using C++, ANSI C,
+or K&R C compilers.  (Alas the same cannot be guaranteed of any code
+embedded in action rules of a wacco grammar.)
+
+Although wacco generated parsers handle a smaller class of grammars than
+those of yacc(1), there is rarely any need for a full LALR parser in
+practice.  It is much easier to deal with error recovery in a top-down
+parser.  It is also possible to re-direct and even completely alter the
+parse on the fly, as well as perform simple attribute-driven parsing.
+
+wacco generates a parser that attempts to automatically re-sync on errors
+based on some heuristics on the first and follow sets of non-terminals.
+Admittedly this is a far from optimal error-handling system, but it is
+much better that what yacc(1) provides (skip X tokens, then continue!).
+Future versions of wacco may provide much more intelligent
+error-recovery systems.
+
+wacco also allows using its parser in an attribute-driven manner.
+Information may be passed down to the right-hand side of an expression
+even though that expression hasn't yet been parsed.  Different rules may
+have different types associated with them.  The C/C++ compiler will
+perform the type-checking for you!  No more funny unions and hoping that
+you didn't make a mistake!
+
+Token values do not have to be explicitly defined.  String and character
+tokens may be specified implicitly as well, rather than creating a dummy
+symbol for them.  wacco will generate a header file containing
+definitions for all the tokens.
+
+There is support for a somewhat smarter scanner which may be wrapped
+around a lex(1) or flex(1) scanner.  Errors will be (hopefully) printed
+out in a clear and simple manner.
+
+The underlying philosophy in wacco is that the code generated should be
+exactly like that someone would generate by hand if they were writing
+such a parser the hard way.
+
+
+
+GRAMMAR FILE FORMAT
+-------------------
+
+The basic grammar file format is:
+
+	/* C style comments */
+	%opt <directives>
+	{ <header> }
+	<rules>         // C++ style comments
+	$$
+	<scanner>
+
+wacco directives may be placed on the optional ``%opt'' line at the top
+of the source grammar.  Only one such line is allowed in the grammar
+source, and it MUST be first in the source.  The directives are merely
+the command-line options for wacco.  Options may thus be set either on
+the command line, or in the wacco source itself.  Please see the man
+page for descriptions of the command-line options.
+
+The header section is a set of code in curly-braces ``{}'' that is put
+at the top of the output parser.cc file.  This a the place to include
+files, define classes, or setup global variables.  Naturally, if there
+is no need for a header section, there is no need for the curlies ``{}''
+
+The scanner section is the ``$$'' and everything after it.  This section
+is entirely optional and is included in the grammar file to make it easy
+to refer to the actual values of tokens without explicitly defining
+those token values.
+
+Without any of the optional parts, a grammar consists solely of rules.
+
+
+
+GRAMMAR RULES
+-------------
+
+The rules look much like those of yacc at first glance but there are
+some interesting differences.  Rules looks something like this:
+
+	ID : stuff1 ;
+	ID <TYPE> : stuff2 ;
+
+The ``ID'' on the left-hand side is a non-terminal and so is eventually
+turned into a function.  The ``TYPE'' is the type that this function
+will accept in and return as a pointer argument.  It is optional and
+must be in angle-brackets ``<>'' if present and assumed to be ``int'' if
+not.  It can be used to pass information into a function (rule) or to
+get information out of it.  (There is a lot more on this below.)
+
+A vertical-bar ``|'' may be used to avoid duplicating the left-hand
+side.  These two rules:
+
+	ID : stuff1 ;
+	ID : stuff2 ;
+
+may be written as:
+
+	ID : stuff1 | stuff2 ;
+
+
+<< For the rest of this document, the conventions are that terminals will be
+   in uppercase and non-terminals in lowercase. >>
+
+
+The ``stuff'' on the right-hand side can get kind of interesting.  Like,
+yacc, this is basically a list of terminals or non-terminals that are
+expected in sequence.
+
+	parenexpr : LPAREN expr RPAREN ;
+
+
+Terminals can be described in several different ways.
+
+Simple character token values are always that of the character they
+represent.  The null character '\0' may not be used as a token - its
+value used for other things internally:
+
+	parenexpr : '(' expr ')' ;
+
+For more complicated strings, just use the strings themselves:
+
+	parenexpr : "<<" expr ">>" ;
+
+wacco automatically defines a token value for each string in the grammar.
+
+Any identifier name may define a terminal.  If that id does not appear
+on the left side of a colon ``:'', then it is assumed to be a terminal
+symbol in the grammar.  This is the only distinction wacco makes between
+terminals (tokens) and non-terminals (functions).
+
+Token codes for terminals are automatically defined in the ``tokens.h''
+header file.  The token value of a string is pretty much inaccessible
+since it is automatically generated and may vary from invocation to
+invocation of wacco.  A character constant will always be its own token
+value.  Any other terminal name like LPAREN above will be in the header
+file as a macro definition with the same name (ie ``LPAREN'') and thus
+is available, although the actual enum value may vary from invocation to
+invocation of wacco.
+
+
+
+GRAMMAR ACTIONS
+---------------
+
+Actions are code fragments embedded anywhere on the right-hand side
+within pairs of curly-braces ``{}''.
+
+	parenexpr: '(' expr { $$ = $expr; } ')'
+
+This introduces some other features that wacco has which yacc doesn't
+have.  The value that the non-terminal returns is always ``$$'' just
+like in yacc grammar files.
+
+The values of the right-hand side are referred to directly via their
+symbolic names.  wacco uses ``$expr'' instead of ``$2'' in yacc.
+``expr''s must return ``int'' values or the C++ compiler will complain
+of a type mismatch error.
+
+wacco generates an appropriate temporary variable only if thar var is
+used by referring to a ``$$'' inside some code for that rule.  Thus
+``parenexpr'' above will have an in/out argument defined for it.  If
+there were no code in the ``{}'', then parenexpr wouldn't be passed
+anything at all.
+
+
+
+RETURN TYPE OF RULES
+--------------------
+
+The ``TYPE'' specifier of a non-terminal may be a lot more complicated
+than just a simple type name:
+
+	example <double d; int i, j> : ... { $$.d = 0.0; $$.i = 34; }
+
+In this case, wacco creates a struct for this non-terminal instead of a
+simple variable.  The contents of the ``<>'' are put into this struct
+which is given an automatically generated name.  This allows passing
+more information in and out of a non-terminal rule without having to
+creat a temporary struct for each rule.  This struct is also passed to
+the non-terminal function by pointer rather than copying.
+
+	expr <int left, right> :  ...  ;
+	example : expr ';' { $$ = $expr.left + $expr.right } ;
+
+All exported non-terminals MUST have simple types to avoid any funny
+structure naming conventions.  If you must have a complicated type
+returned from a start-symbol, you should create a named struct or class
+and use that instead.
+
+Also, simple types must not be named.  The following is illegal as
+well as redundant and kind of silly anyway:
+
+	expr <int var> : ... ;
+
+The void type ``<void>'' can be used to force a rule to NOT return
+anything.  This is most useful with parenthesized expressions (see
+below) to avoid passing around extra data.
+
+
+
+DUPLICATE NON-TERMINALS
+-----------------------
+
+If we have 2 ``expr''s on the right, things get a little messier:
+
+	example: '(' expr '+' expr ')'
+		{ $$ = $expr1 + $expr2; };
+or
+	example: '(' expr=front '+' expr=back ')'
+		{ $$ = $front + $back; };
+
+The second form introduces the ability to alias a name of a right-hand
+side non-terminal.  Here we name ``expr1'' to be called ``front'' and
+``expr2'' to be ``back'' for just this particular right-hand side.
+
+
+
+MORE RULE ACTIONS
+-----------------
+
+Since wacco generates a recursive-descent parser, it allows passing
+information into a rule as well as getting stuff out of it.
+
+	example: { $expr = $$; } '(' expr ')' { $$ = $expr; };
+
+The temp-var used to store the return value from ``expr'' is initialized
+to whatever was passed in to ``example'' and is then passed into
+``expr''.  If a non-terminal never uses ``$$'', then wacco assumes that
+rule will not return anything and does not create temp-var for it.
+
+wacco allows creating temporary variables anywhere you need them, if you
+are using C++.  If you need to use C, this sort of code should be
+avoided:
+
+	example: '(' { int v = 2; } expr ')' { v = $expr; };
+
+wacco tries to avoid putting out unnecessary sets of blocks in the
+output parser file.
+
+Initialization code may be placed before the ``:'' for a rule.  This
+code fragment may declare variables for use in the following actions:
+
+	expr <int> { int v = -1; } : { $term = &v; } term { $$ = v; };
+
+This is typically used used to declare local variables.
+
+Code to be executed before exit of a non-terminal routine can be
+appended to the end of a rule with the ``%exitcode'' directive and a
+code block before the ``;'' that terminates the rule:
+
+	example
+		: expr1
+		| expr2
+		// ...
+		%exitcode { if ($$ < 0) $$ = 0; }
+		;
+
+
+
+INCOMPLETE CODE BLOCKS
+----------------------
+
+To generate incomplete blocks, and allow a weird sort of free-form
+grammar, the ``%{ %}'' format may be used wherever a ``{}'' action is
+normally placed.  This allows creating incomplete blocks like so:
+
+	example: '(' %{ if (somevar) {  %} expr ')' %{ } %} ;
+
+Unlike the ``{}'' blocks, ``%{ %}'' blocks may not be nested within
+other ``%{ %}'' blocks.
+
+
+
+THE EMPTY RULE
+--------------
+
+The empty rule is not implicitly specified as in yacc, but must be
+defined with the special ``[]'' symbol:
+
+	null: [] ;
+	expr: '(' expr ')' | [] ;
+
+An empty statement is an error in wacco to help protect against typos
+and other mistakes.
+
+
+
+PARENTHESIZED RULES
+-------------------
+
+Right-hand sides may have parentheses for grouping.  wacco generates a
+function for every parenthesized expression to maintain the
+recursive-descent parsing semantics:
+
+	value: (ID | INT) | [];
+
+is the equivalent of:
+
+	value: v1 | [];
+	v1: ID | INT;
+
+Just like other non-terminal rules, parenthesized expressions have
+return values, types, aliases, and may be referred to in other parts of
+the right-hand side:
+
+	example : (<long> ID | INT) { $$ = $_; };
+
+The default type is the type of the enclosing parens or, for the
+outer-most parens, the left-hand side:
+
+Multiple sets of parens on the right may be referred to as ``$_1'',
+``$_2'', and so on:
+
+	example<long> : (ID | INT) '+' (ID | INT)
+		{ $$ = $_1 + $_2; } ;
+
+They may be named as well:
+
+	example<float>: (ID | FLOAT)=num { $$ = $num; } ;
+
+Here the parens inherit the type ``float'' from ``example''.
+
+Since the left-hand side may be used on the right-hand side for
+recursive functions, so may parenthesized expressions.  The names just
+get a little strange:
+
+	strange: (ID (OP # #1 #2 #3 #* | []) | []) ;
+
+This table shows what each ``#'' expression refers to:
+
+	#	(OP # #1 #2 #3 #* | [])
+	#1	(OP # #1 #2 #3 #* | [])
+	#2	(ID (OP # #1 #2 #3 #* | []) | [])
+	#3	strange
+	#*	strange
+
+
+
+ZERO, ONE, OR MORE
+------------------
+
+This syntax automatically inserts the appropriate loop in the code to
+parse zero-or-more or one-or-more symbol sequences from the input, or
+a simple optional selection for zero-or-one:
+
+	num : INT? ;		// only zero or one INTs are parsed
+	opt_list : INT* ;	// zero or more INTs are parsed
+	list : INT+ ;		// one or more INTs are parsed
+
+The ``?'' is simply an easier way to generate an optional element and
+does not generate a loop.  The equivalent to ``num'' above looks like:
+
+	num2 : (INT | []);	// only one or zero INTs are parsed
+
+An expression followed by a ``*'' will essentially generate a "while"
+loop to parse that expression resulting in a zero-or-more operation.  A
+``+'' creates essentially a "do-while" loop and so is a one-or-more.
+
+Any embedded code fragments to be inserted within the loop should be
+enclosed within parentheses:
+
+	plus <int>
+	    : value { $_ = $value; }
+		    ( '+' value { $$ += $value; }
+		    | '-' value { $$ -= $value; }
+		    )*
+		{ $$ = $_; }
+	    ;
+
+This will parse and perform integer addition and subtraction, then return
+the result.  Another way to do the same thing is:
+
+	plus <int>
+	    : value { $_ = $value; }
+		    ( '+' plus { $$ += $plus; }
+		    | '-' plus { $$ -= $plus; }
+		    | []
+		    )
+		{ $$ = $_; }
+	    ;
+
+However, this is recursive so that the stack will grow deeper as the
+input is parsed, thus the first approach is a better choice.
+
+
+
+OK/ERR RETURN VALUES
+--------------------
+
+Other items defined in ``tokens.h'' include the end-of-input token
+``W_EOI'' which has value 0, and the constants ``W_RETOK'' and
+``W_RETERR'', for appropriate return values.  These have the C values of
+TRUE (1) and FALSE (0) respectively.  These may be used in the
+right-hand side of rules if it is determined that further parsing of
+rules is un-necessary.
+
+	parenexpr: '(' expr { if ($expr == BOGUS) return W_RETERR; } ')' ;
+
+The return-code from various rules is always available as the magic
+string ``$?'' immediately after the particular rule is evaluated:
+
+	parenexpr: '(' expr { if ($? != W_RETOK) return W_RETERR; } ')' ;
+
+The return code is overwritten with each call to a non-terminal on the
+right-hand side, so if some previous return value is needed, it must
+be saved in some variable:
+
+	expr: term { int term_ret = $?; } '+' expr
+		{ if (!term_ret || !$?) return W_RETERR; } ;
+
+The generated parser code does not look at the actual return value of
+any non-terminals, so other return values may be used as desired.
+
+
+
+EXPORTING SYMBOLS
+-----------------
+
+wacco assumes that the first rule in the grammar is the start symbol.
+Instead of calling ``yyparse()'' to initiate the parse, this start
+symbol is made into a function with the same name which initiates the
+parse.  It is called without any arguments and returns either W_RETOK or
+W_RETERR depending on whether the parse succeeded or not.
+
+	firstsymbol: . . . ;
+	. . .
+
+	main()
+	{
+		if (firstsymbol() == W_RETOK)
+			return 0;
+
+		return -1;
+	}
+
+wacco allows more than one entry point into a grammar by adding
+``%export'' modifier after a non-terminal just before the ``:''.  This
+symbol then becomes callable from outside the grammar as a start symbol:
+
+	thing<mytype> %export :  . . .  ;
+
+	func() { mytype var;  return thing(&var); }
+
+The first non-terminal in the grammar is automatically exported unless
+``%export'' is used anywhere in the grammar.  Also, that if a ``type''
+is defined and used for an exported non-terminal, that type must be
+passed in by address to that function when it is called.
+
+The ``%export'' feature lets you call several non-terminals in the
+grammar.  This can be used to export parts of a grammar, say
+sub-expression parsing, or let you put several different parsers into
+one grammar file.  All exported non-terminals are listed as ``extern''
+functions in the ``tokens.h'' header file.
+
+
+
+SCANNER SECTION
+---------------
+
+The scanner section is optional.  If there is a ``$$'' at the end of the
+file, the rest of the grammar file is considered to be (nearly) straight
+lex(1) source.  If there is a ``$$'', every terminal in the grammar must
+have a token value associated with it.  Character and string constants
+are self-defining but any other nonterminals must be described in the
+lex section:
+
+	expr: LPAREN expr RPAREN | "id" | [];
+
+	$$
+
+	%%
+
+	"."		{ return (int)W_EOI; }
+
+	$LPAREN		"("|"["
+	$RPAREN		")"|"]"
+
+	[ \t\v\n\f]	;
+	.  { w_scanerr("Illegal character %d (%c)", yytext[0], yytext[0]); }
+
+The string ``"id"'' naturally stands for itself.  LPAREN and RPAREN are
+described in the lex section in a manner backwards to a standard lex
+file.  wacco will convert those lines starting with a ``$'' into the
+appropriate lex output.  This is not only to make sure that all
+terminals are defined, but allows defining a language without ever
+having to manually define token ids for any terminal symbol.
+
+
+
+DEFAULT SCANNER
+---------------
+
+The default scanner (located in -lwacco) maintains its own I/O file
+pointer.  The functions in the scanner include:
+
+	int w_openfile(char *path)	// open a file to the specified path
+	void w_closefile()		// close the current file
+	void w_setfile(FILE *f)		// set the current file to this
+	FILE *w_getfile()		// return the current file
+	int w_currcol()			// the current column in the input
+	int w_currline()		// the current line in the input
+	char *w_getcurrline()		// the text of the current line
+	int w_input()			// read a character from the input
+	int w_unput(int c)		// push a char back onto the input
+	void w_output(int c)		// put a character on stdout
+	void w_scanerr(const char *fmt, ...)
+				// printf-type error printing routine
+				// - can be called with a NULL argument
+				// when skipping a token in the input
+
+Either w_setfile() or w_openfile() should be called before starting the
+parse or the default scanner will probably dump core.  The externs for
+these routines are always generated in ``tokens.h''.
+
+
+
+SCANNER REQUIREMENTS
+--------------------
+
+The functions that the parser expects to have available are:
+
+	int w_gettoken(void)	// get the next token - usually calls yylex()
+				// - must return W_EOI on end-of-input
+
+	void w_err_expected(const char *token)	// print error:
+				// expected a "token" in the input
+
+	void w_err_illegal(const char *rule)	// print error:
+				// badly formed "rule" in the input
+
+	void w_err_skip(void)	// print error:
+				// skipping a token in the input
+
+	void w_flusherrs(void)	// flush any pending error messages
+				// - is called at end of the parse
+
+These must be provided either by the wacco library ``-lwacco'' or by
+some user code.  The externs for these routines are always generated in
+``tokens.h''.
+
+These are the simplest definitions for the routines and may be defined
+at the beginning of a grammar file:
+
+	#define w_gettoken	yylex
+	#define w_scanerr	printf
+	#define w_err_expected(token)	\
+		fprintf(stderr, "expected \"%s\"\n", token);
+	#define w_err_illegal(rule)	\
+		fprintf(stderr, "illegal (badly formed) %s\n", rule);
+	#define w_err_skip()	/* no body */
+	#define w_flusherrs()	/* no body */
+
+The ``-lwacco'' w_scanerr() will try to print the line that had the
+error, and underneath it print ``^'' where the error occurred and ``*''
+where tokens were skipped when re-syncing.
+
+
+
+SCANNING MISC.
+--------------
+
+Some other convenient functions defined in ``parser.cc'' include:
+
+	int w_nexttoken() // return the value of the next token but don't
+			  // scan it yet - calls gettoken() at most once
+			  // - useful for token lookahead
+
+	void w_skiptoken() // scan the current token - the next call to
+			   // w_nexttoken() will actually read another token
+
+	char *w_tokenname(int tokid)	// return the string name of a token
+					// whose id is tokid
+
+These are only really useful if you are writing your own scanner instead
+of using lex.  nexttoken() and skiptoken() can also be used to direct
+the parse somewhat.  With a push-back stack of tokens, the parse could
+be completely altered at run-time.
+
+The program flex(1) should be used instead of lex(1).  Highly recommended.
+
+The extern for ``yytext'' is automatically declared in ``parser.cc''.
+Unfortunately, it may be wrong for the version of lex actually being
+used.  To change the definition, the macro YYTEXT_DECL may be redefined
+at the top of your wacco grammar.  For instance, if you wish to use a
+lex which uses ``unsigned char[]'' for ``yytext'':
+
+	{
+	#undef YYTEXT_DECL
+	#define YYTEXT_DECL unsigned char yytext[]
+	}
+	...
+
+``YYTEXT_DECL'' is predefined to be ``char *yytext'' which is the
+correct type for flex(1).  One source of run-time crashes is having
+mismatched declarations for ``yytext''.  If one declaration is a pointer
+and another is an array, the parser will almost certainly dump core.
+
+
+
+EXPERIMENTAL FEATURES
+---------------------
+
+The following features of wacco are highly experimental and quite
+possible unstable.  They may even be eliminated from future versions of
+wacco.  Use them at your own risk.  Don't blame me if Things Go Wrong.
+
+
+
+EXPERIMENTAL RESYNC SETS
+------------------------
+
+The RESYNC sets for recovery after parsing errors are automatically
+generated using the FIRST and FOLLOW sets of each non-terminal.  These
+sets are used with skipping tokens inside ``w_scantoken()''.  This is
+a fairly primitive error recovery scheme, but it works well for simple
+errors.  But these sets aren't always the best for dealing with certain
+types of errors.  They may be tweaked using the following syntax
+inserted just before most places that code may be inserted:
+
+	symbol resync code : expression resync code ... ;
+	code : '{' ... '}' | "%{" ... "%}" | [] ;
+
+	resync	: '[' item1 item2 item3 ... ']'
+		| []
+		;
+
+	itemN : ('+' | '-' | []) symbol ('+' | '-' | []) ;
+
+Each ``item'' tweaks the resync set at that point in the parse as
+follows:
+
+	+sym	add FIRST(sym) to the resync set at this point
+	sym	<same as above>
+	-sym	remove FIRST(sym) from the resync set
+	sym+	add FOLLOW(sym) to the resync set
+	sym-	remove FOLLOW(sym) from the resync set
+
+If ``sym'' is a terminal, then ``FIRST(sym)'' is merely ``sym'', so
+individual tokens may be added and removed from the resync set.
+
+The first resync set before the ``:'' is strictly for user tweaks before
+entry into the function generated by wacco.  wacco normally generates
+resync only between parsing tokens and rules.
+
+
+
+EXPERIMENTAL INLINE
+-------------------
+
+A rule may be forced to be expanded in-line rather than generating a
+function for it:
+
+	symbol %inline : . . . ;
+
+This is intended for expanding short simple rules which would not be
+automatically expanded inline.  wacco will only expand rules which are
+used once anywhere in the grammar, and this is generally sufficient for
+most purposes.  Recursive rules, that is, rules which refer to
+themselves are never expanded inline to prevent wacco from looping
+forever.  Nor are exported symbols ever expanded inline.
+
+	symbol %noinline : . . . ;
+
+This is to force a symbol to not be expanded inline, even if it would be
+expanded inline automatically.  Most helpful when you need in-lines for
+speed yet must get a parser through cfront or some other brain-dead
+yacc-based C/C++ compiler.
+
+
+
+EXPERIMENTAL NO-RESYNC
+----------------------
+
+A rule may be declared as ``%noresync'' as follows:
+
+	symbol %noresync : . . . ;
+
+This tells wacco not to generate any resync sets for anything inside
+that rule.  The idea was to tweak code that was expanded inline to speed
+up the parse, especially for expressions.  However, I probably should
+just add a proper expression precedence parser into wacco, so this
+feature should be best left unused.  Use the ``-R'' option to completely
+eliminate all the resync sets instead.
+
+
+================= E X A M P L E    G R A M M A R ==================
+
+// This is the usual obligatory calculator sample.  It even handles the
+// precedence of C operators properly while demonstrating how to use
+// most of wacco's features.
+
+{
+#include <stdio.h>
+#include <stdlib.h>
+}
+
+expr<double>
+	: andand { $_ = $andand; }
+		("||" andand { $$ = $$ || $andand; })* { $$ = $_; }
+	;
+
+andand<double>
+	: or { $_ = $or; }
+		("&&" or { $$ = $$ && $or; })* { $$ = $_; }
+	;
+
+or<double>
+	: xor { $_ = $xor; }
+		('|' xor { $$ = (long)$$ | (long)$xor; })* { $$ = $_; }
+	;
+
+xor<double>
+	: and { $_ = $and; }
+		('^' and { $$ = (long)$$ ^ (long)$and; })* { $$ = $_; }
+	;
+
+and<double>
+	: equal { $_ = $equal; }
+		('&' equal { $$ = (long)$$ & (long)$equal; })* { $$ = $_; }
+	;
+
+equal<double>
+	: compare { $_ = $compare; }
+		( "==" compare { $$ = $$ == $compare; }
+		| "!=" compare { $$ = $$ != $compare; }
+		)* { $$ = $_; }
+	;
+
+compare<double>
+	: plus { $_ = $plus; }
+		( '<' plus { $$ = $$ < $plus; }
+		| '>' plus { $$ = $$ > $plus; }
+		| "<=" plus { $$ = $$ <= $plus; }
+		| ">=" plus { $$ = $$ >= $plus; }
+		)* { $$ = $_; }
+	;
+
+plus<double>
+	: mult { $_ = $mult; }
+		( '+' mult { $$ += $mult; }
+		| '-' mult { $$ -= $mult; }
+		)* { $$ = $_; }
+	;
+
+mult<double>
+	: unary { $_ = $unary; }
+		( '*' unary { $$ *= $unary; }
+		| '/' unary { $$ /= $unary; }
+		| '%' unary { $$ = (long)$$ % (long)$unary; }
+		)* { $$ = $_; }
+	;
+
+unary<double>
+	: DOUBLE { $$ = atof((char *)yytext); }
+	| '-' expr { $$ = -$expr; }
+	| '~' expr { $$ = ~(long)$expr; }
+	| '!' expr { $$ = !$expr; }
+	| '(' expr ')' { $$ = $expr; }
+	;
+
+calc %export
+	: ( expr ([] | '=' | ';' | ',') { printf("%f\n", $expr); } )*
+	;
+
+{
+	int
+	main()
+	{
+		w_setfile(stdin);
+		return !calc();
+	}
+}
+
+$$
+
+D	[0-9]
+L	[_A-Za-z]
+
+%%
+
+"."		{ return (int)W_EOI; }
+
+$DOUBLE		({D}+)|({D}+\.{D}*)|({D}+[Ee]-?{D}+)|({D}+\.{D}*[Ee]-?{D}+)
+
+"#".*$		;
+
+[ \t\v\n\f]	;
+.	{ w_scanerr("Illegal character %d ($c)", yytext[0], yytext[0]); }

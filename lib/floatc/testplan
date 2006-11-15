@@ -1,0 +1,155 @@
+I.	FloatClass construction
+	A.  Minimal mantissa and exponent values
+	B.  Single precision format
+	C.  Double precision format
+	D.  Extended double precision format
+	E.  Quad precision format
+	F.  Quad precision format with extended range
+	G.  Aligned exponent
+	I.  Multiword exponent
+	H.  Wrapped exponent
+II.	Float construction
+	A.  Zero
+	B.  Small integer
+	C.  From another float
+	D.  From a string
+	E.  Infinities
+	F.  NaNs
+	G.  Assignment
+III.	Float protected operations
+	A.  Incrementing exponent
+	B.  Decrementing exponent
+	C.  Left shift of mantissa
+	D.  Right shift of mantissa
+	E.  Left shift of exponent
+	F.  Right shift of exponent
+	G.  Left shift of exponent and mantissa
+	H.  Right shift of exponent and mantissa
+	I.  Setting word in mantissa
+	J.  Setting word in exponent
+IIIa.	Float misc. operations
+	A.  fint
+	B.  ceil
+	C.  floor
+	D.  modf
+	E.  frexp
+	F.  floattol
+	G.  floattod
+IV.	Float operations
+	A.  Increment
+	B.  Decrement
+	C.  Addition
+	    1.  Different formats
+	    2.  Exceptional cases
+		a.  A is NaN
+		b.  A is QNaN
+		c.  A is PInf
+		d.  A is NInf
+		e.  A is PZero
+		f.  A is NZero
+		g.  B is NaN
+		h.  B is QNaN
+		i.  B is PInf
+		j.  B is NInf
+		k.  B is PZero
+		l.  B is NZero
+	    3.  Different signs of A and B
+	    4.  2*A < B
+	    5.  A > 2*B
+	    6.  A ~= B
+		a.  A and B are Positive
+		b.  A and B are PosDenorm
+	    7.  A + B carry is 0
+	    8.  A + B carry is 1
+		a.  neither A or B are denormals
+		b.  either A or B is denormal
+	    9.  A + B carry is 2
+	    10. A + B carry is 3
+	    11. A + B lowbits = 0
+		a.  overflow
+		b.  no overflow
+	    12. A + B lowbits > 0
+		a.  rm = RoundToNearest
+		    i.  lowbits < 0x8000000
+		    ii. lowbits == 0x8000000
+		    iii.lowbits > 0x8000000
+		b.  rm = RoundTowardPosInf
+		    i.  A + B is pos
+		    ii. A + B is neg
+		c.  rm = RoundTowardNegInf
+		    i.  A + B is pos
+		    ii. A + B is neg
+		d.  rm = RoundTowardZero
+	    13. A <<< B
+		a.  rm = ToNearest
+		b.  rm = TowardPosInf
+		    i.  A is pos
+		    ii. A is neg
+		c.  rm = TowardNegInf
+		    i.  A is pos
+		    ii. A is neg
+	    14. A >>> B
+	    15. overflow occurs
+	D.  Subtraction
+	E.  Reverse Subtraction
+	F.  Negation
+	G.  Multiply
+	H.  Divide
+	I.  Modulus
+	J.  Comparison
+	    1.  Equals
+	    2.  Not equals
+	    3.  Less than
+	    4.  Less than or equals
+	    5.  Greater than
+	    6.  Greater than or equals
+	K.  Type
+	    1.  Positive
+	        a.  normalized
+		b.  denormalized
+	    2.  Negative
+	        a.  normalized
+		b.  denormalized
+	    3.  Zero
+	        a.  negative
+		b.  positive
+		c.  either
+	    4.  Infinity
+	        a.  negative
+		b.  positive
+		c.  either
+	    4.  NaN
+	    	a.  signaling
+		b.  quiet
+	    5.  Finite
+	    6.  Unordered
+	L.  Misc
+	    1.  copysign
+	    2.  scalb
+	    3.  logb
+	    4.  nextafter
+	M.  Square
+	N.  Square root
+V.	Logarithms
+	A.  pow
+	B.  log
+	C.  ln
+	D.  exp
+VI.	Trig functions
+	A.  Standard
+	    1.  sin
+	    2.  cos
+	    3.  tan
+	B.  Arc
+	    1.  asin
+	    2.  acos
+	    3.  atan
+	    4.  atan2
+	C.  Hyperbolic
+	    1.  sinh
+	    2.  cosh
+	    3.  tanh
+	D.  Arc hyperbolic
+	    1.  asinh
+	    2.  acosh
+	    3.  atanh

@@ -1,0 +1,56 @@
+Environment variables for controlling gcmalloc.
+
+GC_AFTER_PAGES
+
+	Minimum number of pages to allow the heap to expand after the heap
+	has become exhuasted.
+
+GC_MIN_PAGES
+
+	Minimum number of pages to allow the heap to expand after the heap
+	has become xhausted.
+
+GC_MIN_ALIGN
+
+	Minimum block alignment.  The default is four bytes.
+
+GC_MAX_ALIGN
+
+	Maximum block alignment.  All blocks smaller that this value are
+	aligned to GC_MIN_ALIGN.  All block larger than this value are 
+	aligned to this value.  The default is 64 bytes.
+
+GC_IGNORE_FREE
+
+	If non zero then calls to free are ignored an all memory is reclaimed
+	through garbage collection.  This can sometimes be faster than 
+	actually freeing the blocks at the time that free is called.  The
+	default is to not ignore calls to free.
+
+GC_PERCENT
+
+	Percent of the heap that must be available for allocation to prevent
+	the heap from growing between garbage collections.
+
+GC_CLEAR_BLOCKS
+
+	If non zero then call to malloc with cause the block to be initialized
+	to zero.  This is useful if blocks are not completely initialized
+	after allocation.
+
+GC_SNAPSHOT
+
+	Causes stack snapshots to be kept for every block that is allocated.
+
+GC_SKIP_INTERIOR
+
+	Causes to the garbage collector to only search for pointers to the
+	start of blocks.  Potential pointers to a block that point into
+	the interior of the block are not considered to reference the
+	block.  This option is not particularly useful and is not 
+	recommended.
+
+GC_DUMPFILE
+
+	Caused the state of the heap to be save to this file name
+	at program termination.

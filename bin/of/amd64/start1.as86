@@ -1,0 +1,623 @@
+; (c) Copyright 2002-2003 by CodeGen, Inc.  All Rights Reserved.
+; vim:set syntax=asm:
+; Some code cribbed from OpenBSD i386 biosboot.S to setup flat 32-bit mode,
+; plus lots of stuff from AMD docs to setup Hammers.
+; to assemble:
+;	m4 c.asm > c.s
+; 	as86 -l c.l -b c.oo c.s
+;	dd if=c.oo of=c.o bs=0x5 skip=1
+; then pad+append to end of C image, and adjust entry point below
+;
+
+
+; where start of our 32-bit C code is in ROM - at the start of the
+; 64Kb block which should always be available
+STARTADDR	set	0xFFFF0000
+
+
+PCI_CONFIG_ADDR	set	0xCF8
+PCI_CONFIG_DATA	set	0xCFC
+
+define(OUTB, `
+	mov		dx, $1
+	mov		al, $2
+	out		dx, al
+')
+
+define(INB, `
+	mov		dx, $1
+	in		al, dx
+')
+
+define(OUTW, `
+	mov		dx, $1
+	mov		ax, $2
+	out		dx, al
+')
+
+define(INW, `
+	mov		dx, $1
+	in		ax, dx
+')
+
+define(OUTL, `
+	mov		dx, $1
+	mov		eax, $2
+	out		dx, eax
+')
+
+define(INL, `
+	mov		dx, $1
+	in		eax, dx
+')
+
+define(rdmsr, `
+	; read-MSR
+	.byte	0x0F
+	.byte	0x32
+')
+
+define(wrmsr, `
+	; write-MSR
+	.byte	0x0F
+	.byte	0x30
+')
+
+define(rd_msr, `
+	mov	ecx, $1
+	rdmsr
+')
+
+define(wr_msr1, `
+	mov	ecx, $1
+	wrmsr
+')
+
+define(wr_msr2, `
+	mov	ecx, $1
+	mov	eax, $2		; LSW
+	wrmsr
+')
+
+define(wr_msr3, `
+	mov	ecx, $1
+	mov	eax, $2		; LSW
+	mov	edx, $3		; MSW
+	wrmsr
+')
+
+
+; start of our test code that runs in 32-bit mode
+;
+	.org 0xFFFFE000
+
+start32:
+	use32
+
+
+	; init the SIO piece of crap
+	OUTB(0x2E, 0x87)		; turn on config regs
+	OUTB(0x2E, 0x87)
+
+	OUTB(0x2E, 0x2B)		; CF2B global
+	OUTB(0x2F, 0x01)		; magic value
+
+	OUTB(0x2E, 0x07)		; CF7 global
+	OUTB(0x2F, 0x02)		; device 2 == UART-A
+
+	OUTB(0x2E, 0x30)		; CF30 of UARTA
+	OUTB(0x2F, 0x01)		; enable it
+
+	OUTB(0x2E, 0xAA)		; turn off config regs
+
+
+/* macros to access a 16550-compatible serial port for failsafe I/O */
+define(COM1_PORT, 0x3F8)
+define(COM2_PORT, 0x2F8)
+define(SIO_THR, 0x0)		/* transmit holding register - write-only */
+define(SIO_RBR, 0x0)		/* receiver buffer register - read-only */
+define(SIO_DLL, 0x0)		/* divisor latch LSB - r/w - DLAB == 1 */
+define(SIO_DLM, 0x1)		/* divisor latch MSB - r/w 0 DLAB == 1 */
+define(SIO_IER, 0x1)		/* interrupt enable register - w/o */
+define(SIO_IIR, 0x2)		/* interrupt identification reg - r/o */
+define(SIO_FCR, 0x2)		/* FIFO control register - w/o */
+define(SIO_LCR, 0x3)		/* line control register - r/w */
+define(SIO_MCR, 0x4)		/* modem control register - r/w */
+define(SIO_LSR, 0x5)		/* line status register - r/w */
+define(SIO_MSR, 0x6)		/* modem status register - r/w */
+define(SIO_SCR, 0x7)		/* scratch pad register - r/w */
+
+define(DEBUG_PORT, COM1_PORT)
+
+define(SIO_OUT, `
+	mov		al, $2
+	mov		dx, DEBUG_PORT + $1
+	out		dx, al
+	out		0xEB, al	; IODELAY
+')
+
+	; DLAB on
+	SIO_OUT(SIO_LCR, 0x80)
+
+	; clock value for 9600 baud (12)
+	SIO_OUT(SIO_DLL, 0x0C)
+	SIO_OUT(SIO_DLM, 0x00)
+
+	; DLAB off, 8/1/N
+	SIO_OUT(SIO_LCR, 0x03)
+
+	; drop all lines, raise DTR
+	SIO_OUT(SIO_MCR, 0x01)
+
+	; disable all interrupts
+	SIO_OUT(SIO_IER, 0x00)
+
+	; turn on and clear I/O FIFOs
+	SIO_OUT(SIO_FCR, 0x07)
+
+
+define(PUTC_LABEL, 1)
+
+define(PUTC, `
+	mov		dx, DEBUG_PORT + SIO_LSR
+.PUTC_LABEL:
+	in		al, dx
+	and		al, #0x20
+	cmp		al, #0
+	jz		.PUTC_LABEL
+
+	mov		dx, DEBUG_PORT + SIO_THR
+	mov		al, $1
+	out		dx, al
+	out		0xEB, al	; IODELAY
+	define(`PUTC_LABEL', incr(PUTC_LABEL))
+')
+
+	PUTC(0xD)	; CR
+	PUTC(0xA)	; NL
+	PUTC('U)
+	PUTC('p)
+	PUTC('!)
+	PUTC(0xD)	; CR
+	PUTC(0xA)	; NL
+
+define(INCFG, `
+	mov		dx, PCI_CONFIG_ADDR
+	mov		eax, $1
+	bts		eax, #31	; 0x8000.0000
+	out		dx, eax
+	mov		dx, PCI_CONFIG_DATA
+	in		eax, dx
+')
+
+define(OUTCFG, `
+	mov		dx, PCI_CONFIG_ADDR
+	mov		eax, $1
+	bts		eax, #31	; 0x8000.0000
+	out		dx, eax
+	mov		dx, PCI_CONFIG_DATA
+	mov		eax, $2
+	out		dx, eax
+')
+
+	mov	ecx,#0xC0000080 ; EFER MSR number.
+	rdmsr 			; Read EFER.
+	bts	eax,#8		; Set LME=1.
+	wrmsr			; Write EFER.
+
+	; see if this is a cold-boot or not to skip most init code
+	;INCFG(0xC06C)
+	;and	eax, #0x10
+	;jz	.0
+	;jmp far	0x8:doneram
+
+;.0:
+
+	; quick-n-ugly - slam in known good values into registers
+
+	; device 24, func 0 - HT config regs
+	OUTCFG(0xC068, 0xF008C0F)
+	OUTCFG(0xC06C, 0xD)	; route-tables use disabled until later
+
+	OUTCFG(0xC084, 0x11110020)
+	OUTCFG(0xC088, 0x80750022)
+
+	OUTCFG(0xC090, 0x2510456)
+	OUTCFG(0xC094, 0xFF0000)
+
+	; (0xC0A8, 0x0)
+
+	; (0xC0B0, 0x0)
+	; (0xC0B4, 0x0)
+
+	; (0xC0C4, 0x0)
+	; (0xC0C8, 0x0)
+
+	; (0xC0D0, 0x0)
+	; (0xC0D4, 0x0)
+
+	OUTCFG(0xC06C, 0xC)	; use inited route-tables
+
+	; setup other CPU MSRs
+	wr_msr3(0x1B, 0xFEE00900, 0x0)		; APIC_BASE 
+
+	; setup CPU MTRRs to map addr spaces
+	wr_msr2(0xC0010010, 0x1E0601)	; SYSCFG - unlock some bits
+	wr_msr2(0x2FF, 0x0)		; MTRRdefType - turn off for now
+	wr_msr2(0x200, 0x6) 		; MTRRphysBase0
+	;(0x201, 0xE0000800, 0x000FFFFF)	; MTRRphysMask0 - broken?!?
+	wr_msr3(0x201, 0xE0000800, 0x0)	; MTRRphysMask0
+	;(0x201, 0xE0000800)	; MTRRphysMask0 - leave MSQ alone
+	wr_msr2(0x202, 0) 		; MTRRphysBase1
+	wr_msr1(0x203)			; MTRRphysMask1
+	wr_msr1(0x204) 			; MTRRphysBase2
+	wr_msr1(0x205)			; MTRRphysMask2
+	wr_msr1(0x206) 			; MTRRphysBase3
+	wr_msr1(0x207)			; MTRRphysMask3
+	wr_msr1(0x208) 			; MTRRphysBase4
+	wr_msr1(0x209)			; MTRRphysMask4
+	wr_msr1(0x20A) 			; MTRRphysBase5
+	wr_msr1(0x20B)			; MTRRphysMask5
+	wr_msr1(0x20C) 			; MTRRphysBase6
+	wr_msr1(0x20D)			; MTRRphysMask6
+	wr_msr1(0x20E) 			; MTRRphysBase7
+	wr_msr1(0x20F)			; MTRRphysMask7
+
+	wr_msr3(0x250, 0x06060606, 0x06060606)	; MTRRfix64K_00000 
+	wr_msr1(0x258)				; MTRRfix16K_80000
+	wr_msr1(0x26C)				; MTRRfix4K_E0000 
+	wr_msr1(0x26D)				; MTRRfix4K_E8000 
+
+	wr_msr3(0x268, 0x5050505, 0x05050505)	; MTRRfix4K_C0000 
+
+	wr_msr3(0x259, 0x0, 0x0)		; MTRRfix16K_A0000 
+	wr_msr1(0x269)				; MTRRfix4K_C8000 
+	wr_msr1(0x26A)				; MTRRfix4K_D0000 
+	wr_msr1(0x26B)				; MTRRfix4K_D8000 
+	wr_msr1(0x26E)				; MTRRfix4K_F0000 
+	wr_msr1(0x26F)				; MTRRfix4K_F8000 
+
+	;wr_msr3(0x277, 0x70406, 0x00070406)	; PAT - default value
+
+	wr_msr3(0xC001001A, 0x20000000, 0x0)	; TOP_MEM 
+	wr_msr2(0xC001001D, 0x0)		; TOP_MEM2 
+
+	wr_msr1(0xC0010016)			; IORRBase0 
+	wr_msr1(0xC0010017)			; IORRMask0 
+	wr_msr1(0xC0010018)			; IORRBase1 
+	wr_msr1(0xC0010019)			; IORRMask1 
+
+	wr_msr2(0x2FF, 0xC00)		; MTRRdefType - turn on MTRRs
+	wr_msr2(0xC0010010, 0x160601)	; SYSCFG - normal state
+
+
+	; device 24, func 1 - address map regs
+	OUTCFG(0xC140, 0x3)		; DRAM base0
+	OUTCFG(0xC144, 0x1F0000)	; DRAM limit0
+	OUTCFG(0xC148, 0x200000)
+	OUTCFG(0xC14C, 0x1)
+	OUTCFG(0xC150, 0x200000)
+	OUTCFG(0xC154, 0x2)
+	OUTCFG(0xC158, 0x200000)
+	OUTCFG(0xC15C, 0x3)
+	OUTCFG(0xC160, 0x200000)
+	OUTCFG(0xC164, 0x4)
+	OUTCFG(0xC168, 0x200000)
+	OUTCFG(0xC16C, 0x5)
+	OUTCFG(0xC170, 0x200000)
+	OUTCFG(0xC174, 0x6)
+	OUTCFG(0xC178, 0x200000)
+	OUTCFG(0xC17C, 0x7)
+
+	; D800.0000-E400.0000
+	OUTCFG(0xC180, 0xE00003)	; Mem-mapped I/O base0
+	OUTCFG(0xC184, 0xE1FF00)	; Mem-mapped I/O limit0
+	OUTCFG(0xC188, 0xD80003)
+	OUTCFG(0xC18C, 0xDFFF00)
+	OUTCFG(0xC190, 0xE20003)
+	OUTCFG(0xC194, 0xE3FF00)
+	OUTCFG(0xC198, 0x0)
+	OUTCFG(0xC19C, 0x0)
+	OUTCFG(0xC1A0, 0x0)
+	OUTCFG(0xC1A4, 0x0)
+	OUTCFG(0xC1A8, 0x0)
+	OUTCFG(0xC1AC, 0x0)
+	OUTCFG(0xC1B0, 0xA03)
+	OUTCFG(0xC1B4, 0xB00)
+	;(0xC1B8, 0x200003)
+	;(0xC1BC, 0xFE0B00)
+
+	OUTCFG(0xC1C0, 0x9003)		; PCI I/O base0
+	OUTCFG(0xC1C4, 0x9000)		; PCI I/O limit0
+	OUTCFG(0xC1C8, 0x01013)
+	OUTCFG(0xC1CC, 0xFF000)
+	OUTCFG(0xC1D0, 0xA003)
+	OUTCFG(0xC1D4, 0xA000)
+	OUTCFG(0xC1D8, 0x0)
+	OUTCFG(0xC1DC, 0x0)
+
+	OUTCFG(0xC1E0, 0xFF000003)	; config base0 & limit0
+	OUTCFG(0xC1E4, 0x0)
+	OUTCFG(0xC1E8, 0x0)
+	OUTCFG(0xC1EC, 0x0)
+
+
+	; device 24, func 2 - DRAM config
+	OUTCFG(0xC290, 0x08048008)
+
+	OUTCFG(0xC240, 0x1)
+	OUTCFG(0xC244, 0x800001)
+	OUTCFG(0xC248, 0x1000001)
+	OUTCFG(0xC24C, 0x1800001)
+	OUTCFG(0xC250, 0x0)
+	OUTCFG(0xC254, 0x0)
+	OUTCFG(0xC258, 0x0)
+	OUTCFG(0xC25C, 0x0)
+
+	OUTCFG(0xC260, 0x60FE00)
+	OUTCFG(0xC264, 0x60FE00)
+	OUTCFG(0xC268, 0x60FE00)
+	OUTCFG(0xC26C, 0x60FE00)
+	OUTCFG(0xC270, 0x0)
+	OUTCFG(0xC274, 0x0)
+	OUTCFG(0xC278, 0x0)
+	OUTCFG(0xC27C, 0x0)
+
+	OUTCFG(0xC280, 0x22)
+	OUTCFG(0xC288, 0x3623125)
+	OUTCFG(0xC28C, 0x130)
+
+	;(0xC294, 0x002B0A05)	; set DRAM params inc. clock ratio
+	;(0xC294, 0x022B0A05)	; clock ratio valid
+	;(0xC294, 0x0E2B0A05)	; clocks enabled
+	;(0xC298, 0x0)
+
+	;(0xC2B8, 0xFFBF1A00)
+	;(0xC2BC, 0xFFFFDFF7)
+	;(0xC2C0, 0x0)
+	;(0xC2C4, 0x0)
+	;(0xC2C8, 0x0)
+	;(0xC2CC, 0x9F1F0000)
+	;(0xC2D0, 0xAFBEFFFF)
+	;(0xC2D4, 0xD7FBEEFF)
+	;(0xC2D8, 0xFFFCEEFF)
+	;(0xC2DC, 0xFFDFFFFF)
+	;(0xC2E0, 0xE6BFFFBF)
+	;(0xC2E4, 0xDF7FDFFF)
+	;(0xC2E8, 0xD1FFFD77)
+	;(0xC2EC, 0xF7FFBD3D)
+
+
+	; device 24, func 3 - misc config
+	OUTCFG(0xC340, 0x0)
+	OUTCFG(0xC344, 0x40)
+	OUTCFG(0xC348, 0xA13)
+	OUTCFG(0xC34C, 0xC45D4000)
+	OUTCFG(0xC350, 0x3BC2DE68)
+	OUTCFG(0xC354, 0x6A)
+
+	OUTCFG(0xC358, 0x0)
+	OUTCFG(0xC35C, 0x0)
+	OUTCFG(0xC360, 0x0)
+
+	OUTCFG(0xC370, 0x51020111)
+	OUTCFG(0xC374, 0x50007011)
+	OUTCFG(0xC378, 0x8003800)
+	OUTCFG(0xC37C, 0x221B)
+
+	OUTCFG(0xC380, 0x23272321)
+	OUTCFG(0xC384, 0x21232123)
+
+	;(0xC388, 0x0)
+	;(0xC38C, 0x0)
+
+	;(0xC390, 0x5)
+	;(0xC394, 0x68)
+	;(0xC398, 0x0)
+	;(0xC39C, 0x0)
+
+	OUTCFG(0xC3B8, 0x0)
+	OUTCFG(0xC3BC, 0x0)
+
+	;(0xC3C0, 0x0)
+	;(0xC3C4, 0x0)
+	;(0xC3C8, 0x0)
+	;(0xC3CC, 0x0)
+
+	;(0xC3D4, 0x0)
+	;(0xC3D8, 0x0)
+	;(0xC3DC, 0x0)
+
+	; try to turn on DRAM
+	OUTCFG(0xC294, 0x0C2B0A05)	; set DRAM params inc. clock ratio
+	OUTCFG(0xC294, 0x0E2B0A05)	; clocks valid and enabled
+	OUTCFG(0xC290, 0x08048000)
+	OUTCFG(0xC290, 0x08048100)	; initialize DRAM
+waitram:
+	OUTL(PCI_CONFIG_ADDR, 0xC290)
+	INL(PCI_CONFIG_DATA)
+	bt	eax,#8		; 0x100	- wait for init bit to clear
+	jnc	waitram
+
+doneram:
+	; turn on cache in write-back mode
+	;('c)
+	invd
+	mov		eax, cr0 
+	and		eax, #~0x60000000
+	mov		cr0, eax
+
+
+	; now we can setup the stack somewhere above DOS mem
+	mov	esp, #0x1FFFF0
+	mov	ebp, #0xDEADBEEF
+
+	; now try to test memory+cache
+	;('d)
+	push	ebp
+noluck:
+	;('x)
+	pop	eax
+	cmp	eax,ebp
+	jnz	noluck
+
+
+	;('!)	; CR
+	;(0xD)	; CR
+	;(0xA)	; NL
+
+
+	; if we get here, things must be working rather well!
+	;('H)
+	;('o)
+	;('l)
+	;('a)
+	;('!)
+	;(0xD)	; CR
+	;(0xA)	; NL
+	;(0xA)	; NL
+
+	jmp	0x8:#STARTADDR	; entry point for 32-bit start.S code (_start)
+
+
+; DEBUG BREAK
+	; clear the carry flag 
+	;clc
+
+	; spin waiting for the carry flag to be set.
+	; In the HDT tool we will set the carry flag and things
+	; should continue from here.
+;waithdt:
+	;jnc	waithdt
+; END DEBUG BREAK
+
+
+
+; 32-bit global segment table
+;
+	use16
+	.org 0xFFFFFF00
+	.align	4
+gtab:
+					; segment 0x00 : null
+	.long	0, 0
+					; segment 0x08 : flat code
+	.word	0xFFFF			; lolimit
+	.word	0				; lobase
+	.byte	0				; midbase
+	.byte	31 | 0 | 0x80		; RWXAC, dpl = 0, present
+	.byte	0xf | 0 | 0x40 | 0x80	; hilimit, xx, 32bit, 4k granularity
+	.byte	0				; hibase
+
+					; segment 0x10 : flat data
+	.word	0xFFFF			; lolimit
+	.word	0				; lobase
+	.byte	0				; midbase
+	.byte	19 | 0 | 0x80		; RWA, dpl = 0, present
+	.byte	0xf | 0 | 0x40 | 0x80	; hilimit, xx, 32bit, 4k granularity
+	.byte	0				; hibase
+
+					; segment 0x18 : 64-bit code
+	.word	0xFFFF			; lolimit
+	.word	0				; lobase
+	.byte	0				; midbase
+	.byte	0x80 | 0x18 | 0x03	; RWXAC, dpl = 0, present
+	.byte	0x80 | 0x20 | 0x0F		; hilimit, xx, 64bit
+	.byte	0				; hibase
+
+	20		L
+	40		D
+	80		G
+
+Gdtr:
+	.word	4 * 8
+	.long	gtab
+	.long	0
+
+
+; hard reset - cpureset vector (below) jumps here to start things off
+;
+reset16:
+	use16
+
+	; needed for some processors?
+	nop
+	nop
+	nop
+
+	; disable all interrupts
+	cli
+	cld
+
+	; invalidate the TLB
+	xor  eax, eax
+	mov  cr3, eax
+
+	; invalidate cache and make sure it is turned off
+	invd
+	mov		eax, cr0 
+	or		eax, #0x60000000
+	mov		cr0, eax
+
+
+	; init segment regs to point to CS for now (no RAM yet)
+	; (leave ss pointing to low-RAM)
+	mov		bx, cs
+	mov		ds, bx
+	xor		bx, bx
+	mov		es, bx
+	;mov		fs, ax
+	;mov		gs, dx
+
+
+	; load the gdtr
+	.byte 0x66		; data32
+	lgdt	[Gdtr]
+
+
+	; set the PE bit of CR0
+	mov		eax, cr0 
+	or		eax, #0x01	; CR0 PE
+	mov		cr0, eax
+
+	use32
+
+	; make intrasegment jump to flush the processor pipeline and
+	; reload CS register
+
+	;.byte 0x67		; addr32
+	.byte 0x66		; data32
+	jmp far 0x8:mode32
+
+
+mode32:
+	; running in 32-bit flat memory-space now
+	use32
+
+	; 32bit mode
+	; set up ds, ss, es, etc
+	mov		eax, #0x10
+	mov		ds, ax
+	mov		ss, ax
+	mov		es, ax
+	mov		fs, ax
+	mov		gs, ax
+
+	; jump to start of 32-bit test code
+	jmp		0x8:start32
+
+
+; reset vector must end up at 0xFFFFFFF0 (0xF000:FFF0) phys addr
+;
+	.org 0xFFFFFFF0
+cpureset:
+	use16
+
+	nop
+	nop
+	nop
+	jmp 0xF000:(reset16 & 0xFFFF)
+
+	nop
+	nop
+	nop

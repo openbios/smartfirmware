@@ -1,0 +1,2778 @@
+<HTML>
+<HEAD>
+<TITLE>Title</TITLE>
+<!--Created by Applixware HTML Authoring System, Release 4.3 on Thu May 25 19:11:45 2000-->
+<!--Ax:WP:DocVar:HTMLOriginalPath@:"/var/tmp/ex21153h.aw"-->
+</HEAD>
+<BODY BGCOLOR="#e6e6e6">
+<P></P>
+<P></P>
+<P></P>
+<P><IMG SRC="CodeGen.gif"></P>
+<P></P>
+<P></P>
+<P></P>
+<P></P>
+<P></P>
+<P></P>
+<P></P>
+<P></P>
+<CENTER>
+<P><B><FONT SIZE=7>Smart</FONT><I><FONT SIZE=7>Firmware</FONT></I></B>
+<SUP><FONT SIZE=2>TM</FONT></SUP></P>
+</CENTER>
+<P></P>
+<P></P>
+<P></P>
+<P></P>
+<P></P>
+<P></P>
+<P></P>
+<P></P>
+<P></P>
+<P></P>
+<P></P>
+<P></P>
+<P></P>
+<P></P>
+<CENTER>
+<P>Copyright &#169; 1996-2000 by CodeGen, Inc. All Rights Reserved.</P>
+</CENTER>
+<P></P>
+<P></P>
+<CENTER>
+<P>http://www.codegen.com</P>
+<P>mailto: info@codegen.com</P>
+</CENTER>
+<P></P>
+<P><B>1. Introduction&#9; 1</B></P>
+<P>Features&#9; 1</P>
+<P><B>2. Basics&#9; 3</B></P>
+<P>Files&#9; 3</P>
+<P>Headers&#9; 7</P>
+<P>Commands&#9; 8</P>
+<P>Stacks&#9; 9</P>
+<P>Memory&#9; 11</P>
+<P>Strings&#9; 12</P>
+<P>Fcodes&#9; 13</P>
+<P><B>3. Machine dependencies&#9; 15</B></P>
+<P>machdep.h&#9; 15</P>
+<P>machdep.c&#9; 16</P>
+<P><B>4. Creating new words&#9; 21</B></P>
+<P>Words&#9; 21</P>
+<P>Packages&#9; 23</P>
+<P><B>5. Compiling, Running, Etc.&#9; 27</B></P>
+<P>Building&#9; 27</P>
+<P>Running&#9; 28</P>
+<P>Tokenizing&#9; 28</P>
+<P>Detokenizing&#9; 29</P>
+<P><B>6. Plug-in executable images&#9; 31</B></P>
+<P>Interface&#9; 31</P>
+<P>Supplied image formats&#9; 33</P>
+<P>Sample Forth image format&#9; 33</P>
+<P><B>7. Plug-in filesystem&#9; 37</B></P>
+<P>How it works&#9; 37</P>
+<P>Interface&#9; 39</P>
+<P><B>8. PCI-bus interface&#9; 41</B></P>
+<P>Machine-dependent bus interface&#9; 41</P>
+<P>pci_num_host_bridges&#9; 42</P>
+<P>pci_config_read pci_config_write&#9; 42</P>
+<P>pci_intr_ack pci_special_cycle&#9; 42</P>
+<P>pci_mem_read pci_mem_write&#9; 42</P>
+<P>pci_mem_read64 pci_mem_write64&#9; 42</P>
+<P>pci_io_read pci_io_write&#9; 42</P>
+<P>pci_map_in pci_map_out&#9; 43</P>
+<P>pci_dma_alloc pci_dma_free&#9; 43</P>
+<P>pci_dma_map_in pci_dma_map_out&#9; 43</P>
+<P>pci_dma_sync&#9; 43</P>
+<P>pci_init_addresses&#9; 43</P>
+<P>pci_bus_package&#9; 44</P>
+<P>Driver interface&#9; 44</P>
+<P>Pci_driver structure&#9; 44</P>
+<P>Install PCI driver&#9; 45</P>
+<P>machdep.c interface&#9; 46</P>
+<P><B>9. ISA-bus interface&#9; 49</B></P>
+<P>Machine-dependent bus interface&#9; 49</P>
+<P>isa_mem_read isa_mem_write&#9; 49</P>
+<P>isa_io_read isa_io_write&#9; 50</P>
+<P>isa_map_in isa_map_out&#9; 50</P>
+<P>isa_dma_alloc isa_dma_free&#9; 50</P>
+<P>isa_dma_map_in isa_dma_map_out&#9; 50</P>
+<P>isa_dma_sync&#9; 50</P>
+<P>Driver interface&#9; 50</P>
+<P>machdep.c interface&#9; 51</P>
+<P><B>10. Client interface&#9; 53</B></P>
+<P>IEEE-1275 client API&#9; 53</P>
+<P>SmartFirmware C API&#9; 55</P>
+<P>C functions&#9; 55</P>
+<P>Initialization&#9; 60</P>
+<P>Example&#9; 60</P>
+<P><B>Appendix A:<BR>
+SmartFirmware User Manual&#9; 63</B></P>
+<P>Basics&#9; 63</P>
+<P>Devices&#9; 63</P>
+<P>Parameter settings&#9; 65</P>
+<P>Parameter variables&#9; 67</P>
+<P>Booting&#9; 69</P>
+<P>Net-booting&#9; 70</P>
+<P>Testing&#9; 71</P>
+<P>Changing the console&#9; 72</P>
+<P>Forth variables&#9; 73</P>
+<P></P>
+<H1>1. <A NAME="Introduction"></A>Introduction</H1>
+<H4><B>Welcome</B></H4>
+<P>SmartFirmware is an implementation of the OpenFirmware standard (IEEE Std
+1275-1994 plus errata) designed for embedded systems. A more than passing
+familiarity with the standard and ANSI Forth is assumed in this document. We
+make no attempt to teach <A HREF="http://playground.sun.com/pub/1275/home.html">OpenFirmware
+</A>, <A HREF="http://www.taygeta.com/forth.html">Forth</A>, or C here.
+</P>
+<H3><A NAME="Features"></A>Features</H3>
+<UL>
+<LI>Written entirely in ANSI C to be simple, maintainable, portable, and very
+easy to customize.
+<LI>Additional code may be written in a mixture of ANSI C, Forth, or Fcode as desired.
+<LI>Modular design allows selecting specific functions and packages to be
+burned into a ROM.
+<LI>Includes an OpenFirmware-compliant interpreter, user interface,
+application interface, client interface, and tokenizer
+<LI>Detokenizer included to aid debugging embedded Fcode
+<LI>Unix hosted configuration for debugging and testing as well as embedded
+configuration for burning into a ROM.
+<LI>BOOTP/DHCP/RARP/TFTP support module for booting from networks.
+<LI>Display package for simple frame buffers and a terminal emulator.
+<LI>Drivers are available for several common PCI and ISA devices including
+Digital ethernet chips, Symbios SCSI chips, various PCI-ISA bridge chips, and
+ISA serial chips, among others.
+<LI>Custom ANSI C-to-Fcode/Forth compiler is available</UL>
+<P></P>
+<P>Please <A HREF="mailto:info@cgt.com">contact us</A> for pricing and
+availability or generation of additional drivers and modules, or about our C compiler.
+</P>
+<P></P>
+<P></P>
+<P></P>
+<H1>2. <A NAME="Basics"></A>Basics</H1>
+<P>This describes the design of SmartFirmware, to set a base for the
+customization descriptions in following chapters.</P>
+<H2><A NAME="Files"></A>Files</H2>
+<P>The source files are separated into several directories. The upper level
+contains files common to most platforms. Subdirectories are used for
+bus-specific code, such as &quot;pci&quot;, &quot;isa&quot;, and
+&quot;scsi&quot;, or for specific platform build directories, such as
+&quot;unix&quot;, &quot;i386&quot;, and &quot;bebox&quot;.</P>
+<H4><A NAME="Main-files"></A>Main files</H4>
+<PRE>
+<P>Makefile       # Unix makefile for various builds
+cour8x16.font  # default font for machdep.c below
+cour16x23.font # optional larger font
+cour32x44.font # optional really huge font
+8x16.font      # another 8x16 font
+&nbsp;
+defs.h         # essential definitions and types
+errs.h         # error codes go here
+logo.h         # default 64x64x8 logo for CodeGen, Inc.
+&nbsp;
+ctype.h        # simple versions of these files for 
+stdlib.h       #    embedded use when building ROM
+string.h       #    images of SmartFirmware
+&nbsp;
+admin.c        # OpenFirmware Administration commands
+client.c       # OpenFirmware Client Interface
+cmdio.c        # command-line I/O &amp; editing routines
+control.c      # Forth and Fcode control flow words
+cpu.c          # template for building /cpu node
+deblock.c      # disk deblocking package
+debug.c        # Forth debugging command group
+device.c       # device-path manipulation Forth words
+disklbl.c      # disk label package
+display.c      # display package and terminal emulator
+errs.c         # strings for error numbers go here
+exec.c         # Forth and fcode execution &amp; parsing
+failsafe.c     # failsafe I/O driver for debugging
+fb.c           # frame-buffer package for display
+forth.c        # Forth words that are not fcodes
+funcs.c        # basic words that are also fcodes
+funcs64.c      # words to support 64-bit extensions
+main.c         # main() - perform OpenFirmware bootup
+memory.c       # template for building /memory node
+nvedit.c       # on-screen script editor
+obptftp.c      # BOOTP/TFTP package
+other.c        # other misc. OpenFirmware words
+packages.c     # basic package manipulation words
+root.c         # template for building / node
+stdlib.c       # simple versions of standard C routines
+stlb.c         # software TLB to aid 32&lt;-&gt;64-bit translations
+sun.c          # Forth words compatible with Sun's OBP
+table.c        # low-level data-structure manipulation
+token.c        # OpenFirmware tokenizer &amp; detokenizer
+test-*         # various regression test command files</P>
+</PRE>
+<H4><A NAME="Executable-loader-files"></A>Executable loader files</H4>
+<P>The contents of subdirectory &quot;exe&quot; are as follows. It supports
+plug-in binary image loaders.</P>
+<PRE>
+<P>coff.c         # COFF/ECOFF binary image loader 
+dumpcoff.c     # test program to display COFF files
+dumpelf.c      # test program to display ELF files
+elf.c          # ELF binary image loader
+elf64.c        # ELF (64-bit) binary image loader
+exe.c          # plug-in binary image loader manager
+exe.h          # header for plug-in binary image loaders
+gzip.c         # gunzip &quot;loader&quot; - needs freeware zlib
+loadfc.c       # Forth and Fcode loader</P>
+</PRE>
+<H4><A NAME="Filesystem-files"></A>Filesystem files</H4>
+<P>The contents of subdirectory &quot;fs&quot; are as follows. It supports
+plug-in filesystem readers.</P>
+<PRE>
+<P>bsdpart.c      # BSD partition map loader
+bsdufs.c       # BSD FFS/UFS filesystem loader
+dos.h          # DOS FAT headers
+dosfat.c       # DOS FAT filesystem loader
+dospart.c      # DOS partition loader
+fs.c           # plug-in filesystem loader manager
+fs.h           # header for plug-in filesystem loaders
+iso9660.c      # ISO-9660 CD-ROM filesystem loader</P>
+</PRE>
+<H4>ISA files</H4>
+<P>The contents of subdirectory &quot;isa&quot; are as follows. This adds
+basic support for the PC-compatible ISA bus.</P>
+<PRE>
+<P>isa.c          # basic ISA bus driver package
+isa.h          # headers for ISA devices
+kbd.c          # PC keyboard driver
+ne2000.c       # NE2000-compatible Ethernet card driver
+ns16550.c      # serial port driver
+vga.c          # VGA-compatible display driver</P>
+</PRE>
+<H4><A NAME="PCI-files"></A>PCI files</H4>
+<P>The contents of subdirectory &quot;pci&quot; are as follows. This adds
+support for the PCI bus.</P>
+<PRE>
+<P>dc21140.c      # dummy DEChip 21140 driver for testing
+decether.c     # DEChip 21x4x ethernet driver
+fakepci.c      # dummy PCI driver for unix host
+fakepci.h      # externs for dummy PCI routines
+ncrscsi.c      # Symbios 53C8xx SCSI driver
+pci.c          # basic PCI bus driver package
+pci.h          # definitions specific to the PCI bus
+pcialloc.c     # internal PCI allocation routines
+pcicode.c      # current list of PCI vendor/device IDs
+pcidisp.c      # generic PCI display driver
+pciisa.c       # driver for various PCI-ISA bridges</P>
+</PRE>
+<H4><A NAME="SCSI-files"></A>SCSI files</H4>
+<P>The contents of subdirectory &quot;scsi&quot; are as follows, adding
+support for SCSI buses.</P>
+<PRE>
+<P>scsi.c         # common routines useful for SCSI drivers
+scsi.h         # headers of common SCSI routines
+scsidisk.c     # generic SCSI disk driver</P>
+</PRE>
+<H4><A NAME="Unix-files"></A>Unix files</H4>
+<P>The contents of subdirectory &quot;unix&quot; are as follows. These files
+allow running SmartFirmware under a standard Unix environment for testing and debugging.
+</P>
+<PRE>
+<P>be-predefs.h   # pre-include definitions for BeOS
+beapp.cc       # C++ file to replace main.c for BeOS
+BeOS.proj      # MetroWerks project to build on BeOS
+BeOS.rsrc      # resources for building under BeOS
+fakedisk.c     # fake disk driver - maps to Unix files
+mac.c          # Macintosh-specific code
+machdep.h      # machine-dependent definitions
+machdep.c      # machine-dependent code goes here
+Makefile       # build on Unix
+mw-predefs.h   # Metrowerks prefix header file
+mw-project.hqx # Metrowerks project + other Mac files</P>
+</PRE>
+<H4>&nbsp;i386 files</H4>
+<P>The contents of subdirectory &quot;i386&quot; are as follows. This supports
+SmartFirmware on standard i386-compatible PCs using the FreeBSD boot-loader.
+The boot-loader provides a standard 32-bit environment for SmartFirmware to
+run under. SmartFirmware takes over the hardware in place of the FreeBSD
+kernel and can be booted directly off of a FreeBSD filesystem or floppy.
+</P>
+<PRE>
+<P>divdi3.c       # math runtime function from BSD
+isabase.c      # low-level ISA support routines
+machdep.c      # i386-specific code
+machdep.h      # i386-specific definitions
+Makefile       # i386 build on Unix
+moddi3.c       # math runtime function from BSD
+pcibase.c      # low-level PCI support routines
+qdivrem.c      # math runtime function from BSD
+quad.h         # math runtime function from BSD
+start.S        # i386 startup assembly for launching
+udivdi3.c      # math runtime function from BSD
+umoddi3.c      # math runtime function from BSD</P>
+</PRE>
+<H4><A NAME="BeBox-files"></A>BeBox files</H4>
+<P>The contents of subdirectory &quot;bebox&quot; are as follows. This
+supports SmartFirmware running on the dual-PowerPC 603e BeBox platform. It is
+booted in place of the BeOS kernel off of a floppy and takes over the hardware.
+</P>
+<PRE>
+<P>be-predefs.h   # pre-include definitions for BeBox
+bebox.h        # BeBox-specific definitions
+BeBox.proj     # MetroWerks project for BeBox
+machdep.c      # BeBox-specific code
+machdep.h      # more BeBox-specific definitions
+pcibase.c      # low-level PCI support routines</P>
+</PRE>
+<P>SmartFirmware is designed so that it is easy to add or remove packages from
+a particular build, simply by modifying the lists of desired packages and
+word-sets in <I>machdep.c</I> and then <I>Makefile</I> to compile and link the
+desired files. It is a good idea to create custom <I>machdep.h</I> and 
+<I>machdep.c</I> files by copying another project's versions for a new
+project, then editing them for the new platform.</P>
+<P>Each OpenFirmware package may be implemented as Forth code or as C code.
+SmartFirmware implements almost everything in C, with the exception of the
+default boot script and a few Forth words for ease of tokenizing.</P>
+<H2>Headers</H2>
+<P>All the major data structures and types are defined in <I>defs.h</I> , with
+some machine dependent definitions going in <I>machdep.h </I>. The comments in
+the files should be reasonably self-explanatory. Additional bus or
+subsystem-specific code is under various subdirectories, such as <I>fs/fs.h
+</I> or <I>isa/isa.h</I>.</P>
+<P>&nbsp;</P>
+<H4><A NAME="Word-sizes"></A>Word sizes</H4>
+<P>The sizes of various type names must be specified in <I>machdep.h</I> .
+They are typically 8, 16, and 32 bits signed and unsigned values. However
+SmartFirmware can support 64-bit integer operations and Forth words only if
+the C compiler supports them, such as some versions of the Gnu C compiler gcc.
+</P>
+<P>&nbsp;</P>
+<P>A <I>Cell</I> is typically the standard word size of a platform. It must be
+large enough to hold a pointer such as &quot;<I>ch</I>ar<I>*</I> &quot;.
+However it may be larger than a pointer for those compilers that support, say,
+32-bit pointers but 64-bit integers.</P>
+<P>It is possible to build SmartFirmware with 32-bit <I>Cells</I> but with
+some 64-bit integer support.some 64-bit support is turned on if the macro 
+<I>__LONGLONG</I> is defined to be the type of the 64-bit integer, such as &quot;
+<I>long long</I>&quot; for gcc. 64-bit <I>Cells</I> are turned on if the macro 
+<I>SF_64BIT</I> is defined.</P>
+<H2>Commands</H2>
+<P>Commands are simply C functions linked into the Forth environment. They are
+designed to allow using them in both ways with fairly little effort.</P>
+<H4><A NAME="Declaring"></A>Declaring</H4>
+<P>A C function that implements a Forth word is defined as follows;</P>
+<PRE>
+<P>Retcode cfunc(Environ *e) { ... }</P>
+</PRE>
+<P>A set of macros in <I>defs.h</I> make declaring this somewhat easier for
+large numbers of <I>Commands</I>:</P>
+<PRE>
+<P>C(name) {..}  # define a local static Command
+EC(name);     # declare an extern for a Command
+CC(name){..}  # define a globally visible Command</P>
+</PRE>
+<P>These macros declare and define routines such as <I>cfunc</I> taking one
+argument, and <I>Environ*</I> which is named <I>e</I>. A typedef for <I>Command
+</I> is also declared to handle pointers to these functions.</P>
+<H4><A NAME="Calling"></A>Calling</H4>
+<P>An <I>Environ</I> is passed by pointer to all C functions to keep from
+cluttering up the code with a lot global variables. It also makes it much
+easier to support a thread-safe implementation in the future. Static global
+variables and data should only be used for initialization.</P>
+<P>All C functions must return either <I>NO_ERROR</I> or a specific error
+listed in the enum <I>Retcode</I> in <I>defs.h</I> . This mechanism is used to
+handle Forth exceptions without using<I>setjmp/longjmp</I>. A C function that
+calls other C routines must check the return codes for any error to either
+handle the error itself or to propagate that error to its caller.</P>
+<P>The Retcode errors are translated to strings by the routine <I>err2str
+</I> in <I>exec.c</I> when any error must be reported to the user. It may be
+easier to directly use the routine <I>cprintf</I> to display error messages,
+but this is only useful if the console has been probed and installed. The
+error codes themselves are defined in <I>errs.h</I>, and <I>errs.c</I> must be
+kept synchronized with it.</P>
+<H2>Stacks</H2>
+<P>The Forth data and return stacks are manipulated using macros defined in 
+<I>defs.h</I> . The stack elements are of the <I>Cell</I> type declared in 
+<I>machdep.h</I> , which is usually 32 or 64 bits wide. These stacks are
+maintained as simple arrays within the <I>Environ</I> struct with pointers to
+the current top of each stack.</P>
+<P>The data stack is used to pass arguments and perform all the standard Forth
+functions. The return stack is used to maintain a call-chain of Forth words as
+they are executed at runtime. It is also used to maintain loop variables for
+the looping control words. This can get messy to manage the return stack for
+certain words, but this sort of code is well-commented.</P>
+<H4><A NAME="Range-checks"></A>Range checks</H4>
+<P>The following four macros are used to check the stack ranges. The first two
+are intended for use in your own <I>if</I> and <I>while</I> statements. The
+last two are more generally used throughout the code to check the ranges and
+return an appropriate <I>Retcode.</I></P>
+<PRE>
+<P>CKSP(e, min, max)       # check data stack
+CKRETSP(e, min, max)    # check return stack
+IFCKSP(e, min, max)     # check &amp; return error
+IFCKRETSP(e, min, max)  # check &amp; return error</P>
+</PRE>
+<P>These are used to increment and decrement the respective stack pointers.
+Ranges are not checked. They are used by the other macros and are generally
+not used directly.</P>
+<PRE>
+<P>BUMPSP(e)      # increment data stack ptr by one
+DROPSP(e)      # decrement data stack ptr by one
+BUMP_RETSP(e)  # increment return stack ptr
+DROP_RETSP(e)  # decrement return stack ptr</P>
+</PRE>
+<H4><A NAME="Push-and-Pop"></A>Push &amp; Pop</H4>
+<P>These are used to access the top element of the stacks (a <I>Cell</I> ).
+Ranges are not checked.</P>
+<PRE>
+<P>TOP(e)   # get Cell currently on top of data stack
+RTOP(e)  # get Cell on top of return stack</P>
+</PRE>
+<P>These are used to get to a specific (nth) element on the stack without
+checking to see if it is in range. The topmost element on the stack is
+numbered zero (0), the element below it is one (1), and so on.</P>
+<PRE>
+<P>STACK(e, n)   # get nth element on data stack</P>
+</PRE>
+<P>These push a value on top of the data stack without checking for a range
+error. The second form is used to cast a pointer value into a pointer-sized
+integer before pushing it on the stack. It is generally used to eliminate
+warnings from some compilers.</P>
+<PRE>
+<P>PUSH(e, val)   # push val on top of data stack
+PUSHP(e, val)  # push val after casting it from a pointer</P>
+</PRE>
+<P>These simply drop the stack, either by one element, or by a count (n).
+Ranges are not checked.</P>
+<PRE>
+<P>DROP(e)       # drop the top element on the data stack
+DROPN(e, n)   # drop the top n elements on the stack</P>
+</PRE>
+<P>These pop the top of the stack into the specified variable. The second form
+allows inserting a typecast to cast the <I>Cell</I> to a pointer such as a 
+<I>Byte*</I> . The first assumes the variable is of type <I>Cell</I> . The
+last allows casting to any integer type. The first two may be overridden by
+custom macros to handle 64-bit to 32-bit (and 32 to 64) pointer translations.
+</P>
+<PRE>
+<P>POP(e, var)               # var = TOP(e); DROP(e);
+POPT(e, var, ptrtype)     # var = (ptrtype)TOP(e); DROP(e);
+POPTYPE(e, var, inttype)  # var = (inttype)TOP(e); DROP(e);</P>
+</PRE>
+<H4><A NAME="Return-stack"></A>Return stack</H4>
+<P>These do everything the above five macros do, only they operate on the
+return stack.</P>
+<PRE>
+<P>RSTACK(e, n)
+RPUSH(e, val)
+RDROP(e)
+RDROPN(e, n)
+RPOP(e, var)</P>
+</PRE>
+<H2>Memory</H2>
+<P>Memory is handled in as much a C fashion as possible. That is, except to
+mimic certain Forth behaviors, SmartFirmware uses <I>malloc</I> and <I>free
+</I> to manage memory. Simple versions of these routines are provided in 
+<I>stdlib.c</I> that allocate and free from a large fixed-size chunk of
+memory. An additional routine <I>init_malloc</I> is used to initialize the
+memory pool used by <I>malloc</I> and <I>free</I> . This version of <I>malloc
+</I> may be used if there is no suitable <I>malloc</I> available in the
+runtime environment of a target or compiler.</P>
+<H4><A NAME="Initializing"></A>Initializing</H4>
+<P>At start-up, the routine <I>machine_initialize</I> is called to do any
+machine-dependent setup. This routine, once it has setup and initialized any
+appropriate hardware, calls <I>init_malloc</I> with a chunk of memory to be
+used for the malloc pool, the size of which was defined by the macro <I>MALLOC_POOL
+</I> in <I>&lt;defs.h</I> &gt;.</P>
+<P>Once <I>malloc</I> is ready, then an <I>Environ</I> is created for the
+Forth world. <I>init_environ</I> is used to initialize an <I>Environ</I> ,
+which in turn calls <I>malloc</I> to allocate a pool of <I>MEM_SIZE</I> bytes
+for the Forth world. This macro is defined in <I>&lt;defs.h&gt;</I> , and the
+call to <I>init_environ</I> is in <I>main.c</I>.</P>
+<H4><A NAME="Allocating"></A>Allocating</H4>
+<P>All the basic data structures (<I>Entry, Table, Package, Instance, and Environ
+</I> ) are allocated and freed by appropriately named routines in <I>table.c
+</I> . The externs for these routines are also in <I>defs.h</I> . Objects are
+always allocated from the heap and not the stack to keep things simple, must
+always be created with <I>new_object</I> , and freed with <I>delete_object
+</I> .</P>
+<P>Temporary string buffers are frequently placed on the stack for
+convenience. Other objects are simply <I>malloc</I>-ed and <I>free</I>-d as needed.
+</P>
+<H4><A NAME="Debugging"></A>Debugging</H4>
+<P>If the macro DEBUG_MALLOC is defined, the malloc code will switch on
+additional memory debugging code which does simple checks to catch overruning
+the head or tail of <I>malloc</I>-ed objects, and verifying that <I>free
+</I>-d blocks are not used and that <I>malloc</I>-ed objects are initialized
+before use.</P>
+<H2>Strings</H2>
+<P>The OpenFirmware specification requires handling at least the Pascal and
+Forth style strings. Implementing SmartFirmware in C also requires handling C
+strings in a reasonably seamless fashion.</P>
+<H4><A NAME="String-types"></A>String types</H4>
+<P>There are three sorts of strings managed within the SmartFirmware software.
+There are C strings, Pascal strings, and Forth strings. C strings (<I>Byte*
+</I> ) are null-terminated arrays of characters. Pascal strings (<I>uByte*
+</I> ) use the first byte of the string array to store the length and are thus
+limited to 255 bytes in most implementations. Forth strings are two separate
+array and length values (<I>Byte*, Int</I> ) and are managed as such.</P>
+<H4><A NAME="Pascal-strings"></A>Pascal strings</H4>
+<P>SmartFirmware uses the Pascal string as its internal canonical form when
+storing a string in a data structure. When using a string in a function, it is
+converted to a Forth string using the routine <I>setstrlen</I> defined in 
+<I>table.c</I> , which takes a string in any of the three forms and returns a
+string adjusted to be in Forth style, with the actual length returned in
+another parameter.</P>
+<H4>Forth strings</H4>
+<P>Forth strings are then passed to most other C routines. If it takes both a 
+<I>Byte*</I> and an <I>Int</I> parameter, it usually expects a Forth string.
+Routines taking both arguments always call <I>setstrlen</I> in case the
+strings are in C or Pascal form.</P>
+<P>This makes it very easy to pass in C strings or Pascal strings by using the
+length field set to one of two magic negative values, as defined by the macros 
+<I>CSTR</I> and <I>PSTR</I> in <I>defs.h</I> . Anytime a C string is passed to
+a routine, simply pass in a length of<I>CSTR</I> and <I>setstrlen</I> takes it
+from there.</P>
+<H4>Copying strings</H4>
+<P>The routine <I>lstrdup</I> , (also defined in <I>table.c</I> ) with its
+associated macros <I>cstrdup</I> and <I>pstrdup</I> , allow creating and
+copying any form of string using <I>malloc</I>. <I>lstrdup</I> is used when
+the type of string is unknown but a length parameter is available. Otherwise,
+the type of string determines the right macro to use: <I>cstrdup</I> to copy C
+strings, and <I>pstrdup</I> to copy Pascal strings. <I>lstrdup</I> always
+returns a null-terminated Pascal string allocated using <I>malloc</I> , so it
+may be freed by passing the pointer to <I>free</I> . The returned pointer plus
+one is always a null-terminated C string.</P>
+<H2>Fcodes</H2>
+<P>The predefined fcode values from the OpenFirmware specification are also
+used as the internal &quot;compiled&quot; form within SmartFirmware. This
+eliminates any machine-dependent compilers, debuggers, and so forth, and also
+uses less memory but at some cost in performance. However, since this code is
+intended only to boot machines, and most commonly RISC machines, it is
+extremely unlikely that any performance loss will be a serious problem.
+</P>
+<H4><A NAME="Execution-tokens"></A>Execution tokens</H4>
+<P>The internal execution token of a Forth word is usually the same as the
+fcodes generated by an OpenFirmware tokenizer. Unfortunately, there is no
+provision made in the OpenFirmware specification to generate Fcodes on-the-fly
+for any newly created words. The vendor-specific fcode range is too small and
+has to be reset whenever a new Fcode program is loaded from a device.</P>
+<P>SmartFirmware allocates Fcodes that are well outside the fcode range
+specified by OpenFirmware, specifically values 0x1000 and greater. These are
+then encoded into the compiled form in a manner which allows easy decoding
+while remaining compliant to the OpenFirmware specification by using the
+vendor-specific 0x60 range as an &quot;escape&quot; value.</P>
+<P>The array <I>xtoks</I> in the <I>Environ</I> struct maintains the list of
+currently defined execution tokens. Each element points to an <I>Entry
+</I> defining a Forth word or method. The index of that element in <I>xtoks
+</I> is also its execution-token value minus 0x1000. Each <I>Entry</I> also
+stores its own execution token value.</P>
+<H4><A NAME="Initial-values"></A>Initial values</H4>
+<P>None of this is generally visible to the programmer except when
+initializing Forth words using arrays of the <I>Initentry</I> struct. If an
+fcode is explicitly specified in an <I>Initentry</I> for a word, that value is
+used as the execution token of that word. Otherwise<I>INVALID_FCODE</I> must
+be specified and a new execution token greater than or equal to 0x1000 is
+automatically generated (and never reused).</P>
+<H4><A NAME="Tokenizing"></A>Tokenizing</H4>
+<P>The vendor-specific 0x60 and 0x70 fcode ranges are used internally to mark
+certain control words for tokenizing. These are generally no-ops at runtime,
+but are needed as place-holders to calculate offsets and ranges when tokenizing.
+</P>
+<P>All vendor-specific ranges are only used internally in memory and are never
+written out by the tokenizer. Fcode programs generated by the SmartFirmware
+tokenizer are completely compatible with other vendors' implementations of OpenFirmware.
+</P>
+<H1>3. <A NAME="Machine-dependencies"></A>Machine dependencies</H1>
+<P>A new port should be managed simply by copying and modifying <I>machdep.h
+</I> and <I>machdep.c</I> from some existing port. Some samples for these
+machine-dependent files may be found under the <I>unix, i386, </I>and 
+<I>bebox</I> subdirectories.</P>
+<H2><A NAME="machdep.h"></A>machdep.h</H2>
+<P>This file contains all the types and definitions required to properly
+describe the target host. They must all be specified, and the correct types
+for the required word-widths must be selected. Most will probably not need to
+be changed. The file is well-commented and more up-to-date than this document,
+so only the more important portions are covered here.</P>
+<H4><A NAME="Macros"></A>Macros</H4>
+<P>Macros that control the switching on of certain features may be defined
+within <I>machdep.h</I> or may be added to the <I>Makefile</I> --whichever is
+more convenient. <I>LITTLE_ENDIAN</I> must be defined if your system does not
+do it for you. The default is big-endian, such as for the Motorola 680x0 processors.
+</P>
+<P>The amount of memory to be used by the SmartFirmware image is also defined
+here with <I>MALLOC_POOL</I> and <I>MEM_SIZE</I>. All memory including that
+for the Forth environment is allocated out of the <I>MALLOC_POOL</I> , so it
+must be large enough to allocate <I>MEM_SIZE</I> as well as all other macros.
+The defaults are defined as fractions of the total <I>MALLOC_POOL</I>.
+</P>
+<P>The default values for the various stack sizes are safe to change to larger
+values but be careful when making them smaller. Some of the other macros are
+already at their minimum value as specified in the OpenFirmware standard, so
+they should only be increased if necessary.</P>
+<H4><A NAME="Integral-types"></A>Integral types</H4>
+<P>A set of typedefs define the word sizes for the target host and the sizes
+used by the Forth environment. Typically, only the former needs to be ported
+to a host, with some caveats as follow.</P>
+<P>A <I>Cell</I> and a <I>Ptr</I> must both be large enough to hold a pointer
+of any type.</P>
+<P>DoubleNums require 64-bit support from the target compiler. If the compiler
+supports 64-bit integers, the macro <I>__LONGLONG</I> must be defined to that
+type (usually <I>long long</I>). This macro may be defined in CFLAGS in the 
+<I>Makefile</I> or at the top of <I>machdep.h.</I></P>
+<P>The various <I>*_SIZE</I> and <I>*_MASK</I> macros must be defined
+correctly. Unfortunately, there is no easy way to reliably extract this
+information from a C compiler or standard header files, so this must be done
+by hand.</P>
+<H4><A NAME="Fonts"></A>Fonts</H4>
+<P>Finally there are some macros that describe the built-in default system
+font. These should only be changed if either of the shipped fonts are not
+going to be used. If so, at least all the printable ASCII characters must be
+included in the font, from '  ' (space) to '<B>~</B> ' (tilde). 8-bit
+characters may also be included if desired.</P>
+<P>The OpenFirmware specification requires that the first scan-line of a font
+glyphs' bitmap be all zeros, and that the last scan-line must not be included
+in the bitmap, but is instead assumed to be all zeros. All this affects
+FONT_HEIGHT, which SmartFirmware uses as the real height of the font including
+the virtual bottom row of zeros.</P>
+<P>A struct &quot;eself&quot; may be created if the port needs additional data
+stored within the <I>Environ</I> struct defined in <I>defs.h</I> . This field
+may be initialized and filled in when needed by the <I>machine_init_args
+</I> routine described below.</P>
+<H2><A NAME="machdep.c"></A>machdep.c</H2>
+<P>This file contains code that must be ported to the target host, such as
+code to access registers, memory tests, non-volatile RAM, timers, and so on.
+The key routines that must be ported are named <I>machine_*</I> . There are
+some other Forth words in this file, but they are unlikely to need to be
+modified. It is also well commented, so the following notes serve only as an
+addendum rather than a replacement for <I>machdep.c</I> .</P>
+<H4><A NAME="Memory-initialization"></A>Memory initialization</H4>
+<P>The first routine to port is <I>machine_initialize</I> since it must first
+initialize <I>malloc</I> so that the rest of SmartFirmware can be initialized.
+The default version simply creates an enormous static block of memory, which
+should work if the target C compiler's runtime environment supports large
+static blocks of memory. (This block does not have to be initialized--
+<I>init_malloc</I> will take care of that.)</P>
+<P>The globals <I>g_machine_memory</I> and <I>g_machine_memory_size</I> must
+also be initialized to the start of RAM and the amount of real RAM in the
+machine. <I>init_malloc</I> is called with only a portion of this memory (
+<I>MALLOC_POOL</I> defined in <I>&lt;defs.h&gt;</I> ), to leave the rest
+available for the client interface.</P>
+<H4><A NAME="Debug-output"></A>Debug output</H4>
+<P>The <I>dprintf</I> routine is useful to bring up a port of SmartFirmware.
+It is typically defined to use the failsafe I/O routines defined later in the
+file. The failsafe I/O routines typically use a serial port for I/O, such as
+for the i386 and BeBox ports.</P>
+<P><I>failsafe_read</I> and <I>failsafe_write</I> routines should also be
+provided, so that if a console device cannot be accessed for some reason, at
+least the error messages won't get dropped in the bit-bucket. These simply use
+a hard-wired serial port for fall-back I/O in the i386 and BeBox ports, and
+stdio under Unix.</P>
+<H4><A NAME="Memory-and-IO-access"></A>Memory and I/O access</H4>
+<P>The memory and I/O access routines are required to get/set unaligned words
+from memory. Similar routines are used to access device registers perhaps
+through I/O space. The generic versions shipped with the default <I>machdep.c
+</I> may ben sufficient for most needs, but they should be checked to be sure.
+The versions for the i386 and BeBox ports may be more instructive.</P>
+<H4><A NAME="Timers"></A>Timers</H4>
+<P>The timing routines in SmartFirmware use <I>machine_gettime</I> to do the
+real work. If the target compiler has a version of the standard Unix function
+<I>gettimeoday</I> in its runtime library, this routine will most likely not
+need to be modified. Otherwise, some other method must be used.</P>
+<P>It is possible to bring up a new port without having to manage timers and
+interrupts at all. Simply defined the routine <I>u_sleep</I> to be a simple
+timed loop, and enough of SmartFirmware will run to bring up the port. Then
+the proper timer code can be turned on once <I>dprintf</I> is available to
+debug it.</P>
+<P><I>machine_gettime</I> is used when pausing for a specified time and for
+handling alarms by using polling loops. Real timer interrupts could be used,
+but SmartFirmware is not interrupt-safe, so some method of synchronizing
+interrupt tasks would still need to be used. If real interrupts are necessary,
+some of the routines that use <I>machine_gettime</I> in <I>machdep.c</I> may
+also need to be modified.</P>
+<H4><A NAME="Device-probing"></A>Device probing</H4>
+<P><I>machine_probe_all</I> is used to probe the hardware at start-up before a
+prompt would be displayed. This will almost certainly need to be customized.
+One of the things it may do is identify a console device. The i386 and BeBox
+ports probe for both a PCI and an ISA bus.</P>
+<H4><A NAME="Binary-images"></A>Binary images</H4>
+<P><I>machine_init_program</I> and <I>machine_go</I> are used to setup and
+launch a machine-dependent binary image. The defaults assume that the image is
+simply a pointer to the start of a C function and can simply be called using a
+C pointer-to-function. This code may in turn call the plug-in binary image
+loader defined under the <I>fs</I> subdirectory by using the <I>exec_is_exec
+</I> and <I>exec_load</I> routines. The actual binary images supported are
+listed here in the global variable <I>g_exec_list.</I></P>
+<H4><A NAME="Client-interface-callback"></A>Client-interface callback</H4>
+<P><I>machine_callback</I> is used for client-interface callbacks. The default
+assumes that the callback is simply a pointer to a C function and calls it.
+This does not need to be ported if the client-interface will not be used.
+</P>
+<H4><A NAME="Built-in-words-and-packages"></A>Built-in words and packages
+</H4>
+<P>This file also contains several global lists which are used to configure
+the modules and packages to be linked into the final image. These lists are
+called <I>init_list</I> and <I>install_list</I> , for a list of pointers to 
+<I>Initentry*</I> tables and a list of pointers to initialization <I>Commands
+</I> .</P>
+<P>Each module that wishes to install a set of words into the global Forth
+dictionary creates an initialization list at the bottom of the file (see 
+<I>funcs.c</I> or <I>devies.c</I> for an example). Each package that needs
+more complex initialization creates a function that does the work. <I>machdep.c
+</I> determines which of these will actually be linked into the final image.
+This process is described in more detail in <A HREF="#Creating-new-words">Creating
+new words</A>.</P>
+<H4><A NAME="Built-in-drivers"></A>Built-in drivers</H4>
+<P>Drivers for built-in PCI devices may also be specified using the <I>pci_drivers
+</I> global list. This is used by pci.c when probing the PCI bus. Built-in ISA
+drivers are handled similarly by defining the devices in the global <I>isa_devices.
+</I> Built-in filesystem support may be specified by the global <I>g_filesys.
+</I></P>
+<H4><A NAME="Non-volatile-RAM"></A>Non-volatile RAM</H4>
+<P>Non-volatile memory (NVRAM) is managed here by routines that read a static
+array to initialize or use to set default values. The sample code has code
+that ignores all writes. This should be sufficient to bootstrap a preliminary
+port of SmartFirmware then adding full NVRAM support later. A static array
+should still be used as a fall-back in case NVRAM is inaccessible or corrupt.
+</P>
+<P>The initial definitions for &quot;input-device&quot; and
+&quot;output-device&quot; in NVRAM are important when bringing up a new port
+of SmartFirmware. They should first be defined as &quot;/failsafe&quot; to
+bring up a console using the fall-back failsafe I/O routines. (This driver is
+defined in the file <I>failsafe.c.</I>) Once devices are properly probed and
+visible to the system in the device tree, then these definitions may be
+changed to the standard &quot;keyboard&quot; and &quot;screen&quot; aliases,
+with the actual devices for the aliases possibly being selected by <I>machine_probe_all
+</I> .</P>
+<P>The routine <I>machine_init_args</I> is called from <I>main()</I> once the
+Forth environment has been created and initialized. At this point Forth is
+ready to run but no devices have been probed. <I>machine_init_args</I> is
+passed the arguments that were passed to <I>main</I> if they are useful for a
+particular port. It may initialize the &quot;self&quot; field of its <I>Environ
+</I> *parameter if desired.</P>
+<H1>4. <A NAME="Creating-new-words"></A>Creating new words</H1>
+<P>This chapter describes how to create new Forth words and packages and
+install them into SmartFirmware.</P>
+<H2><A NAME="Words"></A>Words</H2>
+<P>A word is a Forth executable object, usually a C function or a Forth/FCode
+routine. First we will implement a sample word in C, and show how to put it
+into SmartFirmware.</P>
+<H4><A NAME="Declaring "></A>Declaring</H4>
+<P>A file named <I>hello.c</I> is created and contains the following:</P>
+<PRE>
+<P>#include &quot;defs.h&quot;
+&nbsp;
+C(hello)
+{
+    cprintf(e, &quot;Hello, world!\n&quot;);
+    return NO_ERROR;
+}</P>
+</PRE>
+<P>This declares and defines a local static Forth <I>Command</I> . A <I>Command
+</I> must always return an appropriate <I>Retcode</I> , in this case <I>NO_ERROR
+</I> . The macro &quot;<B>C</B>&quot; is used to declare the function, which
+will be named <I>f_hello</I> . All these types and macros are defined in 
+<I>defs.h</I> .</P>
+<H4><A NAME="Initentry"></A>Initentry</H4>
+<P>To enter this word in SmartFirmware's global dictionary, it must be first
+put into an initialization list (composed of <I>Initentry</I> objects).
+</P>
+<PRE>
+<P>const Initentry init_hello[] =
+{
+    { &quot;hello&quot;, f_hello, INVALID_FCODE },
+    { NULL, NULL }
+};</P>
+</PRE>
+<P>This list must always end with the &quot;NULL, NULL&quot; combination which
+properly terminates the list. The Forth world will know this function as the
+string &quot;hello&quot;. It will call the routine <I>f_hello</I> whenever the
+word &quot;hello&quot; is invoked.</P>
+<P>The <I>INVALID_FCODE</I> value tells the SmartFirmware initialization code
+that this routine does not have a pre-defined FCode value in the OpenFirmware
+specification, so automatically generate an arbitrary value at runtime that is
+safely out of the pre-defined ranges in the specification.</P>
+<H4><A NAME="init_list"></A>init_list</H4>
+<P>The last thing to do is add init_hello to the global list-of-init-lists in 
+<I>machdep.c.</I> Look for the code that begins with <I>extern Initentry
+</I> in that file. Our <I>init_hello</I> will be added to the end of that
+list, and also inside the <I>init_list</I> global.</P>
+<PRE>
+<P>...
+/* bunch of other extern Initentrys here */
+extern const Initentry init_display[];
+extern const Initentry init_hello[];    /* add this line */
+&nbsp;
+const Initentry* init_list[] =
+{
+    ...
+    init_display,
+    init_hello,   /* and add this line */
+    NULL          /* must be NULL terminated! */
+};</P>
+</PRE>
+<P>Now re-compile <I>machdep.c </I>and relink SmartFirmware, start it up, and
+type &quot;hello&quot; at the prompt. It should respond with &quot;Hello, world!&quot;.
+</P>
+<H4><A NAME="More-Initentry"></A>More Initentry</H4>
+<P>An <I>Initentry</I> can contain other types of words. Here is a way to
+create a word as a string of Forth commands:</P>
+<PRE>
+<P>const Initentry init_hello[] =
+{
+    { &quot;hello&quot;, f_hello, INVALID_FCODE },
+    { &quot;hello2&quot;, (Command)&quot;.\&quot; Hello, world!\&quot; cr&quot;,
+            INVALID_FCODE, F_NONE, T_FORTH
+            HELP(&quot;(--) display hello message&quot;)
+            },
+    { NULL, NULL }
+};</P>
+</PRE>
+<P>Recompile <I>hello.c</I>, relink, and now invoking &quot;hello2&quot; will
+do the same thing as &quot;hello&quot;. Notice that machdep.c does not need to
+be recompiled.</P>
+<P>There are more involved forms of the various arguments to an <I>Initentry
+</I>, used for special compilation words, pointers to fields of C structures,
+and constants. Browse some of the SmartFirmware sources to see the different
+ways that a word can be created, should you need anything more complex than
+the above two forms.</P>
+<P>The <I>HELP</I> macro inserts a message to be displayed by the <I>help
+</I> command for the <I>hello2</I> word. This help may be turned off and on
+using the macro <I>DETAILED_HELP</I> in <I>machdep.h</I>. Detailed help
+messages take up more data space so if memory is tight, it may be turned off.
+Note that there must be no preceding comma before invoking the <I>HELP
+</I> macro. It automatically inserts a comma if <I>DETAILED_HELP</I> is on.
+</P>
+<H2><A NAME="Packages"></A>Packages</H2>
+<P>A package can be a special-function subroutine library such as <I>deblock.c
+</I> , or it can be a bus or device driver, such as <I>pci.c</I> . The
+simplest packages to study are <I>disklbl.c</I> (for finding and managing disk
+labels and partitions, if any) and <I>failsafe.c</I> (for faking a console and
+keyboard using fail-safe I/O routines in <I>machdep.c</I>).</P>
+<P>Packages may be written in Forth or may be embedded as FCode on a plug-in
+card. The <A HREF="#SmartFirmware-User-Manual">User Manual</A> describes more
+about how OpenFirmware devices trees, paths, and packages interact. The
+OpenFirmware specification should be consulted for the final word in these matters.
+</P>
+<H4><A NAME="struct-self"></A>struct self</H4>
+<P>One important C idiom that the C packages use is defining a <I>struct self 
+</I>at the top of the file. The field <I>struct self *self</I> is declared
+within <I>Instance</I> in <I>defs.h</I> but is never explicitly defined. Each
+package can create and manage its own <I>struct self </I>without worrying
+about some other package's definition. This allows C code to easily access
+instance-specific variables without having to go through the Forth
+environment. This does mean that a package cannot directly access another
+package's private C variables, but that's probably a good thing anyway.
+</P>
+<H4><A NAME="Methods"></A>Methods</H4>
+<P>Methods are declared and used for packages pretty much as other Forth
+words. The only difference is that these words are package-specific and are
+not installed in the global dictionary but rather in the specific package's
+own private dictionary. These are then called methods of the package.</P>
+<P>A package should always have an <I>open</I> and <I>close</I> method. Empty
+stubs are fine, but they should always return <I>NO_ERROR</I> . <I>open
+</I> must also push <I>FTRUE</I> on the top of the data stack.</P>
+<H4><A NAME="Initialization"></A>Initialization</H4>
+<P>A package is also initialized differently from plain-vanilla Forth words.
+Because a package is always created relative to a parent at runtime, a C
+function must be used to initialize the package. This C routine must create
+the new <I>Package</I> object, and initialize its method table. Typically it
+will also allocate and initialize its <I>Self</I> struct.</P>
+<P>For instance, in disklbl.c, first the C methods are placed into an
+Initentry list to be used later.</P>
+<PRE>
+<P>static const Initentry disklabel_methods[] =
+{
+    { &quot;open&quot;, f_open, INVALID_FCODE },
+    ...
+    { NULL, NULL }
+};
+&nbsp;
+CC(install_disklabel)
+{
+    Package *pkg = new_pkg_name(e-&gt;packages,
+            &quot;disk-label&quot;);
+&nbsp;
+    return init_entries(e, pkg-&gt;dict, disklabel_methods);
+}</P>
+</PRE>
+<P>The routine <I>install_disklabel</I> is then entered into a global list in 
+<I>machdep.c</I>.</P>
+<PRE>
+<P>EC(install_disklabel);    /* declare it */
+...
+const Command install_list[] =
+{
+    ...
+    install_disklabel,    /* and insert it at the end */
+    NULL
+};</P>
+</PRE>
+<P>The <I>install_disklabel</I> routine must call <I>new_pkg_name</I> to
+create the new package with the specified parent (in this case the node
+&quot;/packages&quot;) and then call <I>init_entries</I> to initialize the new
+package's dictionary. Additional package-specific initialization could be done
+here, but note that the <I>open</I> method is responsible for all
+instance-specific initialization.</P>
+<H1>5. <A NAME="Compiling-Running-Etc"></A>Compiling, Running, Etc.</H1>
+<P>This chapter describes how to compile and run SmartFirmware.</P>
+<H2><A NAME="Building"></A>Building</H2>
+<P>The usual way to build SmartFirmware is using the included Unix<I>Makefile
+</I> . It builds SmartFirmware on a variety of Unix systems, including
+FreeBSD, NetBSD on Alpha, Solaris on the Sparc, and under BeOS on either
+Macintosh or BeBox. Most configurations will require either modifying the
+Makefile to select the appropriate macro definitions for CFLAGS and the like.
+</P>
+<H4><A NAME="New-targets"></A>New targets</H4>
+<P>Each target port or platform is placed in a subdirectory. Each has its own 
+<I>Makefile</I> that refers to common files or machine-specific files as
+needed. Some implementations of <I>make</I> are unable to handle the relative
+paths to common source files. For these systems, the common files may simply
+be linked into the platform's subdirectory before building. Or the BSD make
+may simply be ported to the target platform.</P>
+<H4><A NAME="Macintosh"></A>Macintosh</H4>
+<P>For the Macintosh, a CodeWarrior project file is included named <I>mw-project.hqx
+</I> . Simply decode it on a Mac to create the SmartFirmware project file and
+the Mac resource file, open the project file, then simply select the Make menu
+to build a Mac version of SmartFirmware.</P>
+<P>The Mac version uses an off-screen PixMap and the SmartFirmware 8-bit
+display package in <I>fb.c</I> rather than using the <I>stdio.c</I> interface.
+This allows the display code to be exercised and tested before being burned
+into a ROM. However, since the off-screen PixMap is blitted to the Mac window
+every time a character is displayed, performance is lousy since we try to
+remain reasonably Mac-friendly by calling <I>WaitNextEvent</I> .</P>
+<H4><A NAME="BeOS"></A>BeOS</H4>
+<P>Building under the BeOS requires the unlimited Metrowerks linker. The file 
+<I>BeOS.proj </I>is a Metrowerks project files and <I>BeOS.rsrc</I> is the
+resources for the project. The <I>Makefile</I> may also be used if the BSD 
+<I>make</I> has been ported or uploaded to the BeOS.</P>
+<P>This version of SmartFirmware uses an off-screen bitmap and uses the
+display package rather than more Unix-like stdio interface. SmartFirmware
+proper runs as a separate thread to closely mimic the behavior of an embedded
+system. A separate thread is responsible for keyboard and screen I/O.</P>
+<H2><A NAME="Running"></A>Running</H2>
+<P>Running the Unix SmartFirmware on a Unix-like system is simply typing 
+<I>of</I> at the prompt. The unix SmartFirmware initializes its fake devices,
+creates a dummy console and keyboard device attached to stdout and stdin
+(respectively), and enters a standard Forth command eval loop.</P>
+<P>On the Mac, double-click the application &quot;OpenFirmware&quot; to launch
+it. After that, it's pretty much like the Unix implementation, except there is
+no way to pass in any command-line arguments so everything must be run from
+inside the Forth environment. The BeOS port is similar to the Mac version.
+</P>
+<P>Running other versions of SmartFirmware depends upon each port. The FreeBSD
+i386 port runs by using the FreeBSD boot-loader to setup 32-bit protected
+mode, and thus may be launched instead of the kernel. Other ports may be
+placed into ROM and may be launched simply by powering up a VME graphics card,
+or booted off of a floppy.</P>
+<H2>Tokenizing</H2>
+<H4><A NAME="Command-line"></A>Command line</H4>
+<P>Under Unix, &quot;of&quot; takes several command-line arguments. The first
+allows running an arbitrary Forth or Fcode file on the local host:</P>
+<PRE>
+<P>$ of -file forth-or-fcode-file</P>
+</PRE>
+<P>The second form runs just the tokenizer:</P>
+<PRE>
+<P>$ of -tokenize tokenizer-source-file</P>
+</PRE>
+<H4><A NAME="Forth-prompt"></A>Forth prompt</H4>
+<P>Both of these commands may be run from within the Forth environment (which
+is the only way to run them on the Mac or BeOS). To load a file:</P>
+<PRE>
+<P>ok load-file forth-or-fcode-file</P>
+</PRE>
+<P>To tokenize a file:</P>
+<PRE>
+<P>ok tokenize tokenizer-source-file</P>
+</PRE>
+<P>The tokenizer source file should begin and end with the tokenizer words 
+<I>fcode-version2</I> and <I>fcode-end</I>, as the OpenFirmware errata now requires.
+</P>
+<H2>Detokenizing</H2>
+<P>SmartFirmware also supports detokenizing an Fcode file. This is essentially
+an Fcode disassembler and is useful for debugging. To run it at the Unix prompt:
+</P>
+<PRE>
+<P>$ of -detokenize fcode-file</P>
+</PRE>
+<P>From within SmartFirmware do this:</P>
+<PRE>
+<P>ok detok fcode-file</P>
+</PRE>
+<P>The output is rather verbose and probably somewhat cryptic. We apologize
+for any inconvenience. It's easiest to look through the sources to see what
+the various values mean.</P>
+<H1>6. <A NAME="Plug-in-executable-images"></A>Plug-in executable images
+</H1>
+<P>The plug-in layer is a non-standard interface to more easily support a
+variety of executable image formats instead of writing custom loaders for each
+target platform. The <A HREF="SFChapter2.html#Executable-loader-files">source files
+</A> of the plug-in executable layer are located under the <I>exe</I> subdirectory.
+</P>
+<P>The plug-in executable layer sits above the low-lever device loader code
+and below the user-level <I>load</I> command. After an image is loaded from a
+disk or over the network, it is then checked to see if a plug-in supports the
+image format, and if so, it may be executed.</P>
+<H2><A NAME="Interface"></A>Interface</H2>
+<P>The interface to the plug-in executable layer is through the routines
+listed in <I>exe.h</I>:</P>
+<PRE>
+<P>extern Bool exec_is_exec(Environ *e);
+extern Retcode exec_load(Environ *e);
+extern Bool exec_length(Environ *e, uInt *len);
+extern Sym_table *exec_load_symbols(Environ *e);
+void exec_free_symbols(Environ *e, Sym_table *tab);
+extern Sym_ent *exec_sym2addr(Environ *e, Sym_table *tab,
+        Byte *sym, Int slen);
+extern Sym_ent *exec_addr2sym(Environ *e, Sym_table *tab,
+        uLong addr);</P>
+</PRE>
+<H4><A NAME="Calling-plug-in-routines"></A>Calling plug-in routines</H4>
+<P>The callers of these routines are in the platform-dependent <I>machdep.c
+</I> file:</P>
+<PRE>
+<P>CC(machine_init_program)&#9;/* (--) */
+{
+&#9;/* see if we have some supported executable image */
+&#9;if (exec_is_exec(e))
+&#9;{
+&#9;&#9;exec_free_symbols(e, e-&gt;loadsyms);
+&#9;&#9;e-&gt;loadsyms = exec_load_symbols(e);
+&#9;&#9;return NO_ERROR;
+&#9;}
+&nbsp;
+&#9;return E_BAD_IMAGE;
+}</P>
+</PRE>
+<P>The exec_is_exec routine simply iterates through the list of built-in
+supported formats to identify the image at e-&gt;load.</P>
+<PRE>
+<P>CC(machine_go)&#9;&#9;&#9;&#9;/* (--) */
+{
+&#9;Retcode ret;
+&nbsp;
+&#9;if (exec_is_exec(e))&#9;&#9;/* sanity check */
+&#9;{
+&#9;&#9;ret = exec_load(e);
+&nbsp;
+&#9;&#9;if (ret == NO_ERROR)
+&#9;&#9;{
+&#9;&#9;&#9;exec_free_symbols(e, e-&gt;loadsyms);
+&#9;&#9;&#9;e-&gt;loadsyms = exec_load_symbols(e);
+&#9;&#9;}
+&nbsp;
+&#9;&#9;/* machine-dependent launch through e-&gt;entrypoint */
+&#9;}
+&#9;else
+&#9;&#9;ret = E_BAD_IMAGE;
+&nbsp;
+&#9;return ret;
+}</P>
+</PRE>
+<P>This code may additionally include custom loaders if desired, but it will
+generally be easier to create a custom plug-in executable module as described below.
+</P>
+<P>(The <I>machine_init_load</I> routine must correctly point <I>e-&gt;load
+</I> to a large area of free memory where it is safe to load an image.)
+</P>
+<H4>Describing built-in formats</H4>
+<P>The <I>machdep.c</I> file must also list the image formats that are supported:
+</P>
+<PRE>
+<P>extern Exec_entry exec_fcode;
+extern Exec_entry exec_forth;
+extern Exec_entry exec_coff;
+extern Exec_entry exec_elf;
+extern Exec_entry exec_elf64;
+extern Exec_entry exec_gzip;
+&nbsp;
+Exec_entry *g_exec_list[] = 
+{
+&#9;&amp;exec_fcode,
+&#9;&amp;exec_forth,
+&#9;&amp;exec_coff,
+&#9;&amp;exec_elf,
+&#9;&amp;exec_elf64,
+&#9;&amp;exec_gzip,
+&#9;NULL
+};</P>
+</PRE>
+<P>Each <I>Exec_entry</I> is defined in a separate file that supports that
+image format. In the example above, this platform will support Fcode, Forth,
+COFF and ELF format images. The plug-in layer iterates through all supported
+images to first identify a supported image and then load it.</P>
+<H2>Supplied image formats</H2>
+<P>Fcode and Forth images may be supported by any platform.</P>
+<P>The <I>coff.c</I> plug-in requires that the macros <I>COFF_MAGIC_0</I> and 
+<I>COFF_MAGIC_1</I> be defined in the platform's <I>machdep.h</I> file. These
+determine the correct magic number values of the image as generated by your
+platform's linker. Please see the file <I>exe/coff.c</I> for more details.
+</P>
+<P><I>elf.c</I> also requires identifying the correct machine for the target
+by defining <I>ELF_OUR_MACHINE</I> to the correct value in <I>machdep.h
+</I>. Please see the file <I>exe/elf.c</I> for more details.</P>
+<P>The files <I>dumpcoff.c</I> and <I>dumpelf.c</I> are included to display
+the contents of their respective binary images on stdout, and also display
+their respective magic numbers. Compile these files using your native host's
+compiler to build the programs <I>dumpcoff</I> and <I>dumpelf</I>
+respectively, then run them on a sample image.</P>
+<H2><A NAME="Sample-Forth-image-format"></A>Sample Forth image format</H2>
+<P>The file <I>loadfc.c</I> includes code for loading Forth and Fcode
+&quot;images&quot; following an OpenFirmware Recommended Practice document.
+The Forth image loader is a good outline for creating custom image loaders. A
+loader begins with these include files:</P>
+<PRE>
+<P>#include &quot;defs.h&quot;
+#include &quot;exe.h&quot;</P>
+</PRE>
+<H4><A NAME="is_exec-function"></A>is_exec function</H4>
+<P>Each loader has two entry points. One routine determines if the image
+pointed to is an executable of the correct type or not:</P>
+<PRE>
+<P>static Bool
+forth_is_exec(Environ *e, uByte *load, uInt loadlen)
+{
+&#9;if (loadlen &gt; 2 &amp;&amp; load[0] == '\\' &amp;&amp; load[1] == ' ')
+&#9;&#9;return TRUE;
+&nbsp;
+&#9;return FALSE;
+}</P>
+</PRE>
+<P>The entry point is passed a pointer to the image loaded into memory and its
+length. This pointer is typically e-&gt;load but may not necessarily be so. An
+image loader should look for some magic bytes and possible verify a checksum
+to insure the image is of the supported type.</P>
+<P>The Forth <I>is_exec</I> routine looks for the first characters of the
+image to be the beginning of a Forth text comment and if so, assumes it is a
+Forth image. It could also check that the rest of the image is all only ASCII
+characters if desired.</P>
+<P>Return <I>TRUE</I> if the image is the correct format and loadable and 
+<I>FALSE</I> if not.</P>
+<H4><A NAME="load-function"></A>load function</H4>
+<P>The second entry actually loads the image and returns the entrypoint into
+the image:</P>
+<PRE>
+<P>/* run the Forth image - loading makes no sense for Forth
+ */
+static Retcode
+forth_load(Environ *e, uByte *load, uInt loadlen, uInt *entrypoint)
+{
+&#9;*entrypoint = -1;
+&#9;return interp_text(e, (Byte*)load, (Int)loadlen);
+}</P>
+</PRE>
+<P>This routine interprets the Forth text at the load address directly rather
+than return an entrypoint into the image. The entrypoint <B>-1</B> tells the
+caller that there is nothing more to do here.</P>
+<P>An image loader may copy portions of the image into some other piece of
+allocated memory, perform relocation and other patching operations, then
+return a pointer to the entrypoint in the new image. It may simply assume that
+the target memory is safely outside of the SmartFirmware's address space and
+directly copy portions of the image straight to where it needs to be. Please
+see the <I>coff.c</I> and <I>elf.c </I>files for details.</P>
+<H4><A NAME="Exec_entry"></A>Exec_entry</H4>
+<P>Last the entry points are listed in an <I>Exec_entry</I> structure along
+with a name to identify this loader:</P>
+<PRE>
+<P>const Exec_entry exec_forth =
+{
+&#9;&quot;Forth&quot;,
+&#9;forth_is_exec,
+&#9;forth_load
+};</P>
+</PRE>
+<P>Add a reference to this entry point in machdep.c's g_exec_list, and
+SmartFirmware now understands the new image format.</P>
+<H1>7. <A NAME="Plug-in-filesystem"></A>Plug-in filesystem</H1>
+<P>The plug-in filesystem code is a non-standard extension to OpenFirmware
+that permits listing and loading files within filesystems on random-access
+media. The <A HREF="#Filesystem-files">source files</A> of this layer are
+located under the <I>fs</I> subdirectory.</P>
+<P>The plug-in filesystem works above the device-driver layer of code and
+below the SmartFirmware <I>disk-label</I> package.</P>
+<H2><A NAME="How-it-works"></A>How it works</H2>
+<P>When the SmartFirmware disk-label package (implemented in file disklbl.c)
+is opened by a disk device, it automatically inserts a new method into the
+disk device named <I>list-files</I>. This hook allows the filesystem layer to
+be used to display the contents of filesystems rather than simply loading them.
+</P>
+<P>Otherwise, the disk-label package simply calls the file-system hooks
+defined in fs.c to do the work. These hooks iterate through the built-in
+supported filesystems and try to identify various partition and filesystems on
+a drive.</P>
+<P></P>
+<P>A user-level command <I>list-files</I> is also added which behaves much as
+the user-level <I>load</I> Forth command but which also takes an optional
+directory string argument. The <I>list-files </I>command then calls the
+<I> list-files</I> method on the device just as the <I>load</I> command calls
+the <I>load</I> method.</P>
+<H4><A NAME="list-files"></A>list-files device-path:[partition,...] [filesys-path]
+</H4>
+<BLOCKQUOTE>
+<P>List files under a specified device possibly under an optional directory name.
+</P>
+<P>Examples:</P>
+</BLOCKQUOTE>
+<PRE>
+<P>ok <B>list-files /pci/scsi/disk@3</B>
+DOS partition 0: fat12 (0x1)
+DOS partition 1: bsd (0xA5)
+DOS partition 2: unused (0x0)
+DOS partition 3: unused (0x0)
+ok <B>list-files /pci/scsi/disk@3:0</B>
+ Volume is DOS
+IO.SYS          33430
+MSDOS.SYS       37394
+COMMAND.COM     47845
+[DOS]
+CONFIG.SYS      71
+AUTOEXEC.BAT    81
+...
+ok <B>list-files /pci/scsi/disk@3:1</B>
+BSD partition a: ffs (7)
+BSD partition b: swap (1)
+BSD partition c: unused (0)
+BSD partition d: unused (0)
+...
+ok <B>list-files /pci/scsi/disk@3:1,a</B>
+[.]
+[..]
+[dev]
+[usr]
+kernel
+[root]
+[var]
+...
+ok <B>list-files /pci/scsi/disk@3:1,a /root</B>
+[.]
+[..]
+.profile
+.exrc
+mbox
+.Xdefaults
+...
+ok <B>boot /pci/scsi/disk@3:1,a /kernel -s
+...</B></P>
+</PRE>
+<H4>Partitions</H4>
+<P>Disk partitions are simply viewed as directories in this scheme, only with
+short names and no subdirectories. This allows easy nesting of partitions and
+filesystems mostly to support x86 systems. For instance, the example above
+denotes a DOS partition <B>1</B> that contains a BSD root partition <B>a
+</B> that in turn contains a BSD filesystem under which we are interested in
+the contents of <B>/dir</B>.</P>
+<P>Typically partitions should be noted in a comma-separated list after the
+device name and a colon. File path names are usually indicated after a space
+as part of the option arguments to a device. Beware of back-slashes for DOS
+path names followed by a space as Forth may see it as a comment.</P>
+<H2>Interface</H2>
+<P>The <I>g_filesys</I> list must be defined in the target <I>machdep.c
+</I> file to list all supported built-in filesystems:</P>
+<PRE>
+<P>extern Filesys g_dos_partition;
+extern Filesys g_dos_fat;
+extern Filesys g_bsd_partition;
+extern Filesys g_bsd_ufs;
+extern Filesys g_iso9660_fs;
+&nbsp;
+Filesys *g_filesys[] =
+{
+&#9;&amp;g_dos_partition,
+&#9;&amp;g_dos_fat,
+#if defined(__FreeBSD__) || defined(__NetBSD__) || defined(__OpenBSD__)
+&#9;&amp;g_bsd_partition,
+&#9;&amp;g_bsd_ufs,
+#endif
+     &amp;g_iso9660_fs,
+&#9;NULL
+};</P>
+</PRE>
+<P>Additional filesystem and partition schemes may be created and added to the list.
+</P>
+<H4><A NAME="filesys-entry"></A>filesys entry</H4>
+<P>There is only one entry point to each particular filesystem. This is
+through the single <I>action</I> function defined as follows:</P>
+<PRE>
+<P>Retcode (*action)(Environ *e, Filesys_action what, Instance *disk,
+        Byte *path, uLong loc, uByte *buf, uInt size,
+        uByte *retbuf, uLong *val);</P>
+</PRE>
+<P>The simplest filesystem code to explore is in the files <I>dospart.c
+</I> and<I>bsdpart.c </I>which handles the DOS and BSD partition schemes
+respectively. The actual filesystem code is in <I>dosfat.c</I> and <I>bsdufs.c
+</I> and are considerably more complex, especially since much code has been
+copied and modified from freely available software.</P>
+<P>The <I>action</I> routine is called with either one of <I>FS_PROBE</I>, 
+<I>FS_LIST</I>, or <I>FS_LOAD</I> Filesys_action values to probe for a
+filesystem, list files within a filesystem, or load a file from a filesystem respectively.
+</P>
+<P>The rest of the arguments are an opened instance to the <I>disk</I> device,
+a comma-separated list of <I>path</I> names, the location <I>loc</I> at which
+this filesystem must begin its operation on the disk, a DMA-safe buffer 
+<I>buf</I> to use for reading data from the disk, the <I>size</I> of the
+buffer (at least as large as the disk's reported block size), and a return
+buffer <I>retbuf</I> and its optional length <I>val</I> to return any loaded data.
+</P>
+<P>The <I>retbuf</I> is also used to return a comma-separated list of probed
+partitions that is subsequently stored as a property <I>partition-types
+</I> in the disk package. This list is generated in the order the filesystems
+are identified.</P>
+<P>As a filesystem probes, lists, or loads from a device, it must use the 
+<I>path</I> argument to determine if it needs to forward those actions to
+sub-partitions. It must first identify a partition or directory name to the
+first comma in the <I>path</I>. If there is still something left to do, it
+must forward the request to the generic filesystem layer and let it probe,
+list, or load from any sub-partitions, after suitably adjusting the <I>loc
+</I> parameter.</P>
+<H1>8. <A NAME="PCI-bus-interface"></A>PCI-bus interface</H1>
+<P>The PCI bus code supports probing and initializing PCI devices. The 
+<A HREF="#PCI-files">source files</A> of this layer are located under the 
+<I>pci</I> subdirectory.</P>
+<P>While most of the code is machine-independent, a certain amount must be
+customized to communicate with the PCI configuration registers, memory space,
+and I/O spaces on the target system. The PCI drivers themselves are
+machine-independent being written to communicate with the PCI bus layer.
+Finally, the target <I>machdep.c</I> file must specify the built-in PCI
+devices and beginning the probe of the PCI bus.</P>
+<P>This chapter will use the <I>i386</I> subdirectory as an example for how to
+write a PCI bus layer. This target runs on Intel x86 hardware using a FreeBSD
+boot-loader that turns on 32-bit addressing/protected mode.</P>
+<P>PCI-ISA bridges are detected as PCI devices and are automatically probed as
+devices. If one is found, the ISA bus methods are installed and accessed
+through the appropriate PCI calls. Otherwise an ISA bus interface may be
+explicitly added and probed as described in the <A HREF="#ISA-bus-interface">ISA
+chapter</A>.</P>
+<P>PCI-PCI bridges are also detected as PCI devices and automatically probed,
+as are all devices behind them.</P>
+<H2>Machine-dependent bus interface</H2>
+<P>The bulk of the work to probe PCI buses and devices is handled in the file
+<I> pci.c</I>, with interfaces to useful routines and structures in <I>pci.h
+</I>. This creates the /pci device node, installs the methods for the bus
+layer as per the OpenFirmware specification, then probes the bus for all
+devices connected to it and creates device nodes in the tree for all of them.
+</P>
+<P>The file<I> i386/pcibase.c</I> defines the machine-dependent interface for
+the PCI bus. This is where PCI configuration space, memory space, and I/O
+space are accessed, mapped, allocated, and freed. All these functions must be
+defined for a target system.</P>
+<P>There are useful macros in pci.h to transform a PCI bus, device, function,
+etc address into its constituent parts and back again to a 32-bit number.
+</P>
+<H3><A NAME="pci_num_host_bridges"></A>pci_num_host_bridges</H3>
+<BLOCKQUOTE>
+<P>This must return the number of host PCI bridges in the system. There is no
+way to determine how many PCI buses are built into a system, so this must be
+specified explicitly. This does not affect PCI-PCI bridges, which are detected
+and probed as a normal PCI device.</P>
+</BLOCKQUOTE>
+<H3><A NAME="pci_config_read-pci_config_writ"></A>pci_config_read pci_config_write
+</H3>
+<BLOCKQUOTE>
+<P>These routines read and write a value from a specified address in PCI
+configuration space. For an x86, this is accessed through special registers in
+I/O space using I/O instructions (defined <A HREF=" #pci_io_read-pci_io_write">below
+</A>). Other systems will simply memory-map configuration space at some known address.
+</P>
+</BLOCKQUOTE>
+<H3><A NAME="pci_intr_ack-pci_special_cycle"></A>pci_intr_ack pci_special_cycle
+</H3>
+<BLOCKQUOTE>
+<P>These are special PCI words to implement the PCI Forth words
+&quot;intr-ack&quot; and &quot;special-!&quot;. They are otherwise unused by pci.c.
+</P>
+</BLOCKQUOTE>
+<H3><A NAME="pci_mem_read-pci_mem_write"></A>pci_mem_read pci_mem_write
+</H3>
+<BLOCKQUOTE>
+<P>These routines read and write a 1, 2, or 4-byte value from PCI memory
+space. This is usually the same as the system's memory space but may not
+necessarily be so for 64-bit systems. Alignment issues must be handled for
+systems incapable of byte or short access.</P>
+</BLOCKQUOTE>
+<H3><A NAME="pci_mem_read64-pci_mem_write64"></A>pci_mem_read64 pci_mem_write64
+</H3>
+<BLOCKQUOTE>
+<P>These routines read and write a 1, 2, or 4-byte value from 64-bit PCI
+memory space. They should behave the same as pci_mem_read and pci_mem_write
+for 32-bit addresses. The x86 does not support 64-bit addressing.</P>
+</BLOCKQUOTE>
+<H3><A NAME="pci_io_read-pci_io_write"></A>pci_io_read pci_io_write</H3>
+<BLOCKQUOTE>
+<P>These perform 1, 2, and 4-byte reads and writes to and from PCI I/O space.
+For an x86, this is the same as its normal I/O space using its special I/O
+instructions. Most other systems will either map I/O space into memory or
+provide special registers to peform I/O bus cycles.</P>
+</BLOCKQUOTE>
+<H3><A NAME="pci_map_in-pci_map_out"></A>pci_map_in pci_map_out</H3>
+<BLOCKQUOTE>
+<P>These routines map a specified PCI address into and out of the system's
+memory space to allow subsequent memory-mapped access to the PCI address. For
+an x86, system memory space is the same as PCI memory space, so the pointer
+returned is always the same.</P>
+</BLOCKQUOTE>
+<H3><A NAME="pci_dma_alloc-pci_dma_free"></A>pci_dma_alloc pci_dma_free
+</H3>
+<BLOCKQUOTE>
+<P>These routines allocate and free a piece of memory suitable for DMA from a
+PCI device. All memory is accessible from the PCI world on the x86, so malloc
+is a good way to allocate memory. The memory block must be aligned for the
+DMA_PAGE_SIZE, and so to free the block, a list of globally allocated blocks
+must be maintained to remember the original pointer allocated by malloc keyed
+by the virtual aligned address. Only a system memory address is returned by
+these routines - it must still be mapped to a PCI device address <A HREF=" #pci_map_in-pci_map_out">below
+</A>.</P>
+</BLOCKQUOTE>
+<H3><A NAME="pci_dma_map_in-pci_dma_map_out"></A>pci_dma_map_in pci_dma_map_out
+</H3>
+<BLOCKQUOTE>
+<P>These routines convert a system memory address for a DMA block to an
+address suitable for a PCI device to access. The memory must have been
+allocated by pci_dma_alloc above.</P>
+</BLOCKQUOTE>
+<H3><A NAME="pci_dma_sync"></A>pci_dma_sync</H3>
+<BLOCKQUOTE>
+<P>This routine must flush the specified DMA memory address out of cache to
+synchronize a subsequent DMA operation. Otherwise the cached contents will not
+match the actual data copied in using DMA. For the x86, a special instruction
+simply flushes the whole cache.</P>
+</BLOCKQUOTE>
+<H3><A NAME="pci_init_addresses"></A>pci_init_addresses</H3>
+<BLOCKQUOTE>
+<P>This is called by the code in pci.c to initialize a structure with the
+memory requirements and specifications for each PCI bus. The contents of the
+struct are defined in pci.h. All fields must be initialized to appropriate
+values to handle legacy ISA I/O spaces, memory ranges, and so on. Unsupported
+fields should be simply set to zero, as for the 64-bit entries on an x86.
+</P>
+</BLOCKQUOTE>
+<H3><A NAME="pci_bus_package"></A>pci_bus_package</H3>
+<BLOCKQUOTE>
+<P>This is called by pci.c to return a pointer to a Package for a given host
+bridge number. For a system with only one host bridge, e-&gt;currpkg is
+sufficient. Other systems will need to keep a global table indexed by the host
+bridge number.</P>
+</BLOCKQUOTE>
+<H2>Driver interface</H2>
+<P>Since PCI defines how to probe for devices, a built-in C PCI device driver
+doesn't have to worry about it. It has to specify how to identify itself and
+an install routine that creates the device node and all associated properties.
+</P>
+<P>Expansion ROMs on PCI devices are automatically probed for OpenFirmware
+Fcode and executed if detected. Drivers in expansion ROMs take precedence over
+any built-in C drivers. If there are no drivers detected for a device, it is
+still inserted into the device tree with a generic configuration.</P>
+<P>Some example drivers are <I>pci/pcidisp.c</I> for generic frame-buffer
+display cards, <I>pci/decether.c</I> for Digital 21X4X* Ethernet chips, 
+<I>pci/ncrscsi.c</I> for NCR/Symbios 53c8xx SCSI chips, and <I>pci/pciisa.c
+</I> for various PCI-ISA bridges.</P>
+<H3><A NAME="Pci_driver-structure"></A>Pci_driver structure</H3>
+<P>The key code is at the bottom of the various PCI drivers to initialize a
+structure <I>Pci_driver</I> defined in <I>pci/pci.h</I>. Here's an entry for
+an Intel PIXX3 PCI-ISA bridge from <I>pci/pciisa.c</I>:</P>
+<PRE>
+<P>/* Intel 82371SB (PIXX3) PCI-ISA bridge */
+Pci_driver intel_piix3_driver =
+{
+&#9;{ 0, 0, 0, 0, 0,
+&#9;&#9;0x060100, 0x8086, 0x7000, 0, 0, 0 },
+&#9;{ 0, 0, 0, 0, 0,
+&#9;&#9;0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0, 0, 0 },
+&#9;install_pciisa_driver
+};</P>
+</PRE>
+<P>This struct is used to search for a built-in C driver when a new PCI device
+is detected by <I>pci/pci.c</I>. The first entry is for a <I>pci_device_info
+</I> called &quot;match&quot;, the second for a &quot;mask&quot;, and the last
+is a pointer to a C function to install the device driver.</P>
+<P>The <I>match</I> and <I>mask</I> fields are complementary.<I>match</I>
+tells pci/pci.c which values are expected, and <I>mask</I> tells it which
+portions of the values are important. A new device's ID fields are or-ed with 
+<I>mask</I> and then compared to <I>match</I> to identify the device. For the
+PCI-ISA bridge above, the classcode, vendor ID, and device ID must match
+exactly to identify this chip.</P>
+<H3><A NAME="Install-PCI-driver"></A>Install PCI driver</H3>
+<P>The install function for a driver must be declared using the <I>PCI
+</I> macro defined in <I>pci/pci.h</I> as follows:</P>
+<PRE>
+<P>PCI(install_pciisa_driver) { ... }</P>
+</PRE>
+<P>This will pass in a pointer to the current <I>Environ</I>, a pointer to the
+newly created and uninitialized device <I>Package</I>, and a pointer to the 
+<I>Pci_device_info</I> describing the chip that was just probed and
+successfully matched with a <I>Pci_driver</I> described <A HREF="#Pci_driver-structure">above
+</A>.</P>
+<P>The first thing this routine should do is call <I>pci_load_reg_and_name_props
+</I> to initialize the &quot;reg&quot; and &quot;name&quot; properties to
+reasonable values. This may be handled explicitly if desired - <I>pci_load_reg_and_name_props
+</I> is only provided for convenience. It sets &quot;name&quot; to the generic
+name, if any, and otherwise to the default &quot;pciN,N&quot; form, disables
+the device, probes all the BARs to initialize the &quot;reg&quot; property,
+adding in the expansion ROM if any is detected.</P>
+<P>Next, the driver should initialize the &quot;device_type&quot; property if
+appropriate. Then any methods should be created and a copy of the <I>Pci_device_info
+</I> saved if needed by the methods. It is generally easier to save and access
+this C structure rather than decode the PCI physaddr properties, but it is not required.
+</P>
+<P>The driver methods simply need to perform the appropriate actions for that
+type of device, such as open/close or read/write. They must call the various
+pci_dma_alloc/free, pci_dma_map_in/out, pci_dma_sync, and pci_map_in/out as
+appropriate to correctly translate PCI address and host addresses on any
+platform. The <I>pci/decether.c</I> driver is a good example of how this
+should work. It also has to be careful with device endian-ness as PCI devices
+are little-endian, but the host may not be.</P>
+<H2>machdep.c interface</H2>
+<P>Finally, the PCI interface has to be hooked in through the system's 
+<I>machdep.c</I>.</P>
+<P>All desired built-in PCI drivers must be explicitly specified and linked in
+by creating a global <I>pci_drivers</I> list:</P>
+<PRE>
+<P>extern Pci_driver pci_display_driver;
+extern Pci_driver digital_21x4x_driver;
+extern Pci_driver ncr_53C8xx_driver;
+extern Pci_driver intel_piix3_driver;
+...
+&nbsp;
+const Pci_driver *pci_drivers[] =
+{
+&#9;&amp;pci_display_driver,
+&#9;&amp;digital_21x4x_driver,
+&#9;&amp;ncr_53C8xx_driver,
+&#9;&amp;intel_piix3_driver,
+&#9;...
+&#9;NULL
+};</P>
+</PRE>
+<P>There may be more than one type of driver if needed, for instance to handle
+different brands of PCI-ISA bridges or Ethernet devices. These drivers will
+only be used if no on-board Fcode option ROM is detected on the device.
+</P>
+<P>The <I>pci_install</I> function has to be added to the global <I>install_list
+</I>::</P>
+<PRE>
+<P>...
+EC(install_pci);
+...
+&nbsp;
+const Command install_list[] =
+{
+&#9;install_root,&#9;/* should be first */
+&#9;install_memory,&#9;/* should be second */
+&#9;...
+&#9;install_pci,
+&#9;...
+&#9;NULL
+};</P>
+</PRE>
+<P>This does not probe the PCI bus if it is detected but simply installs the
+PCI subsystem into the resulting SmartFirmware image. Probing has to be done
+explicitly in the routine <I>machine_probe_all</I>:</P>
+<PRE>
+<P>CC(machine_probe_all)&#9;&#9;/* (--) */
+{
+&#9;Retcode ret;
+&nbsp;
+&#9;...
+&nbsp;
+&#9;/* point e-&gt;currpkg to the PCI bus node */
+&#9;PUSH(e, &quot;/pci&quot;);
+&#9;PUSH(e, 4);
+&#9;ret = execute_word(e, &quot;find-device&quot;);
+&nbsp;
+&#9;if (ret == NO_ERROR)
+&#9;&#9;ret = execute_word(e, &quot;probe-pci&quot;);
+&nbsp;
+&#9;...
+&nbsp;
+&#9;return ret;
+}</P>
+</PRE>
+<P>If all goes well, there should be a device tree under /pci when
+SmartFirmware boots.</P>
+<H1>9. <A NAME="ISA-bus-interface"></A>ISA-bus interface</H1>
+<P>The ISA bus code supports probing and initializing legacy ISA devices. The 
+<A HREF="#ISA-files">source files</A> of this layer are located under the 
+<I>isa</I> subdirectory.</P>
+<P>While most of the code is machine-independent, a certain amount must be
+customized to communicate with the ISA configuration registers, memory space,
+and I/O spaces on the target system. The ISA drivers themselves are
+machine-independent being written to communicate with the ISA bus layer.
+Finally, the target <I>machdep.c</I> file must specify the built-in ISA
+devices and beginning the probe of the ISA bus.</P>
+<P>This chapter will use the <I>i386</I> subdirectory as an example for how to
+write a ISA bus layer. This target runs on Intel x86 hardware using a FreeBSD
+boot-loader that turns on 32-bit addressing/protected mode.</P>
+<P>PCI-ISA bridges are detected as PCI devices and are automatically probed as
+devices. If one is found, the ISA bus methods are installed and accessed
+through the appropriate PCI calls as described in the <A HREF="#PCI-bus-interface">PCI
+chapter</A>. These PCI methods will override the pre-defined ISA interface and
+probe for ISA devices.</P>
+<P>The biggest assumption in this code is that there is only a single ISA bus
+in the entire system even though there may be multiple PCI host bridges.
+</P>
+<H2><A NAME="Machine-dependent-bus-interface"></A>Machine-dependent bus interface
+</H2>
+<P>The ISA bus interface is managed through a set of global function pointers
+defined in <I>isa/isa.c</I> and declared in <I>isa/isa.h</I>. These function
+pointers must be initialized to the appropriate routines to access the ISA
+bus. A PCI-ISA bridge will override these function pointers. They may be
+explicitly intiialized for a system with only an ISA bus as in the file 
+<I>i386/isabase.c</I>.</P>
+<P>The various routines in the <I>isabase.c</I> file must behave pretty much
+like the routines of similar names in <I>pcibase.c</I>, although being much simpler.
+</P>
+<H3>isa_mem_read isa_mem_write</H3>
+<BLOCKQUOTE>
+<P>Read and write 1, 2, and 4 byte quantities from/to ISA memory space.
+</P>
+</BLOCKQUOTE>
+<H3>isa_io_read isa_io_write</H3>
+<BLOCKQUOTE>
+<P>Read and write 1, 2, and 4 byte quantities from/to ISA I/O space.</P>
+</BLOCKQUOTE>
+<H3>isa_map_in isa_map_out</H3>
+<BLOCKQUOTE>
+<P>Map an ISA address into and out of system memory space.</P>
+</BLOCKQUOTE>
+<H3>isa_dma_alloc isa_dma_free</H3>
+<BLOCKQUOTE>
+<P>Allocate and free memory suiltably aligned for DMA from system memory.
+</P>
+</BLOCKQUOTE>
+<H3>isa_dma_map_in isa_dma_map_out</H3>
+<BLOCKQUOTE>
+<P>Map a system DMA address into and out of ISA space.</P>
+</BLOCKQUOTE>
+<H3>isa_dma_sync</H3>
+<BLOCKQUOTE>
+<P>Flush caches so that a DMA may be safely performed.</P>
+</BLOCKQUOTE>
+<P>&nbsp;</P>
+<P>The function <I>install_isabase</I> must explicitly set the global ISA
+function pointers to the routines defined to perform these actions. <I>install_isabase
+</I> is called from <I>machdep.c</I>'s <I>machine_probe_all</I>.</P>
+<H2><A NAME="Driver-interface"></A>Driver interface</H2>
+<P>Declaring a built-in ISA C driver is more difficult than a PCI driver since
+every thing about the driver must be explicitly specified. The first step is
+to fill in an <I>Isa_device</I> struct with the appropriate info. This struct
+is declared in <I>isa/isa.h</I>. The <I>isa/kbd.c</I> driver looks like this:
+</P>
+<PRE>
+<P>Isa_device isa_keyboard =
+{
+&#9;&quot;keyboard&quot;,&#9;&#9;/* device name */
+&#9;&quot;keyboard&quot;,&#9;&#9;/* device type */
+&#9;ISA_IO_ADDRESS,&#9;/* I/O or memory address? */
+&#9;0x60,&#9;&#9;&#9;/* address - physlo */
+&#9;5,&#9;&#9;&#9;/* number of bytes at address */
+&#9;{ 1, 0 },&#9;&#9;/* IRQ number and type */
+&#9;{ -1, },&#9;&#9;/* DMA info, if any */
+&#9;0x0,&#9;&#9;&#9;/* BIOS ROM address */
+&#9;0, NULL, &#9;&#9;/* no extra reg props */
+&#9;kbd_probe,
+&#9;kbd_install,
+&#9;kbd_methods
+};</P>
+</PRE>
+<P>The isa/isa.c probe code calls all probe function pointer for all built-in
+ISA devices. If the probe function returns successful, then the install
+function pointer is called. The methods entry points to the method table for
+the device.</P>
+<P>Both probe and install routines must be declared using the <I>ISA</I> macro
+defined in <I>isa/isa.h</I>.</P>
+<P>The probe function should take care when probing for itself as it is fairly
+easy to lock up the ISA bus. Some probe functions may simply assume that a
+device is present.</P>
+<P>The install function should allocate any additional memory it needs, set
+its dev-&gt;self parameter to this data, then call the <I>new_isa_device
+</I> function to create the device. <I>new_isa_device</I> uses the <I>Isa_device
+</I> info to create the new device node under the /isa node with the correct
+name, type, and reg properties, and to create any methods for the device. 
+<I>new_isa_device</I> is simply for convenience and is not required.</P>
+<P>Multiple devices may the probe, install, and methods tables but simply have
+different IRQs and ISA addresses. Please see <I>isa/ns16550.c</I> for an
+example of a serial driver for the four tradition ISA ports COM1&#173;COM4.
+</P>
+<H2><A NAME="machdep-interface"></A>machdep.c interface</H2>
+<P>An example for how to link in an ISA bus is in <I>i386/machdep.c</I>.
+</P>
+<P>First all built-in ISA drivers must be entered into the global <I>isa_devices
+</I> list:</P>
+<PRE>
+<P>extern Isa_device ns16550_com1;
+extern Isa_device ns16550_com2;
+extern Isa_device isa_keyboard;
+extern Isa_device vga_display;
+...
+&nbsp;
+Isa_device *isa_devices[] =
+{
+&#9;&amp;ns16550_com1,
+&#9;&amp;ns16550_com2,
+&#9;&amp;isa_keyboard,
+&#9;&amp;vga_display,
+&#9;...
+&#9;NULL
+};</P>
+</PRE>
+<P>Then the machine_probe_all routine must first install the ISA base routines
+to initialize the ISA subsystem, then probe for ISA devices. Here is a
+simplified example for a system with only a single ISA bus:</P>
+<PRE>
+<P>CC(machine_probe_all)&#9;&#9;/* (--) */
+{
+&#9;Package *isa = new_package(e-&gt;root);
+&#9;install_isabase(e);&#9;/* initialize ISA subsystem */
+&#9;return install_isa(e, isa);&#9;/* probe for devices */
+}</P>
+</PRE>
+<P>The <I>i386/machdep.c</I> file has a somewhat more complex
+machine_probe_all that will first probe for a PCI bus, and if none is found,
+only then initialize an ISA bus. If a PCI bus is found, it assumes that a
+PCI-ISA bridge will also be found thus initializing the ISA subsystem and
+probing for ISA devices.</P>
+<H1>10. <A NAME="client-interface">Client interface</A></H1>
+<P>The client-interface is defined by IEEE-1275 to allow a client program
+(presumably loaded by the firmware) to use the firmware as a simple I/O
+library. This is typically used to access the console device before an
+operating system's kernel is fully up and running, search for devices, and to
+aid debugging.</P>
+<P>The actual API callback from the client program to the firmware is
+unfortunately machine-dependent assembler. Different processor bindings define
+the interface in different ways to handle the vagaries of registers and other
+such things.</P>
+<P>SmartFirmware also provides a more machine-independent C interface designed
+to be used from a C (or C-compatible) client program. The only difference is
+that the compiler is used for the low-level machine-dependent assembly
+interface. The calling conventions and data passed to both APIs are identical.
+</P>
+<P>The SmartFirmware APIs are implemented in the source-files <TT>misc/sfclient.h
+</TT> and <TT>misc/sfclient.c</TT>, and a demo program is provided in 
+<TT>misc/chello.c</TT>.</P>
+<P></P>
+<H2><A NAME="client-API">IEEE-1275 client API</A></H2>
+<P>The SmartFirmware API and the low-level IEEE-1275 assembly API look
+essentially like this, where g_client_interface is a pointer whose value is
+determined in some machine-specific manner:</P>
+<CODE>
+<P>&#9;extern void (*g_client_interface)(Cell array[]);</P>
+</CODE>
+<P></P>
+<P>The argument array of Cells is defined by IEEE-1275 as follows:</P>
+<TABLE WIDTH=530 CELLPADDING=0>
+<TR VALIGN=TOP>
+<TD COLSPAN=1 WIDTH=16%><CODE>
+<P>service</P>
+</CODE></TD>
+<TD COLSPAN=1 WIDTH=27%><CODE>
+<P>array[0]</P>
+</CODE></TD>
+<TD COLSPAN=1 WIDTH=57%>
+<P>address of null-terminated string name of service</P>
+</TD></TR>
+<TR VALIGN=TOP>
+<TD COLSPAN=1 WIDTH=16%><CODE>
+<P>N-args</P>
+</CODE></TD>
+<TD COLSPAN=1 WIDTH=27%><CODE>
+<P>array[1]</P>
+</CODE></TD>
+<TD COLSPAN=1 WIDTH=57%>
+<P>number of input arguments to the service</P>
+</TD></TR>
+<TR VALIGN=TOP>
+<TD COLSPAN=1 WIDTH=16%><CODE>
+<P>M-returns</P>
+</CODE></TD>
+<TD COLSPAN=1 WIDTH=27%><CODE>
+<P>array[2]</P>
+</CODE></TD>
+<TD COLSPAN=1 WIDTH=57%>
+<P>number of return values from the service</P>
+</TD></TR>
+<TR VALIGN=TOP>
+<TD COLSPAN=1 WIDTH=16%><CODE>
+<P>arg1..N</P>
+</CODE></TD>
+<TD COLSPAN=1 WIDTH=27%><CODE>
+<P>array[3..N+2]</P>
+</CODE></TD>
+<TD COLSPAN=1 WIDTH=57%>
+<P>input arguments to the service (if N &gt; 0)</P>
+</TD></TR>
+<TR VALIGN=TOP>
+<TD COLSPAN=1 WIDTH=16%><CODE>
+<P>ret1..M</P>
+</CODE></TD>
+<TD COLSPAN=1 WIDTH=27%><CODE>
+<P>array[N+3..N+M+2]</P>
+</CODE></TD>
+<TD COLSPAN=1 WIDTH=57%>
+<P>return values from the service (if M &gt; 0)</P>
+</TD></TR>
+</TABLE>
+<P></P>
+<P>The standard client services defined by IEEE-1275 and some extensions below
+are merely summaries. Detailed arguments and return values are described in
+the IEEE-1275 standard. It will generally be far easier to use the
+SmartFirmware C API described below.</P>
+<TABLE WIDTH=539 CELLPADDING=0>
+<TR VALIGN=TOP>
+<TD COLSPAN=1 WIDTH=41%><CODE>
+<P>test</P>
+</CODE></TD>
+<TD COLSPAN=1 WIDTH=59%>
+<P>test if the client-service ``name'' exists</P>
+</TD></TR>
+<TR VALIGN=TOP>
+<TD COLSPAN=1 WIDTH=41%><CODE>
+<P>test-method</P>
+</CODE></TD>
+<TD COLSPAN=1 WIDTH=59%>
+<P>test if a method ``name'' exists in a package</P>
+</TD></TR>
+<TR VALIGN=TOP>
+<TD COLSPAN=1 WIDTH=41%><CODE>
+<P>peer</P>
+</CODE></TD>
+<TD COLSPAN=1 WIDTH=59%>
+<P>return next sibling of a package or root if NULL</P>
+</TD></TR>
+<TR VALIGN=TOP>
+<TD COLSPAN=1 WIDTH=41%><CODE>
+<P>child</P>
+</CODE></TD>
+<TD COLSPAN=1 WIDTH=59%>
+<P>return first child of a package</P>
+</TD></TR>
+<TR VALIGN=TOP>
+<TD COLSPAN=1 WIDTH=41%><CODE>
+<P>parent</P>
+</CODE></TD>
+<TD COLSPAN=1 WIDTH=59%>
+<P>return the parent of a package</P>
+</TD></TR>
+<TR VALIGN=TOP>
+<TD COLSPAN=1 WIDTH=41%><CODE>
+<P>instance-to-package</P>
+</CODE></TD>
+<TD COLSPAN=1 WIDTH=59%>
+<P>return the package of the instance</P>
+</TD></TR>
+<TR VALIGN=TOP>
+<TD COLSPAN=1 WIDTH=41%><CODE>
+<P>getproplen</P>
+</CODE></TD>
+<TD COLSPAN=1 WIDTH=59%>
+<P>get the length of a property</P>
+</TD></TR>
+<TR VALIGN=TOP>
+<TD COLSPAN=1 WIDTH=41%><CODE>
+<P>getprop</P>
+</CODE></TD>
+<TD COLSPAN=1 WIDTH=59%>
+<P>get a property's value</P>
+</TD></TR>
+<TR VALIGN=TOP>
+<TD COLSPAN=1 WIDTH=41%><CODE>
+<P>nextprop</P>
+</CODE></TD>
+<TD COLSPAN=1 WIDTH=59%>
+<P>return the name of the next property</P>
+</TD></TR>
+<TR VALIGN=TOP>
+<TD COLSPAN=1 WIDTH=41%><CODE>
+<P>setprop</P>
+</CODE></TD>
+<TD COLSPAN=1 WIDTH=59%>
+<P>set a property's value</P>
+</TD></TR>
+<TR VALIGN=TOP>
+<TD COLSPAN=1 WIDTH=41%><CODE>
+<P>canon</P>
+</CODE></TD>
+<TD COLSPAN=1 WIDTH=59%>
+<P>make an ambiguous device path fully-qualified</P>
+</TD></TR>
+<TR VALIGN=TOP>
+<TD COLSPAN=1 WIDTH=41%><CODE>
+<P>finddevice</P>
+</CODE></TD>
+<TD COLSPAN=1 WIDTH=59%>
+<P>return package of a device if it exists</P>
+</TD></TR>
+<TR VALIGN=TOP>
+<TD COLSPAN=1 WIDTH=41%><CODE>
+<P>instance-to-path</P>
+</CODE></TD>
+<TD COLSPAN=1 WIDTH=59%>
+<P>return a device path from an instance</P>
+</TD></TR>
+<TR VALIGN=TOP>
+<TD COLSPAN=1 WIDTH=41%><CODE>
+<P>instance-to-interposed-path</P>
+</CODE></TD>
+<TD COLSPAN=1 WIDTH=59%>
+<P>return an interposed device path from an instance</P>
+</TD></TR>
+<TR VALIGN=TOP>
+<TD COLSPAN=1 WIDTH=41%><CODE>
+<P>package-to-path</P>
+</CODE></TD>
+<TD COLSPAN=1 WIDTH=59%>
+<P>return the fully-qualified path of a package</P>
+</TD></TR>
+<TR VALIGN=TOP>
+<TD COLSPAN=1 WIDTH=41%><CODE>
+<P>call-method</P>
+</CODE></TD>
+<TD COLSPAN=1 WIDTH=59%>
+<P>call a method of an open instance</P>
+</TD></TR>
+<TR VALIGN=TOP>
+<TD COLSPAN=1 WIDTH=41%><CODE>
+<P>open</P>
+</CODE></TD>
+<TD COLSPAN=1 WIDTH=59%>
+<P>open a device and return an instance</P>
+</TD></TR>
+<TR VALIGN=TOP>
+<TD COLSPAN=1 WIDTH=41%><CODE>
+<P>close</P>
+</CODE></TD>
+<TD COLSPAN=1 WIDTH=59%>
+<P>close a previously opened device instance</P>
+</TD></TR>
+<TR VALIGN=TOP>
+<TD COLSPAN=1 WIDTH=41%><CODE>
+<P>read</P>
+</CODE></TD>
+<TD COLSPAN=1 WIDTH=59%>
+<P>read from an opened device instance</P>
+</TD></TR>
+<TR VALIGN=TOP>
+<TD COLSPAN=1 WIDTH=41%><CODE>
+<P>write</P>
+</CODE></TD>
+<TD COLSPAN=1 WIDTH=59%>
+<P>write to a device instance</P>
+</TD></TR>
+<TR VALIGN=TOP>
+<TD COLSPAN=1 WIDTH=41%><CODE>
+<P>seek</P>
+</CODE></TD>
+<TD COLSPAN=1 WIDTH=59%>
+<P>seek a device instance, if appropriate</P>
+</TD></TR>
+<TR VALIGN=TOP>
+<TD COLSPAN=1 WIDTH=41%><CODE>
+<P>claim</P>
+</CODE></TD>
+<TD COLSPAN=1 WIDTH=59%>
+<P>allocate requested size of memory</P>
+</TD></TR>
+<TR VALIGN=TOP>
+<TD COLSPAN=1 WIDTH=41%><CODE>
+<P>release</P>
+</CODE></TD>
+<TD COLSPAN=1 WIDTH=59%>
+<P>free previously allocated memory</P>
+</TD></TR>
+<TR VALIGN=TOP>
+<TD COLSPAN=1 WIDTH=41%><CODE>
+<P>boot</P>
+</CODE></TD>
+<TD COLSPAN=1 WIDTH=59%>
+<P>exit the client program and reboot</P>
+</TD></TR>
+<TR VALIGN=TOP>
+<TD COLSPAN=1 WIDTH=41%><CODE>
+<P>enter</P>
+</CODE></TD>
+<TD COLSPAN=1 WIDTH=59%>
+<P>enter the command-interpreter (``ok'' prompt)</P>
+</TD></TR>
+<TR VALIGN=TOP>
+<TD COLSPAN=1 WIDTH=41%><CODE>
+<P>exit</P>
+</CODE></TD>
+<TD COLSPAN=1 WIDTH=59%>
+<P>exit the command-interpreter</P>
+</TD></TR>
+<TR VALIGN=TOP>
+<TD COLSPAN=1 WIDTH=41%><CODE>
+<P>chain</P>
+</CODE></TD>
+<TD COLSPAN=1 WIDTH=59%>
+<P>load another client program and launch it</P>
+</TD></TR>
+<TR VALIGN=TOP>
+<TD COLSPAN=1 WIDTH=41%><CODE>
+<P>interpret</P>
+</CODE></TD>
+<TD COLSPAN=1 WIDTH=59%>
+<P>execute arbitrary Forth commands</P>
+</TD></TR>
+<TR VALIGN=TOP>
+<TD COLSPAN=1 WIDTH=41%><CODE>
+<P>set-callback</P>
+</CODE></TD>
+<TD COLSPAN=1 WIDTH=59%>
+<P>set entry points  for Forth ``callback'' and ``sync''</P>
+</TD></TR>
+<TR VALIGN=TOP>
+<TD COLSPAN=1 WIDTH=41%><CODE>
+<P>set-symbol-lookup</P>
+</CODE></TD>
+<TD COLSPAN=1 WIDTH=59%>
+<P>set defer words for ``sym&gt;value'' &amp; ``value&gt;sym''</P>
+</TD></TR>
+<TR VALIGN=TOP>
+<TD COLSPAN=1 WIDTH=41%><CODE>
+<P>milliseconds</P>
+</CODE></TD>
+<TD COLSPAN=1 WIDTH=59%>
+<P>return number of milliseconds since bootup</P>
+</TD></TR>
+</TABLE>
+<P></P>
+<H2><A NAME="C-API">SmartFirmware C API</A></H2>
+<P>The file sfclient.c provides a set of convenience routines to make it
+easier to call client services from a C program. These routines package up
+their standard C arguments into an array, call the client-interface, then
+extract the return values into the C return values.</P>
+<P>Each standard client-interface call has a C wrapper function that is also
+documented in sfclient.h, along with the IEEE-1275 standard's section number
+(also noted below in square-brackets).</P>
+<P>The type ``Retcode'' may be one of R_OK, R_ERR, or R_NO_DATA (also defined
+in sfclient.h) for most typical return values. It may also be some other
+negative value for a more specific Forth error code. The types ``Instance''
+and ``Package'' are opaque handles to IEEE-1275 instances (from opening device
+nodes) and packages (device nodes). A ``Cell'' is a machine-dependent size of
+a Forth word, usually at least 32-bits.</P>
+<H3><A NAME="C-functions">C functions</A></H3>
+<CODE>
+<P>Retcode sf_init( Retcode (*client_interface)(Cell array[]) );</P>
+</CODE>
+<P>Initialize the C interface and the console I/O. This must be the first
+routine called from main().</P>
+<CODE>
+<P>Retcode sf_call_firmware(const char *name, Int nargs, Int nreturns,
+</P>
+<P>&#9;&#9;Cell args[], Cell returns[]);</P>
+</CODE>
+<P>Low-level routine to call the firmware's client-interface entry-point. This
+should not be needed for most purposes.</P>
+<H4>Client interface [6.3.2.1]</H4>
+<EM>
+<P>These routines are used to test for the existence of client services and
+package methods:</P>
+</EM><CODE>
+<P>Retcode sf_test(const char *name);</P>
+</CODE>
+<P>&#9;Return 0 if service &quot;name&quot; exists, and -1 if it does not.
+</P>
+<CODE>
+<P>Retcode sf_test_method(Package *pkg, const char *name);</P>
+</CODE>
+<P>&#9;Return 0 if method &quot;name&quot; exists in &quot;pkg&quot;, and -1
+if it does not.</P>
+<H4>Device tree [6.3.2.2]</H4>
+<EM>
+<P>These routines are used to walk the device tree:</P>
+</EM><CODE>
+<P>Package *sf_peer(Package *p);</P>
+</CODE>
+<P>&#9;Return the next sibling of the package ``p'', or the root if ``p'' is NULL.
+</P>
+<CODE>
+<P>Package *sf_getroot(void);</P>
+</CODE>
+<P>&#9;Return the root node of the device tree. Not-standard but more readable
+than ``sf_peer(NULL)''.</P>
+<CODE>
+<P>Package *sf_child(Package *p);</P>
+</CODE>
+<P>&#9;Return the first child of the Package.</P>
+<CODE>
+<P>Package *sf_parent(Package *p);</P>
+</CODE>
+<P>&#9;Return the parent of the package.</P>
+<CODE>
+<P>Package *sf_instance_to_package(Instance *inst);</P>
+</CODE>
+<P>&#9;Return the package of the instance.</P>
+<P></P>
+<EM>
+<P>These are used to read or set the properties of a given device node (Package):
+</P>
+</EM><CODE>
+<P>int sf_getproplen(Package *pkg, const char *prop);</P>
+</CODE>
+<P>&#9;Get the length of a property, 0 if no value, or -1 on any error.
+</P>
+<CODE>
+<P>int sf_getprop(Package *pkg, const char *propname,</P>
+<P>&#9;&#9;char *propbuf, int propbuflen);</P>
+</CODE>
+<P>&#9;Get a property's value, returning -1 on error and the actual size of
+the property loaded into propbuf.</P>
+<CODE>
+<P>int sf_nextprop(Package *pkg, const char *prevprop, char *propbuf);
+</P>
+</CODE>
+<P>Return the property name of the property following &quot;prevprop&quot; of
+the Package.  propbuf must be at least 32 chars big. Returns -1 on error, 0 if
+no more properties exist after &quot;prevprop&quot;, or 1 otherwise.</P>
+<CODE>
+<P>int sf_setprop(Package *pkg, const char *prop, char *value, int len);
+</P>
+</CODE>
+<P>Set the property's value, creating the property if it doesn't exist. Return
+-1 on error or the actual size of the new property.</P>
+<P></P>
+<EM>
+<P>These are miscellaneous routines to find, access, and extract device paths:
+</P>
+</EM><CODE>
+<P>int sf_canon(const char *devspec, char *buf, int buflen);</P>
+</CODE>
+<P>Convert a possibly ambiguous device-specifier to a fully-qualified path -
+return -1 on error or the length of the fully-qualified name.</P>
+<CODE>
+<P>Package *sf_finddevice(const char *devpath);</P>
+</CODE>
+<P>&#9;See if a device-path exists. Return the Package of the device if it
+exists and NULL on any error.</P>
+<CODE>
+<P>int sf_instance_to_path(Instance *inst, char *buf, int buflen);</P>
+</CODE>
+<P>&#9;Return the fully qualified device path of the instance or -1 on error.
+</P>
+<CODE>
+<P>int sf_instance_to_interposed_path(Instance *inst, char *buf, int buflen);
+</P>
+</CODE>
+<P>Return the actual interposed device path of the instance or -1 on error. An
+interposed path includes hidden device nodes that are not normally seen or
+accessed other than for debugging.</P>
+<CODE>
+<P>int sf_package_to_path(Package *pkg, char *buf, int buflen);</P>
+</CODE>
+<P>&#9;Return the fully qualified device path of the package or -1 on error.
+</P>
+<CODE>
+<P>Retcode sf_call_method(const char *method, Instance *inst,</P>
+<P>&#9;&#9;Int nargs, Int nreturns, Cell args[], Cell returns[]);</P>
+</CODE>
+<P>Similar to sf_call_firmware() described above, but uses the
+&quot;call-method&quot; service to invoke a specific method of a device.
+</P>
+<H4>Device I/O [6.3.2.3]</H4>
+<EM>
+<P>These routines open, close, and access device nodes for I/O:</P>
+</EM><CODE>
+<P>Instance *sf_open(const char *devpath);</P>
+</CODE>
+<P>&#9;Open a device and return its instance, or NULL on error.</P>
+<CODE>
+<P>void sf_close(Instance *inst);</P>
+</CODE>
+<P>&#9;Close a previously opened device instance.</P>
+<CODE>
+<P>int sf_read(Instance *inst, char *buf, int len);</P>
+</CODE>
+<P>Read data (non-blocking) from an opened device. Returns the actual length
+read, -1 on error, or -2 for no data pending for the non-blocking read.
+</P>
+<CODE>
+<P>int sf_write(Instance *inst, const char *buf, int len);</P>
+</CODE>
+<P>&#9;Write data to an opened device - return the actual length written or -1
+on error.</P>
+<CODE>
+<P>Retcode sf_seek(Instance *inst, int poshi, int poslo);</P>
+</CODE>
+<P>&#9;Seek device to the location specified by poshi..poslo. Returns -1 on
+error or if the device cannot seek.</P>
+<H4>Memory [6.3.2.4]</H4>
+<EM>
+<P>These words may not function in all implementations but are provided for
+completeness. They are used to allocate and free virtual memory, if the
+firmware is running in and supports such a mode:</P>
+</EM><CODE>
+<P>void *sf_claim(void *virt, int size, int align);</P>
+</CODE>
+<P>Allocate requested size of memory, beginning at &quot;virtaddr&quot; if
+&quot;align&quot; is 0, or at any addr if &quot;align&quot; is any other value
+(&quot;virt&quot; is ignored). Returns the baseaddr of the memory, or -1 on
+any error.</P>
+<CODE>
+<P>void sf_release(void *virt, int size);</P>
+</CODE>
+<P>&#9;Release memory allocated by &quot;claim&quot;.</P>
+<H4>Control transfer [6.3.2.5]</H4>
+<EM>
+<P>These words may not function in all implementations. They are intended
+primarily for debugging:</P>
+</EM><CODE>
+<P>void sf_boot(const char *bootspec);</P>
+</CODE>
+<P>Exit the client program, reset the system, and reboot with the  given
+&quot;bootspec&quot; argument passed to the &quot;boot&quot; command.</P>
+<CODE>
+<P>void sf_enter(void);</P>
+</CODE>
+<P>&#9;Enter the command-interpreter (&quot;ok&quot; prompt).</P>
+<CODE>
+<P>void sf_exit(void);</P>
+</CODE>
+<P>&#9;Exit the command-interpreter.</P>
+<CODE>
+<P>void sf_chain(void *virt, int size, void *entry, char *argstr, int arglen);
+</P>
+</CODE>
+<P>Free ``size'' bytes at virt, then load another client program at entry,
+pass argstr/arglen to the new program ,and launch it.</P>
+<H4>User Interface [6.3.2.6]</H4>
+<EM>
+<P>These allow running arbitrary Forth code and define callbacks for the
+firmware to use when looking up symbols in a loaded program image for debugging:
+</P>
+</EM><CODE>
+<P>Retcode sf_interpret(const char *cmd, Int nargs, Int nreturns,</P>
+<P>&#9;&#9;Cell args[], Cell returns[]);</P>
+</CODE>
+<P>&#9;Similar to sf_call_firmware() above, but uses &quot;interpret&quot;
+service to execute arbitrary Forth commands.</P>
+<CODE>
+<P>Callback sf_set_callback(Callback newfunc);</P>
+</CODE>
+<P>&#9;Define routine for handling &quot;callback&quot; and &quot;sync&quot;
+Forth words. The old entry point is returned.</P>
+<CODE>
+<P>void sf_set_symbol_lookup(Callback sym_to_value, Callback value_to_sym);
+</P>
+</CODE>
+<P>&#9;Define Forth &quot;defer&quot; words &quot;sym&gt;value&quot; and
+&quot;value&gt;sym&quot; to look up symbols in images.</P>
+<H4>Time [6.3.2.7]</H4>
+<CODE>
+<P>unsigned long sf_milliseconds(void);</P>
+</CODE>
+<P>&#9;Return number of milliseconds, typically since bootup.</P>
+<H4>Console I/O</H4>
+<EM>
+<P>These non-standard routines provide basic console I/O, much like their
+stdio equivalents:</P>
+</EM><CODE>
+<P>int sf_getchar(void);&#9;</P>
+</CODE>
+<P>&#9;Read a character from the console (non-blocking). Returns R_NO_DATA or
+a character.</P>
+<CODE>
+<P>int sf_gets(char *str, int len);</P>
+</CODE>
+<P>Read a line from the console (blocking). Waits until a CR or LF is typed
+from the console before returning.</P>
+<CODE>
+<P>void sf_putchar(int ch);</P>
+</CODE>
+<P>&#9;Write a character to the console.</P>
+<CODE>
+<P>void sf_puts(const char *str);</P>
+</CODE>
+<P>&#9;Write a string to the console.</P>
+<P></P>
+<H3><A NAME="client-init">Initialization</A></H3>
+<P>Getting the actual pointer to the client-interface is also unfortunately
+machine-dependent. SmartFirmware also provides a C way to get this pointer by
+passing it to the client-interface's main() routine as a bogus argument at the
+end of the argv[] list. This pointer should be passed to the sfclient.c
+interface as follows:</P>
+<CODE>
+<P>&#9;int</P>
+<P>&#9;main(int argc, const char *argv[], const char *envv[])</P>
+<P>&#9;{</P>
+<P>&#9;&#9;sf_init( (void*)argv[argc + 1] );</P>
+<P>&#9;&#9;...</P>
+<P>&#9;}</P>
+</CODE>
+<P>sf_init() also initializes its console I/O variables so that the sf_get*()
+and sf_put*() routines will work.</P>
+<P>Other systems may acquire the client-interface's entrypoint using other
+methods, such as decoding an entry in the ``env[]'' environment table, or
+hard-wiring a special address.</P>
+<P></P>
+<H3><A NAME="client-example">Example</A></H3>
+<P>An example C program that uses the SmartFirmware client-interface is
+provided in chello.c. This displays the traditional ``hello world'' message
+and then walks the OpenFirmware device tree displaying the names of all the
+network devices it finds.</P>
+<H1>Appendix A:<BR>
+<A NAME="SmartFirmware-User-Manual"></A>SmartFirmware User Manual</H1>
+<P>This document describes the SmartFirmware User Interface, and how to use it
+to manipulate device trees, view and set parameter values, and to control
+boot-up procedures.</P>
+<H2>Basics</H2>
+<P>SmartFirmware is an implementation of the <A HREF="http://playground.sun.com/pub/1275/home.html">OpenFirmware
+</A> IEEE standard 1275-1994 plus errata changes.</P>
+<P>The basis of SmartFirmware is a <A HREF="http://www.taygeta.com/forth.html">Forth
+</A> engine. Forth is essentially a stack-based language, much like the
+well-known Hewlett-Packard calculators. Forth &quot;words&quot; are names that
+are executed when they are typed in at the &quot;ok&quot; prompt.</P>
+<P>For instance, to add two numbers, type &quot;3 4 +. cr&quot; at the prompt.
+This sequence first pushes the number '3' then the number '4' onto the stack.
+The '+' then pops and adds the top two stack elements and pushes the result on
+the stack. The &quot;.&quot; pops and displays the sum on the top of the
+stack, namely the value '7'. The &quot;cr&quot; simply displays a
+carriage-return and doesn't affect the stack.</P>
+<P>This document expands upon the built-in &quot;help&quot; Forth word.
+</P>
+<H2>Devices</H2>
+<P>A device is a node in a tree, much as a file in a Unix file-path. A device
+name is usually of the form &quot;/name@addr1,addr2:options/dev2/...&quot;.
+All the portions of a device path are machine-dependent. An example of a path
+is &quot;/duart@C0800A00/uart@1:19200,9600,8,1,N&quot;. The &quot;@addr&quot;
+and &quot;:options&quot; portions of the name may be left out, in which case
+the first matching name is used (&quot;/duart/uart&quot; for the previous example).
+</P>
+<P>Devices may also have aliases for convenience. For instance, the alias
+&quot;tty&quot; may refer to &quot;/duart@C0800A00/uart@0&quot;, and may then
+be referred to with &quot;tty:19200,9600,8,1,N&quot; with options if desired.
+</P>
+<H4><A NAME="Displaying"></A>Displaying</H4>
+<P>Devices can be listed using the &quot;ls&quot; command from the
+SmartFirmware User Interface. The &quot;dev&quot; or &quot;cd&quot; commands
+(which are synonyms) moves around the device tree. The &quot;pwd&quot; command
+shows the current device being accessed.</P>
+<P>The command &quot;show-devs&quot; lists all devices in the device tree. The
+command &quot;.properties&quot; can be used to display all property lists at
+any node in the device tree, after using &quot;dev&quot; to first open that device.
+</P>
+<P><A NAME="pwd"></A><B>pwd</B></P>
+<BLOCKQUOTE>
+<P>Print current (working) device path.</P>
+</BLOCKQUOTE>
+<P><A NAME="ls"></A><B>ls</B></P>
+<BLOCKQUOTE>
+<P>Show all devices at the current point in the device tree.</P>
+</BLOCKQUOTE>
+<P><A NAME="dev"></A><B>dev &lt;device path&gt;</B></P>
+<P><A NAME="cd"></A><B>cd &lt;device path&gt;</B></P>
+<BLOCKQUOTE>
+<P>Change the currently open device to the one specified on the command-line.
+The path may be relative to the current device. The path may also be the
+string &quot;..&quot; to open the parent of the current device. The device
+will also parse any optional arguments to configure the device, if any are provided.
+</P>
+<P>Example: cd /duart@C0800A00:9600</P>
+</BLOCKQUOTE>
+<P><A NAME="show-devs"></A><B>show-devs</B></P>
+<BLOCKQUOTE>
+<P>Show all the devices in the device tree.</P>
+</BLOCKQUOTE>
+<P><A NAME=".properties"></A><B>.properties</B></P>
+<BLOCKQUOTE>
+<P>Show all the properties of the current device.</P>
+</BLOCKQUOTE>
+<P><A NAME="words"></A><B>words</B></P>
+<BLOCKQUOTE>
+<P>Show all the methods of the current device, or all the Forth words if there
+is no current device.</P>
+</BLOCKQUOTE>
+<P><A NAME="devalias"></A><B>devalias [name string]</B></P>
+<BLOCKQUOTE>
+<P>Show all the device aliases currently defined if nothing is on the command
+line. Otherwise, create a device alias called &quot;name&quot; with the value
+of &quot;string&quot;. This is handy to avoid typing in long path names again
+and again. Useful in &quot;nvramrc&quot; scripts (below).</P>
+<P>Example: devalias tty /duart@C0800A00/uart@0</P>
+</BLOCKQUOTE>
+<H2>Parameter settings</H2>
+<P>Parameter settings are stored in non-volatile memory (NVRAM). They affect a
+variety of SmartFirmware activities from bootup to running custom scripts to
+setting the size of the display window.</P>
+<P>Parameters are simply string value pairs that usually have a default value
+(stored in ROM) and an active value (stored in NVRAM). They may be displayed,
+set, and restored using the following commands.</P>
+<P>The supported parameter variables are described in the <A HREF="#Parameter-variables">next
+section</A>.</P>
+<P>The following commands are used to manipulate NVRAM parameter settings:
+</P>
+<P><A NAME="printenv"></A><B>printenv [var]</B></P>
+<BLOCKQUOTE>
+<P>Display all parameter variables, their current values, and their default
+values if no &quot;var&quot; is specified on the command-line. Otherwise just
+display the values for that variable.</P>
+<P>Example: printenv diag-switch?</P>
+</BLOCKQUOTE>
+<P><A NAME="setenv"></A><B>setenv var string value</B></P>
+<BLOCKQUOTE>
+<P>Set the value of &quot;var&quot; to be &quot;string value&quot;. Everything
+up to the end of the line, including spaces, will be stored in NVRAM.</P>
+<P>Example: setenv diag-switch? true</P>
+</BLOCKQUOTE>
+<P><A NAME="set-default"></A><B>set-default var</B></P>
+<BLOCKQUOTE>
+<P>Set the value of &quot;var&quot; to be its default value. This is handy to
+restore some variable whose value may have gotten scrambled for some reason.
+</P>
+</BLOCKQUOTE>
+<P><A NAME="set-defaults"></A><B>set-defaults</B></P>
+<BLOCKQUOTE>
+<P>Set all parameter values back to their default values. This is handy if
+NVRAM has become corrupted.</P>
+</BLOCKQUOTE>
+<P><A NAME="nvedit"></A><B>nvedit</B></P>
+<BLOCKQUOTE>
+<P>Edit the script stored in parameter &quot;nvramrc&quot;. This opens up a
+very simple Emacs-style text editor with the contents of the
+&quot;nvramrc&quot; variable.</P>
+<P>Type ^C (Control-C) to exit. Most of the usual Emacs commands may be used
+to move the cursor around, including ^F (forward-char), ^B (backward-char), ^N
+(next-line), and ^P (previous-line).</P>
+<P>This command does not alter the contents of &quot;nvramrc&quot; but merely
+edits a copy in memory. See &quot;nvstore&quot;, &quot;nvquit&quot;,
+&quot;nvrecover&quot;, and &quot;nvrun&quot; (below).</P>
+</BLOCKQUOTE>
+<P><A NAME="nvstore"></A><B>nvstore</B></P>
+<BLOCKQUOTE>
+<P>Stores the contents of the current &quot;nvedit&quot; buffer into the
+parameter variable &quot;nvramrc&quot;. See &quot;nvedit&quot; (above).
+</P>
+</BLOCKQUOTE>
+<P><A NAME="nvquit"></A><B>nvquit</B></P>
+<BLOCKQUOTE>
+<P>Erase the contents of the nvedit buffer without storing it. Prompts the
+user to confirm before erasing the buffer. Does not alter the contents of
+&quot;nvramrc&quot;. See &quot;nvedit&quot; (above).</P>
+</BLOCKQUOTE>
+<P><A NAME="nvrecover"></A><B>nvrecover</B></P>
+<BLOCKQUOTE>
+<P>Attempts to recover the contents of nvedit after it has been erased.
+Normally &quot;nvstore&quot; is supposed to erase the contents of the edit
+buffer. SmartFirmware does not do this, so nvrecover is effectively
+non-functional. See &quot;nvedit&quot; and &quot;nvstore&quot; (above).
+</P>
+</BLOCKQUOTE>
+<P><A NAME="nvrun"></A><B>nvrun</B></P>
+<BLOCKQUOTE>
+<P>Execute the contents of the nvedit buffer as Forth code. Handy way to make
+sure that the &quot;nvramrc&quot; script works before committing it to NVRAM.
+See &quot;nvedit&quot; (above).</P>
+</BLOCKQUOTE>
+<P><A NAME="nvalias"></A><B>nvalias alias device</B></P>
+<BLOCKQUOTE>
+<P>Add a &quot;devalias&quot; to the &quot;nvramrc&quot; script to create this
+alias at bootup. If there is already a &quot;devalias&quot; command there,
+edit it to point to this new device. Finally, run the new &quot;devalias&quot;
+command so the alias is available for immediate use. This is a short-cut
+operation for most typical uses of &quot;nvramrc&quot;.</P>
+<P>Example: nvalias tty /duart@C0800A00/uart@0</P>
+</BLOCKQUOTE>
+<P><A NAME="nvunalias"></A><B>nvunalias alias</B></P>
+<BLOCKQUOTE>
+<P>Remove the specified &quot;devalias&quot; command for creating this alias
+at bootup from the &quot;nvramrc&quot; script, if there is one there.</P>
+</BLOCKQUOTE>
+<H2><A NAME="Parameter-variables"></A>Parameter variables</H2>
+<P>Parameter variables are manipulated by the commands described in the
+previous section. Most are used during bootup and are guarded by boolean
+parameters to turn features on or off. All these variables may not be present
+on all systems. For instance, if the system does not support booting, none of
+the boot parameter vars would be of much use.</P>
+<P><A NAME="diag-switch"></A><B>diag-switch?</B></P>
+<BLOCKQUOTE>
+<P>Boolean: &quot;true&quot; or &quot;false&quot;. Switch on diagnostic-mode
+if true, which turns on extended tests, more verbose output, and alters the
+boot commands below.</P>
+</BLOCKQUOTE>
+<P><A NAME="secondary-diag"></A><B>secondary-diag?</B></P>
+<BLOCKQUOTE>
+<P>Boolean: &quot;true&quot; or &quot;false&quot;. Switch
+secondary-diagnostics on or off at bootup. This is not a standard OpenFirmware
+parameter and controls additional comprehensive test routines for SmartFirmware.
+</P>
+</BLOCKQUOTE>
+<P><A NAME="auto-boot"></A><B>auto-boot?</B></P>
+<BLOCKQUOTE>
+<P>Boolean: &quot;true&quot; or &quot;false&quot;. If true, execute the word
+in &quot;boot-command&quot; after the standard bootup process. Otherwise run
+the Forth interpreter on the console and display an &quot;ok&quot; prompt.
+</P>
+</BLOCKQUOTE>
+<P><A NAME="auto-boot-timeout"></A><B>auto-boot-timeout</B></P>
+<BLOCKQUOTE>
+<P>Integer: number of milliseconds, usually 500. This is the amount of time to
+wait (in milliseconds) for a key-press to abort auto-boot. This is not a
+standard OpenFirmware parameter.</P>
+</BLOCKQUOTE>
+<P><A NAME="boot-command"></A><B>boot-command</B></P>
+<BLOCKQUOTE>
+<P>String: usually &quot;boot&quot;. The command to execute to boot the system
+if the variable &quot;auto-boot?&quot; is true.</P>
+</BLOCKQUOTE>
+<P><A NAME="boot-device"></A><B>boot-device</B></P>
+<BLOCKQUOTE>
+<P>String: usually &quot;disk&quot;. The device to use to load the boot image
+when &quot;boot&quot; is executed. The string is usually an alias to the
+actual device.</P>
+</BLOCKQUOTE>
+<P><A NAME="boot-file"></A><B>boot-file</B></P>
+<BLOCKQUOTE>
+<P>String: usually blank. The file to load from the &quot;boot-device&quot;
+when &quot;boot&quot; is executed.</P>
+</BLOCKQUOTE>
+<P><A NAME="diag-device"></A><B>diag-device</B></P>
+<P><A NAME="diag-file"></A><B>diag-file</B></P>
+<BLOCKQUOTE>
+<P>Like &quot;boot-device&quot; and &quot;boot-file&quot;, but are used if
+&quot;diag-switch&quot; is true when &quot;boot&quot; is executed. Typical
+values are &quot;net&quot; and &quot;diag&quot; respectively, where
+&quot;net&quot; is typically an alias to a network device.</P>
+</BLOCKQUOTE>
+<P><A NAME="use-nvramrc"></A><B>use-nvramrc?</B></P>
+<BLOCKQUOTE>
+<P>Boolean: &quot;true&quot; or &quot;false&quot;. If true, execute the
+contents of &quot;nvramrc&quot; at bootup.</P>
+</BLOCKQUOTE>
+<P><A NAME="nvramrc"></A><B>nvramrc</B></P>
+<BLOCKQUOTE>
+<P>The script to execute at bootup. This script is only executed if
+&quot;use-nvramrc?&quot; is set to true (below).</P>
+<P>The normal bootup sequence is: &quot;probe-all install-console
+banner&quot;. If an &quot;nvramrc&quot; script is provided, it should perform
+the above three in the same order to make sure that the device tree is probed
+and ready. If these commands are not executed in the &quot;nvramrc&quot;
+script, then they will be executed by SmartFirmware once the script finishes running.
+</P>
+</BLOCKQUOTE>
+<P><A NAME="input-device"></A><B>input-device</B></P>
+<BLOCKQUOTE>
+<P>String: usually &quot;keyboard&quot;. The device path to use for the
+console input. The device &quot;keyboard&quot; is usually an alias to the
+actual input device determined in some machine-dependent fashion.</P>
+</BLOCKQUOTE>
+<P><A NAME="output-device"></A><B>output-device</B></P>
+<BLOCKQUOTE>
+<P>String: usually &quot;screen&quot;. The device to use for console output.
+Again, this is usually an alias to the actual device.</P>
+</BLOCKQUOTE>
+<P><A NAME="screen-#rows"></A><B>screen-#rows</B></P>
+<P><A NAME="screen-#columns"></A><B>screen-#columns</B></P>
+<BLOCKQUOTE>
+<P>Integer: usually 0. The number of rows and columns desired for the console
+output. If zero, the largest allowable number will be used depending upon the
+font used.</P>
+</BLOCKQUOTE>
+<P><A NAME="inverse-video"></A><B>inverse-video</B></P>
+<BLOCKQUOTE>
+<P>Boolean: &quot;true&quot; or &quot;false&quot;. Display text on the console
+as black-on-white if this parameter is true, else as white-on-black. This is
+not a standard OpenFirmware parameter.</P>
+</BLOCKQUOTE>
+<P><A NAME="oem-banner"></A><B>oem-banner?</B></P>
+<BLOCKQUOTE>
+<P>Boolean: &quot;true&quot; or &quot;false&quot;. If true, display the
+contents of &quot;oem-banner&quot; when the command &quot;banner&quot; is
+executed in place of the default banner string.</P>
+</BLOCKQUOTE>
+<P><A NAME="oem-banner"></A><B>oem-banner</B></P>
+<BLOCKQUOTE>
+<P>String to display when the &quot;banner&quot; command is executed, if
+&quot;oem-banner?&quot; is set to true.</P>
+</BLOCKQUOTE>
+<P><A NAME="oem-logo"></A><B>oem-logo?</B></P>
+<BLOCKQUOTE>
+<P>Boolean: &quot;true&quot; or &quot;false&quot;. If true, display the bitmap
+in &quot;oem-logo&quot; in front of the banner when the command
+&quot;banner&quot; is executed. Otherwise a default logo (or no logo) will be displayed.
+</P>
+</BLOCKQUOTE>
+<P><A NAME="oem-logo"></A><B>oem-logo</B></P>
+<BLOCKQUOTE>
+<P>Bitmap: 64x64x1 (512 bytes). The bitmap to display if &quot;oem-logo?&quot;
+is true. The contents may be machine-dependent.</P>
+</BLOCKQUOTE>
+<H2><A NAME="Booting"></A>Booting</H2>
+<P>The bootup process is as follows, as required by the OpenFirmware standard.
+The process is largely machine-dependent but the steps are the same for all platforms:
+</P>
+<OL>
+<LI>Power-on self-test
+<LI>System initialization
+<LI>Evaluate the script &quot;nvramrc&quot; if &quot;use-nvramrc?&quot; is true.
+<LI>If the script was not executed or if there was no console after the script
+finished executing, then:
+<OL>
+<LI>Execute &quot;probe-all&quot; (evaluates FCode)
+<LI>Execute &quot;install-console&quot;
+<LI>Execute &quot;banner&quot;</OL>
+<LI>Secondary diagnostics, if &quot;secondary-diag?&quot; is true, and other
+system-dependent initialization.
+<LI>Default boot if &quot;auto-boot?&quot; is true and no key is held down.
+<LI>Run the Forth command interpreter (if not booted)
+<BLOCKQUOTE>
+<P></P>
+</BLOCKQUOTE>
+</OL>
+<P>Commands for booting include:</P>
+<P><A NAME="boot"></A><B>boot [device] [args]</B></P>
+<BLOCKQUOTE>
+<P>Boot the specified device with arguments, if any. If args is not specified,
+use the contents of the parameter &quot;boot-file&quot; or
+&quot;diag-file&quot; depending on the current setting of
+&quot;diag-switch?&quot;. If device is not specified, use
+&quot;boot-device&quot; or &quot;diag-device&quot; instead. &quot;boot&quot;
+is the same as a &quot;load&quot; followed by a &quot;go&quot; (below).
+</P>
+<P>Example: boot /flash pterm</P>
+</BLOCKQUOTE>
+<P><A NAME="load"></A><B>load [device] [args]</B></P>
+<BLOCKQUOTE>
+<P>As boot above, except do not actually boot, but do everything else to
+prepare an image for booting. Run the &quot;go&quot; command to actually boot.
+</P>
+</BLOCKQUOTE>
+<P><A NAME="go"></A><B>go</B></P>
+<BLOCKQUOTE>
+<P>Boot the image that was prepared with &quot;load&quot; above.</P>
+</BLOCKQUOTE>
+<P><A NAME="probe-all"></A><B>probe-all</B></P>
+<BLOCKQUOTE>
+<P>Probes the system for all devices and builds the device tree. Used in the
+&quot;nvramrc&quot; script. Should only be called once at bootup.</P>
+</BLOCKQUOTE>
+<P><A NAME="install-console"></A><B>install-console</B></P>
+<BLOCKQUOTE>
+<P>Selects and installs a console from the device tree, typically a screen and
+keyboard or a serial-port. Used in the &quot;nvramrc&quot; script. Should only
+be called once at bootup.</P>
+</BLOCKQUOTE>
+<P><A NAME="banner"></A><B>banner</B></P>
+<BLOCKQUOTE>
+<P>Display the bootup system banner, optionally with a custom color logo. This
+is usually called in the &quot;nvramrc&quot; script at bootup, but is safe to
+execute multiple times.</P>
+</BLOCKQUOTE>
+<P></P>
+<H3>Net-booting</H3>
+<P>Booting over a network device is probably the most useful feature of
+SmartFirmware. SmartFirmware supports the standard UDP/IP protocols of BOOTP,
+DHCP, or RARP for configuring a network device, and TFTP for loading an images
+over that network device.</P>
+<P>The commands ``load'' and ``boot'' (described above) when used with a
+network device accept the following optional device-specific arguments as follows:
+</P>
+<PRE>
+<P><B>net:[dopt,][prto,]sia,fname,cia,gia,bret,tret [args]</B></P>
+</PRE>
+<BLOCKQUOTE>
+<P>``net'' may be a device alias or a device-path to an ethernet device.
+</P>
+<P>``dopt'' are device-specific options. SmartFirmware's builtin ethernet
+drivers support the strings ``promiscuous'', ``speed=10'', ``speed=100'',
+``duplex=full'', and ``duplex=half'', assuming the device supports the
+specific capability. The options may be in any order and must be separated by
+commas. Additional options may also be supported by a specific driver.
+</P>
+<P> ``prto'' is optional and specifies which network boot protocol to be used.
+SmartFirmware supports the strings ``bootp'', ``dhcp'' or ``rarp'' to force
+BOOTP, DHCP, or RARP protocols to be used. BOOTP is the default on most
+platforms (although Sparcs may use RARP).</P>
+<P>``sia'' is the server internet address in dotted octet or hexadecimal
+format of the server that will be used for TFTP.</P>
+<P>``fname'' is the name of the file to be downloaded over the network using TFTP.
+</P>
+<P>``cia'' is the internet address that SmartFirmware will use for its local
+(client) interface address.</P>
+<P>``giadr' is the internet address of the gateway between the local interface
+and the server if such a gateway is present.</P>
+<P>``bret'' and ``tret'' are decimal numbers and indicate the number of times
+that retries will be sent before the BOOTP or TFTP operations fail.</P>
+<P>``args'' are the optional arguments passed to the program when it is executed.
+</P>
+</BLOCKQUOTE>
+<P>All device arguments are optional, but the commas separating the arguments
+are required. Any missing fields are filled in by the information returned
+using BOOTP/DHCP/RARP protocols. Thus the simplest way to boot over a network
+device is simply ``boot net''. ``boot net:,file'' boots a specific file over
+the net.</P>
+<P></P>
+<H2><A NAME="Testing"></A>Testing</H2>
+<P>It is possible to exercise some of the test methods from the Forth command
+prompt. If the parameter variable &quot;diag-switch?&quot; is true, then more
+verbose and more thorough tests are turned on. It may be useful to run the
+non-verbose commands at bootup, if desired. The commands are as follows.
+</P>
+<P><A NAME="test"></A><B>test [device]</B></P>
+<BLOCKQUOTE>
+<P>Test the specified device (or the currently open device if none is
+specified) by executing its &quot;selftest&quot; method. This may also turn on
+LEDs or other indicators that testing is in progress.</P>
+</BLOCKQUOTE>
+<P><A NAME="test-all"></A><B>test-all [device]</B></P>
+<BLOCKQUOTE>
+<P>Run all &quot;selftest&quot; methods recursively at and below the specified
+device (or &quot;/&quot; if no device is specified). This runs all tests on
+the requested node, then on all its children, and their children, and so
+on.Typically used to run all the tests on all devices from &quot;/&quot;.
+</P>
+</BLOCKQUOTE>
+<H2><A NAME="Changing-the-console"></A>Changing the console</H2>
+<P>The console device used may be changed at any time, or selected during
+bootup. To change it during bootup, the typical method is to either change the
+NVRAM parameters &quot;input-device&quot; and &quot;output-device&quot; to the
+desired console device, or add &quot;devalias&quot; commands to
+&quot;nvramrc&quot; to change the aliases for &quot;screen&quot; and
+&quot;keyboard&quot; to the desired console.</P>
+<P>Otherwise, the console may be changed on-the-fly using the following Forth
+words. Note that they expect their parameters on the Forth stack and not on
+the command-line as do most of the commands above.</P>
+<P><A NAME="input"></A><B>input (device-str str-len --)</B></P>
+<BLOCKQUOTE>
+<P>Used by first pushing a string containing the desired device onto the Forth
+stack, then executing the word &quot;input&quot;. The console input will be
+immediately changed unless an error occurs. Example: &quot;
+/duart/uart@0&quot; input</P>
+</BLOCKQUOTE>
+<P><A NAME="output"></A><B>output (device-str str-len --)</B></P>
+<BLOCKQUOTE>
+<P>Changes the current console output device.</P>
+</BLOCKQUOTE>
+<P><A NAME="io"></A><B>io (device-str str-len --)</B></P>
+<BLOCKQUOTE>
+<P>Changes both the input and the output device at one time. Only useful if
+the device is capable of both input and output.</P>
+</BLOCKQUOTE>
+<H2><A NAME="Forth-variables"></A>Forth variables</H2>
+<P>Forth variables may be viewed and set using standard Forth words. Some
+additional variables have been added for SmartFirmware that are not part of
+the OpenFirmware standard.</P>
+<P>To view a Forth variable called, say, &quot;lines/page&quot;, use
+&quot;.&quot; to display the value on the top of the stack and &quot;cr&quot;
+to print a carriage-return:</P>
+<PRE>
+<P>ok lines/page . cr</P>
+</PRE>
+<P>To set a Forth variable, the new value must be first pushed onto the Forth
+stack before using the &quot;to&quot; word:</P>
+<PRE>
+<P>ok -1 to lines/page</P>
+</PRE>
+<P></P>
+<P><A NAME="lines-page"></A><B>lines/page</B></P>
+<BLOCKQUOTE>
+<P>The current number of lines per page specified for automatic pagination of
+the output. If the value is zero, no pagination is performed. If the value is
+negative, it is subtracted from the number of lines in the display. Otherwise
+the value specifies how many lines are to be displayed before a
+&quot;More&quot; prompt temporarily stops the output.</P>
+</BLOCKQUOTE>
+<P><A NAME="scroll-step"></A><B>scroll-step</B></P>
+<BLOCKQUOTE>
+<P>The number of lines to scrol l the display by when at the bottom of the
+screen. This can speed up slower frame buffers by scrolling by 4 lines instead
+of 1, for instance.</P>
+</BLOCKQUOTE>
+<P></P>
+</BODY>
+</HTML>

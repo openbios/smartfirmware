@@ -1,0 +1,102 @@
+
+INCLUDES=-I. -I../integer -I.. -I/cgt/include
+CFLAGS=$(INCLUDES) -O -L/cgt/lib
+#CFLAGS=$(INCLUDES) -O -L/cgt/lib -DEBUG
+CC=gcc
+OBJS=float.o fltutil.o fltmisc.o fltmath.o fltconst.o fltlog.o fltsqrt.o flttrig.o fltstr.o fltdbl.o fltdump.o
+HDRS=float.h
+LIB=libfloat.a
+SRCS=float.h float.cc fltutil.cc fltmisc.cc fltmath.cc fltconst.cc fltlog.cc fltsqrt.cc flttrig.cc fltstr.cc fltdbl.cc fltdump.cc makefile
+
+TEST1=test.cc test.std
+TEST2=test2.cc test2.in test2.std
+TEST3=test3.cc test3.std
+TEST4=test4.cc test4.std
+TEST5=test5.cc test5.std
+TESTS=$(TEST1) $(TEST2) $(TEST3) $(TEST5) $(TSTLOG)
+
+all:		$(LIB) $(HDRS)
+
+export:		$(LIB) $(HDRS) 
+	cp $(HDRS) /tjm/include
+	cp $(LIB) /tjm/lib
+
+$(LIB):		$(OBJS)
+	rm -f $(LIB)
+	ar r $(LIB) $(OBJS)
+	ar rs $(LIB)
+
+tests:		test.exe test2.exe test3.exe test4.exe test5.exe tstlog.exe
+
+test.exe:	test
+	mv test test.tmp
+	cp test.tmp test
+	cp c:/gnu/bin/stub.exe .
+	aout2exe.bat test
+	mv test.tmp test
+
+test2.exe:	test2
+	mv test2 test2.tmp
+	cp test2.tmp test2
+	cp c:/gnu/bin/stub.exe .
+	aout2exe.bat test2
+	mv test2.tmp test2
+
+test3.exe:	test3
+	mv test3 test3.tmp
+	cp test3.tmp test3
+	cp c:/gnu/bin/stub.exe .
+	aout2exe.bat test3
+	mv test3.tmp test3
+
+test4.exe:	test4
+	mv test4 test4.tmp
+	cp test4.tmp test4
+	cp c:/gnu/bin/stub.exe .
+	aout2exe.bat test4
+	mv test4.tmp test4
+
+test5.exe:	test5
+	mv test5 test5.tmp
+	cp test5.tmp test5
+	cp c:/gnu/bin/stub.exe .
+	aout2exe.bat test5
+	mv test5.tmp test5
+
+tstlog.exe:	tstlog
+	mv tstlog tstlog.tmp
+	cp tstlog.tmp tstlog
+	cp c:/gnu/bin/stub.exe .
+	aout2exe.bat tstlog
+	mv tstlog.tmp tstlog
+
+test:	test.o $(LIB)
+	$(CC) $(CFLAGS) -o test test.o $(LIB) -lutil ../libcgt.a -lm
+
+test2:	test2.o $(LIB)
+	$(CC) $(CFLAGS) -o test2 test2.o $(LIB) -lutil ../libcgt.a -lm
+
+test3:	test3.o $(LIB)
+	$(CC) $(CFLAGS) -o test3 test3.o $(LIB) -lutil ../libcgt.a -lm
+
+test4:	test4.o $(LIB)
+	$(CC) $(CFLAGS) -o test4 test4.o $(LIB) -lutil ../libcgt.a -lm
+
+test5:	test5.o $(LIB)
+	$(CC) $(CFLAGS) -o test5 test5.o $(LIB) -lutil ../libcgt.a -lm
+
+tstlog:	tstlog.o $(LIB)
+	$(CC) $(CFLAGS) -o tstlog tstlog.o $(LIB) -lutil ../libcgt.a -lm
+
+float.o:	float.cc float.h
+#float.o util.o math.o log.o sqrt.o trig.o test.o:	float.h
+
+tar:
+	tar cvf float.tar $(SRCS) $(TESTS)
+	compress <float.tar >float.trz
+	rm float.tar
+
+.SUFFIXES:	.cc .o
+
+.cc.o:
+	$(CC) -c $(CFLAGS) $<

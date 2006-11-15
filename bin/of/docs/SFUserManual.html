@@ -1,0 +1,475 @@
+<HTML>
+<HEAD>
+<TITLE>SmartFirmware&amp;#153; User Manual</TITLE>
+<!--Created by Applixware HTML Authoring System, Release 4.3 on Thu May 25 19:06:56 2000-->
+<!--Ax:WP:DocVar:HTMLOriginalPath@:"/var/tmp/ex21153j.aw"-->
+</HEAD>
+<BODY BGCOLOR="#e6e6e6">
+<H1><A NAME="SmartFirmware-User-Manual"></A>SmartFirmware User Manual</H1>
+<P>This document describes the SmartFirmware User Interface, and how to use it
+to manipulate device trees, view and set parameter values, and to control
+boot-up procedures.</P>
+<H2>Basics</H2>
+<P>SmartFirmware is an implementation of the <A HREF="http://playground.sun.com/pub/1275/home.html">OpenFirmware
+</A> IEEE standard 1275-1994 plus errata changes.</P>
+<P>The basis of SmartFirmware is a <A HREF="http://www.taygeta.com/forth.html">Forth
+</A> engine. Forth is essentially a stack-based language, much like the
+well-known Hewlett-Packard calculators. Forth &quot;words&quot; are names that
+are executed when they are typed in at the &quot;ok&quot; prompt.</P>
+<P>For instance, to add two numbers, type &quot;3 4 +. cr&quot; at the prompt.
+This sequence first pushes the number '3' then the number '4' onto the stack.
+The '+' then pops and adds the top two stack elements and pushes the result on
+the stack. The &quot;.&quot; pops and displays the sum on the top of the
+stack, namely the value '7'. The &quot;cr&quot; simply displays a
+carriage-return and doesn't affect the stack.</P>
+<P>This document expands upon the built-in &quot;help&quot; Forth word.
+</P>
+<H2>Devices</H2>
+<P>A device is a node in a tree, much as a file in a Unix file-path. A device
+name is usually of the form &quot;/name@addr1,addr2:options/dev2/...&quot;.
+All the portions of a device path are machine-dependent. An example of a path
+is &quot;/duart@C0800A00/uart@1:19200,9600,8,1,N&quot;. The &quot;@addr&quot;
+and &quot;:options&quot; portions of the name may be left out, in which case
+the first matching name is used (&quot;/duart/uart&quot; for the previous example).
+</P>
+<P>Devices may also have aliases for convenience. For instance, the alias
+&quot;tty&quot; may refer to &quot;/duart@C0800A00/uart@0&quot;, and may then
+be referred to with &quot;tty:19200,9600,8,1,N&quot; with options if desired.
+</P>
+<H4><A NAME="Displaying"></A>Displaying</H4>
+<P>Devices can be listed using the &quot;ls&quot; command from the
+SmartFirmware User Interface. The &quot;dev&quot; or &quot;cd&quot; commands
+(which are synonyms) moves around the device tree. The &quot;pwd&quot; command
+shows the current device being accessed.</P>
+<P>The command &quot;show-devs&quot; lists all devices in the device tree. The
+command &quot;.properties&quot; can be used to display all property lists at
+any node in the device tree, after using &quot;dev&quot; to first open that device.
+</P>
+<P><A NAME="pwd"></A><B>pwd</B></P>
+<BLOCKQUOTE>
+<P>Print current (working) device path.</P>
+</BLOCKQUOTE>
+<P><A NAME="ls"></A><B>ls</B></P>
+<BLOCKQUOTE>
+<P>Show all devices at the current point in the device tree.</P>
+</BLOCKQUOTE>
+<P><A NAME="dev"></A><B>dev &lt;device path&gt;</B></P>
+<P><A NAME="cd"></A><B>cd &lt;device path&gt;</B></P>
+<BLOCKQUOTE>
+<P>Change the currently open device to the one specified on the command-line.
+The path may be relative to the current device. The path may also be the
+string &quot;..&quot; to open the parent of the current device. The device
+will also parse any optional arguments to configure the device, if any are provided.
+</P>
+<P>Example: cd /duart@C0800A00:9600</P>
+</BLOCKQUOTE>
+<P><A NAME="show-devs"></A><B>show-devs</B></P>
+<BLOCKQUOTE>
+<P>Show all the devices in the device tree.</P>
+</BLOCKQUOTE>
+<P><A NAME=".properties"></A><B>.properties</B></P>
+<BLOCKQUOTE>
+<P>Show all the properties of the current device.</P>
+</BLOCKQUOTE>
+<P><A NAME="words"></A><B>words</B></P>
+<BLOCKQUOTE>
+<P>Show all the methods of the current device, or all the Forth words if there
+is no current device.</P>
+</BLOCKQUOTE>
+<P><A NAME="devalias"></A><B>devalias [name string]</B></P>
+<BLOCKQUOTE>
+<P>Show all the device aliases currently defined if nothing is on the command
+line. Otherwise, create a device alias called &quot;name&quot; with the value
+of &quot;string&quot;. This is handy to avoid typing in long path names again
+and again. Useful in &quot;nvramrc&quot; scripts (below).</P>
+<P>Example: devalias tty /duart@C0800A00/uart@0</P>
+</BLOCKQUOTE>
+<H2>Parameter settings</H2>
+<P>Parameter settings are stored in non-volatile memory (NVRAM). They affect a
+variety of SmartFirmware activities from bootup to running custom scripts to
+setting the size of the display window.</P>
+<P>Parameters are simply string value pairs that usually have a default value
+(stored in ROM) and an active value (stored in NVRAM). They may be displayed,
+set, and restored using the following commands.</P>
+<P>The supported parameter variables are described in the <A HREF="#Parameter-variables">next
+section</A>.</P>
+<P>The following commands are used to manipulate NVRAM parameter settings:
+</P>
+<P><A NAME="printenv"></A><B>printenv [var]</B></P>
+<BLOCKQUOTE>
+<P>Display all parameter variables, their current values, and their default
+values if no &quot;var&quot; is specified on the command-line. Otherwise just
+display the values for that variable.</P>
+<P>Example: printenv diag-switch?</P>
+</BLOCKQUOTE>
+<P><A NAME="setenv"></A><B>setenv var string value</B></P>
+<BLOCKQUOTE>
+<P>Set the value of &quot;var&quot; to be &quot;string value&quot;. Everything
+up to the end of the line, including spaces, will be stored in NVRAM.</P>
+<P>Example: setenv diag-switch? true</P>
+</BLOCKQUOTE>
+<P><A NAME="set-default"></A><B>set-default var</B></P>
+<BLOCKQUOTE>
+<P>Set the value of &quot;var&quot; to be its default value. This is handy to
+restore some variable whose value may have gotten scrambled for some reason.
+</P>
+</BLOCKQUOTE>
+<P><A NAME="set-defaults"></A><B>set-defaults</B></P>
+<BLOCKQUOTE>
+<P>Set all parameter values back to their default values. This is handy if
+NVRAM has become corrupted.</P>
+</BLOCKQUOTE>
+<P><A NAME="nvedit"></A><B>nvedit</B></P>
+<BLOCKQUOTE>
+<P>Edit the script stored in parameter &quot;nvramrc&quot;. This opens up a
+very simple Emacs-style text editor with the contents of the
+&quot;nvramrc&quot; variable.</P>
+<P>Type ^C (Control-C) to exit. Most of the usual Emacs commands may be used
+to move the cursor around, including ^F (forward-char), ^B (backward-char), ^N
+(next-line), and ^P (previous-line).</P>
+<P>This command does not alter the contents of &quot;nvramrc&quot; but merely
+edits a copy in memory. See &quot;nvstore&quot;, &quot;nvquit&quot;,
+&quot;nvrecover&quot;, and &quot;nvrun&quot; (below).</P>
+</BLOCKQUOTE>
+<P><A NAME="nvstore"></A><B>nvstore</B></P>
+<BLOCKQUOTE>
+<P>Stores the contents of the current &quot;nvedit&quot; buffer into the
+parameter variable &quot;nvramrc&quot;. See &quot;nvedit&quot; (above).
+</P>
+</BLOCKQUOTE>
+<P><A NAME="nvquit"></A><B>nvquit</B></P>
+<BLOCKQUOTE>
+<P>Erase the contents of the nvedit buffer without storing it. Prompts the
+user to confirm before erasing the buffer. Does not alter the contents of
+&quot;nvramrc&quot;. See &quot;nvedit&quot; (above).</P>
+</BLOCKQUOTE>
+<P><A NAME="nvrecover"></A><B>nvrecover</B></P>
+<BLOCKQUOTE>
+<P>Attempts to recover the contents of nvedit after it has been erased.
+Normally &quot;nvstore&quot; is supposed to erase the contents of the edit
+buffer. SmartFirmware does not do this, so nvrecover is effectively
+non-functional. See &quot;nvedit&quot; and &quot;nvstore&quot; (above).
+</P>
+</BLOCKQUOTE>
+<P><A NAME="nvrun"></A><B>nvrun</B></P>
+<BLOCKQUOTE>
+<P>Execute the contents of the nvedit buffer as Forth code. Handy way to make
+sure that the &quot;nvramrc&quot; script works before committing it to NVRAM.
+See &quot;nvedit&quot; (above).</P>
+</BLOCKQUOTE>
+<P><A NAME="nvalias"></A><B>nvalias alias device</B></P>
+<BLOCKQUOTE>
+<P>Add a &quot;devalias&quot; to the &quot;nvramrc&quot; script to create this
+alias at bootup. If there is already a &quot;devalias&quot; command there,
+edit it to point to this new device. Finally, run the new &quot;devalias&quot;
+command so the alias is available for immediate use. This is a short-cut
+operation for most typical uses of &quot;nvramrc&quot;.</P>
+<P>Example: nvalias tty /duart@C0800A00/uart@0</P>
+</BLOCKQUOTE>
+<P><A NAME="nvunalias"></A><B>nvunalias alias</B></P>
+<BLOCKQUOTE>
+<P>Remove the specified &quot;devalias&quot; command for creating this alias
+at bootup from the &quot;nvramrc&quot; script, if there is one there.</P>
+</BLOCKQUOTE>
+<H2><A NAME="Parameter-variables"></A>Parameter variables</H2>
+<P>Parameter variables are manipulated by the commands described in the
+previous section. Most are used during bootup and are guarded by boolean
+parameters to turn features on or off. All these variables may not be present
+on all systems. For instance, if the system does not support booting, none of
+the boot parameter vars would be of much use.</P>
+<P><A NAME="diag-switch"></A><B>diag-switch?</B></P>
+<BLOCKQUOTE>
+<P>Boolean: &quot;true&quot; or &quot;false&quot;. Switch on diagnostic-mode
+if true, which turns on extended tests, more verbose output, and alters the
+boot commands below.</P>
+</BLOCKQUOTE>
+<P><A NAME="secondary-diag"></A><B>secondary-diag?</B></P>
+<BLOCKQUOTE>
+<P>Boolean: &quot;true&quot; or &quot;false&quot;. Switch
+secondary-diagnostics on or off at bootup. This is not a standard OpenFirmware
+parameter and controls additional comprehensive test routines for SmartFirmware.
+</P>
+</BLOCKQUOTE>
+<P><A NAME="auto-boot"></A><B>auto-boot?</B></P>
+<BLOCKQUOTE>
+<P>Boolean: &quot;true&quot; or &quot;false&quot;. If true, execute the word
+in &quot;boot-command&quot; after the standard bootup process. Otherwise run
+the Forth interpreter on the console and display an &quot;ok&quot; prompt.
+</P>
+</BLOCKQUOTE>
+<P><A NAME="auto-boot-timeout"></A><B>auto-boot-timeout</B></P>
+<BLOCKQUOTE>
+<P>Integer: number of milliseconds, usually 500. This is the amount of time to
+wait (in milliseconds) for a key-press to abort auto-boot. This is not a
+standard OpenFirmware parameter.</P>
+</BLOCKQUOTE>
+<P><A NAME="boot-command"></A><B>boot-command</B></P>
+<BLOCKQUOTE>
+<P>String: usually &quot;boot&quot;. The command to execute to boot the system
+if the variable &quot;auto-boot?&quot; is true.</P>
+</BLOCKQUOTE>
+<P><A NAME="boot-device"></A><B>boot-device</B></P>
+<BLOCKQUOTE>
+<P>String: usually &quot;disk&quot;. The device to use to load the boot image
+when &quot;boot&quot; is executed. The string is usually an alias to the
+actual device.</P>
+</BLOCKQUOTE>
+<P><A NAME="boot-file"></A><B>boot-file</B></P>
+<BLOCKQUOTE>
+<P>String: usually blank. The file to load from the &quot;boot-device&quot;
+when &quot;boot&quot; is executed.</P>
+</BLOCKQUOTE>
+<P><A NAME="diag-device"></A><B>diag-device</B></P>
+<P><A NAME="diag-file"></A><B>diag-file</B></P>
+<BLOCKQUOTE>
+<P>Like &quot;boot-device&quot; and &quot;boot-file&quot;, but are used if
+&quot;diag-switch&quot; is true when &quot;boot&quot; is executed. Typical
+values are &quot;net&quot; and &quot;diag&quot; respectively, where
+&quot;net&quot; is typically an alias to a network device.</P>
+</BLOCKQUOTE>
+<P><A NAME="use-nvramrc"></A><B>use-nvramrc?</B></P>
+<BLOCKQUOTE>
+<P>Boolean: &quot;true&quot; or &quot;false&quot;. If true, execute the
+contents of &quot;nvramrc&quot; at bootup.</P>
+</BLOCKQUOTE>
+<P><A NAME="nvramrc"></A><B>nvramrc</B></P>
+<BLOCKQUOTE>
+<P>The script to execute at bootup. This script is only executed if
+&quot;use-nvramrc?&quot; is set to true (below).</P>
+<P>The normal bootup sequence is: &quot;probe-all install-console
+banner&quot;. If an &quot;nvramrc&quot; script is provided, it should perform
+the above three in the same order to make sure that the device tree is probed
+and ready. If these commands are not executed in the &quot;nvramrc&quot;
+script, then they will be executed by SmartFirmware once the script finishes running.
+</P>
+</BLOCKQUOTE>
+<P><A NAME="input-device"></A><B>input-device</B></P>
+<BLOCKQUOTE>
+<P>String: usually &quot;keyboard&quot;. The device path to use for the
+console input. The device &quot;keyboard&quot; is usually an alias to the
+actual input device determined in some machine-dependent fashion.</P>
+</BLOCKQUOTE>
+<P><A NAME="output-device"></A><B>output-device</B></P>
+<BLOCKQUOTE>
+<P>String: usually &quot;screen&quot;. The device to use for console output.
+Again, this is usually an alias to the actual device.</P>
+</BLOCKQUOTE>
+<P><A NAME="screen-#rows"></A><B>screen-#rows</B></P>
+<P><A NAME="screen-#columns"></A><B>screen-#columns</B></P>
+<BLOCKQUOTE>
+<P>Integer: usually 0. The number of rows and columns desired for the console
+output. If zero, the largest allowable number will be used depending upon the
+font used.</P>
+</BLOCKQUOTE>
+<P><A NAME="inverse-video"></A><B>inverse-video</B></P>
+<BLOCKQUOTE>
+<P>Boolean: &quot;true&quot; or &quot;false&quot;. Display text on the console
+as black-on-white if this parameter is true, else as white-on-black. This is
+not a standard OpenFirmware parameter.</P>
+</BLOCKQUOTE>
+<P><A NAME="oem-banner"></A><B>oem-banner?</B></P>
+<BLOCKQUOTE>
+<P>Boolean: &quot;true&quot; or &quot;false&quot;. If true, display the
+contents of &quot;oem-banner&quot; when the command &quot;banner&quot; is
+executed in place of the default banner string.</P>
+</BLOCKQUOTE>
+<P><A NAME="oem-banner"></A><B>oem-banner</B></P>
+<BLOCKQUOTE>
+<P>String to display when the &quot;banner&quot; command is executed, if
+&quot;oem-banner?&quot; is set to true.</P>
+</BLOCKQUOTE>
+<P><A NAME="oem-logo"></A><B>oem-logo?</B></P>
+<BLOCKQUOTE>
+<P>Boolean: &quot;true&quot; or &quot;false&quot;. If true, display the bitmap
+in &quot;oem-logo&quot; in front of the banner when the command
+&quot;banner&quot; is executed. Otherwise a default logo (or no logo) will be displayed.
+</P>
+</BLOCKQUOTE>
+<P><A NAME="oem-logo"></A><B>oem-logo</B></P>
+<BLOCKQUOTE>
+<P>Bitmap: 64x64x1 (512 bytes). The bitmap to display if &quot;oem-logo?&quot;
+is true. The contents may be machine-dependent.</P>
+</BLOCKQUOTE>
+<H2><A NAME="Booting"></A>Booting</H2>
+<P>The bootup process is as follows, as required by the OpenFirmware standard.
+The process is largely machine-dependent but the steps are the same for all platforms:
+</P>
+<OL>
+<LI>Power-on self-test
+<LI>System initialization
+<LI>Evaluate the script &quot;nvramrc&quot; if &quot;use-nvramrc?&quot; is true.
+<LI>If the script was not executed or if there was no console after the script
+finished executing, then:
+<OL>
+<LI>Execute &quot;probe-all&quot; (evaluates FCode)
+<LI>Execute &quot;install-console&quot;
+<LI>Execute &quot;banner&quot;</OL>
+<LI>Secondary diagnostics, if &quot;secondary-diag?&quot; is true, and other
+system-dependent initialization.
+<LI>Default boot if &quot;auto-boot?&quot; is true and no key is held down.
+<LI>Run the Forth command interpreter (if not booted)
+<BLOCKQUOTE>
+<P></P>
+</BLOCKQUOTE>
+</OL>
+<P>Commands for booting include:</P>
+<P><A NAME="boot"></A><B>boot [device] [args]</B></P>
+<BLOCKQUOTE>
+<P>Boot the specified device with arguments, if any. If args is not specified,
+use the contents of the parameter &quot;boot-file&quot; or
+&quot;diag-file&quot; depending on the current setting of
+&quot;diag-switch?&quot;. If device is not specified, use
+&quot;boot-device&quot; or &quot;diag-device&quot; instead. &quot;boot&quot;
+is the same as a &quot;load&quot; followed by a &quot;go&quot; (below).
+</P>
+<P>Example: boot /flash pterm</P>
+</BLOCKQUOTE>
+<P><A NAME="load"></A><B>load [device] [args]</B></P>
+<BLOCKQUOTE>
+<P>As boot above, except do not actually boot, but do everything else to
+prepare an image for booting. Run the &quot;go&quot; command to actually boot.
+</P>
+</BLOCKQUOTE>
+<P><A NAME="go"></A><B>go</B></P>
+<BLOCKQUOTE>
+<P>Boot the image that was prepared with &quot;load&quot; above.</P>
+</BLOCKQUOTE>
+<P><A NAME="probe-all"></A><B>probe-all</B></P>
+<BLOCKQUOTE>
+<P>Probes the system for all devices and builds the device tree. Used in the
+&quot;nvramrc&quot; script. Should only be called once at bootup.</P>
+</BLOCKQUOTE>
+<P><A NAME="install-console"></A><B>install-console</B></P>
+<BLOCKQUOTE>
+<P>Selects and installs a console from the device tree, typically a screen and
+keyboard or a serial-port. Used in the &quot;nvramrc&quot; script. Should only
+be called once at bootup.</P>
+</BLOCKQUOTE>
+<P><A NAME="banner"></A><B>banner</B></P>
+<BLOCKQUOTE>
+<P>Display the bootup system banner, optionally with a custom color logo. This
+is usually called in the &quot;nvramrc&quot; script at bootup, but is safe to
+execute multiple times.</P>
+</BLOCKQUOTE>
+<P></P>
+<H3>Net-booting</H3>
+<P>Booting over a network device is probably the most useful feature of
+SmartFirmware. SmartFirmware supports the standard UDP/IP protocols of BOOTP,
+DHCP, or RARP for configuring a network device, and TFTP for loading an images
+over that network device.</P>
+<P>The commands ``load'' and ``boot'' (described above) when used with a
+network device accept the following optional device-specific arguments as follows:
+</P>
+<PRE>
+<P><B>net:[dopt,][prto,]sia,fname,cia,gia,bret,tret [args]</B></P>
+</PRE>
+<BLOCKQUOTE>
+<P>``net'' may be a device alias or a device-path to an ethernet device.
+</P>
+<P>``dopt'' are device-specific options. SmartFirmware's builtin ethernet
+drivers support the strings ``promiscuous'', ``speed=10'', ``speed=100'',
+``duplex=full'', and ``duplex=half'', assuming the device supports the
+specific capability. The options may be in any order and must be separated by
+commas. Additional options may also be supported by a specific driver.
+</P>
+<P> ``prto'' is optional and specifies which network boot protocol to be used.
+SmartFirmware supports the strings ``bootp'', ``dhcp'' or ``rarp'' to force
+BOOTP, DHCP, or RARP protocols to be used. BOOTP is the default on most
+platforms (although Sparcs may use RARP).</P>
+<P>``sia'' is the server internet address in dotted octet or hexadecimal
+format of the server that will be used for TFTP.</P>
+<P>``fname'' is the name of the file to be downloaded over the network using TFTP.
+</P>
+<P>``cia'' is the internet address that SmartFirmware will use for its local
+(client) interface address.</P>
+<P>``giadr' is the internet address of the gateway between the local interface
+and the server if such a gateway is present.</P>
+<P>``bret'' and ``tret'' are decimal numbers and indicate the number of times
+that retries will be sent before the BOOTP or TFTP operations fail.</P>
+<P>``args'' are the optional arguments passed to the program when it is executed.
+</P>
+</BLOCKQUOTE>
+<P>All device arguments are optional, but the commas separating the arguments
+are required. Any missing fields are filled in by the information returned
+using BOOTP/DHCP/RARP protocols. Thus the simplest way to boot over a network
+device is simply ``boot net''. ``boot net:,file'' boots a specific file over
+the net.</P>
+<P></P>
+<H2><A NAME="Testing"></A>Testing</H2>
+<P>It is possible to exercise some of the test methods from the Forth command
+prompt. If the parameter variable &quot;diag-switch?&quot; is true, then more
+verbose and more thorough tests are turned on. It may be useful to run the
+non-verbose commands at bootup, if desired. The commands are as follows.
+</P>
+<P><A NAME="test"></A><B>test [device]</B></P>
+<BLOCKQUOTE>
+<P>Test the specified device (or the currently open device if none is
+specified) by executing its &quot;selftest&quot; method. This may also turn on
+LEDs or other indicators that testing is in progress.</P>
+</BLOCKQUOTE>
+<P><A NAME="test-all"></A><B>test-all [device]</B></P>
+<BLOCKQUOTE>
+<P>Run all &quot;selftest&quot; methods recursively at and below the specified
+device (or &quot;/&quot; if no device is specified). This runs all tests on
+the requested node, then on all its children, and their children, and so
+on.Typically used to run all the tests on all devices from &quot;/&quot;.
+</P>
+</BLOCKQUOTE>
+<H2><A NAME="Changing-the-console"></A>Changing the console</H2>
+<P>The console device used may be changed at any time, or selected during
+bootup. To change it during bootup, the typical method is to either change the
+NVRAM parameters &quot;input-device&quot; and &quot;output-device&quot; to the
+desired console device, or add &quot;devalias&quot; commands to
+&quot;nvramrc&quot; to change the aliases for &quot;screen&quot; and
+&quot;keyboard&quot; to the desired console.</P>
+<P>Otherwise, the console may be changed on-the-fly using the following Forth
+words. Note that they expect their parameters on the Forth stack and not on
+the command-line as do most of the commands above.</P>
+<P><A NAME="input"></A><B>input (device-str str-len --)</B></P>
+<BLOCKQUOTE>
+<P>Used by first pushing a string containing the desired device onto the Forth
+stack, then executing the word &quot;input&quot;. The console input will be
+immediately changed unless an error occurs. Example: &quot;
+/duart/uart@0&quot; input</P>
+</BLOCKQUOTE>
+<P><A NAME="output"></A><B>output (device-str str-len --)</B></P>
+<BLOCKQUOTE>
+<P>Changes the current console output device.</P>
+</BLOCKQUOTE>
+<P><A NAME="io"></A><B>io (device-str str-len --)</B></P>
+<BLOCKQUOTE>
+<P>Changes both the input and the output device at one time. Only useful if
+the device is capable of both input and output.</P>
+</BLOCKQUOTE>
+<H2><A NAME="Forth-variables"></A>Forth variables</H2>
+<P>Forth variables may be viewed and set using standard Forth words. Some
+additional variables have been added for SmartFirmware that are not part of
+the OpenFirmware standard.</P>
+<P>To view a Forth variable called, say, &quot;lines/page&quot;, use
+&quot;.&quot; to display the value on the top of the stack and &quot;cr&quot;
+to print a carriage-return:</P>
+<PRE>
+<P>ok lines/page . cr</P>
+</PRE>
+<P>To set a Forth variable, the new value must be first pushed onto the Forth
+stack before using the &quot;to&quot; word:</P>
+<PRE>
+<P>ok -1 to lines/page</P>
+</PRE>
+<P></P>
+<P><A NAME="lines-page"></A><B>lines/page</B></P>
+<BLOCKQUOTE>
+<P>The current number of lines per page specified for automatic pagination of
+the output. If the value is zero, no pagination is performed. If the value is
+negative, it is subtracted from the number of lines in the display. Otherwise
+the value specifies how many lines are to be displayed before a
+&quot;More&quot; prompt temporarily stops the output.</P>
+</BLOCKQUOTE>
+<P><A NAME="scroll-step"></A><B>scroll-step</B></P>
+<BLOCKQUOTE>
+<P>The number of lines to scrol l the display by when at the bottom of the
+screen. This can speed up slower frame buffers by scrolling by 4 lines instead
+of 1, for instance.</P>
+</BLOCKQUOTE>
+</BODY>
+</HTML>

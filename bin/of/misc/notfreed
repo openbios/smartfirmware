@@ -1,0 +1,28 @@
+#!/bin/sh
+
+sed -e 's/^f/f 0/' | \
+	sort -r +2 | \
+	awk '{
+			if ($1 == "r")
+				next
+
+			if ((prev == "m" && $1 == "f") ||
+					(prev == "f" && $1 == "m"))
+			{
+				if (addr == $3)
+				{
+					line = ""
+					prev = ""
+					addr = ""
+					next
+				}
+
+				print line
+			}
+			else if (prev == "m" || prev == "f")
+				print line
+
+			line = $0
+			prev = $1
+			addr = $3
+		}'

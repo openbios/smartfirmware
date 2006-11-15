@@ -1,0 +1,3621 @@
+2constant	../forth.c	/^C(f_2constant)		/
+2drop	../funcs.c	/^C(f_2drop)			/
+2dup	../funcs.c	/^CC(f_2dup)			/
+2get	../funcs.c	/^C(f_2get)			/
+2over	../funcs.c	/^C(f_2over)			/
+2rot	../funcs.c	/^C(f_2rot)			/
+2set	../funcs.c	/^C(f_2set)			/
+2swap	../funcs.c	/^C(f_2swap)			/
+32to64	../stlb.c	/^C(f_32to64)$/
+64to32	../stlb.c	/^C(f_64to32)$/
+ABOUT_MENU_ITEM	mac.c	/^#define ABOUT_MENU_ITEM/
+ACON	../pci/amdlance.c	/^#define ACON/
+ADDRESS_LENGTH	../pci/amdlance.c	/^#define	ADDRESS_LENGTH/
+ADD_FCS	../pci/amdlance.c	/^#define ADD_FCS/
+ALIGNMENT	machdep.h	/^#define ALIGNMENT/
+ALTSTS	../isa/atadisk.c	/^#define ALTSTS/
+APPLE_MENU_ID	mac.c	/^#define APPLE_MENU_ID/
+APROM	../pci/amdlance.c	/^#define APROM/
+ARP_PACKET_OFFSET	../obptftp.c	/^#define ARP_PACKET_OFFSET/
+ARP_PACKET_SIZE	../obptftp.c	/^#define ARP_PACKET_SIZE/
+ARP_REPLY	../obptftp.c	/^#define ARP_REPLY/
+ARP_REQUEST	../obptftp.c	/^#define ARP_REQUEST/
+Addrmap	../pci/fakepci.c	/^typedef struct devmap ****Addrmap;$/
+Alarm	../defs.h	/^typedef struct alarm Alarm;$/
+Allocator	../defs.h	/^typedef struct allocator Allocator;$/
+Allocator_block	../defs.h	/^typedef struct allocator_block Allocator_block;$/
+Ask	../cmdio.c	/^typedef enum ask Ask;$/
+BABL	../pci/amdlance.c	/^#define BABL/
+BALIGNMENT	machdep.h	/^#define BALIGNMENT/
+BAR_CSR	../pci/pcidiskdev.c	/^#define BAR_CSR/
+BAR_CSRIO	../pci/dc21140.c	/^#define BAR_CSRIO/
+BAR_CSRMEM	../pci/dc21140.c	/^#define BAR_CSRMEM/
+BAR_CSR_SZ	../pci/pcidiskdev.c	/^#define BAR_CSR_SZ/
+BAR_ER	../pci/dc21140.c	/^#define BAR_ER/
+BAR_ER	../pci/pcidiskdev.c	/^#define BAR_ER/
+BAR_ER_SZ	../pci/pcidiskdev.c	/^#define BAR_ER_SZ/
+BCNT	../pci/amdlance.c	/^#define BCNT/
+BCON	../pci/amdlance.c	/^#define BCON/
+BCR19_ECS	../pci/amdlance.c	/^#define BCR19_ECS/
+BCR19_ESK_HIGH	../pci/amdlance.c	/^#define BCR19_ESK_HIGH/
+BCR19_PREAD	../pci/amdlance.c	/^#define BCR19_PREAD/
+BCR19_START	../pci/amdlance.c	/^#define BCR19_START/
+BCR19_STOP	../pci/amdlance.c	/^#define BCR19_STOP/
+BCR19_UWIRE_ON	../pci/amdlance.c	/^#define BCR19_UWIRE_ON/
+BCR32	../pci/amdlance.c	/^#define BCR32/
+BCR33	../pci/amdlance.c	/^#define BCR33/
+BCR34	../pci/amdlance.c	/^#define BCR34/
+BCR49	../pci/amdlance.c	/^#define BCR49/
+BCR_READ	../pci/amdlance.c	/^#define BCR_READ/
+BCR_WRITE	../pci/amdlance.c	/^#define BCR_WRITE/
+BDP	../pci/amdlance.c	/^#define BDP/
+BE2	../defs.h	/^#	define BE2/
+BE4	../defs.h	/^#	define BE4/
+BEEP	../cmdio.c	/^#define BEEP/
+BEEP	../nvedit.c	/^#define BEEP/
+BLOCK_MASK	../stlb.c	/^#define BLOCK_MASK/
+BLOCK_SIZE	../stdlib.c	/^#define BLOCK_SIZE/
+BLOCK_SIZE	../stlb.c	/^#define BLOCK_SIZE/
+BLOCK_SIZE	fakedisk.c	/^#define BLOCK_SIZE/
+BOOTP_CLIENT_PORT	../obptftp.c	/^#define BOOTP_CLIENT_PORT/
+BOOTP_PKT_SIZE	../obptftp.c	/^#define BOOTP_PKT_SIZE/
+BOOTP_SERVER_PORT	../obptftp.c	/^#define BOOTP_SERVER_PORT/
+BOOT_FLAG_BROADCAST	../obptftp.c	/^#define BOOT_FLAG_BROADCAST/
+BOOT_REPLY	../obptftp.c	/^#define BOOT_REPLY/
+BOOT_REQUEST	../obptftp.c	/^#define BOOT_REQUEST/
+BSIZE	../isa/atadisk.c	/^#define BSIZE/
+BSWP	../pci/amdlance.c	/^#define BSWP/
+BUF_SIZE	../pci/decether.c	/^#define BUF_SIZE/
+BUF_SIZE	../pci/ethexpro.c	/^#define BUF_SIZE/
+BUF_SIZE	../pci/ncrscsi.c	/^#define BUF_SIZE/
+BUMPSP	../defs.h	/^#define BUMPSP/
+BUMP_RETSP	../defs.h	/^#define BUMP_RETSP/
+BYTE_MASK	machdep.h	/^#define BYTE_MASK/
+BYTE_SIZE	machdep.h	/^#define BYTE_SIZE/
+BeBox	be-predefs.h	/^#define BeBox/
+Block	../stdlib.c	/^typedef struct block Block;$/
+Bool	machdep.h	/^typedef int Bool;		/
+Byte	mac.c	/^#define Byte/
+Byte	machdep.h	/^typedef Char Byte;		/
+C	../defs.h	/^#	define C/
+CARDBUS	../pci/pciprobe.c	/^#define CARDBUS/
+CARDBUS_CONFIG_BAR0	../pci/pci.h	/^#define CARDBUS_CONFIG_BAR0/
+CARDBUS_CONFIG_BIST	../pci/pci.h	/^#define CARDBUS_CONFIG_BIST/
+CARDBUS_CONFIG_BUSNUM	../pci/pci.h	/^#define CARDBUS_CONFIG_BUSNUM/
+CARDBUS_CONFIG_CACHE	../pci/pci.h	/^#define CARDBUS_CONFIG_CACHE/
+CARDBUS_CONFIG_CLASSREV	../pci/pci.h	/^#define CARDBUS_CONFIG_CLASSREV/
+CARDBUS_CONFIG_COMMAND	../pci/pci.h	/^#define CARDBUS_CONFIG_COMMAND/
+CARDBUS_CONFIG_HEADER	../pci/pci.h	/^#define CARDBUS_CONFIG_HEADER/
+CARDBUS_CONFIG_ID	../pci/pci.h	/^#define CARDBUS_CONFIG_ID/
+CARDBUS_CONFIG_INTERRUPT	../pci/pci.h	/^#define CARDBUS_CONFIG_INTERRUPT/
+CARDBUS_CONFIG_IOBASE0	../pci/pci.h	/^#define CARDBUS_CONFIG_IOBASE0/
+CARDBUS_CONFIG_IOBASE1	../pci/pci.h	/^#define CARDBUS_CONFIG_IOBASE1/
+CARDBUS_CONFIG_IOLIMIT0	../pci/pci.h	/^#define CARDBUS_CONFIG_IOLIMIT0/
+CARDBUS_CONFIG_IOLIMIT1	../pci/pci.h	/^#define CARDBUS_CONFIG_IOLIMIT1/
+CARDBUS_CONFIG_LATENCY	../pci/pci.h	/^#define CARDBUS_CONFIG_LATENCY/
+CARDBUS_CONFIG_LEGACYBASE	../pci/pci.h	/^#define CARDBUS_CONFIG_LEGACYBASE/
+CARDBUS_CONFIG_MEMBASE0	../pci/pci.h	/^#define CARDBUS_CONFIG_MEMBASE0/
+CARDBUS_CONFIG_MEMBASE1	../pci/pci.h	/^#define CARDBUS_CONFIG_MEMBASE1/
+CARDBUS_CONFIG_MEMLIMIT0	../pci/pci.h	/^#define CARDBUS_CONFIG_MEMLIMIT0/
+CARDBUS_CONFIG_MEMLIMIT1	../pci/pci.h	/^#define CARDBUS_CONFIG_MEMLIMIT1/
+CARDBUS_CONFIG_SECSTATUS	../pci/pci.h	/^#define CARDBUS_CONFIG_SECSTATUS/
+CARDBUS_CONFIG_STATUS	../pci/pci.h	/^#define CARDBUS_CONFIG_STATUS/
+CARDBUS_CONFIG_SUBSYSTEM	../pci/pci.h	/^#define CARDBUS_CONFIG_SUBSYSTEM/
+CARDBUS_DECODER_BUS	../pci/cardbus.c	/^#define CARDBUS_DECODER_BUS/
+CARDBUS_DECODER_IO0	../pci/cardbus.c	/^#define CARDBUS_DECODER_IO0/
+CARDBUS_DECODER_IO1	../pci/cardbus.c	/^#define CARDBUS_DECODER_IO1/
+CARDBUS_DECODER_MASK_ALL	../pci/cardbus.c	/^#define CARDBUS_DECODER_MASK_ALL/
+CARDBUS_DECODER_MASK_BUS8	../pci/cardbus.c	/^#define CARDBUS_DECODER_MASK_BUS8/
+CARDBUS_DECODER_MASK_IO016	../pci/cardbus.c	/^#define CARDBUS_DECODER_MASK_IO016/
+CARDBUS_DECODER_MASK_IO032	../pci/cardbus.c	/^#define CARDBUS_DECODER_MASK_IO032/
+CARDBUS_DECODER_MASK_IO116	../pci/cardbus.c	/^#define CARDBUS_DECODER_MASK_IO116/
+CARDBUS_DECODER_MASK_IO132	../pci/cardbus.c	/^#define CARDBUS_DECODER_MASK_IO132/
+CARDBUS_DECODER_MASK_MEM032	../pci/cardbus.c	/^#define CARDBUS_DECODER_MASK_MEM032/
+CARDBUS_DECODER_MASK_MEM132	../pci/cardbus.c	/^#define CARDBUS_DECODER_MASK_MEM132/
+CARDBUS_DECODER_MEM0	../pci/cardbus.c	/^#define CARDBUS_DECODER_MEM0/
+CARDBUS_DECODER_MEM1	../pci/cardbus.c	/^#define CARDBUS_DECODER_MEM1/
+CARDBUS_DECODER_WINDOWS	../pci/cardbus.c	/^#define CARDBUS_DECODER_WINDOWS/
+CB_COMMAND_CONFIG	../pci/ethexpro.c	/^#define CB_COMMAND_CONFIG/
+CB_COMMAND_DIAG	../pci/ethexpro.c	/^#define CB_COMMAND_DIAG/
+CB_COMMAND_DUMP	../pci/ethexpro.c	/^#define CB_COMMAND_DUMP/
+CB_COMMAND_EL	../pci/ethexpro.c	/^#define CB_COMMAND_EL/
+CB_COMMAND_I	../pci/ethexpro.c	/^#define CB_COMMAND_I/
+CB_COMMAND_IAS	../pci/ethexpro.c	/^#define CB_COMMAND_IAS/
+CB_COMMAND_MCAS	../pci/ethexpro.c	/^#define CB_COMMAND_MCAS/
+CB_COMMAND_NOP	../pci/ethexpro.c	/^#define CB_COMMAND_NOP/
+CB_COMMAND_RESRV	../pci/ethexpro.c	/^#define CB_COMMAND_RESRV/
+CB_COMMAND_S	../pci/ethexpro.c	/^#define CB_COMMAND_S/
+CB_COMMAND_SF	../pci/ethexpro.c	/^#define CB_COMMAND_SF/
+CB_COMMAND_XMIT	../pci/ethexpro.c	/^#define CB_COMMAND_XMIT/
+CB_STATUS_C	../pci/ethexpro.c	/^#define CB_STATUS_C/
+CB_STATUS_OK	../pci/ethexpro.c	/^#define CB_STATUS_OK/
+CC	../defs.h	/^#define CC/
+CELL_SIZE	../funcs.c	/^#define CELL_SIZE/
+CERR	../pci/amdlance.c	/^#define CERR/
+CGA_BASE	../isa/vga.c	/^#define CGA_BASE/
+CGA_MEM	../isa/vga.c	/^#define CGA_MEM/
+CHIP_79C970A	../pci/amdlance.c	/^#define CHIP_79C970A/
+CHIP_79C971	../pci/amdlance.c	/^#define CHIP_79C971/
+CHIP_79C972	../pci/amdlance.c	/^#define CHIP_79C972/
+CHIP_79C973	../pci/amdlance.c	/^#define CHIP_79C973/
+CHIP_79C975	../pci/amdlance.c	/^#define CHIP_79C975/
+CHR	../isa/vga.c	/^#define	CHR/
+CKRETSP	../defs.h	/^#	define CKRETSP/
+CKSP	../defs.h	/^#	define CKSP/
+CLOSE_MENU_ITEM	mac.c	/^#define CLOSE_MENU_ITEM/
+CMD_IBUF_FULL	../isa/kbd.c	/^#define CMD_IBUF_FULL/
+CMD_OBUF_FULL	../isa/kbd.c	/^#define CMD_OBUF_FULL/
+COLS	../isa/vga.c	/^#define	COLS/
+COLUMNS	../pci/pcidisp.c	/^#define COLUMNS/
+COLUMNS	mac.c	/^#define COLUMNS/
+COLUMNS	x11.c	/^#define COLUMNS/
+COMMAND	../isa/atadisk.c	/^#define COMMAND/
+COMPILE_PROMPT	../cmdio.c	/^#define COMPILE_PROMPT/
+CRC	../pci/amdlance.c	/^#define CRC/
+CSR0	../pci/amdlance.c	/^#define CSR0/
+CSR1	../pci/amdlance.c	/^#define CSR1/
+CSR2	../pci/amdlance.c	/^#define CSR2/
+CSR3	../pci/amdlance.c	/^#define CSR3/
+CSR88	../pci/amdlance.c	/^#define CSR88/
+CSR89	../pci/amdlance.c	/^#define CSR89/
+CSR_BUSY	../pci/pcidiskdev.c	/^#define CSR_BUSY/
+CSR_BUS_MODE	../pci/decether.c	/^#define CSR_BUS_MODE/
+CSR_CRC	../pci/pcidiskdev.c	/^#define CSR_CRC/
+CSR_DMAENB	../pci/pcidiskdev.c	/^#define CSR_DMAENB/
+CSR_EEPROMCONTROL	../pci/ethexpro.c	/^#define	CSR_EEPROMCONTROL/
+CSR_ENET_ROM	../pci/decether.c	/^#define CSR_ENET_ROM/
+CSR_ERROR	../pci/pcidiskdev.c	/^#define CSR_ERROR/
+CSR_FLASHCONTROL	../pci/ethexpro.c	/^#define	CSR_FLASHCONTROL/
+CSR_FULL_DUPLEX	../pci/decether.c	/^#define CSR_FULL_DUPLEX/
+CSR_GP_PORT	../pci/decether.c	/^#define CSR_GP_PORT/
+CSR_INTERRUPT	../pci/decether.c	/^#define CSR_INTERRUPT/
+CSR_MDICONTROL	../pci/ethexpro.c	/^#define	CSR_MDICONTROL/
+CSR_OPERATION	../pci/decether.c	/^#define CSR_OPERATION/
+CSR_OVERFLOW	../pci/decether.c	/^#define CSR_OVERFLOW/
+CSR_PORT	../pci/ethexpro.c	/^#define	CSR_PORT/
+CSR_READ	../pci/amdlance.c	/^#define CSR_READ/
+CSR_READY	../pci/pcidiskdev.c	/^#define CSR_READY/
+CSR_READ_1	../pci/ethexpro.c	/^#define CSR_READ_1/
+CSR_READ_2	../pci/ethexpro.c	/^#define CSR_READ_2/
+CSR_READ_4	../pci/ethexpro.c	/^#define CSR_READ_4/
+CSR_RECV_BASE	../pci/decether.c	/^#define CSR_RECV_BASE/
+CSR_RECV_POLL	../pci/decether.c	/^#define CSR_RECV_POLL/
+CSR_ROM_ADDR	../pci/decether.c	/^#define CSR_ROM_ADDR/
+CSR_ROM_CTRL	../pci/decether.c	/^#define CSR_ROM_CTRL/
+CSR_SCB_COMMAND	../pci/ethexpro.c	/^#define	CSR_SCB_COMMAND/
+CSR_SCB_GENERAL	../pci/ethexpro.c	/^#define	CSR_SCB_GENERAL/
+CSR_SCB_INTRCNTL	../pci/ethexpro.c	/^#define	CSR_SCB_INTRCNTL/
+CSR_SCB_RUSCUS	../pci/ethexpro.c	/^#define	CSR_SCB_RUSCUS/
+CSR_SCB_STATACK	../pci/ethexpro.c	/^#define	CSR_SCB_STATACK/
+CSR_SEND_BASE	../pci/decether.c	/^#define CSR_SEND_BASE/
+CSR_SEND_POLL	../pci/decether.c	/^#define CSR_SEND_POLL/
+CSR_SIA_CONN	../pci/decether.c	/^#define CSR_SIA_CONN/
+CSR_SIA_GENERAL	../pci/decether.c	/^#define CSR_SIA_GENERAL/
+CSR_SIA_SENDRECV	../pci/decether.c	/^#define CSR_SIA_SENDRECV/
+CSR_SIA_STATUS	../pci/decether.c	/^#define CSR_SIA_STATUS/
+CSR_SIZE	../pci/decether.c	/^#define CSR_SIZE/
+CSR_SIZE	../pci/ethexpro.c	/^#define CSR_SIZE/
+CSR_STATUS	../pci/decether.c	/^#define CSR_STATUS/
+CSR_SZ	../pci/pcidiskdev.c	/^#define CSR_SZ/
+CSR_TIMER	../pci/decether.c	/^#define CSR_TIMER/
+CSR_WATCHDOG	../pci/decether.c	/^#define CSR_WATCHDOG/
+CSR_WRITE	../pci/amdlance.c	/^#define CSR_WRITE/
+CSR_WRITE_1	../pci/ethexpro.c	/^#define CSR_WRITE_1/
+CSR_WRITE_2	../pci/ethexpro.c	/^#define CSR_WRITE_2/
+CSR_WRITE_4	../pci/ethexpro.c	/^#define CSR_WRITE_4/
+CSTR	../defs.h	/^#define CSTR/
+CTLR	../isa/atadisk.c	/^#define CTLR/
+CTRL	../defs.h	/^#define CTRL/
+CURSHAPE	../isa/vga.c	/^#define CURSHAPE/
+CURSHAPEH	../isa/vga.c	/^#define CURSHAPEH/
+CURSHAPEL	../isa/vga.c	/^#define CURSHAPEL/
+CURSORH	../isa/vga.c	/^#define CURSORH/
+CURSORL	../isa/vga.c	/^#define CURSORL/
+CYL_HI	../isa/atadisk.c	/^#define CYL_HI/
+CYL_LO	../isa/atadisk.c	/^#define CYL_LO/
+Call_package	../isa/atadisk.c	/^typedef enum call_package Call_package;$/
+Call_package	fakedisk.c	/^typedef enum call_package Call_package;$/
+Cell	machdep.h	/^typedef Int Cell;		/
+Cell	machdep.h	/^typedef Long Cell;		/
+Char	machdep.h	/^typedef char Char;				/
+DALIGNMENT	machdep.h	/^#define DALIGNMENT/
+DAPC	../pci/amdlance.c	/^#define DAPC/
+DATA	../isa/atadisk.c	/^#define DATA/
+DATA_BCR	../pci/amdlance.c	/^#define	DATA_BCR/
+DATA_CONSTANT	../pci/amdlance.c	/^#define	DATA_CONSTANT/
+DATA_CSR	../pci/amdlance.c	/^#define	DATA_CSR/
+DATA_FILLER	../pci/amdlance.c	/^#define	DATA_FILLER/
+DATA_HCSUM	../pci/amdlance.c	/^#define	DATA_HCSUM/
+DATA_HWID	../pci/amdlance.c	/^#define	DATA_HWID/
+DATA_LCSUM	../pci/amdlance.c	/^#define	DATA_LCSUM/
+DATA_MAC	../pci/amdlance.c	/^#define	DATA_MAC/
+DATA_USER	../pci/amdlance.c	/^#define	DATA_USER/
+DATA_WW	../pci/amdlance.c	/^#define	DATA_WW/
+DC21140_data	../pci/dc21140.c	/^typedef struct dc21140_data DC21140_data;$/
+DEBUG_MALLOC	be-predefs.h	/^#define DEBUG_MALLOC/
+DEBUG_MALLOC	mw-predefs.h	/^#define DEBUG_MALLOC/
+DEF	../pci/amdlance.c	/^#define DEF/
+DEL	../defs.h	/^#define DEL/
+DELAY	../pci/amdlance.c	/^#define DELAY/
+DELAY	../pci/ethexpro.c	/^#define DELAY/
+DELAY_TIME	../pci/amdlance.c	/^#define DELAY_TIME/
+DETAILED_HELP	be-predefs.h	/^#define DETAILED_HELP/
+DETAILED_HELP	mw-predefs.h	/^#define DETAILED_HELP/
+DEVICEID_i82557	../pci/ethexpro.c	/^#define DEVICEID_i82557/
+DEV_21040	../pci/decether.c	/^#define DEV_21040/
+DEV_21041	../pci/decether.c	/^#define DEV_21041/
+DEV_21140	../pci/decether.c	/^#define DEV_21140/
+DHCP_ACK	../obptftp.c	/^#define DHCP_ACK/
+DHCP_DECLINE	../obptftp.c	/^#define DHCP_DECLINE/
+DHCP_DISCOVER	../obptftp.c	/^#define DHCP_DISCOVER/
+DHCP_INFORM	../obptftp.c	/^#define DHCP_INFORM/
+DHCP_NAK	../obptftp.c	/^#define DHCP_NAK/
+DHCP_OFFER	../obptftp.c	/^#define DHCP_OFFER/
+DHCP_OV_BOTH	../obptftp.c	/^#define DHCP_OV_BOTH/
+DHCP_OV_FILE	../obptftp.c	/^#define DHCP_OV_FILE/
+DHCP_OV_SNAME	../obptftp.c	/^#define DHCP_OV_SNAME/
+DHCP_RELEASE	../obptftp.c	/^#define DHCP_RELEASE/
+DHCP_REQUEST	../obptftp.c	/^#define DHCP_REQUEST/
+DIGIN	../isa/atadisk.c	/^#define DIGIN/
+DLNKTST	../pci/amdlance.c	/^#define DLNKTST/
+DMA_BUF_SIZE	../pci/amdlance.c	/^#define DMA_BUF_SIZE/
+DMA_LEN	../pci/ncrscsi.c	/^#define DMA_LEN/
+DOUBLET_MASK	machdep.h	/^#define DOUBLET_MASK/
+DOUBLET_SIZE	machdep.h	/^#define DOUBLET_SIZE/
+DO_MASK32	../defs.h	/^#	define DO_MASK32/
+DO_UMASK32	../defs.h	/^#	define DO_UMASK32/
+DP83840_PCR	../pci/ethexpro.c	/^#define DP83840_PCR/
+DP83840_PCR_BIT10	../pci/ethexpro.c	/^#define DP83840_PCR_BIT10/
+DP83840_PCR_BIT8	../pci/ethexpro.c	/^#define DP83840_PCR_BIT8/
+DP83840_PCR_F_CONNECT	../pci/ethexpro.c	/^#define DP83840_PCR_F_CONNECT/
+DP83840_PCR_LED4_MODE	../pci/ethexpro.c	/^#define DP83840_PCR_LED4_MODE/
+DPRINTF	../defs.h	/^#		define DPRINTF/
+DPRINTF	../obptftp.c	/^#define DPRINTF/
+DRCVBC	../pci/amdlance.c	/^#define DRCVBC/
+DRCVPA	../pci/amdlance.c	/^#define DRCVPA/
+DROP	../defs.h	/^#define DROP/
+DROPN	../defs.h	/^#define DROPN/
+DROPSP	../defs.h	/^#define DROPSP/
+DROP_RETSP	../defs.h	/^#define DROP_RETSP/
+DRTY	../pci/amdlance.c	/^#define DRTY/
+DRX	../pci/amdlance.c	/^#define DRX/
+DTX	../pci/amdlance.c	/^#define DTX/
+DUMPREGS	../pci/ncrscsi.c	/^#define DUMPREGS/
+DXMTFCS	../pci/amdlance.c	/^#define DXMTFCS/
+Display	../display.c	/^typedef struct display Display;$/
+Doublet	machdep.h	/^typedef Short Doublet;		/
+EC	../defs.h	/^#define EC/
+EDIT_MENU_ID	mac.c	/^#define EDIT_MENU_ID/
+ED_CR_PAGE_0	../isa/ne2000.c	/^#define ED_CR_PAGE_0/
+ED_CR_PAGE_1	../isa/ne2000.c	/^#define ED_CR_PAGE_1/
+ED_CR_PAGE_2	../isa/ne2000.c	/^#define ED_CR_PAGE_2/
+ED_CR_PS0	../isa/ne2000.c	/^#define ED_CR_PS0/
+ED_CR_PS1	../isa/ne2000.c	/^#define ED_CR_PS1/
+ED_CR_RD0	../isa/ne2000.c	/^#define ED_CR_RD0/
+ED_CR_RD1	../isa/ne2000.c	/^#define ED_CR_RD1/
+ED_CR_RD2	../isa/ne2000.c	/^#define ED_CR_RD2/
+ED_CR_STA	../isa/ne2000.c	/^#define ED_CR_STA/
+ED_CR_STP	../isa/ne2000.c	/^#define ED_CR_STP/
+ED_CR_TXP	../isa/ne2000.c	/^#define ED_CR_TXP/
+ED_DCR_AR	../isa/ne2000.c	/^#define ED_DCR_AR/
+ED_DCR_BOS	../isa/ne2000.c	/^#define ED_DCR_BOS/
+ED_DCR_FT0	../isa/ne2000.c	/^#define ED_DCR_FT0/
+ED_DCR_FT1	../isa/ne2000.c	/^#define ED_DCR_FT1/
+ED_DCR_LAS	../isa/ne2000.c	/^#define ED_DCR_LAS/
+ED_DCR_LS	../isa/ne2000.c	/^#define ED_DCR_LS/
+ED_DCR_WTS	../isa/ne2000.c	/^#define ED_DCR_WTS/
+ED_IMR_CNTE	../isa/ne2000.c	/^#define ED_IMR_CNTE/
+ED_IMR_OVWE	../isa/ne2000.c	/^#define ED_IMR_OVWE/
+ED_IMR_PRXE	../isa/ne2000.c	/^#define ED_IMR_PRXE/
+ED_IMR_PTXE	../isa/ne2000.c	/^#define ED_IMR_PTXE/
+ED_IMR_RDCE	../isa/ne2000.c	/^#define ED_IMR_RDCE/
+ED_IMR_RXEE	../isa/ne2000.c	/^#define ED_IMR_RXEE/
+ED_IMR_TXEE	../isa/ne2000.c	/^#define ED_IMR_TXEE/
+ED_ISR_CNT	../isa/ne2000.c	/^#define ED_ISR_CNT/
+ED_ISR_OVW	../isa/ne2000.c	/^#define ED_ISR_OVW/
+ED_ISR_PRX	../isa/ne2000.c	/^#define ED_ISR_PRX/
+ED_ISR_PTX	../isa/ne2000.c	/^#define ED_ISR_PTX/
+ED_ISR_RDC	../isa/ne2000.c	/^#define ED_ISR_RDC/
+ED_ISR_RST	../isa/ne2000.c	/^#define ED_ISR_RST/
+ED_ISR_RXE	../isa/ne2000.c	/^#define ED_ISR_RXE/
+ED_ISR_TXE	../isa/ne2000.c	/^#define ED_ISR_TXE/
+ED_MEM_END	../isa/ne2000.c	/^#define ED_MEM_END/
+ED_MEM_RING	../isa/ne2000.c	/^#define ED_MEM_RING/
+ED_MEM_SIZE	../isa/ne2000.c	/^#define ED_MEM_SIZE/
+ED_MEM_START	../isa/ne2000.c	/^#define ED_MEM_START/
+ED_NOVELL_ASIC_OFFSET	../isa/ne2000.c	/^#define ED_NOVELL_ASIC_OFFSET/
+ED_NOVELL_DATA	../isa/ne2000.c	/^#define ED_NOVELL_DATA/
+ED_NOVELL_IO_PORTS	../isa/ne2000.c	/^#define ED_NOVELL_IO_PORTS/
+ED_NOVELL_NIC_OFFSET	../isa/ne2000.c	/^#define ED_NOVELL_NIC_OFFSET/
+ED_NOVELL_RESET	../isa/ne2000.c	/^#define ED_NOVELL_RESET/
+ED_P0_BNRY	../isa/ne2000.c	/^#define ED_P0_BNRY/
+ED_P0_CLDA0	../isa/ne2000.c	/^#define ED_P0_CLDA0/
+ED_P0_CLDA1	../isa/ne2000.c	/^#define ED_P0_CLDA1/
+ED_P0_CNTR0	../isa/ne2000.c	/^#define ED_P0_CNTR0/
+ED_P0_CNTR1	../isa/ne2000.c	/^#define ED_P0_CNTR1/
+ED_P0_CNTR2	../isa/ne2000.c	/^#define ED_P0_CNTR2/
+ED_P0_CR	../isa/ne2000.c	/^#define ED_P0_CR/
+ED_P0_CRDA0	../isa/ne2000.c	/^#define ED_P0_CRDA0/
+ED_P0_CRDA1	../isa/ne2000.c	/^#define ED_P0_CRDA1/
+ED_P0_DCR	../isa/ne2000.c	/^#define ED_P0_DCR/
+ED_P0_FIFO	../isa/ne2000.c	/^#define ED_P0_FIFO/
+ED_P0_IMR	../isa/ne2000.c	/^#define ED_P0_IMR/
+ED_P0_ISR	../isa/ne2000.c	/^#define ED_P0_ISR/
+ED_P0_NCR	../isa/ne2000.c	/^#define ED_P0_NCR/
+ED_P0_PSTART	../isa/ne2000.c	/^#define ED_P0_PSTART/
+ED_P0_PSTOP	../isa/ne2000.c	/^#define ED_P0_PSTOP/
+ED_P0_RBCR0	../isa/ne2000.c	/^#define ED_P0_RBCR0/
+ED_P0_RBCR1	../isa/ne2000.c	/^#define ED_P0_RBCR1/
+ED_P0_RCR	../isa/ne2000.c	/^#define ED_P0_RCR/
+ED_P0_RSAR0	../isa/ne2000.c	/^#define ED_P0_RSAR0/
+ED_P0_RSAR1	../isa/ne2000.c	/^#define ED_P0_RSAR1/
+ED_P0_RSR	../isa/ne2000.c	/^#define ED_P0_RSR/
+ED_P0_TBCR0	../isa/ne2000.c	/^#define ED_P0_TBCR0/
+ED_P0_TBCR1	../isa/ne2000.c	/^#define ED_P0_TBCR1/
+ED_P0_TCR	../isa/ne2000.c	/^#define ED_P0_TCR/
+ED_P0_TPSR	../isa/ne2000.c	/^#define ED_P0_TPSR/
+ED_P0_TSR	../isa/ne2000.c	/^#define ED_P0_TSR/
+ED_P1_CR	../isa/ne2000.c	/^#define ED_P1_CR/
+ED_P1_CURR	../isa/ne2000.c	/^#define ED_P1_CURR/
+ED_P1_MAR0	../isa/ne2000.c	/^#define ED_P1_MAR0/
+ED_P1_MAR1	../isa/ne2000.c	/^#define ED_P1_MAR1/
+ED_P1_MAR2	../isa/ne2000.c	/^#define ED_P1_MAR2/
+ED_P1_MAR3	../isa/ne2000.c	/^#define ED_P1_MAR3/
+ED_P1_MAR4	../isa/ne2000.c	/^#define ED_P1_MAR4/
+ED_P1_MAR5	../isa/ne2000.c	/^#define ED_P1_MAR5/
+ED_P1_MAR6	../isa/ne2000.c	/^#define ED_P1_MAR6/
+ED_P1_MAR7	../isa/ne2000.c	/^#define ED_P1_MAR7/
+ED_P1_PAR0	../isa/ne2000.c	/^#define ED_P1_PAR0/
+ED_P1_PAR1	../isa/ne2000.c	/^#define ED_P1_PAR1/
+ED_P1_PAR2	../isa/ne2000.c	/^#define ED_P1_PAR2/
+ED_P1_PAR3	../isa/ne2000.c	/^#define ED_P1_PAR3/
+ED_P1_PAR4	../isa/ne2000.c	/^#define ED_P1_PAR4/
+ED_P1_PAR5	../isa/ne2000.c	/^#define ED_P1_PAR5/
+ED_P2_ACL	../isa/ne2000.c	/^#define ED_P2_ACL/
+ED_P2_ACU	../isa/ne2000.c	/^#define ED_P2_ACU/
+ED_P2_CLDA0	../isa/ne2000.c	/^#define ED_P2_CLDA0/
+ED_P2_CLDA1	../isa/ne2000.c	/^#define ED_P2_CLDA1/
+ED_P2_CR	../isa/ne2000.c	/^#define ED_P2_CR/
+ED_P2_DCR	../isa/ne2000.c	/^#define ED_P2_DCR/
+ED_P2_IMR	../isa/ne2000.c	/^#define ED_P2_IMR/
+ED_P2_LNPP	../isa/ne2000.c	/^#define ED_P2_LNPP/
+ED_P2_PSTART	../isa/ne2000.c	/^#define ED_P2_PSTART/
+ED_P2_PSTOP	../isa/ne2000.c	/^#define ED_P2_PSTOP/
+ED_P2_RCR	../isa/ne2000.c	/^#define ED_P2_RCR/
+ED_P2_RNPP	../isa/ne2000.c	/^#define ED_P2_RNPP/
+ED_P2_TCR	../isa/ne2000.c	/^#define ED_P2_TCR/
+ED_P2_TPSR	../isa/ne2000.c	/^#define ED_P2_TPSR/
+ED_PAGE_SIZE	../isa/ne2000.c	/^#define ED_PAGE_SIZE/
+ED_RCR_AB	../isa/ne2000.c	/^#define ED_RCR_AB/
+ED_RCR_AM	../isa/ne2000.c	/^#define ED_RCR_AM/
+ED_RCR_AR	../isa/ne2000.c	/^#define ED_RCR_AR/
+ED_RCR_MON	../isa/ne2000.c	/^#define ED_RCR_MON/
+ED_RCR_PRO	../isa/ne2000.c	/^#define ED_RCR_PRO/
+ED_RCR_SEP	../isa/ne2000.c	/^#define ED_RCR_SEP/
+ED_REC_PAGE_START	../isa/ne2000.c	/^#define ED_REC_PAGE_START/
+ED_REC_PAGE_STOP	../isa/ne2000.c	/^#define ED_REC_PAGE_STOP/
+ED_RSR_CRC	../isa/ne2000.c	/^#define ED_RSR_CRC/
+ED_RSR_DFR	../isa/ne2000.c	/^#define ED_RSR_DFR/
+ED_RSR_DIS	../isa/ne2000.c	/^#define ED_RSR_DIS/
+ED_RSR_FAE	../isa/ne2000.c	/^#define ED_RSR_FAE/
+ED_RSR_FO	../isa/ne2000.c	/^#define ED_RSR_FO/
+ED_RSR_MPA	../isa/ne2000.c	/^#define ED_RSR_MPA/
+ED_RSR_PHY	../isa/ne2000.c	/^#define ED_RSR_PHY/
+ED_RSR_PRX	../isa/ne2000.c	/^#define ED_RSR_PRX/
+ED_TCR_ATD	../isa/ne2000.c	/^#define ED_TCR_ATD/
+ED_TCR_CRC	../isa/ne2000.c	/^#define ED_TCR_CRC/
+ED_TCR_LB0	../isa/ne2000.c	/^#define ED_TCR_LB0/
+ED_TCR_LB1	../isa/ne2000.c	/^#define ED_TCR_LB1/
+ED_TCR_OFST	../isa/ne2000.c	/^#define ED_TCR_OFST/
+ED_TSR_ABT	../isa/ne2000.c	/^#define ED_TSR_ABT/
+ED_TSR_CDH	../isa/ne2000.c	/^#define ED_TSR_CDH/
+ED_TSR_COL	../isa/ne2000.c	/^#define ED_TSR_COL/
+ED_TSR_CRS	../isa/ne2000.c	/^#define ED_TSR_CRS/
+ED_TSR_FU	../isa/ne2000.c	/^#define ED_TSR_FU/
+ED_TSR_OWC	../isa/ne2000.c	/^#define ED_TSR_OWC/
+ED_TSR_PTX	../isa/ne2000.c	/^#define ED_TSR_PTX/
+ED_TXBUF_SIZE	../isa/ne2000.c	/^#define ED_TXBUF_SIZE/
+ED_TX_PAGE_START	../isa/ne2000.c	/^#define ED_TX_PAGE_START/
+EEPROM_EECS	../pci/ethexpro.c	/^#define EEPROM_EECS/
+EEPROM_EEDI	../pci/ethexpro.c	/^#define EEPROM_EEDI/
+EEPROM_EEDO	../pci/ethexpro.c	/^#define EEPROM_EEDO/
+EEPROM_EESK	../pci/ethexpro.c	/^#define EEPROM_EESK/
+EEPROM_OPC_ERASE	../pci/ethexpro.c	/^#define EEPROM_OPC_ERASE/
+EEPROM_OPC_READ	../pci/ethexpro.c	/^#define EEPROM_OPC_READ/
+EEPROM_OPC_WRITE	../pci/ethexpro.c	/^#define EEPROM_OPC_WRITE/
+ENP	../pci/amdlance.c	/^#define ENP/
+ENTRY_POINTER	../pci/fakepci.c	/^#define ENTRY_POINTER/
+EOF	../cmdio.c	/^#define EOF/
+EPCI	../pci/pci.h	/^#define EPCI/
+ERAL_OP	../pci/amdlance.c	/^#define ERAL_OP/
+ERASE_OP	../pci/amdlance.c	/^#define ERASE_OP/
+ERR	../pci/amdlance.c	/^#define ERR/
+ERROR	../isa/atadisk.c	/^#define ERROR/
+ESC	../defs.h	/^#define ESC/
+EVAL	../exec.c	/^#define EVAL/
+EVAL_ALARM_RUN	../exec.c	/^#    define EVAL_ALARM_RUN/
+EWDS_ADR	../pci/amdlance.c	/^#define EWDS_ADR/
+EWDS_OP	../pci/amdlance.c	/^#define EWDS_OP/
+EWEN_ADR	../pci/amdlance.c	/^#define EWEN_ADR/
+EWEN_OP	../pci/amdlance.c	/^#define EWEN_OP/
+EXEC_XTOK	../exec.c	/^#define EXEC_XTOK/
+E_ISA	../isa/isa.h	/^#define E_ISA/
+Entry	../defs.h	/^typedef struct entry Entry;$/
+Environ	../defs.h	/^typedef struct environ Environ;$/
+Exec_stack	../defs.h	/^typedef struct exec_stack Exec_stack;$/
+FAKE_DISK_PATH	fakedisk.c	/^#define FAKE_DISK_PATH/
+FAKE_NET_DEV	fakenet.c	/^#define FAKE_NET_DEV/
+FAKE_NET_NAME	fakenet.c	/^#define FAKE_NET_NAME/
+FAKE_PCI	be-predefs.h	/^#define FAKE_PCI/
+FAKE_PCI	mw-predefs.h	/^#define FAKE_PCI/
+FALSE	../defs.h	/^#	define FALSE/
+FCODE_IMMEDIATE	../defs.h	/^#define FCODE_IMMEDIATE/
+FCODE_MASK	../defs.h	/^#define FCODE_MASK/
+FCOLL	../pci/amdlance.c	/^#define FCOLL/
+FEATURES	../isa/atadisk.c	/^#define FEATURES/
+FFALSE	../defs.h	/^#define FFALSE/
+FILE_MENU_ID	mac.c	/^#define FILE_MENU_ID/
+FILE_NAME_SIZE	../obptftp.c	/^#define FILE_NAME_SIZE/
+FIRMWARE_REV	machdep.h	/^#define FIRMWARE_REV/
+FLASH_MAP_ADDR	../gflash.c	/^#define FLASH_MAP_ADDR/
+FLASH_MAP_DATA	../gflash.c	/^#define FLASH_MAP_DATA/
+FLASH_READ	../gflash.c	/^#define FLASH_READ/
+FLASH_SEQ_DELAY	../flash.h	/^#define FLASH_SEQ_DELAY/
+FLASH_SEQ_END	../flash.h	/^#define FLASH_SEQ_END/
+FLASH_SEQ_READ_DATA	../flash.h	/^#define FLASH_SEQ_READ_DATA/
+FLASH_SEQ_READ_DEVID	../flash.h	/^#define FLASH_SEQ_READ_DEVID/
+FLASH_SEQ_READ_MANUF	../flash.h	/^#define FLASH_SEQ_READ_MANUF/
+FLASH_SEQ_WAIT_INVERT	../flash.h	/^#define FLASH_SEQ_WAIT_INVERT/
+FLASH_SEQ_WAIT_STATUS	../flash.h	/^#define FLASH_SEQ_WAIT_STATUS/
+FLASH_SEQ_WAIT_TOGGLE	../flash.h	/^#define FLASH_SEQ_WAIT_TOGGLE/
+FLASH_SEQ_WRITE	../flash.h	/^#define FLASH_SEQ_WRITE/
+FLASH_SEQ_WRITE_DATA	../flash.h	/^#define FLASH_SEQ_WRITE_DATA/
+FLASH_WRITE	../gflash.c	/^#define FLASH_WRITE/
+FONT_ADVANCE	machdep.h	/^#define FONT_ADVANCE/
+FONT_COUNT	machdep.h	/^#define FONT_COUNT/
+FONT_FILE	machdep.h	/^#define FONT_FILE/
+FONT_FIRST	machdep.h	/^#define FONT_FIRST/
+FONT_HEIGHT	machdep.h	/^#define FONT_HEIGHT/
+FONT_LAST	machdep.h	/^#define FONT_LAST/
+FONT_WIDTH	machdep.h	/^#define FONT_WIDTH/
+FRAM	../pci/amdlance.c	/^#define FRAM/
+FREE_GUARD	../stdlib.c	/^#	define FREE_GUARD/
+FTRUE	../defs.h	/^#define FTRUE/
+Fake_pci_dev	../pci/fakepci.h	/^typedef struct fake_pci_dev Fake_pci_dev;$/
+Fake_pci_dev_methods	../pci/fakepci.h	/^typedef struct fake_pci_dev_methods Fake_pci_dev_methods;$/
+Flash	../flash.h	/^typedef struct flash Flash;$/
+Flash_methods	../flash.h	/^typedef struct flash_methods Flash_methods;$/
+HADR	../pci/amdlance.c	/^#define HADR/
+HEAD_GUARD	../stdlib.c	/^#	define HEAD_GUARD/
+HELP	../defs.h	/^#	define HELP/
+HEX_A	../defs.h	/^#define HEX_A/
+ICMP_ECHO	../obptftp.c	/^#define ICMP_ECHO/
+ICMP_ECHO_REPLY	../obptftp.c	/^#define ICMP_ECHO_REPLY/
+ICMP_HEADER_OFFSET	../obptftp.c	/^#define ICMP_HEADER_OFFSET/
+ICMP_HEADER_SIZE	../obptftp.c	/^#define ICMP_HEADER_SIZE/
+ICMP_PACKET_OFFSET	../obptftp.c	/^#define ICMP_PACKET_OFFSET/
+ICMP_PROTOCOL	../obptftp.c	/^#define ICMP_PROTOCOL/
+IDON	../pci/amdlance.c	/^#define IDON/
+IFCKRETSP	../defs.h	/^#	define IFCKRETSP/
+IFCKSP	../defs.h	/^#	define IFCKSP/
+INEA	../pci/amdlance.c	/^#define INEA/
+INIT	../pci/amdlance.c	/^#define INIT/
+INTERRUPT	../isa/atadisk.c	/^#define INTERRUPT/
+INTL	../pci/amdlance.c	/^#define INTL/
+INTR	../pci/amdlance.c	/^#define INTR/
+INVALID_FCODE	../defs.h	/^#define INVALID_FCODE/
+INVALID_XTOK	../defs.h	/^#define INVALID_XTOK/
+IO_BUF_SHIFT	../pci/decether.c	/^#define IO_BUF_SHIFT/
+IO_BUF_SIZE	../pci/decether.c	/^#define IO_BUF_SIZE/
+IO_END_OF_CHAIN	../pci/decether.c	/^#define IO_END_OF_CHAIN/
+IO_END_OF_RING	../pci/decether.c	/^#define IO_END_OF_RING/
+IO_ERROR	../pci/decether.c	/^#define IO_ERROR/
+IO_FIRST_DESC	../pci/decether.c	/^#define IO_FIRST_DESC/
+IO_FRAME_LEN	../pci/decether.c	/^#define IO_FRAME_LEN/
+IO_LAST_DESC	../pci/decether.c	/^#define IO_LAST_DESC/
+IO_OWN	../pci/decether.c	/^#define IO_OWN/
+IO_READ	../pci/amdlance.c	/^#define IO_READ/
+IO_READ	../pci/amdlance.c	/^IO_READ(Self *s, int reg)$/
+IO_READ1	../pci/amdlance.c	/^#define IO_READ1/
+IO_READ1	../pci/amdlance.c	/^IO_READ1(Self *s, int reg)$/
+IO_READ4	../pci/amdlance.c	/^IO_READ4(Self *s, int reg)$/
+IO_SIZE	../pci/amdlance.c	/^#define	IO_SIZE/
+IO_WRITE	../pci/amdlance.c	/^#define IO_WRITE/
+IO_WRITE	../pci/amdlance.c	/^IO_WRITE(Self *s, int reg, uInt val)$/
+IO_WRITE4	../pci/amdlance.c	/^IO_WRITE4(Self *s, int reg, uInt val)$/
+IP_ADDR_SIZE	../obptftp.c	/^#define IP_ADDR_SIZE/
+IP_HEADER_OFFSET	../obptftp.c	/^#define IP_HEADER_OFFSET/
+IP_HEADER_SIZE	../obptftp.c	/^#define IP_HEADER_SIZE/
+ISA	../isa/isa.h	/^#define ISA/
+ISA_10_BIT_ADDR	../isa/isa.h	/^#define ISA_10_BIT_ADDR/
+ISA_11_BIT_ADDR	../isa/isa.h	/^#define ISA_11_BIT_ADDR/
+ISA_IO_ADDRESS	../isa/isa.h	/^#define ISA_IO_ADDRESS/
+ISA_MEMORY_ADDR	../isa/isa.h	/^#define ISA_MEMORY_ADDR/
+ISO_6429_1983_ID	mac.c	/^#define ISO_6429_1983_ID/
+ISO_COLORS	x11.c	/^#define ISO_COLORS/
+IS_ENTRY	../pci/fakepci.c	/^#define IS_ENTRY/
+Initentry	../defs.h	/^typedef struct initentry Initentry;$/
+Input	../defs.h	/^typedef struct input Input;$/
+Instance	../defs.h	/^typedef struct instance Instance;$/
+Int	machdep.h	/^typedef int Int;				/
+Io_desc	../pci/decether.c	/^typedef struct io_desc Io_desc;$/
+Isa_device	../isa/isa.h	/^typedef struct isa_device Isa_device;$/
+Isa_self	../isa/kbd.c	/^typedef struct isa_self Isa_self;$/
+Jedec_manuf_info	../jedec.c	/^typedef struct jedec_manuf_info Jedec_manuf_info;$/
+KBC_A20_GATE	../isa/kbd.c	/^#define KBC_A20_GATE/
+KBC_DISABLE_AUX	../isa/kbd.c	/^#define KBC_DISABLE_AUX/
+KBC_DISABLE_KBD	../isa/kbd.c	/^#define KBC_DISABLE_KBD/
+KBC_ENABLE_AUX	../isa/kbd.c	/^#define KBC_ENABLE_AUX/
+KBC_ENABLE_KBD	../isa/kbd.c	/^#define KBC_ENABLE_KBD/
+KBC_SELF_TEST	../isa/kbd.c	/^#define KBC_SELF_TEST/
+KBC_SYS_RESET	../isa/kbd.c	/^#define KBC_SYS_RESET/
+KBC_TEST_CLKDAT	../isa/kbd.c	/^#define KBC_TEST_CLKDAT/
+KBD_CMD	../isa/kbd.c	/^#define KBD_CMD/
+KBD_DATA	../isa/kbd.c	/^#define KBD_DATA/
+KBD_LOAD_CMD	../isa/kbd.c	/^#define KBD_LOAD_CMD/
+KBD_READ_CMD	../isa/kbd.c	/^#define KBD_READ_CMD/
+KB_ACK	../isa/kbd.c	/^#define	KB_ACK/
+KB_ALT	../isa/kbd.c	/^#define	KB_ALT/
+KB_ALTGR	../isa/kbd.c	/^#define	KB_ALTGR/
+KB_ASCII	../isa/kbd.c	/^#define	KB_ASCII/
+KB_CAPS	../isa/kbd.c	/^#define	KB_CAPS/
+KB_CODE_SIZE	../isa/kbd.c	/^#define	KB_CODE_SIZE/
+KB_CTL	../isa/kbd.c	/^#define	KB_CTL/
+KB_ECHO	../isa/kbd.c	/^#define	KB_ECHO/
+KB_ENABLE	../isa/kbd.c	/^#define KB_ENABLE/
+KB_EXTENDED	../isa/kbd.c	/^#define KB_EXTENDED/
+KB_FUNC	../isa/kbd.c	/^#define	KB_FUNC/
+KB_KP	../isa/kbd.c	/^#define	KB_KP/
+KB_NONE	../isa/kbd.c	/^#define	KB_NONE/
+KB_NUM	../isa/kbd.c	/^#define	KB_NUM/
+KB_NUM_KEYS	../isa/kbd.c	/^#define KB_NUM_KEYS/
+KB_RESEND	../isa/kbd.c	/^#define KB_RESEND/
+KB_RESET	../isa/kbd.c	/^#define KB_RESET/
+KB_SCROLL	../isa/kbd.c	/^#define	KB_SCROLL/
+KB_SET_LEDS	../isa/kbd.c	/^#define KB_SET_LEDS/
+KB_SET_TABLE	../isa/kbd.c	/^#define KB_SET_TABLE/
+KB_SHIFT	../isa/kbd.c	/^#define	KB_SHIFT/
+LCAR	../pci/amdlance.c	/^#define LCAR/
+LCOL	../pci/amdlance.c	/^#define LCOL/
+LE2	../defs.h	/^#	define LE2/
+LE4	../defs.h	/^#	define LE4/
+LINES	../pci/pcidisp.c	/^#define LINES/
+LINES	mac.c	/^#define LINES/
+LINE_NUM_START	../defs.h	/^#define LINE_NUM_START/
+LITTLE_ENDIAN	machdep.h	/^#define LITTLE_ENDIAN/
+LOGO_COLORS	../logo.h	/^#define LOGO_COLORS/
+LOGO_DEPTH	../logo.h	/^#define LOGO_DEPTH/
+LOGO_HEIGHT	../logo.h	/^#define LOGO_HEIGHT/
+LOGO_WIDTH	../logo.h	/^#define LOGO_WIDTH/
+LOOP	../pci/amdlance.c	/^#define LOOP/
+LOOP_BRANCH	../defs.h	/^#define LOOP_BRANCH/
+LOOP_INDEX	../defs.h	/^#define LOOP_INDEX/
+LOOP_LIMIT	../defs.h	/^#define LOOP_LIMIT/
+LOOP_SIZE	../defs.h	/^#define LOOP_SIZE/
+LRT	../pci/amdlance.c	/^#define LRT/
+Long	machdep.h	/^typedef __LONGLONG Long;			/
+Long	machdep.h	/^typedef long Long;				/
+MACHDEP_HELP	machdep.h	/^#define MACHDEP_HELP/
+MACHDEP_HELP_TITLE	machdep.h	/^#define MACHDEP_HELP_TITLE/
+MACHINE_TYPE	machdep.h	/^#define MACHINE_TYPE/
+MAC_ADDR	../isa/ne2000.c	/^#define MAC_ADDR/
+MAC_ADDR	../pci/amdlance.c	/^#define MAC_ADDR/
+MAC_ADDR	../pci/decether.c	/^#define MAC_ADDR/
+MAC_ADDR	../pci/ethexpro.c	/^#define MAC_ADDR/
+MAC_ADDRESS	machdep.h	/^#define MAC_ADDRESS/
+MAC_ADDR_SIZE	../admin.c	/^#define MAC_ADDR_SIZE/
+MAC_ADDR_SIZE	../obptftp.c	/^#define MAC_ADDR_SIZE/
+MAC_ADDR_SIZE	fakenet.c	/^#define MAC_ADDR_SIZE/
+MAC_ADDR_SIZE	fakenet2.c	/^#define MAC_ADDR_SIZE/
+MAC_ARP1	../obptftp.c	/^#define MAC_ARP1/
+MAC_ARP2	../obptftp.c	/^#define MAC_ARP2/
+MAC_BUFFER_SIZE	../obptftp.c	/^#define MAC_BUFFER_SIZE/
+MAC_HEADER_OFFSET	../obptftp.c	/^#define MAC_HEADER_OFFSET/
+MAC_HEADER_SIZE	../obptftp.c	/^#define MAC_HEADER_SIZE/
+MAC_IP1	../obptftp.c	/^#define MAC_IP1/
+MAC_IP2	../obptftp.c	/^#define MAC_IP2/
+MAC_RARP1	../obptftp.c	/^#define MAC_RARP1/
+MAC_RARP2	../obptftp.c	/^#define MAC_RARP2/
+MAGIC_FNEXT	../defs.h	/^#define MAGIC_FNEXT/
+MAIN_MENU_BAR_ID	mac.c	/^#define MAIN_MENU_BAR_ID/
+MALLOC_POOL	machdep.h	/^#define MALLOC_POOL/
+MANUFACTURER	machdep.h	/^#define MANUFACTURER/
+MAXMCADDR	../pci/ethexpro.c	/^#define MAXMCADDR/
+MAX_ADDR_CELLS	machdep.h	/^#define MAX_ADDR_CELLS/
+MAX_ALARMS	machdep.h	/^#define MAX_ALARMS/
+MAX_FREE	../cpu-ppc.c	/^#define MAX_FREE/
+MAX_FREE	../cpu.c	/^#define MAX_FREE/
+MAX_INST_STACK_SIZE	../sun.c	/^#define MAX_INST_STACK_SIZE/
+MAX_PACKET_SIZE	../pci/amdlance.c	/^#define MAX_PACKET_SIZE/
+MAX_PACKET_SIZE	../pci/decether.c	/^#define MAX_PACKET_SIZE/
+MAX_PACKET_SIZE	../pci/ethexpro.c	/^#define MAX_PACKET_SIZE/
+MAX_TRANSFER	../pci/ncrscsi.c	/^#define MAX_TRANSFER/
+MB	../pci/amdlance.c	/^#define MB/
+MCNT	../pci/amdlance.c	/^#define MCNT/
+MDERR	../pci/amdlance.c	/^#define MDERR/
+MDI_READ	../pci/ethexpro.c	/^#define MDI_READ/
+MDI_WRITE	../pci/ethexpro.c	/^#define MDI_WRITE/
+MEM_SIZE	machdep.h	/^#define MEM_SIZE/
+MENDECL	../pci/amdlance.c	/^#define MENDECL/
+MERR	../pci/amdlance.c	/^#define MERR/
+MISS	../pci/amdlance.c	/^#define MISS/
+MMU_DMA_MAP_IN_CACHEABLE	../defs.h	/^#define MMU_DMA_MAP_IN_CACHEABLE/
+MMU_DMA_MAP_IN_NOCACHE	../defs.h	/^#define MMU_DMA_MAP_IN_NOCACHE/
+MMU_MAP_IN_DATA	../defs.h	/^#define MMU_MAP_IN_DATA/
+MMU_MAP_IN_EXEC	../defs.h	/^#define MMU_MAP_IN_EXEC/
+MMU_MAP_IN_IO	../defs.h	/^#define MMU_MAP_IN_IO/
+MONO_BASE	../isa/vga.c	/^#define MONO_BASE/
+MONO_BUF	../isa/vga.c	/^#define MONO_BUF/
+MORE	../pci/amdlance.c	/^#define MORE/
+MORE_DEBUG	../obptftp.c	/^#define MORE_DEBUG/
+MOVE	../nvedit.c	/^#define MOVE/
+MOVENUM	../nvedit.c	/^#define MOVENUM/
+Map	../stlb.c	/^typedef struct map Map;$/
+NET_TIMEOUT	../obptftp.c	/^#	define NET_TIMEOUT/
+NEXT_FCODE	../exec.c	/^#define NEXT_FCODE/
+NIL	mac.c	/^#define NIL/
+NS16550_READ	../isa/ns16550.c	/^#define NS16550_READ/
+NS16550_WRITE	../isa/ns16550.c	/^#define NS16550_WRITE/
+NTXSEG	../pci/ethexpro.c	/^#define NTXSEG/
+NULL	../defs.h	/^#	define NULL/
+NULL	../stdlib.h	/^#define	NULL/
+NUMWIDTH	../nvedit.c	/^#define NUMWIDTH/
+NUM_DESCRIPTORS	../pci/amdlance.c	/^#define NUM_DESCRIPTORS/
+NUM_FCODES	../defs.h	/^#define NUM_FCODES/
+NUM_SCAN_CODES	../isa/kbd.c	/^#define NUM_SCAN_CODES/
+NUM_STRING_BUFS	../forth.c	/^#	define NUM_STRING_BUFS/
+NVRAM_FILE	machdep.c	/^#define NVRAM_FILE/
+NVRAM_HEADER	../nvram.c	/^#define NVRAM_HEADER/
+NVRAM_MAGIC_1	../nvram.c	/^#define NVRAM_MAGIC_1/
+NVRAM_MAGIC_2	../nvram.c	/^#define NVRAM_MAGIC_2/
+NVRAM_MAX	../nvram.c	/^#define NVRAM_MAX/
+OALIGNMENT	machdep.h	/^#define OALIGNMENT/
+OCTLET_MASK	machdep.h	/^#define OCTLET_MASK/
+OCTLET_SIZE	machdep.h	/^#define OCTLET_SIZE/
+OFLO	../pci/amdlance.c	/^#define OFLO/
+OK_PROMPT	../cmdio.c	/^#define OK_PROMPT/
+OLDROUTINENAMES	mac.c	/^#define OLDROUTINENAMES/
+ONE	../pci/amdlance.c	/^#define ONE/
+OPT_BOOT_FILE	../obptftp.c	/^#define OPT_BOOT_FILE/
+OPT_CLIENT_ID	../obptftp.c	/^#define OPT_CLIENT_ID/
+OPT_DHCP	../obptftp.c	/^#define OPT_DHCP/
+OPT_END	../obptftp.c	/^#define OPT_END/
+OPT_IP_LEASE_TIME	../obptftp.c	/^#define OPT_IP_LEASE_TIME/
+OPT_MAX_SIZE	../obptftp.c	/^#define OPT_MAX_SIZE/
+OPT_MESSAGE	../obptftp.c	/^#define OPT_MESSAGE/
+OPT_OVERLOAD	../obptftp.c	/^#define OPT_OVERLOAD/
+OPT_PAD	../obptftp.c	/^#define OPT_PAD/
+OPT_PARAM_REQUEST	../obptftp.c	/^#define OPT_PARAM_REQUEST/
+OPT_REBINDING_TIME	../obptftp.c	/^#define OPT_REBINDING_TIME/
+OPT_RENEWAL_TIME	../obptftp.c	/^#define OPT_RENEWAL_TIME/
+OPT_REQUEST_IP	../obptftp.c	/^#define OPT_REQUEST_IP/
+OPT_SERVER_IP	../obptftp.c	/^#define OPT_SERVER_IP/
+OPT_TFTP_SERVER	../obptftp.c	/^#define OPT_TFTP_SERVER/
+OPT_VENDOR_ID	../obptftp.c	/^#define OPT_VENDOR_ID/
+OURID	../pci/ncrscsi.c	/^#define OURID/
+OWN	../pci/amdlance.c	/^#define OWN/
+Octlet	machdep.h	/^typedef Long Octlet;		/
+PACKET_MTU	fakenet.c	/^#define PACKET_MTU/
+PACKET_MTU	fakenet2.c	/^#define PACKET_MTU/
+PATH	../alloc.c	/^#define PATH/
+PCI	../pci/pci.h	/^#define PCI/
+PCI_BASE	machdep.c	/^#define PCI_BASE/
+PCI_BLOCKMASK	machdep.c	/^#define PCI_BLOCKMASK/
+PCI_BLOCKS	machdep.c	/^#define PCI_BLOCKS/
+PCI_BLOCKSHIFT	machdep.c	/^#define PCI_BLOCKSHIFT/
+PCI_BLOCKSIZE	machdep.c	/^#define PCI_BLOCKSIZE/
+PCI_CLASSCODETABLE_LEN	../pci/pcicode.c	/^#define	PCI_CLASSCODETABLE_LEN/
+PCI_COMMANDFLAGS_LEN	../pci/pcicode.c	/^#define	PCI_COMMANDFLAGS_LEN/
+PCI_COMMAND_FASTBACK2BACKENABLE	../pci/pci.h	/^#define PCI_COMMAND_FASTBACK2BACKENABLE/
+PCI_COMMAND_IOENABLE	../pci/pci.h	/^#define PCI_COMMAND_IOENABLE/
+PCI_COMMAND_MASTERENABLE	../pci/pci.h	/^#define PCI_COMMAND_MASTERENABLE/
+PCI_COMMAND_MEMENABLE	../pci/pci.h	/^#define PCI_COMMAND_MEMENABLE/
+PCI_COMMAND_MWIENABLE	../pci/pci.h	/^#define PCI_COMMAND_MWIENABLE/
+PCI_COMMAND_PALLETESNOOPENABLE	../pci/pci.h	/^#define PCI_COMMAND_PALLETESNOOPENABLE/
+PCI_COMMAND_PARITYERRENABLE	../pci/pci.h	/^#define PCI_COMMAND_PARITYERRENABLE/
+PCI_COMMAND_SPECCYCLEENABLE	../pci/pci.h	/^#define PCI_COMMAND_SPECCYCLEENABLE/
+PCI_COMMAND_SYSTEMERRENABLE	../pci/pci.h	/^#define PCI_COMMAND_SYSTEMERRENABLE/
+PCI_COMMAND_WAITENABLE	../pci/pci.h	/^#define PCI_COMMAND_WAITENABLE/
+PCI_CONFIG_BAR0	../pci/pci.h	/^#define PCI_CONFIG_BAR0/
+PCI_CONFIG_BAR1	../pci/pci.h	/^#define PCI_CONFIG_BAR1/
+PCI_CONFIG_BAR2	../pci/pci.h	/^#define PCI_CONFIG_BAR2/
+PCI_CONFIG_BAR3	../pci/pci.h	/^#define PCI_CONFIG_BAR3/
+PCI_CONFIG_BAR4	../pci/pci.h	/^#define PCI_CONFIG_BAR4/
+PCI_CONFIG_BAR5	../pci/pci.h	/^#define PCI_CONFIG_BAR5/
+PCI_CONFIG_BIST	../pci/pci.h	/^#define PCI_CONFIG_BIST/
+PCI_CONFIG_BRIDGE_ROMADDR	../pci/pci.h	/^#define PCI_CONFIG_BRIDGE_ROMADDR/
+PCI_CONFIG_CACHE	../pci/pci.h	/^#define PCI_CONFIG_CACHE/
+PCI_CONFIG_CARDBUS	../pci/pci.h	/^#define PCI_CONFIG_CARDBUS/
+PCI_CONFIG_CLASSREV	../pci/pci.h	/^#define PCI_CONFIG_CLASSREV/
+PCI_CONFIG_COMMAND	../pci/pci.h	/^#define PCI_CONFIG_COMMAND/
+PCI_CONFIG_HEADER	../pci/pci.h	/^#define PCI_CONFIG_HEADER/
+PCI_CONFIG_ID	../pci/pci.h	/^#define PCI_CONFIG_ID/
+PCI_CONFIG_INTERRUPT	../pci/pci.h	/^#define PCI_CONFIG_INTERRUPT/
+PCI_CONFIG_LATENCY	../pci/pci.h	/^#define PCI_CONFIG_LATENCY/
+PCI_CONFIG_RESERVED_0	../pci/pci.h	/^#define PCI_CONFIG_RESERVED_0/
+PCI_CONFIG_RESERVED_1	../pci/pci.h	/^#define PCI_CONFIG_RESERVED_1/
+PCI_CONFIG_ROMADDR	../pci/pci.h	/^#define PCI_CONFIG_ROMADDR/
+PCI_CONFIG_STATUS	../pci/pci.h	/^#define PCI_CONFIG_STATUS/
+PCI_CONFIG_SUBSYSTEM	../pci/pci.h	/^#define PCI_CONFIG_SUBSYSTEM/
+PCI_DEVSELFLAGS_LEN	../pci/pcicode.c	/^#define	PCI_DEVSELFLAGS_LEN/
+PCI_DEVTABLE_LEN	../pci/pcicode.c	/^#define	PCI_DEVTABLE_LEN/
+PCI_IOBA	../pci/ethexpro.c	/^#define PCI_IOBA/
+PCI_MMBA	../pci/ethexpro.c	/^#define PCI_MMBA/
+PCI_OFFSETMASK	machdep.c	/^#define PCI_OFFSETMASK/
+PCI_PHYSHI_BUS	../pci/pci.h	/^#define PCI_PHYSHI_BUS/
+PCI_PHYSHI_DEV	../pci/pci.h	/^#define PCI_PHYSHI_DEV/
+PCI_PHYSHI_FUNC	../pci/pci.h	/^#define PCI_PHYSHI_FUNC/
+PCI_PHYSHI_MK	../pci/pci.h	/^#define PCI_PHYSHI_MK/
+PCI_PHYSHI_N	../pci/pci.h	/^#define PCI_PHYSHI_N/
+PCI_PHYSHI_P	../pci/pci.h	/^#define PCI_PHYSHI_P/
+PCI_PHYSHI_REG	../pci/pci.h	/^#define PCI_PHYSHI_REG/
+PCI_PHYSHI_SPACE	../pci/pci.h	/^#define PCI_PHYSHI_SPACE/
+PCI_PHYSHI_T	../pci/pci.h	/^#define PCI_PHYSHI_T/
+PCI_SIZE	machdep.c	/^#define PCI_SIZE/
+PCI_SPACE_BUS	../pci/pci.h	/^#define PCI_SPACE_BUS/
+PCI_SPACE_CONFIG	../pci/pci.h	/^#define PCI_SPACE_CONFIG/
+PCI_SPACE_IO	../pci/pci.h	/^#define PCI_SPACE_IO/
+PCI_SPACE_MEM	../pci/pci.h	/^#define PCI_SPACE_MEM/
+PCI_SPACE_XMEM	../pci/pci.h	/^#define PCI_SPACE_XMEM/
+PCI_STATUSFLAGS_LEN	../pci/pcicode.c	/^#define	PCI_STATUSFLAGS_LEN/
+PCI_STATUS_66MHZ	../pci/pci.h	/^#define PCI_STATUS_66MHZ/
+PCI_STATUS_CAPABILITIESLIST	../pci/pci.h	/^#define PCI_STATUS_CAPABILITIESLIST/
+PCI_STATUS_DATAPARITY	../pci/pci.h	/^#define PCI_STATUS_DATAPARITY/
+PCI_STATUS_DEVSELTIMING	../pci/pci.h	/^#define PCI_STATUS_DEVSELTIMING/
+PCI_STATUS_FASTBACK2BACKXFER	../pci/pci.h	/^#define PCI_STATUS_FASTBACK2BACKXFER/
+PCI_STATUS_PARITYDETECT	../pci/pci.h	/^#define PCI_STATUS_PARITYDETECT/
+PCI_STATUS_RECVMASTERABORT	../pci/pci.h	/^#define PCI_STATUS_RECVMASTERABORT/
+PCI_STATUS_RECVTARGETABORT	../pci/pci.h	/^#define PCI_STATUS_RECVTARGETABORT/
+PCI_STATUS_SIGSYSTEMERR	../pci/pci.h	/^#define PCI_STATUS_SIGSYSTEMERR/
+PCI_STATUS_SIGTARGETABORT	../pci/pci.h	/^#define PCI_STATUS_SIGTARGETABORT/
+PCI_STATUS_UDF	../pci/pci.h	/^#define PCI_STATUS_UDF/
+PCI_VENTABLE_LEN	../pci/pcicode.c	/^#define	PCI_VENTABLE_LEN/
+PCIdiskdev_data	../pci/pcidiskdev.c	/^typedef struct pcidiskdev_data PCIdiskdev_data;$/
+PHY_80C24	../pci/ethexpro.c	/^#define PHY_80C24/
+PHY_80C240	../pci/ethexpro.c	/^#define PHY_80C240/
+PHY_82503	../pci/ethexpro.c	/^#define PHY_82503/
+PHY_82553A	../pci/ethexpro.c	/^#define PHY_82553A/
+PHY_82553C	../pci/ethexpro.c	/^#define PHY_82553C/
+PHY_82555	../pci/ethexpro.c	/^#define PHY_82555/
+PHY_82555B	../pci/ethexpro.c	/^#define PHY_82555B/
+PHY_BMCR	../pci/ethexpro.c	/^#define PHY_BMCR/
+PHY_BMCR_AUTOEN	../pci/ethexpro.c	/^#define PHY_BMCR_AUTOEN/
+PHY_BMCR_FULLDUPLEX	../pci/ethexpro.c	/^#define PHY_BMCR_FULLDUPLEX/
+PHY_BMCR_SPEED_100M	../pci/ethexpro.c	/^#define PHY_BMCR_SPEED_100M/
+PHY_DP83840	../pci/ethexpro.c	/^#define PHY_DP83840/
+PHY_DP83840A	../pci/ethexpro.c	/^#define PHY_DP83840A/
+PHY_NONE	../pci/ethexpro.c	/^#define PHY_NONE/
+PING_ID	../obptftp.c	/^#define PING_ID/
+PING_PKT_SIZE	../obptftp.c	/^#define PING_PKT_SIZE/
+POP	../defs.h	/^#define POP/
+POPT	../defs.h	/^#  define POPT/
+POPTYPE	../defs.h	/^#define POPTYPE/
+PORTSEL	../pci/amdlance.c	/^#define PORTSEL/
+PORT_DUMP	../pci/ethexpro.c	/^#define PORT_DUMP/
+PORT_SELECTIVE_RESET	../pci/ethexpro.c	/^#define PORT_SELECTIVE_RESET/
+PORT_SELFTEST	../pci/ethexpro.c	/^#define PORT_SELFTEST/
+PORT_SOFTWARE_RESET	../pci/ethexpro.c	/^#define PORT_SOFTWARE_RESET/
+PPB	../pci/pciprobe.c	/^#define PPB/
+PPB_CONFIG_BAR0	../pci/pci.h	/^#define PPB_CONFIG_BAR0/
+PPB_CONFIG_BAR1	../pci/pci.h	/^#define PPB_CONFIG_BAR1/
+PPB_CONFIG_BIST	../pci/pci.h	/^#define PPB_CONFIG_BIST/
+PPB_CONFIG_BUSNUM	../pci/pci.h	/^#define PPB_CONFIG_BUSNUM/
+PPB_CONFIG_CACHE	../pci/pci.h	/^#define PPB_CONFIG_CACHE/
+PPB_CONFIG_CLASSREV	../pci/pci.h	/^#define PPB_CONFIG_CLASSREV/
+PPB_CONFIG_COMMAND	../pci/pci.h	/^#define PPB_CONFIG_COMMAND/
+PPB_CONFIG_HEADER	../pci/pci.h	/^#define PPB_CONFIG_HEADER/
+PPB_CONFIG_ID	../pci/pci.h	/^#define PPB_CONFIG_ID/
+PPB_CONFIG_INTERRUPT	../pci/pci.h	/^#define PPB_CONFIG_INTERRUPT/
+PPB_CONFIG_IOBASE	../pci/pci.h	/^#define PPB_CONFIG_IOBASE/
+PPB_CONFIG_IOBASEH	../pci/pci.h	/^#define PPB_CONFIG_IOBASEH/
+PPB_CONFIG_IOLIMIT	../pci/pci.h	/^#define PPB_CONFIG_IOLIMIT/
+PPB_CONFIG_LATENCY	../pci/pci.h	/^#define PPB_CONFIG_LATENCY/
+PPB_CONFIG_MEMBASE	../pci/pci.h	/^#define PPB_CONFIG_MEMBASE/
+PPB_CONFIG_MEMLIMIT	../pci/pci.h	/^#define PPB_CONFIG_MEMLIMIT/
+PPB_CONFIG_PMEMBASE	../pci/pci.h	/^#define PPB_CONFIG_PMEMBASE/
+PPB_CONFIG_PMEMBASEH	../pci/pci.h	/^#define PPB_CONFIG_PMEMBASEH/
+PPB_CONFIG_PMEMLIMIT	../pci/pci.h	/^#define PPB_CONFIG_PMEMLIMIT/
+PPB_CONFIG_PMEMLIMITH	../pci/pci.h	/^#define PPB_CONFIG_PMEMLIMITH/
+PPB_CONFIG_RESERVED_0	../pci/pci.h	/^#define PPB_CONFIG_RESERVED_0/
+PPB_CONFIG_ROMADDR	../pci/pci.h	/^#define PPB_CONFIG_ROMADDR/
+PPB_CONFIG_SECSTATUS	../pci/pci.h	/^#define PPB_CONFIG_SECSTATUS/
+PPB_CONFIG_STATUS	../pci/pci.h	/^#define PPB_CONFIG_STATUS/
+PPB_DECODER_BUS	../pci/ppb.c	/^#define PPB_DECODER_BUS/
+PPB_DECODER_IO	../pci/ppb.c	/^#define PPB_DECODER_IO/
+PPB_DECODER_MASK_ALL	../pci/ppb.c	/^#define PPB_DECODER_MASK_ALL/
+PPB_DECODER_MASK_BUS8	../pci/ppb.c	/^#define PPB_DECODER_MASK_BUS8/
+PPB_DECODER_MASK_IO16	../pci/ppb.c	/^#define PPB_DECODER_MASK_IO16/
+PPB_DECODER_MASK_IO32	../pci/ppb.c	/^#define PPB_DECODER_MASK_IO32/
+PPB_DECODER_MASK_MEM32	../pci/ppb.c	/^#define PPB_DECODER_MASK_MEM32/
+PPB_DECODER_MASK_PMEM32	../pci/ppb.c	/^#define PPB_DECODER_MASK_PMEM32/
+PPB_DECODER_MASK_PMEM64	../pci/ppb.c	/^#define PPB_DECODER_MASK_PMEM64/
+PPB_DECODER_MEM	../pci/ppb.c	/^#define PPB_DECODER_MEM/
+PPB_DECODER_PMEM	../pci/ppb.c	/^#define PPB_DECODER_PMEM/
+PPB_DECODER_WINDOWS	../pci/ppb.c	/^#define PPB_DECODER_WINDOWS/
+PRECOMP	../isa/atadisk.c	/^#define PRECOMP/
+PROM	../pci/amdlance.c	/^#define PROM/
+PSTR	../defs.h	/^#define PSTR/
+PSelf	../isa/atadisk.c	/^typedef struct pself PSelf;$/
+PUSH	../defs.h	/^#define PUSH/
+PUSHP	../defs.h	/^#  define PUSHP/
+Package	../defs.h	/^typedef struct package Package;$/
+Pci_address_block	../pci/pci.h	/^typedef struct pci_address_block Pci_address_block;$/
+Pci_address_window	../pci/cardbus.c	/^typedef struct pci_address_window Pci_address_window;$/
+Pci_address_window	../pci/ppb.c	/^typedef struct pci_address_window Pci_address_window;$/
+Pci_addresses	../pci/pci.h	/^typedef struct pci_addresses Pci_addresses;$/
+Pci_device_info	../pci/pci.h	/^typedef struct pci_device_info Pci_device_info;$/
+Pci_driver	../pci/pci.h	/^typedef struct pci_driver Pci_driver;$/
+Pci_header	../pci/pci.h	/^typedef struct pci_header Pci_header;$/
+Pci_header_methods	../pci/pci.h	/^typedef struct pci_header_methods Pci_header_methods;$/
+Pci_header_type0	../pci/pci.h	/^typedef struct pci_header_type0 Pci_header_type0;$/
+Pci_header_type1	../pci/pci.h	/^typedef struct pci_header_type1 Pci_header_type1;$/
+Pci_header_type2	../pci/pci.h	/^typedef struct pci_header_type2 Pci_header_type2;$/
+Prom_field	../pci/amdlance.c	/^typedef struct prom_field Prom_field;$/
+Ptr	mac.c	/^#define Ptr/
+Ptr	machdep.h	/^typedef Long Ptr;				/
+Ptr	machdep.h	/^typedef long Ptr;				/
+QALIGNMENT	machdep.h	/^#define QALIGNMENT/
+QUADLET_MASK	machdep.h	/^#define QUADLET_MASK/
+QUADLET_SIZE	machdep.h	/^#define QUADLET_SIZE/
+QUIT_MENU_ITEM	mac.c	/^#define QUIT_MENU_ITEM/
+Quadlet	machdep.h	/^typedef Int Quadlet;		/
+RAP	../pci/amdlance.c	/^#define RAP/
+RARP_REPLY	../obptftp.c	/^#define RARP_REPLY/
+RARP_REQUEST	../obptftp.c	/^#define RARP_REQUEST/
+RBUFF	../pci/amdlance.c	/^#define RBUFF/
+RDP	../pci/amdlance.c	/^#define RDP/
+RDROP	../defs.h	/^#define RDROP/
+RDROPN	../defs.h	/^#define RDROPN/
+READ_OP	../pci/amdlance.c	/^#define READ_OP/
+REG_SIZE	../pci/ncrscsi.c	/^#define REG_SIZE/
+RESET	../pci/amdlance.c	/^#define RESET/
+RETRIES	../obptftp.c	/^#define RETRIES/
+RET_STACK_SIZE	machdep.h	/^#define RET_STACK_SIZE/
+RFA_CONTROL_EL	../pci/ethexpro.c	/^#define RFA_CONTROL_EL/
+RFA_CONTROL_H	../pci/ethexpro.c	/^#define RFA_CONTROL_H/
+RFA_CONTROL_S	../pci/ethexpro.c	/^#define RFA_CONTROL_S/
+RFA_CONTROL_SF	../pci/ethexpro.c	/^#define RFA_CONTROL_SF/
+RFA_STATUS_ALIGN	../pci/ethexpro.c	/^#define RFA_STATUS_ALIGN/
+RFA_STATUS_C	../pci/ethexpro.c	/^#define RFA_STATUS_C/
+RFA_STATUS_CRC	../pci/ethexpro.c	/^#define RFA_STATUS_CRC/
+RFA_STATUS_FTS	../pci/ethexpro.c	/^#define RFA_STATUS_FTS/
+RFA_STATUS_IAMATCH	../pci/ethexpro.c	/^#define RFA_STATUS_IAMATCH/
+RFA_STATUS_OK	../pci/ethexpro.c	/^#define RFA_STATUS_OK/
+RFA_STATUS_OVERRUN	../pci/ethexpro.c	/^#define RFA_STATUS_OVERRUN/
+RFA_STATUS_RCOL	../pci/ethexpro.c	/^#define RFA_STATUS_RCOL/
+RFA_STATUS_RNR	../pci/ethexpro.c	/^#define RFA_STATUS_RNR/
+RFA_STATUS_S4	../pci/ethexpro.c	/^#define RFA_STATUS_S4/
+RFA_STATUS_TL	../pci/ethexpro.c	/^#define RFA_STATUS_TL/
+RINT	../pci/amdlance.c	/^#define RINT/
+ROWS	../isa/vga.c	/^#define	ROWS/
+ROWS	x11.c	/^#define ROWS/
+RPOP	../defs.h	/^#define RPOP/
+RPUSH	../defs.h	/^#define RPUSH/
+RRING_LEN	../pci/amdlance.c	/^#define RRING_LEN/
+RRING_SIZE	../pci/amdlance.c	/^#define RRING_SIZE/
+RSTACK	../defs.h	/^#define RSTACK/
+RTOP	../defs.h	/^#define RTOP/
+RTRY	../pci/amdlance.c	/^#define RTRY/
+RXON	../pci/amdlance.c	/^#define RXON/
+Retcode	../errs.h	/^typedef enum retcode Retcode;$/
+SCB_COMMAND_CU_BASE	../pci/ethexpro.c	/^#define SCB_COMMAND_CU_BASE/
+SCB_COMMAND_CU_DUMP	../pci/ethexpro.c	/^#define SCB_COMMAND_CU_DUMP/
+SCB_COMMAND_CU_DUMPRESET	../pci/ethexpro.c	/^#define SCB_COMMAND_CU_DUMPRESET/
+SCB_COMMAND_CU_DUMP_ADR	../pci/ethexpro.c	/^#define SCB_COMMAND_CU_DUMP_ADR/
+SCB_COMMAND_CU_NOP	../pci/ethexpro.c	/^#define SCB_COMMAND_CU_NOP/
+SCB_COMMAND_CU_RESUME	../pci/ethexpro.c	/^#define SCB_COMMAND_CU_RESUME/
+SCB_COMMAND_CU_START	../pci/ethexpro.c	/^#define SCB_COMMAND_CU_START/
+SCB_COMMAND_RU_ABORT	../pci/ethexpro.c	/^#define SCB_COMMAND_RU_ABORT/
+SCB_COMMAND_RU_BASE	../pci/ethexpro.c	/^#define SCB_COMMAND_RU_BASE/
+SCB_COMMAND_RU_LOADHDS	../pci/ethexpro.c	/^#define SCB_COMMAND_RU_LOADHDS/
+SCB_COMMAND_RU_NOP	../pci/ethexpro.c	/^#define SCB_COMMAND_RU_NOP/
+SCB_COMMAND_RU_RBDRESUME	../pci/ethexpro.c	/^#define SCB_COMMAND_RU_RBDRESUME/
+SCB_COMMAND_RU_RESUME	../pci/ethexpro.c	/^#define SCB_COMMAND_RU_RESUME/
+SCB_COMMAND_RU_START	../pci/ethexpro.c	/^#define SCB_COMMAND_RU_START/
+SCB_CUS_ACTIVE	../pci/ethexpro.c	/^#define SCB_CUS_ACTIVE/
+SCB_CUS_IDLE	../pci/ethexpro.c	/^#define SCB_CUS_IDLE/
+SCB_CUS_SUSPENDED	../pci/ethexpro.c	/^#define SCB_CUS_SUSPENDED/
+SCB_RUS_IDLE	../pci/ethexpro.c	/^#define SCB_RUS_IDLE/
+SCB_RUS_NORESOURCES	../pci/ethexpro.c	/^#define SCB_RUS_NORESOURCES/
+SCB_RUS_NORES_NORBDS	../pci/ethexpro.c	/^#define SCB_RUS_NORES_NORBDS/
+SCB_RUS_READY	../pci/ethexpro.c	/^#define SCB_RUS_READY/
+SCB_RUS_READY_NORBDS	../pci/ethexpro.c	/^#define SCB_RUS_READY_NORBDS/
+SCB_RUS_SUSPENDED	../pci/ethexpro.c	/^#define SCB_RUS_SUSPENDED/
+SCB_RUS_SUSP_NORBDS	../pci/ethexpro.c	/^#define SCB_RUS_SUSP_NORBDS/
+SCB_STATACK_CNA	../pci/ethexpro.c	/^#define SCB_STATACK_CNA/
+SCB_STATACK_CXTNO	../pci/ethexpro.c	/^#define SCB_STATACK_CXTNO/
+SCB_STATACK_FR	../pci/ethexpro.c	/^#define SCB_STATACK_FR/
+SCB_STATACK_MDI	../pci/ethexpro.c	/^#define SCB_STATACK_MDI/
+SCB_STATACK_RNR	../pci/ethexpro.c	/^#define SCB_STATACK_RNR/
+SCB_STATACK_SWI	../pci/ethexpro.c	/^#define SCB_STATACK_SWI/
+SCREEN_HEIGHT	../pci/pcidisp.c	/^#define SCREEN_HEIGHT/
+SCREEN_HEIGHT	mac.c	/^#define SCREEN_HEIGHT/
+SCREEN_HEIGHT	x11.c	/^#define SCREEN_HEIGHT/
+SCREEN_WIDTH	../pci/pcidisp.c	/^#define SCREEN_WIDTH/
+SCREEN_WIDTH	mac.c	/^#define SCREEN_WIDTH/
+SCREEN_WIDTH	x11.c	/^#define SCREEN_WIDTH/
+SDH	../isa/atadisk.c	/^#define SDH/
+SECCNT	../isa/atadisk.c	/^#define SECCNT/
+SECTOR	../isa/atadisk.c	/^#define SECTOR/
+SECURE_PROMPT	../cmdio.c	/^#define SECURE_PROMPT/
+SF_64BIT	be-predefs.h	/^#define SF_64BIT/
+SF_64BIT	mw-predefs.h	/^#define SF_64BIT/
+SIO_DLL	../isa/ns16550.c	/^#define SIO_DLL/
+SIO_DLM	../isa/ns16550.c	/^#define SIO_DLM/
+SIO_FCR	../isa/ns16550.c	/^#define SIO_FCR/
+SIO_IER	../isa/ns16550.c	/^#define SIO_IER/
+SIO_IIR	../isa/ns16550.c	/^#define SIO_IIR/
+SIO_LCR	../isa/ns16550.c	/^#define SIO_LCR/
+SIO_LSR	../isa/ns16550.c	/^#define SIO_LSR/
+SIO_MCR	../isa/ns16550.c	/^#define SIO_MCR/
+SIO_MSR	../isa/ns16550.c	/^#define SIO_MSR/
+SIO_RBR	../isa/ns16550.c	/^#define SIO_RBR/
+SIO_SCR	../isa/ns16550.c	/^#define SIO_SCR/
+SIO_THR	../isa/ns16550.c	/^#define SIO_THR/
+SIZE	../alloc.c	/^#define SIZE/
+SIZE_CMD	../pci/ncrscsi.c	/^#define SIZE_CMD/
+SIZE_DATA	../pci/ncrscsi.c	/^#define SIZE_DATA/
+SIZE_SHORTDATA	../pci/ncrscsi.c	/^#define SIZE_SHORTDATA/
+SMARTFIRMWARE_REV	../defs.h	/^#define SMARTFIRMWARE_REV/
+SROMCLKOFF	../pci/decether.c	/^#define SROMCLKOFF/
+SROMCLKON	../pci/decether.c	/^#define SROMCLKON/
+SROMCMD_MODE	../pci/decether.c	/^#define	SROMCMD_MODE/
+SROMCMD_RD	../pci/decether.c	/^#define	SROMCMD_RD/
+SROMCMD_WR	../pci/decether.c	/^#define	SROMCMD_WR/
+SROMCS	../pci/decether.c	/^#define SROMCS/
+SROMCSOFF	../pci/decether.c	/^#define SROMCSOFF/
+SROMCSON	../pci/decether.c	/^#define SROMCSON/
+SROMDIN	../pci/decether.c	/^#define SROMDIN/
+SROMDOUT	../pci/decether.c	/^#define SROMDOUT/
+SROMDOUTOFF	../pci/decether.c	/^#define SROMDOUTOFF/
+SROMDOUTON	../pci/decether.c	/^#define SROMDOUTON/
+SROMOUT	../pci/decether.c	/^#define SROMOUT/
+SROMRD	../pci/decether.c	/^#define SROMRD/
+SROMSEL	../pci/decether.c	/^#define SROMSEL/
+SROMWR	../pci/decether.c	/^#define SROMWR/
+SROM_BITWIDTH	../pci/decether.c	/^#define	SROM_BITWIDTH/
+STACK	../defs.h	/^#define STACK/
+STACK_SIZE	machdep.h	/^#define STACK_SIZE/
+STANDALONE	be-predefs.h	/^#define STANDALONE/
+STANDALONE	mw-predefs.h	/^#define STANDALONE/
+STANDALONE_GUI	be-predefs.h	/^#define STANDALONE_GUI/
+STANDALONE_GUI	mw-predefs.h	/^#define STANDALONE_GUI/
+STANDARD_REV	machdep.h	/^#define STANDARD_REV/
+STATUS	../isa/atadisk.c	/^#define STATUS/
+STOP	../pci/amdlance.c	/^#define STOP/
+STP	../pci/amdlance.c	/^#define STP/
+STRT	../pci/amdlance.c	/^#define STRT/
+STR_SIZE	machdep.h	/^#define STR_SIZE/
+SUN_OBP_COMPATIBILITY	../admin.c	/^#define SUN_OBP_COMPATIBILITY/
+SWAP2	../defs.h	/^#define SWAP2/
+SWAP4	../defs.h	/^#define SWAP4/
+Sector	../flash.h	/^typedef struct sector Sector;$/
+Self	../deblock.c	/^typedef struct self Self;$/
+Self	../disklbl.c	/^typedef struct self Self;$/
+Self	../gflash.c	/^typedef struct self Self;$/
+Self	../isa/atadisk.c	/^typedef struct self Self;$/
+Self	../isa/ne2000.c	/^typedef struct self Self;$/
+Self	../obptftp.c	/^typedef struct self Self;$/
+Self	../pci/amdlance.c	/^typedef struct self Self;$/
+Self	../pci/decether.c	/^typedef struct self Self;$/
+Self	../pci/ethexpro.c	/^typedef struct self Self;$/
+Self	../pci/ncrscsi.c	/^typedef struct self Self;$/
+Self	fakedisk.c	/^typedef struct self Self;$/
+Self	fakenet.c	/^typedef struct self Self;$/
+Self	fakenet2.c	/^typedef struct self Self;$/
+Sequence	../flash.h	/^typedef struct sequence Sequence;$/
+Short	machdep.h	/^typedef short Short;			/
+TABLE_HASH	../defs.h	/^#define TABLE_HASH/
+TAG_ENTRY	../pci/fakepci.c	/^#define TAG_ENTRY/
+TAIL_GUARD	../stdlib.c	/^#	define TAIL_GUARD/
+TBUFF	../pci/amdlance.c	/^#define TBUFF/
+TDMD	../pci/amdlance.c	/^#define TDMD/
+TDR	../pci/amdlance.c	/^#define TDR/
+TESTSIZE	../gflash.c	/^#define TESTSIZE/
+TEXT_COLORS	../fb.c	/^#define TEXT_COLORS/
+TFTP_ACK	../obptftp.c	/^#define TFTP_ACK/
+TFTP_DATA	../obptftp.c	/^#define TFTP_DATA/
+TFTP_DEST_PORT	../obptftp.c	/^#define TFTP_DEST_PORT/
+TFTP_ERROR	../obptftp.c	/^#define TFTP_ERROR/
+TFTP_PKT_SIZE	../obptftp.c	/^#define TFTP_PKT_SIZE/
+TFTP_RECV_PORT	../obptftp.c	/^#define TFTP_RECV_PORT/
+TFTP_RRQ	../obptftp.c	/^#define TFTP_RRQ/
+TFTP_RWRQ_PKT_SIZE	../obptftp.c	/^#define TFTP_RWRQ_PKT_SIZE/
+TFTP_TIMEOUT	../obptftp.c	/^#	define TFTP_TIMEOUT/
+TFTP_WRQ	../obptftp.c	/^#define TFTP_WRQ/
+TFTP_XFER_SIZE	../obptftp.c	/^#define TFTP_XFER_SIZE/
+TIMEOUT	../isa/atadisk.c	/^#define TIMEOUT/
+TINT	../pci/amdlance.c	/^#define TINT/
+TOP	../defs.h	/^#define TOP/
+TRING_LEN	../pci/amdlance.c	/^#define TRING_LEN/
+TRING_SIZE	../pci/amdlance.c	/^#define TRING_SIZE/
+TRUE	../defs.h	/^#	define TRUE/
+TSEL	../pci/amdlance.c	/^#define TSEL/
+TXON	../pci/amdlance.c	/^#define TXON/
+Table	../defs.h	/^typedef struct table Table;$/
+Test_allocator	../alloc.c	/^typedef struct test_allocator Test_allocator;$/
+Test_block	../alloc.c	/^typedef struct test_block Test_block;$/
+Time_value	../defs.h	/^typedef struct time_value Time_value;$/
+UDP_HEADER_OFFSET	../obptftp.c	/^#define UDP_HEADER_OFFSET/
+UDP_HEADER_SIZE	../obptftp.c	/^#define UDP_HEADER_SIZE/
+UDP_PACKET_OFFSET	../obptftp.c	/^#define UDP_PACKET_OFFSET/
+UDP_PROTOCOL	../obptftp.c	/^#define UDP_PROTOCOL/
+UFLO	../pci/amdlance.c	/^#define UFLO/
+VENDORID_INTEL	../pci/ethexpro.c	/^#define VENDORID_INTEL/
+WAITFOR	../pci/ncrscsi.c	/^#define WAITFOR/
+WAIT_ITERATIONS	../gflash.c	/^#define WAIT_ITERATIONS/
+WIDTH	../nvedit.c	/^#define WIDTH/
+WRAL_OP	../pci/amdlance.c	/^#define WRAL_OP/
+WRITE_OP	../pci/amdlance.c	/^#define WRITE_OP/
+Word	machdep.h	/^typedef Short Word;		/
+__CTYPE_H_	../ctype.h	/^#define	__CTYPE_H_/
+__DEFS_H__	../defs.h	/^#define __DEFS_H__/
+__ERRS_H_	../errs.h	/^#define __ERRS_H_/
+__FAKEPCI_H__	../pci/fakepci.h	/^#define __FAKEPCI_H__/
+__FLASH_H__	../flash.h	/^#define __FLASH_H__/
+__ISA_H__	../isa/isa.h	/^#define __ISA_H__/
+__LONGLONG	be-predefs.h	/^#define __LONGLONG/
+__LONGLONG	machdep.h	/^#    define __LONGLONG/
+__LONGLONG	mw-predefs.h	/^#define __LONGLONG/
+__MACHDEP_H_	machdep.h	/^#define __MACHDEP_H_/
+__PCI_H__	../pci/pci.h	/^#define __PCI_H__/
+__STDLIB_H_	../stdlib.h	/^#define	__STDLIB_H_/
+__STRING_H_	../string.h	/^#define	__STRING_H_/
+__attribute__	../obptftp.c	/^#	define __attribute__/
+abort	../control.c	/^CC(f_abort)			/
+abortquote	../forth.c	/^C(f_abortquote)		/
+abs	../funcs.c	/^C(f_abs)			/
+add	../alloc.c	/^add(uInt a[], uInt b[], uInt s[], int ascells, int bcells)$/
+add_prop	../table.c	/^add_prop(Table *props, Byte *name, Int len, Byte *paddr, Int plen, Bool alloc)$/
+add_property	../table.c	/^add_property(Table *props, Byte *name, Int len, Byte *paddr, Int plen)$/
+addcmp	../alloc.c	/^addcmp(uInt a[], uInt b[], uInt c[], uInt d[], int accells, int bdcells)$/
+again	../forth.c	/^C(f_again)			/
+alarm	../defs.h	/^struct alarm$/
+alarm	../other.c	/^CC(f_alarm)			/
+alias	../forth.c	/^C(f_alias)			/
+align	../forth.c	/^CC(f_align)			/
+aligndoub	../funcs.c	/^C(f_aligndoub)		/
+aligned	../funcs.c	/^C(f_aligned)		/
+alignquad	../funcs.c	/^C(f_alignquad)		/
+alloc_aligned	../alloc.c	/^alloc_aligned(Allocator *a, uInt align[], uInt size[], uInt addr[])$/
+alloc_block	../alloc.c	/^alloc_block(Allocator *a, uInt size[], uInt addr[])$/
+alloc_constrained	../alloc.c	/^alloc_constrained(Allocator *a, uInt min[], uInt max[], uInt align[], uInt mask[],$/
+alloc_fini	../alloc.c	/^alloc_fini(Allocator *a)$/
+alloc_fixed	../alloc.c	/^alloc_fixed(Allocator *a, uInt addr[], uInt size[])$/
+alloc_info	../alloc.c	/^alloc_info(Allocator *a, Allocator_block **bptr, uInt addr[], uInt size[])$/
+alloc_init	../alloc.c	/^alloc_init(Allocator **aptr, int acells, int scells)$/
+alloc_print	../alloc.c	/^alloc_print(Allocator *a)$/
+allocaligned	../funcs.c	/^C(f_allocaligned)		/
+allocator	../defs.h	/^struct allocator$/
+allocator_block	../defs.h	/^struct allocator_block$/
+allocmem	../funcs.c	/^C(f_allocmem)		/
+and	../alloc.c	/^and(uInt a[], uInt b[], uInt c[], int cells)$/
+and	../funcs.c	/^C(f_and)			/
+apply	../device.c	/^C(f_apply)		/
+arbitrate	../pci/ncrscsi.c	/^arbitrate(Environ *e, Self *s)$/
+arp_packet	../obptftp.c	/^struct arp_packet$/
+arshft	../funcs.c	/^C(f_arshft)			/
+ascii	../forth.c	/^C(f_ascii)			/
+ask_exit	../cmdio.c	/^ask_exit(Environ *e)$/
+assign_addresses	../pci/pci.c	/^C(f_assign_addresses)			/
+ata_close	../isa/ata.c	/^C(f_ata_close)				/
+ata_decode_unit	../isa/ata.c	/^C(f_ata_decode_unit)		/
+ata_disk_block_size	../isa/atadisk.c	/^C(f_ata_disk_block_size)		/
+ata_disk_blocks	../isa/atadisk.c	/^C(f_ata_disk_blocks)			/
+ata_disk_close	../isa/atadisk.c	/^C(f_ata_disk_close)			/
+ata_disk_load	../isa/atadisk.c	/^C(f_ata_disk_load)				/
+ata_disk_max_transfer	../isa/atadisk.c	/^C(f_ata_disk_max_transfer)		/
+ata_disk_open	../isa/atadisk.c	/^C(f_ata_disk_open)			/
+ata_disk_read	../isa/atadisk.c	/^C(f_ata_disk_read)				/
+ata_disk_read_blocks	../isa/atadisk.c	/^C(f_ata_disk_read_blocks)		/
+ata_disk_seek	../isa/atadisk.c	/^C(f_ata_disk_seek)				/
+ata_disk_selftest	../isa/atadisk.c	/^C(f_ata_disk_selftest)			/
+ata_disk_size	../isa/atadisk.c	/^C(f_ata_disk_size)				/
+ata_disk_write	../isa/atadisk.c	/^C(f_ata_disk_write)				/
+ata_disk_write_blocks	../isa/atadisk.c	/^C(f_ata_disk_write_blocks)		/
+ata_dma_alloc	../isa/ata.c	/^C(f_ata_dma_alloc)			/
+ata_dma_free	../isa/ata.c	/^C(f_ata_dma_free)			/
+ata_encode_unit	../isa/ata.c	/^C(f_ata_encode_unit)		/
+ata_install	../isa/ata.c	/^ISA(ata_install)$/
+ata_open	../isa/ata.c	/^C(f_ata_open)				/
+ata_probe	../isa/ata.c	/^ISA(ata_probe)$/
+ata_selftest	../isa/ata.c	/^C(f_ata_selftest)			/
+ataparams	../isa/atadisk.c	/^struct ataparams$/
+atapi_cmd	../isa/atadisk.c	/^atapi_cmd(Environ *e, Self *s, char *cmd,$/
+background_color	../display.c	/^C(f_background_color)		/
+banner	../admin.c	/^CC(f_banner)		/
+bbranch	../control.c	/^C(f_bbranch)		/
+bbuffercolon	../control.c	/^CC(f_bbuffercolon)	/
+bcase	../control.c	/^CC(f_bcase)			/
+bcharb	../forth.c	/^C(f_bcharb)			/
+bcolon	../control.c	/^CC(f_bcolon)		/
+bcompileb	../forth.c	/^C(f_bcompileb)		/
+bconstant	../control.c	/^CC(f_bconstant)		/
+bcopy	../stdlib.c	/^bcopy(const void *src, void *dst, size_t len)$/
+bcr_read	../pci/amdlance.c	/^C(f_bcr_read)			/
+bcr_write	../pci/amdlance.c	/^C(f_bcr_write)			/
+bcreate	../control.c	/^CC(f_bcreate)		/
+bdefer	../control.c	/^CC(f_bdefer)		/
+bdo	../control.c	/^C(f_bdo)			/
+bdquote	../control.c	/^C(f_bdquote)		/
+begin	../forth.c	/^C(f_begin)			/
+begin_case	../control.c	/^C(f_begin_case)		/
+begin_do	../control.c	/^C(f_begin_do)		/
+begin_mark	../control.c	/^C(f_begin_mark)		/
+begin_package	../device.c	/^C(f_begin_package)$/
+begin_qbranch	../control.c	/^C(f_begin_qbranch)	/
+begin_qdo	../control.c	/^C(f_begin_qdo)		/
+begin_select_dev	../sun.c	/^C(f_begin_select_dev)		/
+begin_temp_compile	../exec.c	/^begin_temp_compile(Environ *e)$/
+behavior	../control.c	/^C(f_behavior)		/
+bendcase	../control.c	/^CC(f_bendcase)		/
+bendof	../control.c	/^C(f_bendof)			/
+between	../funcs.c	/^C(f_between)		/
+bfield	../control.c	/^CC(f_bfield)$/
+bgtresolve	../control.c	/^C(f_bgtresolve)		/
+bleave	../control.c	/^CC(f_bleave)		/
+blit	../control.c	/^C(f_blit)			/
+blit64	../control.c	/^C(f_blit64)			/
+bljoin	../funcs.c	/^C(f_bljoin)			/
+block	../stdlib.c	/^struct block$/
+bloop	../control.c	/^C(f_bloop)			/
+bltmark	../control.c	/^CC(f_bltmark)		/
+bof	../control.c	/^C(f_bof)			/
+boot	../admin.c	/^C(f_boot)			/
+boot_load	../admin.c	/^boot_load(Environ *e, Byte *dev, Int dlen, Byte *args, Int alen)$/
+bootp_packet	../obptftp.c	/^struct bootp_packet$/
+bounds	../funcs.c	/^C(f_bounds)			/
+bplusloop	../control.c	/^C(f_bplusloop)		/
+bprintf	../stdlib.c	/^bprintf(char *buf, const char *fmt, ...)$/
+bqbranch	../control.c	/^C(f_bqbranch)		/
+bqdo	../control.c	/^C(f_bqdo)			/
+break_line	../nvedit.c	/^break_line(Environ *e, Int *line, Int *col, Bool movecursor)$/
+bsemicolon	../control.c	/^CC(f_bsemicolon)	/
+bsquote	../control.c	/^C(f_bsquote)		/
+bsquoteb	../forth.c	/^C(f_bsquoteb)		/
+bstring	../control.c	/^C(f_bstring)		/
+bto	../control.c	/^C(f_bto)			/
+btokenizer	../token.c	/^C(f_btokenizer)		/
+buffercolon	../forth.c	/^C(f_buffercolon)	/
+bump_col	../display.c	/^bump_col(Environ *e)$/
+bump_line	../display.c	/^bump_line(Environ *e)$/
+bvalue	../control.c	/^CC(f_bvalue)		/
+bvariable	../control.c	/^CC(f_bvariable)		/
+bwjoin	../funcs.c	/^C(f_bwjoin)			/
+bxjoin	../funcs64.c	/^C(f_bxjoin)		/
+byte_load	../control.c	/^CC(f_byte_load)		/
+bzero	../stdlib.c	/^bzero(void *ptr, size_t len)$/
+call_package	../isa/atadisk.c	/^call_package(Environ *e, Call_package pkgid, Byte *method)$/
+call_package	../packages.c	/^C(f_call_package)	/
+call_package	fakedisk.c	/^call_package(Environ *e, Call_package pkgid, Byte *method)$/
+callback	../admin.c	/^C(f_callback)		/
+calloc	../stdlib.c	/^calloc(size_t nmemb, size_t size)$/
+cardbus_address_offset_list	../pci/cardbus.c	/^cardbus_address_offset_list(Environ *e, Package *pkg, Pci_device_info *devinfo,$/
+cardbus_allocate_window	../pci/cardbus.c	/^cardbus_allocate_window(Pci_address_block **blocks, Pci_address_window *window)$/
+cardbus_allocate_windows	../pci/cardbus.c	/^cardbus_allocate_windows(Pci_addresses *addrs, Pci_address_window *windows)$/
+cardbus_dump_regs	../pci/cardbus.c	/^cardbus_dump_regs(Environ *e, Package *cpkg, Pci_device_info *devinfo)$/
+cardbus_get_address_info	../pci/cardbus.c	/^cardbus_get_address_info(Environ *e, Package *pkg, Pci_device_info *devinfo,$/
+cardbus_get_bridge_address_space	../pci/cardbus.c	/^cardbus_get_bridge_address_space(Environ *e, int decoders, Pci_addresses *avail,$/
+cardbus_get_extended_device_info	../pci/cardbus.c	/^cardbus_get_extended_device_info(Environ *e, Pci_device_info *devinfo)$/
+cardbus_load_bridge_properties	../pci/cardbus.c	/^cardbus_load_bridge_properties(Environ *e, Package *pkg)$/
+cardbus_probe	../pci/cardbus.c	/^cardbus_probe(Environ *e, Package *cpkg, Pci_device_info *devinfo,$/
+cardbus_probe_address_decoders	../pci/cardbus.c	/^cardbus_probe_address_decoders(Environ *e, Package *pkg,$/
+cardbus_probe_pci_bridge	../pci/cardbus.c	/^cardbus_probe_pci_bridge(Environ *e, Package *pkg, Pci_device_info *devinfo,$/
+cardbus_program_windows	../pci/cardbus.c	/^cardbus_program_windows(Pci_device_info *devinfo, int decoders,$/
+cardbus_rom_size	../pci/cardbus.c	/^cardbus_rom_size(Environ *e, Package *pkg, Pci_device_info *devinfo, $/
+cardbus_set_window	../pci/cardbus.c	/^cardbus_set_window(Pci_address_window *window, uInt basehi, uInt baselo,$/
+cardbus_set_window_size	../pci/cardbus.c	/^cardbus_set_window_size(Pci_address_window *window, uInt align)$/
+cardbus_update_windows	../pci/cardbus.c	/^cardbus_update_windows(Pci_addresses *addrs, Pci_address_window *windows)$/
+cardbus_write_address	../pci/cardbus.c	/^cardbus_write_address(Environ *e, Package *pkg, Pci_device_info *devinfo,$/
+cardbus_write_rom_address	../pci/cardbus.c	/^cardbus_write_rom_address(Environ *e, Package *pkg, Pci_device_info *devinfo,$/
+carret	../forth.c	/^C(f_carret)			/
+case	../forth.c	/^C(f_case)			/
+catch	../control.c	/^C(f_catch)			/
+catenate	../device.c	/^catenate(char *head, char *middle, char *tail, char *buf)$/
+cb_config	../pci/ethexpro.c	/^struct cb_config$/
+cb_ias	../pci/ethexpro.c	/^struct cb_ias$/
+cb_mcs	../pci/ethexpro.c	/^struct cb_mcs$/
+cb_nop	../pci/ethexpro.c	/^struct cb_nop$/
+cb_tx	../pci/ethexpro.c	/^struct cb_tx$/
+ccomma	../control.c	/^C(f_ccomma)			/
+cellcpy	../alloc.c	/^cellcpy(uInt d[], uInt s[], int cells)$/
+cellsize	../funcs.c	/^C(f_cellsize)		/
+celltimes	../funcs.c	/^C(f_celltimes)		/
+cellzero	../alloc.c	/^cellzero(uInt a[], int cells)$/
+cga_blink_screen	../isa/vga.c	/^C(f_cga_blink_screen)$/
+cga_close	../isa/vga.c	/^C(f_cga_close)			/
+cga_delete_characters	../isa/vga.c	/^C(f_cga_delete_characters)$/
+cga_delete_lines	../isa/vga.c	/^C(f_cga_delete_lines)$/
+cga_draw_character	../isa/vga.c	/^C(f_cga_draw_character)$/
+cga_draw_logo	../isa/vga.c	/^C(f_cga_draw_logo)$/
+cga_erase_screen	../isa/vga.c	/^C(f_cga_erase_screen)$/
+cga_insert_characters	../isa/vga.c	/^C(f_cga_insert_characters)$/
+cga_insert_lines	../isa/vga.c	/^C(f_cga_insert_lines)$/
+cga_install	../isa/vga.c	/^ISA(cga_install)$/
+cga_invert_screen	../isa/vga.c	/^C(f_cga_invert_screen)$/
+cga_open	../isa/vga.c	/^C(f_cga_open)			/
+cga_probe	../isa/vga.c	/^ISA(cga_probe)$/
+cga_reset_screen	../isa/vga.c	/^C(f_cga_reset_screen)$/
+cga_selftest	../isa/vga.c	/^C(f_cga_selftest)		/
+cga_toggle_cursor	../isa/vga.c	/^C(f_cga_toggle_cursor)$/
+char	../forth.c	/^C(f_char)			/
+charget	../funcs.c	/^CC(f_charget)		/
+charset	../funcs.c	/^C(f_charset)		/
+charsize	../funcs.c	/^C(f_charsize)		/
+chartimes	../funcs.c	/^C(f_chartimes)		/
+check_free	../stdlib.c	/^check_free(char *str)$/
+check_password	../cmdio.c	/^check_password(Environ *e)$/
+child	../packages.c	/^CC(f_child)			/
+chosen_close	../chosen.c	/^C(f_chosen_close)			/
+chosen_open	../chosen.c	/^C(f_chosen_open)			/
+clear	../forth.c	/^C(f_clear)			/
+clear_ftrace	../debug.c	/^C(f_clear_ftrace)$/
+clear_intrs	../pci/ncrscsi.c	/^clear_intrs(Environ *e, Self *s)$/
+clear_table_xtoks	../table.c	/^clear_table_xtoks(Table *table)$/
+client_boot	../client.c	/^C(f_client_boot)		/
+client_call_method	../client.c	/^C(f_client_call_method)$/
+client_call_static_method	../client.c	/^C(f_client_call_static_method)$/
+client_canon	../client.c	/^C(f_client_canon)		/
+client_chain	../client.c	/^C(f_client_chain)	/
+client_claim	../client.c	/^C(f_client_claim)		/
+client_exit	../client.c	/^C(f_client_exit)		/
+client_finddevice	../client.c	/^C(f_client_finddevice)	/
+client_getprop	../client.c	/^C(f_client_getprop)		/
+client_getproplen	../client.c	/^C(f_client_getproplen)	/
+client_instance_to_interposed_path	../client.c	/^C(f_client_instance_to_interposed_path)$/
+client_instance_to_package	../client.c	/^C(f_client_instance_to_package)	/
+client_instance_to_path	../client.c	/^C(f_client_instance_to_path)$/
+client_interface	../client.c	/^client_interface(Cell array[])$/
+client_interpret	../client.c	/^C(f_client_interpret)	/
+client_nextprop	../client.c	/^C(f_client_nextprop)	/
+client_open	../client.c	/^C(f_client_open)		/
+client_package_to_path	../client.c	/^C(f_client_package_to_path)$/
+client_parent	../client.c	/^C(f_client_parent)			/
+client_read	../client.c	/^C(f_client_read)		/
+client_release	../client.c	/^C(f_client_release)		/
+client_restart	../client.c	/^C(f_client_restart)		/
+client_seek	../client.c	/^C(f_client_seek)		/
+client_set_callback	../client.c	/^C(f_client_set_callback)	/
+client_set_symbol_lookup	../client.c	/^C(f_client_set_symbol_lookup)$/
+client_setprop	../client.c	/^C(f_client_setprop)		/
+client_test	../client.c	/^C(f_client_test)		/
+client_test_method	../client.c	/^C(f_client_test_method)		/
+client_write	../client.c	/^C(f_client_write)		/
+close_dev	../device.c	/^CC(f_close_dev)		/
+close_package	../packages.c	/^CC(f_close_package)	/
+cmp	../alloc.c	/^cmp(uInt a[], uInt b[], int cells)$/
+code	../other.c	/^C(f_code)			/
+colon	../forth.c	/^C(f_colon)			/
+comma	../control.c	/^C(f_comma)			/
+comment	../forth.c	/^C(f_comment)		/
+comp	../funcs.c	/^C(f_comp)			/
+compare_flash	../gflash.c	/^compare_flash(Environ *e, Self *s, int offset, uByte *data, int len, int ver)$/
+compare_strs	../table.c	/^compare_strs(Byte *s1, Int l1, Byte *s2, Int l2)$/
+compile	../forth.c	/^C(f_compile)		/
+compile_branch	../exec.c	/^compile_branch(Environ *e, Int code, Int o)$/
+compile_byte	../exec.c	/^compile_byte(Environ *e, Byte b)$/
+compile_do	../exec.c	/^compile_do(Environ *e, Int code)$/
+compile_endof	../exec.c	/^compile_endof(Environ *e)$/
+compile_fcode	../exec.c	/^compile_fcode(Environ *e, Int code)$/
+compile_loop	../exec.c	/^compile_loop(Environ *e, Int code)$/
+compile_n64	../exec.c	/^compile_n64(Environ *e, Cell o)$/
+compile_num32	../exec.c	/^compile_num32(Environ *e, Int o)$/
+compile_num64	../exec.c	/^compile_num64(Environ *e, Cell o)$/
+compile_of	../exec.c	/^compile_of(Environ *e)$/
+compile_offset	../exec.c	/^compile_offset(Environ *e, Int o)$/
+compile_pointer	../exec.c	/^compile_pointer(Environ *e, Byte *ptr)$/
+compile_str	../exec.c	/^compile_str(Environ *e, Byte *str, Int len)$/
+compilecomma	../control.c	/^C(f_compilecomma)	/
+complete_word	../cmdio.c	/^complete_word(Environ *e, Bool show, Byte *addr, Int len, Int *col,$/
+config_read	../pci/cardbus.c	/^config_read(Pci_device_info *devinfo, Int addr)$/
+config_read	../pci/pci.c	/^config_read(Pci_device_info *devinfo, Int addr)$/
+config_read	../pci/pcidev.c	/^config_read(Pci_device_info *devinfo, Int addr)$/
+config_read	../pci/ppb.c	/^config_read(Pci_device_info *devinfo, Int addr)$/
+config_write	../pci/cardbus.c	/^config_write(Pci_device_info *devinfo, Int addr, Int value)$/
+config_write	../pci/pci.c	/^config_write(Pci_device_info *devinfo, Int addr, Int value)$/
+config_write	../pci/pcidev.c	/^config_write(Pci_device_info *devinfo, Int addr, Int value)$/
+config_write	../pci/ppb.c	/^config_write(Pci_device_info *devinfo, Int addr, Int value)$/
+constant	../forth.c	/^C(f_constant)		/
+control	../forth.c	/^C(f_control)		/
+copyright	../admin.c	/^C(f_copyright)		/
+count	../funcs.c	/^C(f_count)			/
+cpeek	../other.c	/^C(f_cpeek)			/
+cpoke	../other.c	/^C(f_cpoke)			/
+cprintf	../cmdio.c	/^cprintf(Environ *e, const char *fmt, ...)$/
+cpu_close	../cpu-ppc.c	/^C(f_cpu_close)					/
+cpu_close	../cpu.c	/^C(f_cpu_close)					/
+cpu_open	../cpu-ppc.c	/^C(f_cpu_open)					/
+cpu_open	../cpu.c	/^C(f_cpu_open)					/
+cpu_register_read	machdep.c	/^cpu_register_read(Environ *e, Cell reg, Cell *value)$/
+cpu_register_write	machdep.c	/^cpu_register_write(Environ *e, Cell reg, Cell value)$/
+cpu_selftest	../cpu-ppc.c	/^C(f_cpu_selftest)				/
+cpu_selftest	../cpu.c	/^C(f_cpu_selftest)				/
+cput	../isa/vga.c	/^cput(Environ *e, Int loc, Int chr)$/
+cr	../funcs.c	/^C(f_cr)				/
+crash	mw-malloc.c	/^crash(const char *mesg)$/
+create	../forth.c	/^C(f_create)			/
+create_new_inst	../device.c	/^create_new_inst(Environ *e, char *args, char *unit,$/
+create_newdef	../exec.c	/^create_newdef(Environ *e)$/
+create_prop_alias	../admin.c	/^create_prop_alias(Environ *e, Byte *name, Int len)$/
+create_well_formed_chain	../device.c	/^create_well_formed_chain(Environ *e, Package *pkg)$/
+csemicolon	../other.c	/^C(f_csemicolon)		/
+csr_read	../pci/amdlance.c	/^C(f_csr_read)			/
+csr_write	../pci/amdlance.c	/^C(f_csr_write)			/
+cstrcpy	../defs.h	/^#define cstrcpy/
+cstrdup	../defs.h	/^#define cstrdup/
+curr_pkg	../debug.c	/^C(f_curr_pkg)				/
+dc21140_barsize	../pci/dc21140.c	/^dc21140_barsize(Fake_pci_dev *self, int bar)$/
+dc21140_bartype	../pci/dc21140.c	/^dc21140_bartype(Fake_pci_dev *self, int bar)$/
+dc21140_configread	../pci/dc21140.c	/^dc21140_configread(Fake_pci_dev *self, int reg)$/
+dc21140_configwrite	../pci/dc21140.c	/^dc21140_configwrite(Fake_pci_dev *self, int reg, Int val)$/
+dc21140_csr_read	../pci/dc21140.c	/^dc21140_csr_read(Fake_pci_dev *self, Int offset, void *val, int size)$/
+dc21140_csr_write	../pci/dc21140.c	/^dc21140_csr_write(Fake_pci_dev *self, Int offset, Int val, int size)$/
+dc21140_data	../pci/dc21140.c	/^struct dc21140_data$/
+dc21140_enable_io_csr	../pci/dc21140.c	/^dc21140_enable_io_csr(Fake_pci_dev *self, Bool enable, Int old, Int new)$/
+dc21140_enable_mem_csr	../pci/dc21140.c	/^dc21140_enable_mem_csr(Fake_pci_dev *self, Bool enable, Int old, Int new)$/
+dc21140_enable_rom	../pci/dc21140.c	/^dc21140_enable_rom(Fake_pci_dev *self, Bool enable, Int old, Int new)$/
+dc21140_init	../pci/dc21140.c	/^dc21140_init(Fake_pci_dev *self)$/
+dc21140_ioread	../pci/dc21140.c	/^dc21140_ioread(Fake_pci_dev *self, int bar, Int offset, void *val, int size)$/
+dc21140_iowrite	../pci/dc21140.c	/^dc21140_iowrite(Fake_pci_dev *self, int bar, Int offset, Int val, int size)$/
+dc21140_memread	../pci/dc21140.c	/^dc21140_memread(Fake_pci_dev *self, int bar, Int offset, void *val, int size)$/
+dc21140_memwrite	../pci/dc21140.c	/^dc21140_memwrite(Fake_pci_dev *self, int bar, Int offset, Int val, int size)$/
+dcall_method	../packages.c	/^C(f_dcall_method)$/
+dcall_parent	../packages.c	/^C(f_dcall_parent)	/
+dcall_self	../sun.c	/^C(f_dcall_self)	/
+dcallback	../admin.c	/^C(f_dcallback)$/
+deblock_close	../deblock.c	/^C(f_deblock_close)		/
+deblock_open	../deblock.c	/^C(f_deblock_open)		/
+deblock_read	../deblock.c	/^C(f_deblock_read)		/
+deblock_seek	../deblock.c	/^C(f_deblock_seek)		/
+deblock_write	../deblock.c	/^C(f_deblock_write)		/
+debug	../debug.c	/^C(f_debug)			/
+debug_off	../debug.c	/^C(f_debug_off)		/
+decode_int	../packages.c	/^C(f_decode_int)$/
+decode_phys	../packages.c	/^CC(f_decode_phys)$/
+decode_str	../packages.c	/^C(f_decode_str)$/
+default_font	../display.c	/^CC(f_default_font)	/
+defer	../forth.c	/^C(f_defer)			/
+delete_device	../packages.c	/^C(f_delete_device)		/
+delete_entry	../table.c	/^delete_entry(Entry *self)$/
+delete_instance	../table.c	/^delete_instance(Instance *self)$/
+delete_package	../table.c	/^delete_package(Package *self)$/
+delete_prop	../packages.c	/^C(f_delete_prop)	/
+delete_property	../table.c	/^delete_property(Table *props, Byte *name, Int len)$/
+delete_table	../table.c	/^delete_table(Table *self)$/
+depth	../funcs.c	/^C(f_depth)			/
+destroy_environ	../table.c	/^destroy_environ(Environ *self)$/
+detok	../token.c	/^C(f_detok)		/
+detok_file	../token.c	/^detok_file(Environ *e, const char *fname)$/
+dev	../device.c	/^C(f_dev)			/
+devalias	../device.c	/^C(f_devalias)		/
+device_end	../device.c	/^C(f_device_end)		/
+device_name	../packages.c	/^C(f_device_name)	/
+device_type	../packages.c	/^C(f_device_type)	/
+devmap	../pci/fakepci.c	/^struct devmap$/
+diagnostic_mode	../admin.c	/^C(f_diagnostic_mode)		/
+diagnostic_mode	../admin.c	/^diagnostic_mode(Environ *e)$/
+digit	../funcs.c	/^C(f_digit)			/
+disklbl_blocks	../disklbl.c	/^C(f_disklbl_blocks)		/
+disklbl_close	../disklbl.c	/^C(f_disklbl_close)		/
+disklbl_list_files	../disklbl.c	/^C(f_disklbl_list_files)		/
+disklbl_load	../disklbl.c	/^C(f_disklbl_load)		/
+disklbl_offset	../disklbl.c	/^C(f_disklbl_offset)		/
+disklbl_open	../disklbl.c	/^C(f_disklbl_open)			/
+disklbl_size	../disklbl.c	/^C(f_disklbl_size)		/
+display	../display.c	/^struct display$/
+display_char	../cmdio.c	/^display_char(Environ *e, int c)$/
+display_copyright	../admin.c	/^display_copyright(Environ *e, Int leading)$/
+display_exec_stack	../cmdio.c	/^display_exec_stack(Environ *e)$/
+display_ftrace	../cmdio.c	/^display_ftrace(Environ *e)$/
+display_memory	../cmdio.c	/^display_memory(Environ *e, Byte *saddr, Int len)$/
+display_num	../cmdio.c	/^display_num(Environ *e, Int radix, uCell num, Bool sign, Int width)$/
+display_number	../cmdio.c	/^display_number(Environ *e, Int radix, Bool sign, Bool dowidth)$/
+display_rstack	../cmdio.c	/^display_rstack(Environ *e)$/
+display_stack	../cmdio.c	/^display_stack(Environ *e)$/
+display_status	../other.c	/^C(f_display_status)	/
+display_text	../cmdio.c	/^display_text(Environ *e, Byte *text, Int len)$/
+div	../funcs.c	/^C(f_div)			/
+div2	../funcs.c	/^C(f_div2)			/
+divmod	../funcs.c	/^C(f_divmod)			/
+divmod_cell	../funcs.c	/^divmod_cell(Cell num, Cell den, Cell *div, Cell *mod)$/
+dl	../debug.c	/^CC(f_dl)				/
+dlbin	../debug.c	/^CC(f_dlbin)				/
+dload	../sun.c	/^C(f_dload)				/
+dlrfind	../funcs.c	/^C(f_dlrfind)		/
+dlrnumber	../funcs.c	/^C(f_dlrnumber)		/
+dlshift	../funcs.c	/^dlshift(uCell *dh, uCell *dl)$/
+dminus	../funcs.c	/^CC(f_dminus)		/
+dminus	../funcs.c	/^dminus(uCell *nh, uCell *nl, uCell uh, uCell ul)$/
+dnegate	../forth.c	/^C(f_dnegate)		/
+dnum	../forth.c	/^C(f_dnum)			/
+dnvalias	../nvedit.c	/^C(f_dnvalias)			/
+dnvunalias	../nvedit.c	/^C(f_dnvunalias)			/
+do	../forth.c	/^C(f_do)				/
+do_abortquote	../forth.c	/^C(f_do_abortquote)	/
+do_ascii	../forth.c	/^do_ascii(Environ *e, Int a)$/
+do_ask_exit	../cmdio.c	/^do_ask_exit(Environ *e)$/
+do_console	../admin.c	/^do_console(Environ *e, char *method, Cell *device, Bool doabort,$/
+do_debug	../debug.c	/^do_debug(Environ *e, Byte *name, Int nlen, Entry *code)$/
+do_decode_phys	../device.c	/^do_decode_phys(Environ *e, char *unit, Cell units[])$/
+do_decode_reg	../device.c	/^do_decode_reg(Environ *e, Package *pkg, Cell unit[])$/
+do_edit	../nvedit.c	/^do_edit(Environ *e)$/
+do_eval	../exec.c	/^do_eval(Environ *e, Entry *code, Bool imm)$/
+do_fake_init	../pci/fakepci.c	/^do_fake_init()$/
+do_fcode_header	../control.c	/^do_fcode_header(Environ *e)$/
+do_indent	../debug.c	/^do_indent(Environ *e)$/
+do_interpose	../device.c	/^do_interpose(Environ *e, Package *pkg, Byte *arg, Int len)$/
+do_interpret	../exec.c	/^do_interpret(Environ *e)$/
+do_io	../deblock.c	/^do_io(Environ *e, Bool isread)$/
+do_load	../admin.c	/^do_load(Environ *e, Byte *dev, Int dlen, Byte *args, Int alen)$/
+do_mem_method	../client.c	/^do_mem_method(Environ *e, Byte *prop, Byte *method)$/
+do_mem_test	../memory.c	/^do_mem_test(Environ *e, Byte *addr, uInt len, char *mesg, Bool virt)$/
+do_menus	mac.c	/^do_menus(WindowPtr window, long m)$/
+do_method	../client.c	/^do_method(Environ *e, Byte *method)$/
+do_method	../sun.c	/^do_method(Environ *e, Byte *device, Byte *method)$/
+do_method_all	../sun.c	/^do_method_all(Environ *e, Byte *type, Byte *method)$/
+do_mouse_down	mac.c	/^do_mouse_down(EventRecord *event)$/
+do_num	../forth.c	/^do_num(Environ *e, Int radix)$/
+do_obptftp_method	../isa/ne2000.c	/^do_obptftp_method(Environ *e, Byte *method)$/
+do_obptftp_method	../pci/amdlance.c	/^do_obptftp_method(Environ *e, Byte *method)$/
+do_obptftp_method	../pci/decether.c	/^do_obptftp_method(Environ *e, Byte *method)$/
+do_obptftp_method	../pci/ethexpro.c	/^do_obptftp_method(Environ *e, Byte *method)$/
+do_obptftp_method	fakenet.c	/^do_obptftp_method(Environ *e, Byte *method)$/
+do_obptftp_method	fakenet2.c	/^do_obptftp_method(Environ *e, Byte *method)$/
+do_patch	../debug.c	/^do_patch(Environ *e, Entry *ent, Bool fromisnum, Cell fromxtok,$/
+do_phase	../pci/ncrscsi.c	/^do_phase(Environ *e, Self *s)$/
+do_ping	../obptftp.c	/^do_ping(Environ *e, Self *s, uByte ip[], Int msecs, Int *reply)$/
+do_pseep	../debug.c	/^do_pseep(Environ *e, Look_for what)$/
+do_quote	../forth.c	/^do_quote(Environ *e, Int delim)$/
+do_scsi_cmd	../pci/ncrscsi.c	/^do_scsi_cmd(Environ *e, Byte *buf, Int buflen, Int dir,$/
+do_see	../debug.c	/^do_see(Environ *e, Look_for what)$/
+do_select_dev	../sun.c	/^do_select_dev(Environ *e, Byte *dev, Int len)$/
+do_selftest	../admin.c	/^do_selftest(Environ *e, Byte *dev, Int len)$/
+do_set_mac_address	../admin.c	/^do_set_mac_address(Environ *e, Byte *dev, Int dlen, Byte *args, Int alen)$/
+do_stk	../stdlib.c	/^do_stk(void)$/
+do_string	../control.c	/^do_string(Environ *e, Byte *str)$/
+do_string	../forth.c	/^do_string(Environ *e, Byte *str, Int slen)$/
+do_testall	../admin.c	/^do_testall(Environ *e, Package *node, Bool diag)$/
+do_to	../exec.c	/^do_to(Environ *e, Entry *ent)$/
+doesgt	../forth.c	/^C(f_doesgt)			/
+dollarcreate	../forth.c	/^C(f_dollarcreate)	/
+dopen_package	../packages.c	/^CC(f_dopen_package)$/
+dot	../funcs.c	/^C(f_dot)			/
+dotadr	../debug.c	/^C(f_dotadr)			/
+dotcalls	../debug.c	/^C(f_dotcalls)		/
+dotes	../debug.c	/^C(f_dotes)			/
+dotparen	../forth.c	/^C(f_dotparen)		/
+dotprop	../device.c	/^C(f_dotprop)		/
+dotproperties	../device.c	/^C(f_dotproperties)		/
+dotquote	../forth.c	/^C(f_dotquote)		/
+dotr	../funcs.c	/^C(f_dotr)			/
+dotrs	../debug.c	/^C(f_dotrs)			/
+dots	../funcs.c	/^C(f_dots)			/
+dplus	../funcs.c	/^CC(f_dplus)			/
+dplus	../funcs.c	/^dplus(uCell *nh, uCell *nl, uCell uh, uCell ul)$/
+dprintf	../alloc.c	/^#define dprintf/
+dprintf	machdep.c	/^dprintf(const char *fmt, ...)$/
+dquote	../forth.c	/^C(f_dquote)			/
+draw_image	x11.c	/^draw_image(Environ *e)$/
+drop	../funcs.c	/^C(f_drop)			/
+drop_table	../table.c	/^drop_table(Table *tab, Entry *ent)$/
+drshift	../funcs.c	/^drshift(uCell *dh, uCell *dl)$/
+dsetenv	../admin.c	/^C(f_dsetenv)		/
+dsift	../debug.c	/^C(f_dsift)			/
+dump	../forth.c	/^C(f_dump)			/
+dump_all	../debug.c	/^C(f_dump_all)				/
+dump_env	../debug.c	/^C(f_dump_env)				/
+dump_heap	../debug.c	/^C(f_dump_heap)		/
+dump_heap	../stdlib.c	/^dump_heap()$/
+dump_inst	../debug.c	/^C(f_dump_inst)				/
+dump_packet	../obptftp.c	/^dump_packet(Environ *e, uByte *packet, uInt len)$/
+dump_pciconfig	../pci/pci.c	/^C(f_dump_pciconfig)$/
+dump_pkg	../debug.c	/^C(f_dump_pkg)				/
+dump_ppb_registers	../pci/ppb.c	/^dump_ppb_registers(Environ *e, Pci_device_info *devinfo)$/
+dump_regs	../pci/amdlance.c	/^#	define dump_regs/
+dump_regs	../pci/amdlance.c	/^dump_regs(Environ *e, Self *s)$/
+dump_regs	../pci/ethexpro.c	/^#	define dump_regs/
+dump_regs	../pci/ethexpro.c	/^dump_regs(Environ *e, Self *s)$/
+dumpbuf	../gflash.c	/^dumpbuf(uByte *addr, uInt off, int len)$/
+dumpbuf	../pci/amdlance.c	/^dumpbuf(Environ *e, uByte *buf, Int len)$/
+dumpregs	../pci/ncrscsi.c	/^dumpregs(Environ *e, Self *s)$/
+dup	../funcs.c	/^C(f_dup)			/
+dup_entry	../table.c	/^dup_entry(Entry *e)$/
+dup_instance	../table.c	/^dup_instance(Instance *self)$/
+dup_table	../table.c	/^dup_table(Table *t)$/
+ed_ring	../isa/ne2000.c	/^struct ed_ring	{$/
+edit_alias	../nvedit.c	/^edit_alias(Environ *e, Byte *name, Int namelen, Byte *dev,$/
+edit_cmd_line	../cmdio.c	/^edit_cmd_line(Environ *e, Byte *addr, Int len, Int *elen)$/
+ee_addr	../pci/amdlance.c	/^ee_addr(void *device, unsigned char address)$/
+ee_era	../pci/amdlance.c	/^ee_era(void *device, int addr)$/
+ee_ewds	../pci/amdlance.c	/^ee_ewds(void *device)$/
+ee_ewen	../pci/amdlance.c	/^ee_ewen(void *device)$/
+ee_get_fields	../pci/amdlance.c	/^ee_get_fields(void *s)$/
+ee_opcode	../pci/amdlance.c	/^ee_opcode(void *device, unsigned char opcode)$/
+ee_read	../pci/amdlance.c	/^ee_read(void *device, int addr)$/
+ee_read_sum	../pci/amdlance.c	/^ee_read_sum(void *device, int addr, int length)$/
+ee_write	../pci/amdlance.c	/^ee_write(void *device, int addr, uDoublet data)$/
+else	../forth.c	/^C(f_else)			/
+emit	../funcs.c	/^C(f_emit)			/
+emit_byte	../token.c	/^C(f_emit_byte)		/
+encode_bytes	../packages.c	/^C(f_encode_bytes)$/
+encode_int	../packages.c	/^CC(f_encode_int)		/
+encode_phys	../packages.c	/^CC(f_encode_phys)$/
+encode_str	../packages.c	/^C(f_encode_str)		/
+encodeplus	../packages.c	/^C(f_encodeplus)$/
+end	../control.c	/^C(f_end)			/
+end_package	../device.c	/^C(f_end_package)	/
+endcase	../forth.c	/^C(f_endcase)		/
+endcode	../other.c	/^C(f_endcode)		/
+endof	../forth.c	/^C(f_endof)			/
+entry	../defs.h	/^struct entry$/
+environ	../defs.h	/^struct environ$/
+environmentq	../forth.c	/^C(f_environmentq)	/
+eq	../funcs.c	/^C(f_eq)				/
+eq0	../funcs.c	/^C(f_eq0)			/
+err2str	../errs.c	/^err2str(Retcode r)$/
+error	../main.c	/^error(Retcode r)$/
+ether_close	../pci/decether.c	/^C(f_ether_close)			/
+ether_dma_alloc	../pci/decether.c	/^C(f_ether_dma_alloc)		/
+ether_dma_free	../pci/decether.c	/^C(f_ether_dma_free)			/
+ether_load	../pci/decether.c	/^C(f_ether_load)				/
+ether_open	../pci/decether.c	/^C(f_ether_open)			/
+ether_ping	../pci/decether.c	/^C(f_ether_ping)				/
+ether_read	../pci/decether.c	/^C(f_ether_read)				/
+ether_selftest	../pci/decether.c	/^C(f_ether_selftest)			/
+ether_write	../pci/decether.c	/^C(f_ether_write)			/
+ethexpro_close	../pci/ethexpro.c	/^C(f_ethexpro_close)			/
+ethexpro_dma_alloc	../pci/ethexpro.c	/^C(f_ethexpro_dma_alloc)		/
+ethexpro_dma_free	../pci/ethexpro.c	/^C(f_ethexpro_dma_free)			/
+ethexpro_load	../pci/ethexpro.c	/^C(f_ethexpro_load)				/
+ethexpro_open	../pci/ethexpro.c	/^C(f_ethexpro_open)			/
+ethexpro_ping	../pci/ethexpro.c	/^C(f_ethexpro_ping)				/
+ethexpro_read	../pci/ethexpro.c	/^C(f_ethexpro_read)				/
+ethexpro_selftest	../pci/ethexpro.c	/^C(f_ethexpro_selftest)			/
+ethexpro_write	../pci/ethexpro.c	/^C(f_ethexpro_write)			/
+eval	../exec.c	/^eval(Environ *e, Entry *code, Bool imm)$/
+evaluate	../control.c	/^C(f_evaluate)		/
+even	../forth.c	/^C(f_even)			/
+exact_match	../device.c	/^exact_match(Environ *e, Package *pkg, char *name, char *unit, Cell unitphys[])$/
+exec_dev_method	../device.c	/^CC(f_exec_dev_method)$/
+exec_stack	../defs.h	/^struct exec_stack$/
+execute	../control.c	/^C(f_execute)		/
+execute	../exec.c	/^execute(Environ *e, Byte *code, Int len)$/
+execute_method	../exec.c	/^execute_method(Environ *e, Instance *inst, Int xtok)$/
+execute_method_name	../exec.c	/^execute_method_name(Environ *e, Instance *inst, Byte *str, Int len)$/
+execute_static_method_name	../exec.c	/^execute_static_method_name(Environ *e, Package *pkg, Byte *str, Int len)$/
+execute_word	../exec.c	/^execute_word(Environ *e, Byte *word)$/
+execute_xtok	../exec.c	/^execute_xtok(Environ *e, Int xtok)$/
+exit	../control.c	/^C(f_exit)			/
+exitq	../forth.c	/^CC(f_exitq)			/
+expect	../funcs.c	/^C(f_expect)			/
+expect_line	../cmdio.c	/^expect_line(Environ *e, Byte *addr, Int len, Int *elen, Bool prompt)$/
+external	../device.c	/^C(f_external)		/
+externaltoken	../control.c	/^C(f_externaltoken)	/
+f_2constant	../forth.c	/^C(f_2constant)		/
+f_2drop	../funcs.c	/^C(f_2drop)			/
+f_2dup	../funcs.c	/^CC(f_2dup)			/
+f_2get	../funcs.c	/^C(f_2get)			/
+f_2over	../funcs.c	/^C(f_2over)			/
+f_2rot	../funcs.c	/^C(f_2rot)			/
+f_2set	../funcs.c	/^C(f_2set)			/
+f_2swap	../funcs.c	/^C(f_2swap)			/
+f_32to64	../stlb.c	/^C(f_32to64)$/
+f_64to32	../stlb.c	/^C(f_64to32)$/
+f_abort	../control.c	/^CC(f_abort)			/
+f_abortquote	../forth.c	/^C(f_abortquote)		/
+f_abs	../funcs.c	/^C(f_abs)			/
+f_again	../forth.c	/^C(f_again)			/
+f_alarm	../other.c	/^CC(f_alarm)			/
+f_alias	../forth.c	/^C(f_alias)			/
+f_align	../forth.c	/^CC(f_align)			/
+f_aligndoub	../funcs.c	/^C(f_aligndoub)		/
+f_aligned	../funcs.c	/^C(f_aligned)		/
+f_alignquad	../funcs.c	/^C(f_alignquad)		/
+f_allocaligned	../funcs.c	/^C(f_allocaligned)		/
+f_allocmem	../funcs.c	/^C(f_allocmem)		/
+f_and	../funcs.c	/^C(f_and)			/
+f_apply	../device.c	/^C(f_apply)		/
+f_arshft	../funcs.c	/^C(f_arshft)			/
+f_ascii	../forth.c	/^C(f_ascii)			/
+f_assign_addresses	../pci/pci.c	/^C(f_assign_addresses)			/
+f_ata_close	../isa/ata.c	/^C(f_ata_close)				/
+f_ata_decode_unit	../isa/ata.c	/^C(f_ata_decode_unit)		/
+f_ata_disk_block_size	../isa/atadisk.c	/^C(f_ata_disk_block_size)		/
+f_ata_disk_blocks	../isa/atadisk.c	/^C(f_ata_disk_blocks)			/
+f_ata_disk_close	../isa/atadisk.c	/^C(f_ata_disk_close)			/
+f_ata_disk_load	../isa/atadisk.c	/^C(f_ata_disk_load)				/
+f_ata_disk_max_transfer	../isa/atadisk.c	/^C(f_ata_disk_max_transfer)		/
+f_ata_disk_open	../isa/atadisk.c	/^C(f_ata_disk_open)			/
+f_ata_disk_read	../isa/atadisk.c	/^C(f_ata_disk_read)				/
+f_ata_disk_read_blocks	../isa/atadisk.c	/^C(f_ata_disk_read_blocks)		/
+f_ata_disk_seek	../isa/atadisk.c	/^C(f_ata_disk_seek)				/
+f_ata_disk_selftest	../isa/atadisk.c	/^C(f_ata_disk_selftest)			/
+f_ata_disk_size	../isa/atadisk.c	/^C(f_ata_disk_size)				/
+f_ata_disk_write	../isa/atadisk.c	/^C(f_ata_disk_write)				/
+f_ata_disk_write_blocks	../isa/atadisk.c	/^C(f_ata_disk_write_blocks)		/
+f_ata_dma_alloc	../isa/ata.c	/^C(f_ata_dma_alloc)			/
+f_ata_dma_free	../isa/ata.c	/^C(f_ata_dma_free)			/
+f_ata_encode_unit	../isa/ata.c	/^C(f_ata_encode_unit)		/
+f_ata_open	../isa/ata.c	/^C(f_ata_open)				/
+f_ata_selftest	../isa/ata.c	/^C(f_ata_selftest)			/
+f_background_color	../display.c	/^C(f_background_color)		/
+f_banner	../admin.c	/^CC(f_banner)		/
+f_bbranch	../control.c	/^C(f_bbranch)		/
+f_bbuffercolon	../control.c	/^CC(f_bbuffercolon)	/
+f_bcase	../control.c	/^CC(f_bcase)			/
+f_bcharb	../forth.c	/^C(f_bcharb)			/
+f_bcolon	../control.c	/^CC(f_bcolon)		/
+f_bcompileb	../forth.c	/^C(f_bcompileb)		/
+f_bconstant	../control.c	/^CC(f_bconstant)		/
+f_bcr_read	../pci/amdlance.c	/^C(f_bcr_read)			/
+f_bcr_write	../pci/amdlance.c	/^C(f_bcr_write)			/
+f_bcreate	../control.c	/^CC(f_bcreate)		/
+f_bdefer	../control.c	/^CC(f_bdefer)		/
+f_bdo	../control.c	/^C(f_bdo)			/
+f_bdquote	../control.c	/^C(f_bdquote)		/
+f_begin	../forth.c	/^C(f_begin)			/
+f_begin_case	../control.c	/^C(f_begin_case)		/
+f_begin_do	../control.c	/^C(f_begin_do)		/
+f_begin_mark	../control.c	/^C(f_begin_mark)		/
+f_begin_package	../device.c	/^C(f_begin_package)$/
+f_begin_qbranch	../control.c	/^C(f_begin_qbranch)	/
+f_begin_qdo	../control.c	/^C(f_begin_qdo)		/
+f_begin_select_dev	../sun.c	/^C(f_begin_select_dev)		/
+f_behavior	../control.c	/^C(f_behavior)		/
+f_bendcase	../control.c	/^CC(f_bendcase)		/
+f_bendof	../control.c	/^C(f_bendof)			/
+f_between	../funcs.c	/^C(f_between)		/
+f_bfield	../control.c	/^CC(f_bfield)$/
+f_bgtresolve	../control.c	/^C(f_bgtresolve)		/
+f_bleave	../control.c	/^CC(f_bleave)		/
+f_blit	../control.c	/^C(f_blit)			/
+f_blit64	../control.c	/^C(f_blit64)			/
+f_bljoin	../funcs.c	/^C(f_bljoin)			/
+f_bloop	../control.c	/^C(f_bloop)			/
+f_bltmark	../control.c	/^CC(f_bltmark)		/
+f_bof	../control.c	/^C(f_bof)			/
+f_boot	../admin.c	/^C(f_boot)			/
+f_bounds	../funcs.c	/^C(f_bounds)			/
+f_bplusloop	../control.c	/^C(f_bplusloop)		/
+f_bqbranch	../control.c	/^C(f_bqbranch)		/
+f_bqdo	../control.c	/^C(f_bqdo)			/
+f_bsemicolon	../control.c	/^CC(f_bsemicolon)	/
+f_bsquote	../control.c	/^C(f_bsquote)		/
+f_bsquoteb	../forth.c	/^C(f_bsquoteb)		/
+f_bstring	../control.c	/^C(f_bstring)		/
+f_bto	../control.c	/^C(f_bto)			/
+f_btokenizer	../token.c	/^C(f_btokenizer)		/
+f_buffercolon	../forth.c	/^C(f_buffercolon)	/
+f_bvalue	../control.c	/^CC(f_bvalue)		/
+f_bvariable	../control.c	/^CC(f_bvariable)		/
+f_bwjoin	../funcs.c	/^C(f_bwjoin)			/
+f_bxjoin	../funcs64.c	/^C(f_bxjoin)		/
+f_byte_load	../control.c	/^CC(f_byte_load)		/
+f_call_package	../packages.c	/^C(f_call_package)	/
+f_callback	../admin.c	/^C(f_callback)		/
+f_carret	../forth.c	/^C(f_carret)			/
+f_case	../forth.c	/^C(f_case)			/
+f_catch	../control.c	/^C(f_catch)			/
+f_ccomma	../control.c	/^C(f_ccomma)			/
+f_cellsize	../funcs.c	/^C(f_cellsize)		/
+f_celltimes	../funcs.c	/^C(f_celltimes)		/
+f_cga_blink_screen	../isa/vga.c	/^C(f_cga_blink_screen)$/
+f_cga_close	../isa/vga.c	/^C(f_cga_close)			/
+f_cga_delete_characters	../isa/vga.c	/^C(f_cga_delete_characters)$/
+f_cga_delete_lines	../isa/vga.c	/^C(f_cga_delete_lines)$/
+f_cga_draw_character	../isa/vga.c	/^C(f_cga_draw_character)$/
+f_cga_draw_logo	../isa/vga.c	/^C(f_cga_draw_logo)$/
+f_cga_erase_screen	../isa/vga.c	/^C(f_cga_erase_screen)$/
+f_cga_insert_characters	../isa/vga.c	/^C(f_cga_insert_characters)$/
+f_cga_insert_lines	../isa/vga.c	/^C(f_cga_insert_lines)$/
+f_cga_invert_screen	../isa/vga.c	/^C(f_cga_invert_screen)$/
+f_cga_open	../isa/vga.c	/^C(f_cga_open)			/
+f_cga_reset_screen	../isa/vga.c	/^C(f_cga_reset_screen)$/
+f_cga_selftest	../isa/vga.c	/^C(f_cga_selftest)		/
+f_cga_toggle_cursor	../isa/vga.c	/^C(f_cga_toggle_cursor)$/
+f_char	../forth.c	/^C(f_char)			/
+f_charget	../funcs.c	/^CC(f_charget)		/
+f_charset	../funcs.c	/^C(f_charset)		/
+f_charsize	../funcs.c	/^C(f_charsize)		/
+f_chartimes	../funcs.c	/^C(f_chartimes)		/
+f_child	../packages.c	/^CC(f_child)			/
+f_chosen_close	../chosen.c	/^C(f_chosen_close)			/
+f_chosen_open	../chosen.c	/^C(f_chosen_open)			/
+f_clear	../forth.c	/^C(f_clear)			/
+f_clear_ftrace	../debug.c	/^C(f_clear_ftrace)$/
+f_client_boot	../client.c	/^C(f_client_boot)		/
+f_client_call_method	../client.c	/^C(f_client_call_method)$/
+f_client_call_static_method	../client.c	/^C(f_client_call_static_method)$/
+f_client_canon	../client.c	/^C(f_client_canon)		/
+f_client_chain	../client.c	/^C(f_client_chain)	/
+f_client_claim	../client.c	/^C(f_client_claim)		/
+f_client_exit	../client.c	/^C(f_client_exit)		/
+f_client_finddevice	../client.c	/^C(f_client_finddevice)	/
+f_client_getprop	../client.c	/^C(f_client_getprop)		/
+f_client_getproplen	../client.c	/^C(f_client_getproplen)	/
+f_client_instance_to_interposed_path	../client.c	/^C(f_client_instance_to_interposed_path)$/
+f_client_instance_to_package	../client.c	/^C(f_client_instance_to_package)	/
+f_client_instance_to_path	../client.c	/^C(f_client_instance_to_path)$/
+f_client_interpret	../client.c	/^C(f_client_interpret)	/
+f_client_nextprop	../client.c	/^C(f_client_nextprop)	/
+f_client_open	../client.c	/^C(f_client_open)		/
+f_client_package_to_path	../client.c	/^C(f_client_package_to_path)$/
+f_client_parent	../client.c	/^C(f_client_parent)			/
+f_client_read	../client.c	/^C(f_client_read)		/
+f_client_release	../client.c	/^C(f_client_release)		/
+f_client_restart	../client.c	/^C(f_client_restart)		/
+f_client_seek	../client.c	/^C(f_client_seek)		/
+f_client_set_callback	../client.c	/^C(f_client_set_callback)	/
+f_client_set_symbol_lookup	../client.c	/^C(f_client_set_symbol_lookup)$/
+f_client_setprop	../client.c	/^C(f_client_setprop)		/
+f_client_test	../client.c	/^C(f_client_test)		/
+f_client_test_method	../client.c	/^C(f_client_test_method)		/
+f_client_write	../client.c	/^C(f_client_write)		/
+f_close_dev	../device.c	/^CC(f_close_dev)		/
+f_close_package	../packages.c	/^CC(f_close_package)	/
+f_code	../other.c	/^C(f_code)			/
+f_colon	../forth.c	/^C(f_colon)			/
+f_comma	../control.c	/^C(f_comma)			/
+f_comment	../forth.c	/^C(f_comment)		/
+f_comp	../funcs.c	/^C(f_comp)			/
+f_compile	../forth.c	/^C(f_compile)		/
+f_compilecomma	../control.c	/^C(f_compilecomma)	/
+f_constant	../forth.c	/^C(f_constant)		/
+f_control	../forth.c	/^C(f_control)		/
+f_copyright	../admin.c	/^C(f_copyright)		/
+f_count	../funcs.c	/^C(f_count)			/
+f_cpeek	../other.c	/^C(f_cpeek)			/
+f_cpoke	../other.c	/^C(f_cpoke)			/
+f_cpu_close	../cpu-ppc.c	/^C(f_cpu_close)					/
+f_cpu_close	../cpu.c	/^C(f_cpu_close)					/
+f_cpu_open	../cpu-ppc.c	/^C(f_cpu_open)					/
+f_cpu_open	../cpu.c	/^C(f_cpu_open)					/
+f_cpu_selftest	../cpu-ppc.c	/^C(f_cpu_selftest)				/
+f_cpu_selftest	../cpu.c	/^C(f_cpu_selftest)				/
+f_cr	../funcs.c	/^C(f_cr)				/
+f_create	../forth.c	/^C(f_create)			/
+f_csemicolon	../other.c	/^C(f_csemicolon)		/
+f_csr_read	../pci/amdlance.c	/^C(f_csr_read)			/
+f_csr_write	../pci/amdlance.c	/^C(f_csr_write)			/
+f_curr_pkg	../debug.c	/^C(f_curr_pkg)				/
+f_dcall_method	../packages.c	/^C(f_dcall_method)$/
+f_dcall_parent	../packages.c	/^C(f_dcall_parent)	/
+f_dcall_self	../sun.c	/^C(f_dcall_self)	/
+f_dcallback	../admin.c	/^C(f_dcallback)$/
+f_deblock_close	../deblock.c	/^C(f_deblock_close)		/
+f_deblock_open	../deblock.c	/^C(f_deblock_open)		/
+f_deblock_read	../deblock.c	/^C(f_deblock_read)		/
+f_deblock_seek	../deblock.c	/^C(f_deblock_seek)		/
+f_deblock_write	../deblock.c	/^C(f_deblock_write)		/
+f_debug	../debug.c	/^C(f_debug)			/
+f_debug_off	../debug.c	/^C(f_debug_off)		/
+f_decode_int	../packages.c	/^C(f_decode_int)$/
+f_decode_phys	../packages.c	/^CC(f_decode_phys)$/
+f_decode_str	../packages.c	/^C(f_decode_str)$/
+f_default_font	../display.c	/^CC(f_default_font)	/
+f_defer	../forth.c	/^C(f_defer)			/
+f_delete_device	../packages.c	/^C(f_delete_device)		/
+f_delete_prop	../packages.c	/^C(f_delete_prop)	/
+f_depth	../funcs.c	/^C(f_depth)			/
+f_detok	../token.c	/^C(f_detok)		/
+f_dev	../device.c	/^C(f_dev)			/
+f_devalias	../device.c	/^C(f_devalias)		/
+f_device_end	../device.c	/^C(f_device_end)		/
+f_device_name	../packages.c	/^C(f_device_name)	/
+f_device_type	../packages.c	/^C(f_device_type)	/
+f_diagnostic_mode	../admin.c	/^C(f_diagnostic_mode)		/
+f_digit	../funcs.c	/^C(f_digit)			/
+f_disklbl_blocks	../disklbl.c	/^C(f_disklbl_blocks)		/
+f_disklbl_close	../disklbl.c	/^C(f_disklbl_close)		/
+f_disklbl_list_files	../disklbl.c	/^C(f_disklbl_list_files)		/
+f_disklbl_load	../disklbl.c	/^C(f_disklbl_load)		/
+f_disklbl_offset	../disklbl.c	/^C(f_disklbl_offset)		/
+f_disklbl_open	../disklbl.c	/^C(f_disklbl_open)			/
+f_disklbl_size	../disklbl.c	/^C(f_disklbl_size)		/
+f_display_status	../other.c	/^C(f_display_status)	/
+f_div	../funcs.c	/^C(f_div)			/
+f_div2	../funcs.c	/^C(f_div2)			/
+f_divmod	../funcs.c	/^C(f_divmod)			/
+f_dl	../debug.c	/^CC(f_dl)				/
+f_dlbin	../debug.c	/^CC(f_dlbin)				/
+f_dload	../sun.c	/^C(f_dload)				/
+f_dlrfind	../funcs.c	/^C(f_dlrfind)		/
+f_dlrnumber	../funcs.c	/^C(f_dlrnumber)		/
+f_dminus	../funcs.c	/^CC(f_dminus)		/
+f_dnegate	../forth.c	/^C(f_dnegate)		/
+f_dnum	../forth.c	/^C(f_dnum)			/
+f_dnvalias	../nvedit.c	/^C(f_dnvalias)			/
+f_dnvunalias	../nvedit.c	/^C(f_dnvunalias)			/
+f_do	../forth.c	/^C(f_do)				/
+f_do_abortquote	../forth.c	/^C(f_do_abortquote)	/
+f_doesgt	../forth.c	/^C(f_doesgt)			/
+f_dollarcreate	../forth.c	/^C(f_dollarcreate)	/
+f_dopen_package	../packages.c	/^CC(f_dopen_package)$/
+f_dot	../funcs.c	/^C(f_dot)			/
+f_dotadr	../debug.c	/^C(f_dotadr)			/
+f_dotcalls	../debug.c	/^C(f_dotcalls)		/
+f_dotes	../debug.c	/^C(f_dotes)			/
+f_dotparen	../forth.c	/^C(f_dotparen)		/
+f_dotprop	../device.c	/^C(f_dotprop)		/
+f_dotproperties	../device.c	/^C(f_dotproperties)		/
+f_dotquote	../forth.c	/^C(f_dotquote)		/
+f_dotr	../funcs.c	/^C(f_dotr)			/
+f_dotrs	../debug.c	/^C(f_dotrs)			/
+f_dots	../funcs.c	/^C(f_dots)			/
+f_dplus	../funcs.c	/^CC(f_dplus)			/
+f_dquote	../forth.c	/^C(f_dquote)			/
+f_drop	../funcs.c	/^C(f_drop)			/
+f_dsetenv	../admin.c	/^C(f_dsetenv)		/
+f_dsift	../debug.c	/^C(f_dsift)			/
+f_dump	../forth.c	/^C(f_dump)			/
+f_dump_all	../debug.c	/^C(f_dump_all)				/
+f_dump_env	../debug.c	/^C(f_dump_env)				/
+f_dump_heap	../debug.c	/^C(f_dump_heap)		/
+f_dump_inst	../debug.c	/^C(f_dump_inst)				/
+f_dump_pciconfig	../pci/pci.c	/^C(f_dump_pciconfig)$/
+f_dump_pkg	../debug.c	/^C(f_dump_pkg)				/
+f_dup	../funcs.c	/^C(f_dup)			/
+f_else	../forth.c	/^C(f_else)			/
+f_emit	../funcs.c	/^C(f_emit)			/
+f_emit_byte	../token.c	/^C(f_emit_byte)		/
+f_encode_bytes	../packages.c	/^C(f_encode_bytes)$/
+f_encode_int	../packages.c	/^CC(f_encode_int)		/
+f_encode_phys	../packages.c	/^CC(f_encode_phys)$/
+f_encode_str	../packages.c	/^C(f_encode_str)		/
+f_encodeplus	../packages.c	/^C(f_encodeplus)$/
+f_end	../control.c	/^C(f_end)			/
+f_end_package	../device.c	/^C(f_end_package)	/
+f_endcase	../forth.c	/^C(f_endcase)		/
+f_endcode	../other.c	/^C(f_endcode)		/
+f_endof	../forth.c	/^C(f_endof)			/
+f_environmentq	../forth.c	/^C(f_environmentq)	/
+f_eq	../funcs.c	/^C(f_eq)				/
+f_eq0	../funcs.c	/^C(f_eq0)			/
+f_ether_close	../pci/decether.c	/^C(f_ether_close)			/
+f_ether_dma_alloc	../pci/decether.c	/^C(f_ether_dma_alloc)		/
+f_ether_dma_free	../pci/decether.c	/^C(f_ether_dma_free)			/
+f_ether_load	../pci/decether.c	/^C(f_ether_load)				/
+f_ether_open	../pci/decether.c	/^C(f_ether_open)			/
+f_ether_ping	../pci/decether.c	/^C(f_ether_ping)				/
+f_ether_read	../pci/decether.c	/^C(f_ether_read)				/
+f_ether_selftest	../pci/decether.c	/^C(f_ether_selftest)			/
+f_ether_write	../pci/decether.c	/^C(f_ether_write)			/
+f_ethexpro_close	../pci/ethexpro.c	/^C(f_ethexpro_close)			/
+f_ethexpro_dma_alloc	../pci/ethexpro.c	/^C(f_ethexpro_dma_alloc)		/
+f_ethexpro_dma_free	../pci/ethexpro.c	/^C(f_ethexpro_dma_free)			/
+f_ethexpro_load	../pci/ethexpro.c	/^C(f_ethexpro_load)				/
+f_ethexpro_open	../pci/ethexpro.c	/^C(f_ethexpro_open)			/
+f_ethexpro_ping	../pci/ethexpro.c	/^C(f_ethexpro_ping)				/
+f_ethexpro_read	../pci/ethexpro.c	/^C(f_ethexpro_read)				/
+f_ethexpro_selftest	../pci/ethexpro.c	/^C(f_ethexpro_selftest)			/
+f_ethexpro_write	../pci/ethexpro.c	/^C(f_ethexpro_write)			/
+f_evaluate	../control.c	/^C(f_evaluate)		/
+f_even	../forth.c	/^C(f_even)			/
+f_exec_dev_method	../device.c	/^CC(f_exec_dev_method)$/
+f_execute	../control.c	/^C(f_execute)		/
+f_exit	../control.c	/^C(f_exit)			/
+f_exitq	../forth.c	/^CC(f_exitq)			/
+f_expect	../funcs.c	/^C(f_expect)			/
+f_external	../device.c	/^C(f_external)		/
+f_externaltoken	../control.c	/^C(f_externaltoken)	/
+f_failsafe_close	../failsafe.c	/^C(f_failsafe_close)$/
+f_failsafe_install_abort	../failsafe.c	/^C(f_failsafe_install_abort)$/
+f_failsafe_is_tty	../failsafe.c	/^C(f_failsafe_is_tty)$/
+f_failsafe_open	../failsafe.c	/^C(f_failsafe_open)$/
+f_failsafe_read	../failsafe.c	/^C(f_failsafe_read)$/
+f_failsafe_remove_abort	../failsafe.c	/^C(f_failsafe_remove_abort)$/
+f_failsafe_write	../failsafe.c	/^C(f_failsafe_write)$/
+f_fake_disk_block_size	fakedisk.c	/^C(f_fake_disk_block_size)		/
+f_fake_disk_blocks	fakedisk.c	/^C(f_fake_disk_blocks)			/
+f_fake_disk_close	fakedisk.c	/^C(f_fake_disk_close)			/
+f_fake_disk_load	fakedisk.c	/^C(f_fake_disk_load)				/
+f_fake_disk_max_transfer	fakedisk.c	/^C(f_fake_disk_max_transfer)		/
+f_fake_disk_open	fakedisk.c	/^C(f_fake_disk_open)			/
+f_fake_disk_read	fakedisk.c	/^C(f_fake_disk_read)				/
+f_fake_disk_read_blocks	fakedisk.c	/^C(f_fake_disk_read_blocks)		/
+f_fake_disk_seek	fakedisk.c	/^C(f_fake_disk_seek)			/
+f_fake_disk_selftest	fakedisk.c	/^C(f_fake_disk_selftest)			/
+f_fake_disk_size	fakedisk.c	/^C(f_fake_disk_size)				/
+f_fake_disk_write	fakedisk.c	/^C(f_fake_disk_write)			/
+f_fake_disk_write_blocks	fakedisk.c	/^C(f_fake_disk_write_blocks)		/
+f_fake_net_close	fakenet.c	/^C(f_fake_net_close)			/
+f_fake_net_close	fakenet2.c	/^C(f_fake_net_close)			/
+f_fake_net_load	fakenet.c	/^C(f_fake_net_load)				/
+f_fake_net_load	fakenet2.c	/^C(f_fake_net_load)				/
+f_fake_net_open	fakenet.c	/^C(f_fake_net_open)			/
+f_fake_net_open	fakenet2.c	/^C(f_fake_net_open)			/
+f_fake_net_ping	fakenet.c	/^C(f_fake_net_ping)				/
+f_fake_net_ping	fakenet2.c	/^C(f_fake_net_ping)				/
+f_fake_net_read	fakenet.c	/^C(f_fake_net_read)		/
+f_fake_net_read	fakenet2.c	/^C(f_fake_net_read)		/
+f_fake_net_selftest	fakenet.c	/^C(f_fake_net_selftest)			/
+f_fake_net_selftest	fakenet2.c	/^C(f_fake_net_selftest)			/
+f_fake_net_write	fakenet.c	/^C(f_fake_net_write)		/
+f_fake_net_write	fakenet2.c	/^C(f_fake_net_write)		/
+f_fb8_blink_screen	../fb.c	/^C(f_fb8_blink_screen)$/
+f_fb8_delete_characters	../fb.c	/^C(f_fb8_delete_characters)$/
+f_fb8_delete_lines	../fb.c	/^C(f_fb8_delete_lines)$/
+f_fb8_draw_character	../fb.c	/^C(f_fb8_draw_character)$/
+f_fb8_draw_logo	../fb.c	/^C(f_fb8_draw_logo)$/
+f_fb8_draw_rectangle	../fb.c	/^C(f_fb8_draw_rectangle)		/
+f_fb8_erase_screen	../fb.c	/^C(f_fb8_erase_screen)$/
+f_fb8_fill_rectangle	../fb.c	/^C(f_fb8_fill_rectangle)		/
+f_fb8_insert_characters	../fb.c	/^C(f_fb8_insert_characters)$/
+f_fb8_insert_lines	../fb.c	/^C(f_fb8_insert_lines)$/
+f_fb8_install	../fb.c	/^CC(f_fb8_install)$/
+f_fb8_invert_screen	../fb.c	/^C(f_fb8_invert_screen)$/
+f_fb8_read_rectangle	../fb.c	/^C(f_fb8_read_rectangle)		/
+f_fb8_reset_screen	../fb.c	/^C(f_fb8_reset_screen)$/
+f_fb8_toggle_cursor	../fb.c	/^C(f_fb8_toggle_cursor)$/
+f_fcode_end	../token.c	/^C(f_fcode_end)		/
+f_fcode_rev	../other.c	/^C(f_fcode_rev)		/
+f_fcode_version2	../token.c	/^C(f_fcode_version2)	/
+f_ferror	../table.c	/^f_ferror(Environ *e)			/
+f_field	../forth.c	/^C(f_field)			/
+f_fill	../funcs.c	/^CC(f_fill)			/
+f_find	../forth.c	/^C(f_find)			/
+f_find_device	../device.c	/^CC(f_find_device)	/
+f_find_method	../packages.c	/^C(f_find_method)$/
+f_find_package	../packages.c	/^C(f_find_package)$/
+f_finish_device	../packages.c	/^CC(f_finish_device)	/
+f_fload	../token.c	/^C(f_fload)			/
+f_fmdivmod	../forth.c	/^C(f_fmdivmod)		/
+f_foreground_color	../display.c	/^C(f_foreground_color)		/
+f_forget	../forth.c	/^C(f_forget)			/
+f_forth	../forth.c	/^C(f_forth)			/
+f_free_virtual	../packages.c	/^C(f_free_virtual)	/
+f_freemem	../funcs.c	/^C(f_freemem)		/
+f_frombody	../control.c	/^C(f_frombody)		/
+f_ftrace	../debug.c	/^C(f_ftrace)$/
+f_get	../funcs.c	/^CC(f_get)			/
+f_get_inh_prop	../packages.c	/^C(f_get_inh_prop)$/
+f_get_my_prop	../packages.c	/^C(f_get_my_prop)$/
+f_get_pkg_prop	../packages.c	/^C(f_get_pkg_prop)$/
+f_getdoub	../funcs.c	/^CC(f_getdoub)		/
+f_getmsecs	../other.c	/^CC(f_getmsecs)		/
+f_getoct	../funcs64.c	/^CC(f_getoct)			/
+f_getquad	../funcs.c	/^CC(f_getquad)		/
+f_gettoken	../control.c	/^C(f_gettoken)		/
+f_getudoub	../funcs.c	/^C(f_getudoub)		/
+f_gflash_close	../gflash.c	/^C(f_gflash_close)			/
+f_gflash_ftest	../gflash.c	/^C(f_gflash_ftest)				/
+f_gflash_load	../gflash.c	/^C(f_gflash_load)				/
+f_gflash_open	../gflash.c	/^C(f_gflash_open)			/
+f_gflash_read	../gflash.c	/^C(f_gflash_read)			/
+f_gflash_read_bytes	../gflash.c	/^C(f_gflash_read_bytes)			/
+f_gflash_seek	../gflash.c	/^C(f_gflash_seek)			/
+f_gflash_selftest	../gflash.c	/^C(f_gflash_selftest)		/
+f_gflash_write	../gflash.c	/^C(f_gflash_write)			/
+f_gflash_write_bytes	../gflash.c	/^C(f_gflash_write_bytes)			/
+f_go	../admin.c	/^C(f_go)				/
+f_gt	../funcs.c	/^C(f_gt)				/
+f_gt0	../funcs.c	/^C(f_gt0)			/
+f_gteq	../funcs.c	/^C(f_gteq)			/
+f_gteq0	../funcs.c	/^C(f_gteq0)			/
+f_gtin	../forth.c	/^C(f_gtin)           /
+f_hash	../funcs.c	/^C(f_hash)			/
+f_hashgt	../funcs.c	/^C(f_hashgt)			/
+f_hashs	../funcs.c	/^C(f_hashs)			/
+f_headerless	../device.c	/^C(f_headerless)		/
+f_headers	../device.c	/^C(f_headers)		/
+f_help	../other.c	/^C(f_help)			/
+f_here	../control.c	/^C(f_here)			/
+f_hnum	../forth.c	/^C(f_hnum)			/
+f_hold	../funcs.c	/^C(f_hold)			/
+f_i	../control.c	/^C(f_i)				/
+f_i2phandle	../packages.c	/^C(f_i2phandle)		/
+f_if	../forth.c	/^C(f_if)				/
+f_immediate	../forth.c	/^C(f_immediate)		/
+f_init_program	../admin.c	/^C(f_init_program)	/
+f_input	../admin.c	/^C(f_input)			/
+f_install_console	../admin.c	/^CC(f_install_console)	/
+f_instance	../control.c	/^C(f_instance)		/
+f_interact	../debug.c	/^CC(f_interact)		/
+f_interpose	../device.c	/^C(f_interpose)		/
+f_invert	../funcs.c	/^C(f_invert)			/
+f_io	../admin.c	/^C(f_io)				/
+f_iplusbyte	../funcs.c	/^C(f_iplusbyte)		/
+f_ipluscell	../funcs.c	/^C(f_ipluscell)		/
+f_iplusdoub	../funcs.c	/^C(f_iplusdoub)		/
+f_iplusoct	../funcs64.c	/^C(f_iplusoct)		/
+f_iplusquad	../funcs.c	/^C(f_iplusquad)		/
+f_ipwd	../device.c	/^C(f_ipwd)				/
+f_is_close	../display.c	/^C(f_is_close)		/
+f_is_draw_logo	../display.c	/^C(f_is_draw_logo)	/
+f_is_install	../display.c	/^CC(f_is_install)		/
+f_is_open	../display.c	/^C(f_is_open)		/
+f_is_remove	../display.c	/^CC(f_is_remove)		/
+f_is_restore	../display.c	/^C(f_is_restore)		/
+f_is_selftest	../display.c	/^CC(f_is_selftest)		/
+f_is_test	../display.c	/^C(f_is_test)		/
+f_is_write	../display.c	/^CC(f_is_write)		/
+f_isa_close	../isa/isa.c	/^C(f_isa_close)			/
+f_isa_decode_unit	../isa/isa.c	/^C(f_isa_decode_unit)	/
+f_isa_dma_alloc	../isa/isa.c	/^C(f_isa_dma_alloc)			/
+f_isa_dma_free	../isa/isa.c	/^C(f_isa_dma_free)			/
+f_isa_dma_map_in	../isa/isa.c	/^C(f_isa_dma_map_in)			/
+f_isa_dma_map_out	../isa/isa.c	/^C(f_isa_dma_map_out)		/
+f_isa_dma_sync	../isa/isa.c	/^C(f_isa_dma_sync)			/
+f_isa_encode_unit	../isa/isa.c	/^C(f_isa_encode_unit)	/
+f_isa_map_in	../isa/isa.c	/^C(f_isa_map_in)			/
+f_isa_map_out	../isa/isa.c	/^C(f_isa_map_out)		/
+f_isa_open	../isa/isa.c	/^C(f_isa_open)			/
+f_isa_probe_pnp	../isa/isa.c	/^C(f_isa_probe_pnp)			/
+f_isa_probe_self	../isa/isa.c	/^C(f_isa_probe_self)$/
+f_isuserword	../control.c	/^C(f_isuserword)$/
+f_j	../control.c	/^C(f_j)				/
+f_kbd_close	../isa/kbd.c	/^C(f_kbd_close)			/
+f_kbd_open	../isa/kbd.c	/^C(f_kbd_open)			/
+f_kbd_read	../isa/kbd.c	/^C(f_kbd_read)			/
+f_kbd_selftest	../isa/kbd.c	/^C(f_kbd_selftest)		/
+f_key	../funcs.c	/^C(f_key)			/
+f_keyq	../funcs.c	/^C(f_keyq)			/
+f_label	../other.c	/^C(f_label)			/
+f_lance_close	../pci/amdlance.c	/^C(f_lance_close)			/
+f_lance_dma_alloc	../pci/amdlance.c	/^C(f_lance_dma_alloc)		/
+f_lance_dma_free	../pci/amdlance.c	/^C(f_lance_dma_free)			/
+f_lance_eeprom_dump	../pci/amdlance.c	/^C(f_lance_eeprom_dump)			/
+f_lance_eeprom_setmac	../pci/amdlance.c	/^C(f_lance_eeprom_setmac)		/
+f_lance_load	../pci/amdlance.c	/^C(f_lance_load)				/
+f_lance_open	../pci/amdlance.c	/^C(f_lance_open)			/
+f_lance_ping	../pci/amdlance.c	/^C(f_lance_ping)				/
+f_lance_read	../pci/amdlance.c	/^C(f_lance_read)				/
+f_lance_selftest	../pci/amdlance.c	/^C(f_lance_selftest)			/
+f_lance_write	../pci/amdlance.c	/^C(f_lance_write)			/
+f_lbflip	../funcs.c	/^C(f_lbflip)			/
+f_lbflips	../funcs.c	/^C(f_lbflips)		/
+f_lbracket	../forth.c	/^C(f_lbracket)		/
+f_lbsplit	../funcs.c	/^C(f_lbsplit)		/
+f_lcc	../funcs.c	/^C(f_lcc)			/
+f_ldump	../debug.c	/^C(f_ldump)				/
+f_leave	../forth.c	/^C(f_leave)			/
+f_left_parse_str	../packages.c	/^C(f_left_parse_str)$/
+f_linecomment	../forth.c	/^C(f_linecomment)	/
+f_linefeed	../forth.c	/^C(f_linefeed)		/
+f_literal	../forth.c	/^C(f_literal)		/
+f_load	../admin.c	/^C(f_load)			/
+f_load_base	../sun.c	/^C(f_load_base)		/
+f_load_file	../token.c	/^C(f_load_file)		/
+f_loop	../forth.c	/^C(f_loop)			/
+f_lpeek	../other.c	/^C(f_lpeek)			/
+f_lpoke	../other.c	/^C(f_lpoke)			/
+f_ls	../device.c	/^C(f_ls)			/
+f_lshift	../funcs.c	/^C(f_lshift)			/
+f_lt	../funcs.c	/^C(f_lt)				/
+f_lt0	../funcs.c	/^C(f_lt0)			/
+f_lteq	../funcs.c	/^C(f_lteq)			/
+f_lteq0	../funcs.c	/^C(f_lteq0)			/
+f_lthash	../funcs.c	/^C(f_lthash)			/
+f_lwflip	../funcs.c	/^C(f_lwflip)			/
+f_lwflips	../funcs.c	/^C(f_lwflips)		/
+f_lwsplit	../funcs.c	/^C(f_lwsplit)		/
+f_lxjoin	../funcs64.c	/^C(f_lxjoin)			/
+f_mac_address	../other.c	/^CC(f_mac_address)	/
+f_mac_close	mac.c	/^C(f_mac_close)			/
+f_mac_color_get	mac.c	/^C(f_mac_color_get)		/
+f_mac_color_set	mac.c	/^C(f_mac_color_set)		/
+f_mac_dimensions	mac.c	/^C(f_mac_dimensions)		/
+f_mac_get_colors	mac.c	/^C(f_mac_get_colors)		/
+f_mac_in_open	mac.c	/^C(f_mac_in_open)				/
+f_mac_install_abort	mac.c	/^C(f_mac_install_abort)			/
+f_mac_open	mac.c	/^C(f_mac_open)			/
+f_mac_read	mac.c	/^C(f_mac_read)			/
+f_mac_remove_abort	mac.c	/^C(f_mac_remove_abort)			/
+f_mac_set_colors	mac.c	/^C(f_mac_set_colors)		/
+f_mac_write	mac.c	/^C(f_mac_write)			/
+f_make_properties	../pci/pci.c	/^C(f_make_properties)			/
+f_max	../funcs.c	/^C(f_max)			/
+f_mem_stats	../debug.c	/^C(f_mem_stats)		/
+f_membar_read	../pci/amdlance.c	/^C(f_membar_read)			/
+f_membar_write	../pci/amdlance.c	/^C(f_membar_write)			/
+f_memory_claim	../memory.c	/^C(f_memory_claim)		/
+f_memory_close	../memory.c	/^C(f_memory_close)			/
+f_memory_open	../memory.c	/^C(f_memory_open)			/
+f_memory_release	../memory.c	/^C(f_memory_release)			/
+f_memory_selftest	../memory.c	/^C(f_memory_selftest)			/
+f_memory_test	../other.c	/^CC(f_memory_test)	/
+f_min	../funcs.c	/^C(f_min)			/
+f_minus	../funcs.c	/^C(f_minus)			/
+f_mmu_claim	../cpu-ppc.c	/^C(f_mmu_claim)		/
+f_mmu_claim	../cpu.c	/^C(f_mmu_claim)		/
+f_mmu_map	../cpu-ppc.c	/^C(f_mmu_map)		/
+f_mmu_map	../cpu.c	/^C(f_mmu_map)		/
+f_mmu_modify	../cpu-ppc.c	/^C(f_mmu_modify)		/
+f_mmu_modify	../cpu.c	/^C(f_mmu_modify)		/
+f_mmu_release	../cpu-ppc.c	/^C(f_mmu_release)			/
+f_mmu_release	../cpu.c	/^C(f_mmu_release)			/
+f_mmu_translate	../cpu-ppc.c	/^C(f_mmu_translate)$/
+f_mmu_translate	../cpu.c	/^C(f_mmu_translate)$/
+f_mmu_unmap	../cpu-ppc.c	/^C(f_mmu_unmap)		/
+f_mmu_unmap	../cpu.c	/^C(f_mmu_unmap)		/
+f_mod	../funcs.c	/^C(f_mod)			/
+f_model	../packages.c	/^C(f_model)			/
+f_move	../funcs.c	/^C(f_move)			/
+f_mrot	../funcs.c	/^C(f_mrot)			/
+f_ms	../other.c	/^CC(f_ms)			/
+f_mtimes	../forth.c	/^C(f_mtimes)			/
+f_mtrailing	../forth.c	/^C(f_mtrailing)		/
+f_multdiv	../forth.c	/^C(f_multdiv)		/
+f_multdivmod	../forth.c	/^C(f_multdivmod)		/
+f_multdoub	../funcs.c	/^C(f_multdoub)		/
+f_multoct	../funcs64.c	/^C(f_multoct)		/
+f_multquad	../funcs.c	/^C(f_multquad)		/
+f_my_address	../packages.c	/^C(f_my_address)		/
+f_my_args	../packages.c	/^C(f_my_args)		/
+f_my_parent	../packages.c	/^C(f_my_parent)		/
+f_my_space	../packages.c	/^C(f_my_space)		/
+f_my_unit	../packages.c	/^C(f_my_unit)		/
+f_namedtoken	../control.c	/^C(f_namedtoken)		/
+f_ncr_alarm	../pci/ncrscsi.c	/^C(f_ncr_alarm)			/
+f_ncr_close	../pci/ncrscsi.c	/^C(f_ncr_close)			/
+f_ncr_decode_unit	../pci/ncrscsi.c	/^C(f_ncr_decode_unit)		/
+f_ncr_diagnose	../pci/ncrscsi.c	/^C(f_ncr_diagnose)				/
+f_ncr_dma_alloc	../pci/ncrscsi.c	/^C(f_ncr_dma_alloc)			/
+f_ncr_dma_free	../pci/ncrscsi.c	/^C(f_ncr_dma_free)			/
+f_ncr_dma_test	../pci/ncrscsi.c	/^C(f_ncr_dma_test)			/
+f_ncr_encode_unit	../pci/ncrscsi.c	/^C(f_ncr_encode_unit)		/
+f_ncr_execute_command	../pci/ncrscsi.c	/^C(f_ncr_execute_command)$/
+f_ncr_max_transfer	../pci/ncrscsi.c	/^C(f_ncr_max_transfer)		/
+f_ncr_no_data_command	../pci/ncrscsi.c	/^C(f_ncr_no_data_command)		/
+f_ncr_open	../pci/ncrscsi.c	/^C(f_ncr_open)			/
+f_ncr_retry_command	../pci/ncrscsi.c	/^C(f_ncr_retry_command)$/
+f_ncr_selftest	../pci/ncrscsi.c	/^C(f_ncr_selftest)			/
+f_ncr_set_address	../pci/ncrscsi.c	/^C(f_ncr_set_address)		/
+f_ncr_set_timeout	../pci/ncrscsi.c	/^C(f_ncr_set_timeout)		/
+f_ncr_short_data_command	../pci/ncrscsi.c	/^C(f_ncr_short_data_command)$/
+f_ncr_show_children	../pci/ncrscsi.c	/^C(f_ncr_show_children)			/
+f_ne2000_close	../isa/ne2000.c	/^C(f_ne2000_close)			/
+f_ne2000_dma_alloc	../isa/ne2000.c	/^C(f_ne2000_dma_alloc)		/
+f_ne2000_dma_free	../isa/ne2000.c	/^C(f_ne2000_dma_free)			/
+f_ne2000_load	../isa/ne2000.c	/^C(f_ne2000_load)				/
+f_ne2000_open	../isa/ne2000.c	/^C(f_ne2000_open)			/
+f_ne2000_ping	../isa/ne2000.c	/^C(f_ne2000_ping)				/
+f_ne2000_read	../isa/ne2000.c	/^C(f_ne2000_read)				/
+f_ne2000_selftest	../isa/ne2000.c	/^C(f_ne2000_selftest)			/
+f_ne2000_write	../isa/ne2000.c	/^C(f_ne2000_write)			/
+f_negate	../funcs.c	/^C(f_negate)			/
+f_neq0	../funcs.c	/^C(f_neq0)			/
+f_new_device	../packages.c	/^CC(f_new_device)		/
+f_newtoken	../control.c	/^C(f_newtoken)		/
+f_nextprop	../packages.c	/^C(f_nextprop)$/
+f_nip	../funcs.c	/^C(f_nip)			/
+f_nodebug	../debug.c	/^C(f_nodebug)			/
+f_nodefault_bytes	../admin.c	/^C(f_nodefault_bytes)$/
+f_noop	../control.c	/^C(f_noop)			/
+f_noshowstack	../debug.c	/^C(f_noshowstack)		/
+f_noteq	../funcs.c	/^C(f_noteq)			/
+f_ns16550_close	../isa/ns16550.c	/^C(f_ns16550_close)			/
+f_ns16550_install_abort	../isa/ns16550.c	/^C(f_ns16550_install_abort)		/
+f_ns16550_open	../isa/ns16550.c	/^C(f_ns16550_open)			/
+f_ns16550_read	../isa/ns16550.c	/^C(f_ns16550_read)			/
+f_ns16550_remove_abort	../isa/ns16550.c	/^C(f_ns16550_remove_abort)		/
+f_ns16550_selftest	../isa/ns16550.c	/^C(f_ns16550_selftest)		/
+f_ns16550_set_mode	../isa/ns16550.c	/^C(f_ns16550_set_mode)			/
+f_ns16550_write	../isa/ns16550.c	/^C(f_ns16550_write)			/
+f_nvalias	../nvedit.c	/^C(f_nvalias)		/
+f_nvedit	../nvedit.c	/^C(f_nvedit)			/
+f_nvquit	../nvedit.c	/^C(f_nvquit)				/
+f_nvramrc	../admin.c	/^C(f_nvramrc)		/
+f_nvrecover	../nvedit.c	/^C(f_nvrecover)			/
+f_nvrun	../nvedit.c	/^C(f_nvrun)				/
+f_nvstore	../nvedit.c	/^C(f_nvstore)			/
+f_nvunalias	../nvedit.c	/^C(f_nvunalias)			/
+f_obptftp_close	../obptftp.c	/^C(f_obptftp_close)			/
+f_obptftp_load	../obptftp.c	/^C(f_obptftp_load)			/
+f_obptftp_open	../obptftp.c	/^C(f_obptftp_open)			/
+f_obptftp_ping	../obptftp.c	/^C(f_obptftp_ping)				/
+f_oem_logo	../admin.c	/^C(f_oem_logo)		/
+f_of	../forth.c	/^C(f_of)				/
+f_off	../funcs.c	/^C(f_off)			/
+f_offset16	../control.c	/^C(f_offset16)		/
+f_on	../funcs.c	/^C(f_on)				/
+f_onum	../forth.c	/^C(f_onum)			/
+f_opcr	../funcs.c	/^C(f_opcr)			/
+f_open_dev	../device.c	/^CC(f_open_dev)		/
+f_open_package	../packages.c	/^C(f_open_package)$/
+f_or	../funcs.c	/^C(f_or)				/
+f_output	../admin.c	/^C(f_output)			/
+f_over	../funcs.c	/^C(f_over)			/
+f_pack	../funcs.c	/^C(f_pack)			/
+f_parendebug	../debug.c	/^C(f_parendebug)		/
+f_parennodebug	../debug.c	/^C(f_parennodebug)		/
+f_parse	../forth.c	/^C(f_parse)			/
+f_parse_2int	../packages.c	/^C(f_parse_2int)		/
+f_parse_word	../forth.c	/^C(f_parse_word)		/
+f_password	../admin.c	/^C(f_password)				/
+f_patch	../debug.c	/^C(f_patch)			/
+f_pci_assign_package_address	../pci/pci.c	/^C(f_pci_assign_package_address)	/
+f_pci_close	../pci/pci.c	/^C(f_pci_close)			/
+f_pci_config_getbyte	../pci/pci.c	/^C(f_pci_config_getbyte)		/
+f_pci_config_getdoub	../pci/pci.c	/^C(f_pci_config_getdoub)		/
+f_pci_config_getquad	../pci/pci.c	/^C(f_pci_config_getquad)		/
+f_pci_config_setbyte	../pci/pci.c	/^C(f_pci_config_setbyte)		/
+f_pci_config_setdoub	../pci/pci.c	/^C(f_pci_config_setdoub)		/
+f_pci_config_setquad	../pci/pci.c	/^C(f_pci_config_setquad)		/
+f_pci_decode_unit	../pci/pci.c	/^C(f_pci_decode_unit)	/
+f_pci_dma_alloc	../pci/pci.c	/^C(f_pci_dma_alloc)		/
+f_pci_dma_free	../pci/pci.c	/^C(f_pci_dma_free)		/
+f_pci_dma_map_in	../pci/pci.c	/^C(f_pci_dma_map_in)		/
+f_pci_dma_map_out	../pci/pci.c	/^C(f_pci_dma_map_out)	/
+f_pci_dma_sync	../pci/pci.c	/^C(f_pci_dma_sync)		/
+f_pci_encode_unit	../pci/pci.c	/^C(f_pci_encode_unit)	/
+f_pci_intr_ack	../pci/pci.c	/^C(f_pci_intr_ack)		/
+f_pci_map_in	../pci/pci.c	/^C(f_pci_map_in)			/
+f_pci_map_out	../pci/pci.c	/^C(f_pci_map_out)		/
+f_pci_open	../pci/pci.c	/^C(f_pci_open)			/
+f_pci_probe_self	../pci/pci.c	/^C(f_pci_probe_self)$/
+f_pci_rlget	../pci/pci.c	/^C(f_pci_rlget)			/
+f_pci_rlset	../pci/pci.c	/^C(f_pci_rlset)			/
+f_pci_rwget	../pci/pci.c	/^C(f_pci_rwget)			/
+f_pci_rwset	../pci/pci.c	/^C(f_pci_rwset)			/
+f_pci_special_set	../pci/pci.c	/^C(f_pci_special_set)	/
+f_peer	../packages.c	/^CC(f_peer)			/
+f_pick	../funcs.c	/^C(f_pick)			/
+f_ping	../obptftp.c	/^C(f_ping)	/
+f_ploop	../forth.c	/^C(f_ploop)			/
+f_plus	../funcs.c	/^C(f_plus)			/
+f_plusdoub	../funcs.c	/^C(f_plusdoub)		/
+f_plusoct	../funcs64.c	/^C(f_plusoct)		/
+f_plusquad	../funcs.c	/^C(f_plusquad)		/
+f_plusset	../funcs.c	/^C(f_plusset)		/
+f_pop_package	../packages.c	/^C(f_pop_package)$/
+f_pop_rstk	../funcs.c	/^C(f_pop_rstk)		/
+f_ppatchp	../debug.c	/^C(f_ppatchp)		/
+f_printenv	../admin.c	/^C(f_printenv)		/
+f_probe_all	../admin.c	/^CC(f_probe_all)		/
+f_probe_isa	../isa/isa.c	/^C(f_probe_isa)				/
+f_probe_pci	../pci/pci.c	/^CC(f_probe_pci)				/
+f_probe_scsi	../sun.c	/^C(f_probe_scsi)			/
+f_probe_scsi_all	../sun.c	/^C(f_probe_scsi_all)		/
+f_property	../packages.c	/^CC(f_property)$/
+f_psee_chainp	../debug.c	/^C(f_psee_chainp)		/
+f_pseep	../debug.c	/^C(f_pseep)				/
+f_push_config_bool	../admin.c	/^CC(f_push_config_bool)$/
+f_push_config_int	../admin.c	/^CC(f_push_config_int)$/
+f_push_config_str	../admin.c	/^CC(f_push_config_str)$/
+f_push_package	../packages.c	/^C(f_push_package)$/
+f_push_rstk	../funcs.c	/^C(f_push_rstk)		/
+f_pwd	../device.c	/^C(f_pwd)				/
+f_qdo	../forth.c	/^C(f_qdo)			/
+f_qdup	../funcs.c	/^C(f_qdup)			/
+f_quit	../forth.c	/^C(f_quit)			/
+f_rbget	../other.c	/^CC(f_rbget)			/
+f_rbracket	../forth.c	/^C(f_rbracket)		/
+f_rbset	../other.c	/^CC(f_rbset)			/
+f_recurse	../forth.c	/^C(f_recurse)		/
+f_recursive	../forth.c	/^C(f_recursive)		/
+f_reg	../packages.c	/^CC(f_reg)			/
+f_repeat	../forth.c	/^C(f_repeat)			/
+f_reset_all	../admin.c	/^C(f_reset_all)		/
+f_resume	../debug.c	/^C(f_resume)			/
+f_rlget	../other.c	/^CC(f_rlget)			/
+f_rlset	../other.c	/^CC(f_rlset)			/
+f_roll	../funcs.c	/^C(f_roll)			/
+f_root_close	../root.c	/^C(f_root_close)			/
+f_root_decode_unit	../root.c	/^C(f_root_decode_unit)		/
+f_root_dma_alloc	../root.c	/^C(f_root_dma_alloc)		/
+f_root_dma_free	../root.c	/^C(f_root_dma_free)			/
+f_root_dma_map_in	../root.c	/^C(f_root_dma_map_in)	/
+f_root_dma_map_out	../root.c	/^C(f_root_dma_map_out)	/
+f_root_dma_sync	../root.c	/^C(f_root_dma_sync)		/
+f_root_encode_unit	../root.c	/^C(f_root_encode_unit)		/
+f_root_map_in	../root.c	/^C(f_root_map_in)		/
+f_root_map_out	../root.c	/^C(f_root_map_out)		/
+f_root_open	../root.c	/^C(f_root_open)			/
+f_root_probe_self	../root.c	/^C(f_root_probe_self)$/
+f_rot	../funcs.c	/^C(f_rot)			/
+f_rshift	../funcs.c	/^C(f_rshift)			/
+f_rwget	../other.c	/^CC(f_rwget)			/
+f_rwset	../other.c	/^CC(f_rwset)			/
+f_rxget	../funcs64.c	/^C(f_rxget)			/
+f_rxset	../funcs64.c	/^C(f_rxset)			/
+f_sbus2cpu	../sun.c	/^C(f_sbus2cpu)		/
+f_screen_close	../pci/pcidisp.c	/^C(f_screen_close)			/
+f_screen_open	../pci/pcidisp.c	/^C(f_screen_open)			/
+f_screen_selftest	../pci/pcidisp.c	/^C(f_screen_selftest)		/
+f_sdquote	../forth.c	/^C(f_sdquote)		/
+f_search_mem	../debug.c	/^C(f_search_mem)$/
+f_secondary_diag	../admin.c	/^CC(f_secondary_diag)	/
+f_security_mode	../admin.c	/^C(f_security_mode)			/
+f_security_password	../admin.c	/^C(f_security_password)		/
+f_see	../debug.c	/^C(f_see)				/
+f_see_chain	../debug.c	/^C(f_see_chain)			/
+f_select_dev	../sun.c	/^C(f_select_dev)				/
+f_semicolon	../forth.c	/^C(f_semicolon)		/
+f_set	../funcs.c	/^CC(f_set)			/
+f_set_args	../packages.c	/^CC(f_set_args)		/
+f_set_default	../admin.c	/^C(f_set_default)	/
+f_set_defaults	../admin.c	/^C(f_set_defaults)		/
+f_set_font	../display.c	/^CC(f_set_font)	/
+f_set_mac_address	../admin.c	/^C(f_set_mac_address)		/
+f_setdoub	../funcs.c	/^CC(f_setdoub)		/
+f_setenv	../admin.c	/^C(f_setenv)			/
+f_setoct	../funcs64.c	/^CC(f_setoct)		/
+f_setquad	../funcs.c	/^CC(f_setquad)		/
+f_settoken	../control.c	/^C(f_settoken)		/
+f_show_devs	../device.c	/^C(f_show_devs)		/
+f_show_pci	../pci/pci.c	/^C(f_show_pci)			/
+f_show_pci_full	../pci/pci.c	/^C(f_show_pci_full)			/
+f_showstack	../debug.c	/^C(f_showstack)		/
+f_sifting	../debug.c	/^C(f_sifting)		/
+f_sign	../funcs.c	/^C(f_sign)			/
+f_slashn	../funcs.c	/^C(f_slashn)			/
+f_source	../forth.c	/^C(f_source)			/
+f_squote	../forth.c	/^C(f_squote)			/
+f_start0	../control.c	/^C(f_start0)			/
+f_start1	../control.c	/^C(f_start1)			/
+f_start2	../control.c	/^C(f_start2)			/
+f_start4	../control.c	/^C(f_start4)			/
+f_stdio_close	../stdio.c	/^C(f_stdio_close)$/
+f_stdio_install_abort	../stdio.c	/^C(f_stdio_install_abort)$/
+f_stdio_is_tty	../stdio.c	/^C(f_stdio_is_tty)$/
+f_stdio_open	../stdio.c	/^C(f_stdio_open)$/
+f_stdio_read	../stdio.c	/^C(f_stdio_read)$/
+f_stdio_remove_abort	../stdio.c	/^C(f_stdio_remove_abort)$/
+f_stdio_write	../stdio.c	/^C(f_stdio_write)$/
+f_step_all	../debug.c	/^C(f_step_all)		/
+f_stepping	../debug.c	/^C(f_stepping)		/
+f_stod	../forth.c	/^C(f_stod)			/
+f_struct	../forth.c	/^C(f_struct)			/
+f_suppress_banner	../admin.c	/^C(f_suppress_banner)	/
+f_suspend_fcode	../control.c	/^C(f_suspend_fcode)	/
+f_swap	../funcs.c	/^C(f_swap)			/
+f_sym	../debug.c	/^C(f_sym)			/
+f_sym2value	../debug.c	/^CC(f_sym2value)			/
+f_sync	../admin.c	/^C(f_sync)$/
+f_terminal	../display.c	/^C(f_terminal)				/
+f_test	../admin.c	/^C(f_test)			/
+f_test_all	../admin.c	/^C(f_test_all)		/
+f_then	../forth.c	/^C(f_then)			/
+f_throw	../control.c	/^C(f_throw)			/
+f_times	../funcs.c	/^C(f_times)			/
+f_times2	../funcs.c	/^C(f_times2)			/
+f_to	../forth.c	/^C(f_to)				/
+f_tobody	../control.c	/^C(f_tobody)			/
+f_tofont	../display.c	/^CC(f_tofont)			/
+f_tokenize	../token.c	/^C(f_tokenize)$/
+f_tokenizerb	../token.c	/^C(f_tokenizerb)		/
+f_tonumber	../forth.c	/^C(f_tonumber)		/
+f_top_rstk	../funcs.c	/^C(f_top_rstk)		/
+f_trace_all	../debug.c	/^C(f_trace_all)		/
+f_tracing	../debug.c	/^C(f_tracing)		/
+f_tuck	../funcs.c	/^C(f_tuck)			/
+f_type	../funcs.c	/^C(f_type)			/
+f_u2div	../funcs.c	/^C(f_u2div)			/
+f_udivmod	../funcs.c	/^C(f_udivmod)		/
+f_udot	../funcs.c	/^C(f_udot)			/
+f_udotr	../funcs.c	/^C(f_udotr)			/
+f_ugt	../funcs.c	/^C(f_ugt)			/
+f_ugteq	../funcs.c	/^C(f_ugteq)			/
+f_uhash	../funcs.c	/^C(f_uhash)			/
+f_uhashgt	../funcs.c	/^C(f_uhashgt)		/
+f_uhashs	../funcs.c	/^C(f_uhashs)			/
+f_ult	../funcs.c	/^C(f_ult)			/
+f_ulteq	../funcs.c	/^C(f_ulteq)			/
+f_umddivmod	../funcs.c	/^CC(f_umddivmod)		/
+f_umdivmod	../funcs.c	/^CC(f_umdivmod)		/
+f_umtimes	../funcs.c	/^CC(f_umtimes)		/
+f_unalign_lget	../other.c	/^C(f_unalign_lget)	/
+f_unalign_lset	../other.c	/^C(f_unalign_lset)	/
+f_unalign_wget	../other.c	/^C(f_unalign_wget)	/
+f_unalign_wset	../other.c	/^C(f_unalign_wset)	/
+f_unloop	../control.c	/^C(f_unloop)			/
+f_unselect_dev	../sun.c	/^C(f_unselect_dev)		/
+f_until	../forth.c	/^C(f_until)			/
+f_upc	../funcs.c	/^C(f_upc)			/
+f_user_abort	../other.c	/^C(f_user_abort)		/
+f_utimes	../forth.c	/^C(f_utimes)			/
+f_value	../forth.c	/^C(f_value)			/
+f_value2sym	../debug.c	/^CC(f_value2sym)			/
+f_variable	../forth.c	/^C(f_variable)		/
+f_version1	../control.c	/^C(f_version1)			/
+f_watch_net	../sun.c	/^C(f_watch_net)			/
+f_watch_net_all	../sun.c	/^C(f_watch_net_all)		/
+f_wbflip	../funcs.c	/^C(f_wbflip)			/
+f_wbflips	../funcs.c	/^C(f_wbflips)		/
+f_wbsplit	../funcs.c	/^C(f_wbsplit)		/
+f_while	../forth.c	/^C(f_while)			/
+f_within	../funcs.c	/^C(f_within)			/
+f_wljoin	../funcs.c	/^C(f_wljoin)			/
+f_word	../forth.c	/^C(f_word)			/
+f_words	../debug.c	/^C(f_words)			/
+f_wpeek	../other.c	/^C(f_wpeek)			/
+f_wpoke	../other.c	/^C(f_wpoke)			/
+f_wxjoin	../funcs64.c	/^C(f_wxjoin)			/
+f_x11_close	x11.c	/^C(f_x11_close)			/
+f_x11_color_get	x11.c	/^C(f_x11_color_get)		/
+f_x11_color_set	x11.c	/^C(f_x11_color_set)		/
+f_x11_dimensions	x11.c	/^C(f_x11_dimensions)		/
+f_x11_get_colors	x11.c	/^C(f_x11_get_colors)		/
+f_x11_in_open	x11.c	/^C(f_x11_in_open)				/
+f_x11_install_abort	x11.c	/^C(f_x11_install_abort)			/
+f_x11_open	x11.c	/^C(f_x11_open)			/
+f_x11_read	x11.c	/^C(f_x11_read)			/
+f_x11_remove_abort	x11.c	/^C(f_x11_remove_abort)			/
+f_x11_set_colors	x11.c	/^C(f_x11_set_colors)		/
+f_x11_write	x11.c	/^C(f_x11_write)			/
+f_xbflip	../funcs64.c	/^C(f_xbflip)			/
+f_xbflips	../funcs64.c	/^C(f_xbflips)		/
+f_xbsplit	../funcs64.c	/^C(f_xbsplit)		/
+f_xcomma	../funcs64.c	/^C(f_xcomma)			/
+f_xlflip	../funcs64.c	/^C(f_xlflip)			/
+f_xlflips	../funcs64.c	/^C(f_xlflips)		/
+f_xlsplit	../funcs64.c	/^C(f_xlsplit)		/
+f_xor	../funcs.c	/^C(f_xor)			/
+f_xwflip	../funcs64.c	/^C(f_xwflip)			/
+f_xwflips	../funcs64.c	/^C(f_xwflips)		/
+f_xwsplit	../funcs64.c	/^C(f_xwsplit)		/
+failsafe_close	../failsafe.c	/^C(f_failsafe_close)$/
+failsafe_install_abort	../failsafe.c	/^C(f_failsafe_install_abort)$/
+failsafe_is_tty	../failsafe.c	/^C(f_failsafe_is_tty)$/
+failsafe_open	../failsafe.c	/^C(f_failsafe_open)$/
+failsafe_read	../failsafe.c	/^C(f_failsafe_read)$/
+failsafe_read	machdep.c	/^failsafe_read(Byte *buf, Int len)$/
+failsafe_remove_abort	../failsafe.c	/^C(f_failsafe_remove_abort)$/
+failsafe_write	../failsafe.c	/^C(f_failsafe_write)$/
+failsafe_write	machdep.c	/^failsafe_write(Byte *buf, Int len)$/
+fake_disk_block_size	fakedisk.c	/^C(f_fake_disk_block_size)		/
+fake_disk_blocks	fakedisk.c	/^C(f_fake_disk_blocks)			/
+fake_disk_close	fakedisk.c	/^C(f_fake_disk_close)			/
+fake_disk_load	fakedisk.c	/^C(f_fake_disk_load)				/
+fake_disk_max_transfer	fakedisk.c	/^C(f_fake_disk_max_transfer)		/
+fake_disk_open	fakedisk.c	/^C(f_fake_disk_open)			/
+fake_disk_read	fakedisk.c	/^C(f_fake_disk_read)				/
+fake_disk_read_blocks	fakedisk.c	/^C(f_fake_disk_read_blocks)		/
+fake_disk_seek	fakedisk.c	/^C(f_fake_disk_seek)			/
+fake_disk_selftest	fakedisk.c	/^C(f_fake_disk_selftest)			/
+fake_disk_size	fakedisk.c	/^C(f_fake_disk_size)				/
+fake_disk_write	fakedisk.c	/^C(f_fake_disk_write)			/
+fake_disk_write_blocks	fakedisk.c	/^C(f_fake_disk_write_blocks)		/
+fake_net_close	fakenet.c	/^C(f_fake_net_close)			/
+fake_net_close	fakenet2.c	/^C(f_fake_net_close)			/
+fake_net_load	fakenet.c	/^C(f_fake_net_load)				/
+fake_net_load	fakenet2.c	/^C(f_fake_net_load)				/
+fake_net_open	fakenet.c	/^C(f_fake_net_open)			/
+fake_net_open	fakenet2.c	/^C(f_fake_net_open)			/
+fake_net_ping	fakenet.c	/^C(f_fake_net_ping)				/
+fake_net_ping	fakenet2.c	/^C(f_fake_net_ping)				/
+fake_net_read	fakenet.c	/^C(f_fake_net_read)		/
+fake_net_read	fakenet2.c	/^C(f_fake_net_read)		/
+fake_net_selftest	fakenet.c	/^C(f_fake_net_selftest)			/
+fake_net_selftest	fakenet2.c	/^C(f_fake_net_selftest)			/
+fake_net_write	fakenet.c	/^C(f_fake_net_write)		/
+fake_net_write	fakenet2.c	/^C(f_fake_net_write)		/
+fake_pci_dev	../pci/fakepci.h	/^struct fake_pci_dev$/
+fake_pci_dev_methods	../pci/fakepci.h	/^struct fake_pci_dev_methods$/
+fakepci_alloctable	../pci/fakepci.c	/^fakepci_alloctable()$/
+fakepci_insertentry	../pci/fakepci.c	/^fakepci_insertentry(Addrmap *map, Int addr, int level, struct devmap *entry)$/
+fakepci_io_map	../pci/fakepci.c	/^fakepci_io_map(Int addr, Int size, Fake_pci_dev *dev, int bar, Int offset)$/
+fakepci_io_unmap	../pci/fakepci.c	/^fakepci_io_unmap(Int addr, Int size, Fake_pci_dev *dev, int bar, Int offset)$/
+fakepci_lookup	../pci/fakepci.c	/^fakepci_lookup(Addrmap *map, Int addr, Fake_pci_dev **dev, int *bar,$/
+fakepci_lookupentry	../pci/fakepci.c	/^fakepci_lookupentry(Addrmap *map, Int addr, struct devmap **entry)$/
+fakepci_map	../pci/fakepci.c	/^fakepci_map(Addrmap *map, Int addr, Int size, Fake_pci_dev *dev, int bar,$/
+fakepci_mem_map	../pci/fakepci.c	/^fakepci_mem_map(Int addr, Int size, Fake_pci_dev *dev, int bar, Int offset)$/
+fakepci_mem_unmap	../pci/fakepci.c	/^fakepci_mem_unmap(Int addr, Int size, Fake_pci_dev *dev, int bar, Int offset)$/
+fakepci_removeentry	../pci/fakepci.c	/^fakepci_removeentry(Addrmap *map, Int addr, int level)$/
+fakepci_unmap	../pci/fakepci.c	/^fakepci_unmap(Addrmap *map, Int addr, Int size, Fake_pci_dev *dev, int bar,$/
+falloc	../table.c	/^falloc(Environ *e, uInt size)$/
+fb8_blink_screen	../fb.c	/^C(f_fb8_blink_screen)$/
+fb8_delete_characters	../fb.c	/^C(f_fb8_delete_characters)$/
+fb8_delete_lines	../fb.c	/^C(f_fb8_delete_lines)$/
+fb8_draw_character	../fb.c	/^C(f_fb8_draw_character)$/
+fb8_draw_logo	../fb.c	/^C(f_fb8_draw_logo)$/
+fb8_draw_rectangle	../fb.c	/^C(f_fb8_draw_rectangle)		/
+fb8_erase_screen	../fb.c	/^C(f_fb8_erase_screen)$/
+fb8_fill_rectangle	../fb.c	/^C(f_fb8_fill_rectangle)		/
+fb8_insert_characters	../fb.c	/^C(f_fb8_insert_characters)$/
+fb8_insert_lines	../fb.c	/^C(f_fb8_insert_lines)$/
+fb8_install	../fb.c	/^CC(f_fb8_install)$/
+fb8_invert_screen	../fb.c	/^C(f_fb8_invert_screen)$/
+fb8_read_rectangle	../fb.c	/^C(f_fb8_read_rectangle)		/
+fb8_reset_screen	../fb.c	/^C(f_fb8_reset_screen)$/
+fb8_toggle_cursor	../fb.c	/^C(f_fb8_toggle_cursor)$/
+fcode_branch	../exec.c	/^fcode_branch(Environ *e, Int o)$/
+fcode_end	../token.c	/^C(f_fcode_end)		/
+fcode_rev	../other.c	/^C(f_fcode_rev)		/
+fcode_version2	../token.c	/^C(f_fcode_version2)	/
+ferror	../table.c	/^f_ferror(Environ *e)			/
+field	../forth.c	/^C(f_field)			/
+fill	../funcs.c	/^CC(f_fill)			/
+fill_buffer	../gflash.c	/^fill_buffer(Environ *e, Self *s, uByte *dest, uInt data)$/
+fill_edit_buf	../nvedit.c	/^fill_edit_buf(Environ *e, Byte *s, Int len)$/
+find	../forth.c	/^C(f_find)			/
+find_constrained	../alloc.c	/^find_constrained(Allocator *a, uInt min[], uInt max[], uInt align[],$/
+find_device	../device.c	/^CC(f_find_device)	/
+find_device	../device.c	/^find_device(Environ *e, Byte *str, Int len)$/
+find_dhcp	../obptftp.c	/^find_dhcp(Environ *e, Self *s, struct bootp_packet *hdr, int option)$/
+find_matching_child	../device.c	/^find_matching_child(Environ *e, char *name, char *unit, Cell unitphys[])$/
+find_method	../packages.c	/^C(f_find_method)$/
+find_node	../admin.c	/^find_node(Environ *e, Package *pkg, Byte *devtype)$/
+find_package	../packages.c	/^C(f_find_package)$/
+find_package	../table.c	/^find_package(Package *pkg, Byte *name, Int len)$/
+find_table	../table.c	/^find_table(Table *table, Byte *name, Int len)$/
+fini_gui	mac.c	/^fini_gui(void)$/
+fini_gui	x11.c	/^fini_gui(void)$/
+finish_device	../packages.c	/^CC(f_finish_device)	/
+flash	../flash.h	/^struct flash$/
+flash_methods	../flash.h	/^struct flash_methods$/
+flash_probe	../gflash.c	/^flash_probe(Environ *e, Self *s)$/
+flash_wait_invert	../gflash.c	/^flash_wait_invert(Environ *e, Self *s, int offset, uByte *mask, uByte *data)$/
+flash_wait_status	../gflash.c	/^flash_wait_status(Environ *e, Self *s, int offset, uByte *mask, uByte *data)$/
+flash_wait_toggle	../gflash.c	/^flash_wait_toggle(Environ *e, Self *s, int offset, uByte *mask, uByte *data)$/
+fload	../token.c	/^C(f_fload)			/
+flushbuf	../deblock.c	/^flushbuf(Environ *e, Self *s)$/
+fmdivmod	../forth.c	/^C(f_fmdivmod)		/
+foreground_color	../display.c	/^C(f_foreground_color)		/
+forget	../forth.c	/^C(f_forget)			/
+forget_sym	../table.c	/^forget_sym(Environ *e, Byte *str, Int len, Bool all)$/
+forth	../forth.c	/^C(f_forth)			/
+free	../stdlib.c	/^#	define free/
+free	../stdlib.c	/^free(void *ptr)$/
+free	mw-malloc.c	/^free(void *p)$/
+free_block	../alloc.c	/^free_block(Allocator *a, uInt addr[], uInt size[])$/
+free_virtual	../packages.c	/^C(f_free_virtual)	/
+freemem	../funcs.c	/^C(f_freemem)		/
+frombody	../control.c	/^C(f_frombody)		/
+ftrace	../debug.c	/^C(f_ftrace)$/
+generic_install_flash	../gflash.c	/^generic_install_flash(Environ *e, Flash_methods *methods)$/
+generic_name	../pci/pci.c	/^struct generic_name generic_names[] =$/
+generic_name	../pci/pci.c	/^struct generic_name$/
+get	../funcs.c	/^CC(f_get)			/
+get_address_cells	../table.c	/^get_address_cells(Package *pkg)$/
+get_arp_info	../obptftp.c	/^get_arp_info(Environ *e, Self *s)$/
+get_bootp_info	../obptftp.c	/^get_bootp_info(Environ *e, Self *s)$/
+get_bootp_reply	../obptftp.c	/^get_bootp_reply(Environ *e, Self *s, uByte *packet)$/
+get_chipid	../pci/amdlance.c	/^get_chipid(Environ *e, Self *s, char **namep, char **partnump, int *revp)$/
+get_config	../table.c	/^get_config(Environ *e, Byte *param, Int plen)$/
+get_config_bool	../table.c	/^get_config_bool(Environ *e, Byte *param, Int plen)$/
+get_config_int	../table.c	/^get_config_int(Environ *e, Byte *param, Int plen)$/
+get_config_val	../table.c	/^get_config_val(Environ *e, Byte *param, Int plen, Byte **str, Int *slen)$/
+get_device_name	../device.c	/^get_device_name(Environ *e, Package *p, Byte *str)$/
+get_icmp_pkt	../obptftp.c	/^get_icmp_pkt(Environ *e, Self *s, uByte *packet, int *len)$/
+get_inh_prop	../packages.c	/^C(f_get_inh_prop)$/
+get_interposed_device_name	../device.c	/^get_interposed_device_name(Environ *e, Instance *i, Byte *str)$/
+get_ip_pkt	../obptftp.c	/^get_ip_pkt(Environ *e, Self *s, uByte *packet, int *len)$/
+get_key	../cmdio.c	/^get_key(Environ *e)$/
+get_lcr	../isa/ns16550.c	/^#define get_lcr/
+get_mac_pkt	../obptftp.c	/^get_mac_pkt(Environ *e, Self *s, uByte *packet, int *len)$/
+get_msecs	../other.c	/^get_msecs(Environ *e)$/
+get_my_prop	../packages.c	/^C(f_get_my_prop)$/
+get_net_params	../obptftp.c	/^get_net_params(Environ *e, Self *s)$/
+get_nvram	../nvram.c	/^get_nvram(Environ *e, Byte *param, Int plen)$/
+get_nvram	machdep.c	/^get_nvram(Environ *e, Byte *param, Int plen)$/
+get_nvram_default	../nvram.c	/^get_nvram_default(Environ *e, Byte *param, Int plen)$/
+get_nvram_default	machdep.c	/^get_nvram_default(Environ *e, Byte *param, Int plen)$/
+get_password	../cmdio.c	/^get_password(Environ *e, Byte *addr, Int len, Int *elen)$/
+get_physical_cells	../device.c	/^get_physical_cells(Package *pkg)$/
+get_ping_pkt	../obptftp.c	/^get_ping_pkt(Environ *e, Self *s, uByte *packet, int *len,$/
+get_pixel_color	../fb.c	/^get_pixel_color(int index, int pixelsize)$/
+get_pkg_prop	../packages.c	/^C(f_get_pkg_prop)$/
+get_rarp_info	../obptftp.c	/^get_rarp_info(Environ *e, Self *s)$/
+get_size_cells	../table.c	/^get_size_cells(Package *pkg)$/
+get_tftp_file	../obptftp.c	/^get_tftp_file(Environ *e, Self *s, uByte *addr, uLong *len)$/
+get_udp_pkt	../obptftp.c	/^get_udp_pkt(Environ *e, Self *s, uByte *packet, int *len, int dest_port)$/
+getdoub	../funcs.c	/^CC(f_getdoub)		/
+getmsecs	../other.c	/^CC(f_getmsecs)		/
+getoct	../funcs64.c	/^CC(f_getoct)			/
+getquad	../funcs.c	/^CC(f_getquad)		/
+gettimeofday	mac.c	/^gettimeofday(struct timeval *tv, struct timezone */
+gettoken	../control.c	/^C(f_gettoken)		/
+getudoub	../funcs.c	/^C(f_getudoub)		/
+gflash_close	../gflash.c	/^C(f_gflash_close)			/
+gflash_ftest	../gflash.c	/^C(f_gflash_ftest)				/
+gflash_load	../gflash.c	/^C(f_gflash_load)				/
+gflash_open	../gflash.c	/^C(f_gflash_open)			/
+gflash_read	../gflash.c	/^C(f_gflash_read)			/
+gflash_read_bytes	../gflash.c	/^C(f_gflash_read_bytes)			/
+gflash_seek	../gflash.c	/^C(f_gflash_seek)			/
+gflash_selftest	../gflash.c	/^C(f_gflash_selftest)		/
+gflash_write	../gflash.c	/^C(f_gflash_write)			/
+gflash_write_bytes	../gflash.c	/^C(f_gflash_write_bytes)			/
+go	../admin.c	/^C(f_go)				/
+grow_edit_buf	../nvedit.c	/^grow_edit_buf(Environ *e, Int num)$/
+growbufs	../stlb.c	/^growbufs(uInt reqsize)$/
+gt	../funcs.c	/^C(f_gt)				/
+gt0	../funcs.c	/^C(f_gt0)			/
+gteq	../funcs.c	/^C(f_gteq)			/
+gteq0	../funcs.c	/^C(f_gteq0)			/
+gtin	../forth.c	/^C(f_gtin)           /
+guard_t	../stdlib.c	/^typedef size_t guard_t;$/
+handle_interposers	../device.c	/^handle_interposers(Environ *e, Instance *inst, char *unit,$/
+hash	../funcs.c	/^C(f_hash)			/
+hash_str	../table.c	/^hash_str(Byte *str, Int len)$/
+hash_table	../table.c	/^hash_table(Table *t)$/
+hashgt	../funcs.c	/^C(f_hashgt)			/
+hashs	../funcs.c	/^C(f_hashs)			/
+headerless	../device.c	/^C(f_headerless)		/
+headers	../device.c	/^C(f_headers)		/
+help	../other.c	/^C(f_help)			/
+here	../control.c	/^C(f_here)			/
+hnum	../forth.c	/^C(f_hnum)			/
+hold	../funcs.c	/^C(f_hold)			/
+i	../control.c	/^C(f_i)				/
+i2phandle	../packages.c	/^C(f_i2phandle)		/
+icmp_checksum	../obptftp.c	/^icmp_checksum(uByte *packet, int len)$/
+icmp_header	../obptftp.c	/^struct icmp_header$/
+if	../forth.c	/^C(f_if)				/
+immediate	../forth.c	/^C(f_immediate)		/
+inb	../isa/ne2000.c	/^#define inb/
+inb	../isa/vga.c	/^inb(int port)$/
+init_block	../pci/amdlance.c	/^struct init_block$/
+init_drive	../isa/atadisk.c	/^init_drive(Environ *e, Self *s)$/
+init_edit	../nvedit.c	/^init_edit(Environ *e)$/
+init_entries	../table.c	/^init_entries(Environ *e, Table *table, const Initentry initnames[])$/
+init_environ	../table.c	/^init_environ(Environ *self)$/
+init_gui	mac.c	/^init_gui(int argc, char **argv)$/
+init_gui	x11.c	/^init_gui(int argc, char **argv)$/
+init_malloc	../stdlib.c	/^init_malloc(void *memory, size_t max)$/
+init_names	../table.c	/^init_names(Environ *e)$/
+init_options_from_nvram	../nvram.c	/^CC(init_options_from_nvram)$/
+init_options_from_nvram	machdep.c	/^CC(init_options_from_nvram)$/
+init_program	../admin.c	/^C(f_init_program)	/
+initentry	../defs.h	/^struct initentry$/
+input	../admin.c	/^C(f_input)			/
+input	../defs.h	/^struct input$/
+insert_table	../table.c	/^insert_table(Table *t, Entry *e)$/
+install_chosen	../chosen.c	/^CC(install_chosen)$/
+install_client_services	../client.c	/^CC(install_client_services)$/
+install_console	../admin.c	/^CC(f_install_console)	/
+install_cpu	../cpu.c	/^CC(install_cpu)$/
+install_deblocker	../deblock.c	/^CC(install_deblocker)$/
+install_dec_ether_driver	../pci/decether.c	/^PCI(install_dec_ether_driver)$/
+install_disklabel	../disklbl.c	/^CC(install_disklabel)$/
+install_display	../display.c	/^CC(install_display)$/
+install_ethexpro_driver	../pci/ethexpro.c	/^PCI(install_ethexpro_driver)$/
+install_failsafe	../failsafe.c	/^CC(install_failsafe)$/
+install_fake_disk_driver	fakedisk.c	/^CC(install_fake_disk_driver)$/
+install_fake_net_driver	fakenet.c	/^CC(install_fake_net_driver)$/
+install_fake_net_driver	fakenet2.c	/^CC(install_fake_net_driver)$/
+install_gui	mac.c	/^CC(install_gui)$/
+install_gui	x11.c	/^CC(install_gui)$/
+install_isa	../isa/isa.c	/^install_isa(Environ *e, Package *pkg)$/
+install_lance_driver	../pci/amdlance.c	/^PCI(install_lance_driver)$/
+install_memory	../memory.c	/^CC(install_memory)$/
+install_ncr_driver	../pci/ncrscsi.c	/^PCI(install_ncr_driver)$/
+install_obptftp	../obptftp.c	/^CC(install_obptftp)$/
+install_packages	../table.c	/^install_packages(Environ *e)$/
+install_pci	../pci/pci.c	/^CC(install_pci)$/
+install_pci_display_driver	../pci/pcidisp.c	/^PCI(install_pci_display_driver)$/
+install_pciisa	../pci/pciisa.c	/^install_pciisa(Environ *e)$/
+install_pciisa_driver	../pci/pciisa.c	/^PCI(install_pciisa_driver)$/
+install_powerpc_cpu	../cpu-ppc.c	/^CC(install_powerpc_cpu)$/
+install_root	../root.c	/^CC(install_root)$/
+install_stdio	../stdio.c	/^CC(install_stdio)$/
+instance	../control.c	/^C(f_instance)		/
+instance	../defs.h	/^struct instance$/
+interact	../debug.c	/^CC(f_interact)		/
+interp_fcode	../exec.c	/^interp_fcode(Environ *e, Byte *fcode, Int fnext)$/
+interp_text	../exec.c	/^interp_text(Environ *e, Byte *str, Int len)$/
+interpose	../device.c	/^C(f_interpose)		/
+interpret	../exec.c	/^interpret(Environ *e)$/
+invert	../funcs.c	/^C(f_invert)			/
+io	../admin.c	/^C(f_io)				/
+io_desc	../pci/decether.c	/^struct io_desc$/
+ip_checksum	../obptftp.c	/^ip_checksum(uByte *packet)$/
+ip_header	../obptftp.c	/^struct ip_header$/
+iplusbyte	../funcs.c	/^C(f_iplusbyte)		/
+ipluscell	../funcs.c	/^C(f_ipluscell)		/
+iplusdoub	../funcs.c	/^C(f_iplusdoub)		/
+iplusoct	../funcs64.c	/^C(f_iplusoct)		/
+iplusquad	../funcs.c	/^C(f_iplusquad)		/
+ipwd	../device.c	/^C(f_ipwd)				/
+is_close	../display.c	/^C(f_is_close)		/
+is_draw_logo	../display.c	/^C(f_is_draw_logo)	/
+is_install	../display.c	/^CC(f_is_install)		/
+is_ip_broadcast	../obptftp.c	/^is_ip_broadcast(uByte ip[])$/
+is_ip_zero	../obptftp.c	/^is_ip_zero(uByte ip[])$/
+is_mac_broadcast	../obptftp.c	/^is_mac_broadcast(uByte mac[])$/
+is_mac_zero	../obptftp.c	/^is_mac_zero(uByte mac[])$/
+is_open	../display.c	/^C(f_is_open)		/
+is_remove	../display.c	/^CC(f_is_remove)		/
+is_restore	../display.c	/^C(f_is_restore)		/
+is_selftest	../display.c	/^CC(f_is_selftest)		/
+is_test	../display.c	/^C(f_is_test)		/
+is_write	../display.c	/^CC(f_is_write)		/
+isa_close	../isa/isa.c	/^C(f_isa_close)			/
+isa_decode_unit	../isa/isa.c	/^C(f_isa_decode_unit)	/
+isa_device	../isa/isa.h	/^struct isa_device$/
+isa_dma_alloc	../isa/isa.c	/^C(f_isa_dma_alloc)			/
+isa_dma_free	../isa/isa.c	/^C(f_isa_dma_free)			/
+isa_dma_map_in	../isa/isa.c	/^C(f_isa_dma_map_in)			/
+isa_dma_map_out	../isa/isa.c	/^C(f_isa_dma_map_out)		/
+isa_dma_sync	../isa/isa.c	/^C(f_isa_dma_sync)			/
+isa_encode_unit	../isa/isa.c	/^C(f_isa_encode_unit)	/
+isa_map_in	../isa/isa.c	/^C(f_isa_map_in)			/
+isa_map_out	../isa/isa.c	/^C(f_isa_map_out)		/
+isa_open	../isa/isa.c	/^C(f_isa_open)			/
+isa_probe_pnp	../isa/isa.c	/^C(f_isa_probe_pnp)			/
+isa_probe_self	../isa/isa.c	/^C(f_isa_probe_self)$/
+isa_self	../isa/kbd.c	/^struct isa_self$/
+isalpha	../ctype.h	/^#define	isalpha/
+isblank	../ctype.h	/^#define isblank/
+isblank	../defs.h	/^#	define isblank/
+isdigit	../ctype.h	/^#define	isdigit/
+islower	../ctype.h	/^#define	islower/
+isprint	../ctype.h	/^#define	isprint/
+isspace	../ctype.h	/^#define	isspace/
+isupper	../ctype.h	/^#define	isupper/
+isuserword	../control.c	/^C(f_isuserword)$/
+isxdigit	../ctype.h	/^#define	isxdigit/
+j	../control.c	/^C(f_j)				/
+jedec_manuf_info	../jedec.c	/^struct jedec_manuf_info *jedec_tables[] = $/
+jedec_manuf_info	../jedec.c	/^struct jedec_manuf_info jedec_table1[] = $/
+jedec_manuf_info	../jedec.c	/^struct jedec_manuf_info jedec_table2[] = $/
+jedec_manuf_info	../jedec.c	/^struct jedec_manuf_info jedec_table3[] = $/
+jedec_manuf_info	../jedec.c	/^struct jedec_manuf_info$/
+join_line	../nvedit.c	/^join_line(Environ *e, Int line, Int col)$/
+kbc_get_cmd	../isa/kbd.c	/^kbc_get_cmd()$/
+kbc_put_cmd	../isa/kbd.c	/^kbc_put_cmd(uByte cmd)$/
+kbd_close	../isa/kbd.c	/^C(f_kbd_close)			/
+kbd_cmd	../isa/kbd.c	/^kbd_cmd(uByte cmd)$/
+kbd_flush	../isa/kbd.c	/^kbd_flush()$/
+kbd_in	../isa/kbd.c	/^kbd_in(int port)$/
+kbd_install	../isa/kbd.c	/^ISA(kbd_install)$/
+kbd_open	../isa/kbd.c	/^C(f_kbd_open)			/
+kbd_out	../isa/kbd.c	/^kbd_out(int port, uByte val)$/
+kbd_probe	../isa/kbd.c	/^ISA(kbd_probe)$/
+kbd_read	../isa/kbd.c	/^C(f_kbd_read)			/
+kbd_selftest	../isa/kbd.c	/^C(f_kbd_selftest)		/
+kbd_wait_kbd	../isa/kbd.c	/^kbd_wait_kbd()$/
+kbd_wait_sys	../isa/kbd.c	/^kbd_wait_sys()$/
+key	../funcs.c	/^C(f_key)			/
+key_down	../cmdio.c	/^key_down(Environ *e)$/
+keyq	../funcs.c	/^C(f_keyq)			/
+label	../other.c	/^C(f_label)			/
+lance_close	../pci/amdlance.c	/^C(f_lance_close)			/
+lance_dma_alloc	../pci/amdlance.c	/^C(f_lance_dma_alloc)		/
+lance_dma_free	../pci/amdlance.c	/^C(f_lance_dma_free)			/
+lance_eeprom_dump	../pci/amdlance.c	/^C(f_lance_eeprom_dump)			/
+lance_eeprom_setmac	../pci/amdlance.c	/^C(f_lance_eeprom_setmac)		/
+lance_load	../pci/amdlance.c	/^C(f_lance_load)				/
+lance_open	../pci/amdlance.c	/^C(f_lance_open)			/
+lance_ping	../pci/amdlance.c	/^C(f_lance_ping)				/
+lance_read	../pci/amdlance.c	/^C(f_lance_read)				/
+lance_selftest	../pci/amdlance.c	/^C(f_lance_selftest)			/
+lance_write	../pci/amdlance.c	/^C(f_lance_write)			/
+lbflip	../funcs.c	/^C(f_lbflip)			/
+lbflips	../funcs.c	/^C(f_lbflips)		/
+lbracket	../forth.c	/^C(f_lbracket)		/
+lbsplit	../funcs.c	/^C(f_lbsplit)		/
+lcc	../funcs.c	/^C(f_lcc)			/
+ldump	../debug.c	/^C(f_ldump)				/
+leave	../forth.c	/^C(f_leave)			/
+left_parse_str	../packages.c	/^C(f_left_parse_str)$/
+left_split	../device.c	/^left_split(char *str, int ch, char *head, char *tail)$/
+linecomment	../forth.c	/^C(f_linecomment)	/
+linefeed	../forth.c	/^C(f_linefeed)		/
+literal	../forth.c	/^C(f_literal)		/
+load	../admin.c	/^C(f_load)			/
+load_base	../sun.c	/^C(f_load_base)		/
+load_file	../token.c	/^C(f_load_file)		/
+load_file	../token.c	/^load_file(Environ *e, const char *fname)$/
+load_nvram	../nvram.c	/^load_nvram(void)$/
+look_and_mark	../debug.c	/^look_and_mark(Environ *e, Entry *ent, Byte *mark)$/
+look_for	../debug.c	/^look_for(Environ *e, Package *pkg, Look_for what, Byte *str, Int len)$/
+look_for2	../debug.c	/^look_for2(Environ *e, Package *pkg, Look_for what, Byte *str, Int len)$/
+look_for_entry	../debug.c	/^look_for_entry(Environ *e, Package *pkg, Entry *ent,$/
+look_for_pkg	../debug.c	/^look_for_pkg(Environ *e, Package *pkg, Look_for what, Byte *str, Int len)$/
+look_for_table	../debug.c	/^look_for_table(Environ *e, Package *pkg, Table *tab,$/
+look_for_xt	../debug.c	/^look_for_xt(Environ *e, Entry *ent, Look_for what, Int xtok)$/
+lookup32	../stlb.c	/^lookup32(uInt a32)$/
+lookup64	../stlb.c	/^lookup64(uLong a64)$/
+lookup_sym	../table.c	/^lookup_sym(Environ *e, Byte *str, Int len)$/
+loop	../forth.c	/^C(f_loop)			/
+lpeek	../other.c	/^C(f_lpeek)			/
+lpoke	../other.c	/^C(f_lpoke)			/
+ls	../device.c	/^C(f_ls)			/
+lshift	../funcs.c	/^C(f_lshift)			/
+lstrcpy	../table.c	/^lstrcpy(Byte *nstr, Byte *str, Int len)$/
+lstrdup	../table.c	/^lstrdup(Byte *str, Int len)$/
+lt	../funcs.c	/^C(f_lt)				/
+lt0	../funcs.c	/^C(f_lt0)			/
+lteq	../funcs.c	/^C(f_lteq)			/
+lteq0	../funcs.c	/^C(f_lteq0)			/
+lthash	../funcs.c	/^C(f_lthash)			/
+lwflip	../funcs.c	/^C(f_lwflip)			/
+lwflips	../funcs.c	/^C(f_lwflips)		/
+lwsplit	../funcs.c	/^C(f_lwsplit)		/
+lxjoin	../funcs64.c	/^C(f_lxjoin)			/
+mac_address	../other.c	/^CC(f_mac_address)	/
+mac_close	mac.c	/^C(f_mac_close)			/
+mac_color_get	mac.c	/^C(f_mac_color_get)		/
+mac_color_set	mac.c	/^C(f_mac_color_set)		/
+mac_dimensions	mac.c	/^C(f_mac_dimensions)		/
+mac_get_colors	mac.c	/^C(f_mac_get_colors)		/
+mac_header	../obptftp.c	/^struct mac_header$/
+mac_in_open	mac.c	/^C(f_mac_in_open)				/
+mac_install_abort	mac.c	/^C(f_mac_install_abort)			/
+mac_open	mac.c	/^C(f_mac_open)			/
+mac_read	mac.c	/^C(f_mac_read)			/
+mac_remove_abort	mac.c	/^C(f_mac_remove_abort)			/
+mac_set_colors	mac.c	/^C(f_mac_set_colors)		/
+mac_write	mac.c	/^C(f_mac_write)			/
+machine_callback	machdep.c	/^machine_callback(Environ *e, Callback *func, Cell *array)$/
+machine_diag_switch	machdep.c	/^machine_diag_switch(Environ *e)$/
+machine_font	machdep.c	/^CC(machine_font)		/
+machine_gettime	machdep.c	/^machine_gettime(Environ *e, Time_value *tv)$/
+machine_go	machdep.c	/^CC(machine_go)				/
+machine_init_args	../nvram.c	/^machine_init_args(Environ *e, int argc, char *argv[])$/
+machine_init_args	machdep.c	/^machine_init_args(Environ *e, int argc, char *argv[])$/
+machine_init_load	machdep.c	/^CC(machine_init_load)$/
+machine_init_program	machdep.c	/^CC(machine_init_program)	/
+machine_initialize	machdep.c	/^machine_initialize(void)$/
+machine_led_write	machdep.c	/^machine_led_write(Environ *e, Int n)$/
+machine_memory_test	machdep.c	/^machine_memory_test(Environ *e, Cell addr, Cell len, Cell mask, Bool diag)$/
+machine_pci_translate	machdep.c	/^machine_pci_translate(Cell addr, Int *pci_addr, Bool *io)$/
+machine_probe_all	machdep.c	/^CC(machine_probe_all)		/
+machine_probe_read	machdep.c	/^machine_probe_read(Environ *e, Cell addr, Cell *value, int size)$/
+machine_probe_write	machdep.c	/^machine_probe_write(Environ *e, Cell addr, Cell value, int size)$/
+machine_reg_read	machdep.c	/^machine_reg_read(Environ *e, Cell addr, Cell *value, int size)$/
+machine_reg_write	machdep.c	/^machine_reg_write(Environ *e, Cell addr, Cell value, int size)$/
+machine_reset_all	machdep.c	/^machine_reset_all(Environ *e)$/
+machine_secondary_diag	machdep.c	/^CC(machine_secondary_diag)	/
+machine_test_begin	machdep.c	/^machine_test_begin(Environ *e)$/
+machine_test_fail	machdep.c	/^machine_test_fail(Environ *e)$/
+machine_test_pass	machdep.c	/^machine_test_pass(Environ *e)$/
+machine_unalign_read	machdep.c	/^machine_unalign_read(Environ *e, Cell addr, Cell *value, int size)$/
+machine_unalign_write	machdep.c	/^machine_unalign_write(Environ *e, Cell addr, Cell value, int size)$/
+macintosh	mw-predefs.h	/^#define macintosh/
+main	../alloc.c	/^main(int argc, char **argv)$/
+main	../main.c	/^main(int argc, char **argv)$/
+make_available	../cpu-ppc.c	/^make_available(Environ *e, Package *mmu)$/
+make_available	../cpu.c	/^make_available(Environ *e, Package *mmu)$/
+make_available	../memory.c	/^make_available(Environ *e)$/
+make_devalias	../device.c	/^make_devalias(Environ *e, Byte *alias, Int alen, Byte *device, Int dlen)$/
+make_existing	../cpu-ppc.c	/^make_existing(Environ *e, Package *mmu)$/
+make_existing	../cpu.c	/^make_existing(Environ *e, Package *mmu)$/
+make_properties	../pci/pci.c	/^C(f_make_properties)			/
+make_reg_prop	../cpu-ppc.c	/^make_reg_prop(Environ *e, Package *mmu, Byte *propname)$/
+make_reg_prop	../cpu.c	/^make_reg_prop(Environ *e, Package *mmu, Byte *propname)$/
+malloc	../stdlib.c	/^#	define malloc/
+malloc	../stdlib.c	/^malloc(size_t sz)$/
+malloc	mw-malloc.c	/^malloc(size_t sz)$/
+map	../stlb.c	/^struct map$/
+map32to64	../stlb.c	/^map32to64(uInt a32)$/
+map64to32	../stlb.c	/^map64to32(uLong a64)$/
+match_str	../debug.c	/^match_str(Environ *e, Byte *s1, Int l1, Byte *s2, Int l2)$/
+match_table	../cmdio.c	/^match_table(Environ *e, Table *tab, Byte *word, Byte *match, Bool show,$/
+max	../funcs.c	/^C(f_max)			/
+md1_error_str	../pci/amdlance.c	/^md1_error_str(uInt md1)$/
+md3_error_str	../pci/amdlance.c	/^md3_error_str(uInt md3)$/
+mdi_read	../pci/ethexpro.c	/^mdi_read(Environ *e, Self *s, int phy, int reg)$/
+mdi_write	../pci/ethexpro.c	/^mdi_write(Environ *e, Self *s, int phy, int reg, int value)$/
+mds	../pci/amdlance.c	/^struct mds$/
+mem_stats	../debug.c	/^C(f_mem_stats)		/
+memalign	../stdlib.c	/^#	define memalign/
+memalign	../stdlib.c	/^memalign(size_t align, size_t sz)$/
+membar_read	../pci/amdlance.c	/^C(f_membar_read)			/
+membar_write	../pci/amdlance.c	/^C(f_membar_write)			/
+memcmp	../stdlib.c	/^memcmp(const void *m1, const void *m2, size_t len)$/
+memcpy	../stdlib.c	/^memcpy(void *dst, const void *src, size_t len)$/
+meminfo	../stdlib.c	/^meminfo(size_t *allocspc, size_t *freespc, size_t *allocblks,$/
+memmove	../stdlib.c	/^memmove(void *dst, const void *src, size_t len)$/
+memory_claim	../memory.c	/^C(f_memory_claim)		/
+memory_close	../memory.c	/^C(f_memory_close)			/
+memory_open	../memory.c	/^C(f_memory_open)			/
+memory_release	../memory.c	/^C(f_memory_release)			/
+memory_selftest	../memory.c	/^C(f_memory_selftest)			/
+memory_test	../other.c	/^CC(f_memory_test)	/
+memset	../stdlib.c	/^memset(void *ptr, int val, size_t len)$/
+min	../funcs.c	/^C(f_min)			/
+minus	../funcs.c	/^C(f_minus)			/
+mmove	../isa/vga.c	/^mmove(uShort *d, uShort *s, size_t len)$/
+mmu_claim	../cpu-ppc.c	/^C(f_mmu_claim)		/
+mmu_claim	../cpu.c	/^C(f_mmu_claim)		/
+mmu_in_use	../root.c	/^mmu_in_use(Environ *e)$/
+mmu_map	../cpu-ppc.c	/^C(f_mmu_map)		/
+mmu_map	../cpu.c	/^C(f_mmu_map)		/
+mmu_modify	../cpu-ppc.c	/^C(f_mmu_modify)		/
+mmu_modify	../cpu.c	/^C(f_mmu_modify)		/
+mmu_release	../cpu-ppc.c	/^C(f_mmu_release)			/
+mmu_release	../cpu.c	/^C(f_mmu_release)			/
+mmu_translate	../cpu-ppc.c	/^C(f_mmu_translate)$/
+mmu_translate	../cpu.c	/^C(f_mmu_translate)$/
+mmu_unmap	../cpu-ppc.c	/^C(f_mmu_unmap)		/
+mmu_unmap	../cpu.c	/^C(f_mmu_unmap)		/
+mod	../funcs.c	/^C(f_mod)			/
+model	../packages.c	/^C(f_model)			/
+move	../funcs.c	/^C(f_move)			/
+move	../nvedit.c	/^move(Environ *e, Int line, Int col)$/
+mrot	../funcs.c	/^C(f_mrot)			/
+ms	../other.c	/^CC(f_ms)			/
+mtimes	../forth.c	/^C(f_mtimes)			/
+mtrailing	../forth.c	/^C(f_mtrailing)		/
+multdiv	../forth.c	/^C(f_multdiv)		/
+multdivmod	../forth.c	/^C(f_multdivmod)		/
+multdoub	../funcs.c	/^C(f_multdoub)		/
+multoct	../funcs64.c	/^C(f_multoct)		/
+multquad	../funcs.c	/^C(f_multquad)		/
+my_address	../packages.c	/^C(f_my_address)		/
+my_args	../packages.c	/^C(f_my_args)		/
+my_parent	../packages.c	/^C(f_my_parent)		/
+my_space	../packages.c	/^C(f_my_space)		/
+my_unit	../packages.c	/^C(f_my_unit)		/
+name_match	../device.c	/^name_match(Environ *e, char *name, Byte *pname, Int plen)$/
+namedtoken	../control.c	/^C(f_namedtoken)		/
+ncr_alarm	../pci/ncrscsi.c	/^C(f_ncr_alarm)			/
+ncr_close	../pci/ncrscsi.c	/^C(f_ncr_close)			/
+ncr_decode_unit	../pci/ncrscsi.c	/^C(f_ncr_decode_unit)		/
+ncr_diagnose	../pci/ncrscsi.c	/^C(f_ncr_diagnose)				/
+ncr_dma_alloc	../pci/ncrscsi.c	/^C(f_ncr_dma_alloc)			/
+ncr_dma_free	../pci/ncrscsi.c	/^C(f_ncr_dma_free)			/
+ncr_dma_test	../pci/ncrscsi.c	/^C(f_ncr_dma_test)			/
+ncr_encode_unit	../pci/ncrscsi.c	/^C(f_ncr_encode_unit)		/
+ncr_execute_command	../pci/ncrscsi.c	/^C(f_ncr_execute_command)$/
+ncr_max_transfer	../pci/ncrscsi.c	/^C(f_ncr_max_transfer)		/
+ncr_no_data_command	../pci/ncrscsi.c	/^C(f_ncr_no_data_command)		/
+ncr_open	../pci/ncrscsi.c	/^C(f_ncr_open)			/
+ncr_reg	../pci/ncrscsi.c	/^struct ncr_reg$/
+ncr_retry_command	../pci/ncrscsi.c	/^C(f_ncr_retry_command)$/
+ncr_selftest	../pci/ncrscsi.c	/^C(f_ncr_selftest)			/
+ncr_set_address	../pci/ncrscsi.c	/^C(f_ncr_set_address)		/
+ncr_set_timeout	../pci/ncrscsi.c	/^C(f_ncr_set_timeout)		/
+ncr_short_data_command	../pci/ncrscsi.c	/^C(f_ncr_short_data_command)$/
+ncr_show_children	../pci/ncrscsi.c	/^C(f_ncr_show_children)			/
+ne2000_close	../isa/ne2000.c	/^C(f_ne2000_close)			/
+ne2000_dma_alloc	../isa/ne2000.c	/^C(f_ne2000_dma_alloc)		/
+ne2000_dma_free	../isa/ne2000.c	/^C(f_ne2000_dma_free)			/
+ne2000_install	../isa/ne2000.c	/^ISA(ne2000_install)$/
+ne2000_load	../isa/ne2000.c	/^C(f_ne2000_load)				/
+ne2000_open	../isa/ne2000.c	/^C(f_ne2000_open)			/
+ne2000_ping	../isa/ne2000.c	/^C(f_ne2000_ping)				/
+ne2000_probe	../isa/ne2000.c	/^ISA(ne2000_probe)$/
+ne2000_read	../isa/ne2000.c	/^C(f_ne2000_read)				/
+ne2000_selftest	../isa/ne2000.c	/^C(f_ne2000_selftest)			/
+ne2000_write	../isa/ne2000.c	/^C(f_ne2000_write)			/
+neg	../alloc.c	/^neg(uInt a[], uInt b[], int cells)$/
+negate	../funcs.c	/^C(f_negate)			/
+neq0	../funcs.c	/^C(f_neq0)			/
+new_allocator	../alloc.c	/^new_allocator(Test_allocator *a, int acells, int scells)$/
+new_and_open	../device.c	/^new_and_open(Environ *e, Package *pkg, char *args, char *unit,$/
+new_device	../packages.c	/^CC(f_new_device)		/
+new_entry	../table.c	/^new_entry(void)$/
+new_instance	../table.c	/^new_instance(Package *pkg)$/
+new_isa_device	../isa/isa.c	/^new_isa_device(Environ *e, Isa_device *dev)$/
+new_nvram	../nvram.c	/^new_nvram(Environ *e, Byte *param, Int plen, Int maxlen)$/
+new_nvram	machdep.c	/^new_nvram(Environ *e, Byte *param, Int plen, Int maxlen)$/
+new_package	../table.c	/^new_package(Package *parent)$/
+new_pkg_name	../table.c	/^new_pkg_name(Package *parent, char *name)$/
+new_table	../table.c	/^new_table(void)$/
+newtoken	../control.c	/^C(f_newtoken)		/
+next_fcode_byte	../exec.c	/^next_fcode_byte(Environ *e)$/
+next_fcode_num	../exec.c	/^next_fcode_num(Environ *e)$/
+next_fcode_num32	../exec.c	/^next_fcode_num32(Environ *e)$/
+next_fcode_num64	../exec.c	/^next_fcode_num64(Environ *e)$/
+next_fcode_offset	../exec.c	/^next_fcode_offset(Environ *e)$/
+next_fcode_pointer	../exec.c	/^next_fcode_pointer(Environ *e)$/
+next_fcode_string	../exec.c	/^next_fcode_string(Environ *e, Byte **str)$/
+next_xtok	../table.c	/^next_xtok(Environ *e)$/
+nextprop	../packages.c	/^C(f_nextprop)$/
+nip	../funcs.c	/^C(f_nip)			/
+nodebug	../debug.c	/^C(f_nodebug)			/
+nodefault_bytes	../admin.c	/^C(f_nodefault_bytes)$/
+noop	../control.c	/^C(f_noop)			/
+noshowstack	../debug.c	/^C(f_noshowstack)		/
+not	../alloc.c	/^not(uInt a[], uInt b[], int cells)$/
+noteq	../funcs.c	/^C(f_noteq)			/
+ns16550_close	../isa/ns16550.c	/^C(f_ns16550_close)			/
+ns16550_install	../isa/ns16550.c	/^ISA(ns16550_install)$/
+ns16550_install_abort	../isa/ns16550.c	/^C(f_ns16550_install_abort)		/
+ns16550_open	../isa/ns16550.c	/^C(f_ns16550_open)			/
+ns16550_probe	../isa/ns16550.c	/^ISA(ns16550_probe)$/
+ns16550_read	../isa/ns16550.c	/^C(f_ns16550_read)			/
+ns16550_remove_abort	../isa/ns16550.c	/^C(f_ns16550_remove_abort)		/
+ns16550_selftest	../isa/ns16550.c	/^C(f_ns16550_selftest)		/
+ns16550_set_mode	../isa/ns16550.c	/^C(f_ns16550_set_mode)			/
+ns16550_write	../isa/ns16550.c	/^C(f_ns16550_write)			/
+nvalias	../nvedit.c	/^C(f_nvalias)		/
+nvedit	../nvedit.c	/^C(f_nvedit)			/
+nvquit	../nvedit.c	/^C(f_nvquit)				/
+nvramrc	../admin.c	/^C(f_nvramrc)		/
+nvrecover	../nvedit.c	/^C(f_nvrecover)			/
+nvrun	../nvedit.c	/^C(f_nvrun)				/
+nvstore	../nvedit.c	/^C(f_nvstore)			/
+nvunalias	../nvedit.c	/^C(f_nvunalias)			/
+obptftp_close	../obptftp.c	/^C(f_obptftp_close)			/
+obptftp_load	../obptftp.c	/^C(f_obptftp_load)			/
+obptftp_open	../obptftp.c	/^C(f_obptftp_open)			/
+obptftp_ping	../obptftp.c	/^C(f_obptftp_ping)				/
+oem_logo	../admin.c	/^C(f_oem_logo)		/
+of	../forth.c	/^C(f_of)				/
+off	../funcs.c	/^C(f_off)			/
+offset16	../control.c	/^C(f_offset16)		/
+on	../funcs.c	/^C(f_on)				/
+onum	../forth.c	/^C(f_onum)			/
+opcr	../funcs.c	/^C(f_opcr)			/
+open_dev	../device.c	/^CC(f_open_dev)		/
+open_package	../packages.c	/^C(f_open_package)$/
+or	../alloc.c	/^or(uInt a[], uInt b[], uInt c[], int cells)$/
+or	../funcs.c	/^C(f_or)				/
+out_nchars	../cmdio.c	/^out_nchars(Environ *e, Int c, Int num)$/
+outb	../isa/ne2000.c	/^#define outb/
+outb	../isa/vga.c	/^outb(int port, uByte val)$/
+output	../admin.c	/^C(f_output)			/
+output_line	../cmdio.c	/^output_line(Environ *e, Byte *text, Int len)$/
+output_text	../cmdio.c	/^output_text(Environ *e, Byte *text, Int len)$/
+over	../funcs.c	/^C(f_over)			/
+pack	../funcs.c	/^C(f_pack)			/
+package	../defs.h	/^struct package$/
+package_name	../device.c	/^package_name(Environ *e, Package *p, Byte *name)$/
+parendebug	../debug.c	/^C(f_parendebug)		/
+parennodebug	../debug.c	/^C(f_parennodebug)		/
+parse	../cmdio.c	/^parse(Environ *e, Int delim, Bool whsp, Byte **rstr, Int *rlen)$/
+parse	../forth.c	/^C(f_parse)			/
+parse_2int	../packages.c	/^C(f_parse_2int)		/
+parse_cells	../alloc.c	/^parse_cells(char *str, char **end, uInt *cells, int ncells, uInt **null)$/
+parse_int	../alloc.c	/^parse_int(char *str, char **end, int *n)$/
+parse_ip	../obptftp.c	/^parse_ip(Environ *e, Byte **str, uByte ip[], const char *errstr)$/
+parse_line	../cmdio.c	/^parse_line(Environ *e)$/
+parse_line_len	../cmdio.c	/^parse_line_len(Environ *e, Byte **rstr, Int *rlen)$/
+parse_mac_addr	../other.c	/^parse_mac_addr(Environ *e, Byte **str, uByte mac_addr[], const char *errstr)$/
+parse_number	../cmdio.c	/^parse_number(Int radix, Byte **str, Int *len, Cell *val,$/
+parse_word	../cmdio.c	/^parse_word(Environ *e)$/
+parse_word	../forth.c	/^C(f_parse_word)		/
+parse_word_len	../cmdio.c	/^parse_word_len(Environ *e, Byte **rstr, Int *rlen)$/
+parse_word_len_refill	../cmdio.c	/^parse_word_len_refill(Environ *e, Byte **rstr, Int *rlen, Bool refill)$/
+partdesc	../pci/pci.c	/^partdesc(int venid, int devid, int null)$/
+partnum	../pci/pci.c	/^partnum(int venid, int devid, int null)$/
+password	../admin.c	/^C(f_password)				/
+patch	../debug.c	/^C(f_patch)			/
+patch_offset	../exec.c	/^patch_offset(Byte *ptr, Int o)$/
+pci_address_block	../pci/pci.h	/^struct pci_address_block$/
+pci_address_window	../pci/cardbus.c	/^struct pci_address_window $/
+pci_address_window	../pci/ppb.c	/^struct pci_address_window $/
+pci_addresses	../pci/pci.h	/^struct pci_addresses$/
+pci_allocate_block	../pci/pcialloc.c	/^pci_allocate_block(Pci_address_block **blocks, $/
+pci_allocate_buses	../pci/pcialloc.c	/^pci_allocate_buses(Pci_addresses *addrs, int num)$/
+pci_allocate_fixed_block	../pci/pcialloc.c	/^pci_allocate_fixed_block(Pci_address_block **blocks,$/
+pci_allocate_io10	../pci/pcialloc.c	/^pci_allocate_io10(Pci_addresses *addrs, uInt size)$/
+pci_allocate_io16	../pci/pcialloc.c	/^pci_allocate_io16(Pci_addresses *addrs, uInt size)$/
+pci_allocate_io32	../pci/pcialloc.c	/^pci_allocate_io32(Pci_addresses *addrs, uInt size)$/
+pci_allocate_mem20	../pci/pcialloc.c	/^pci_allocate_mem20(Pci_addresses *addrs, uInt size)$/
+pci_allocate_mem32	../pci/pcialloc.c	/^pci_allocate_mem32(Pci_addresses *addrs, uInt size)$/
+pci_allocate_mem64	../pci/pcialloc.c	/^pci_allocate_mem64(Pci_addresses *addrs, uInt sizehi, uInt sizelo,$/
+pci_allocate_pmem32	../pci/pcialloc.c	/^pci_allocate_pmem32(Pci_addresses *addrs, uInt size)$/
+pci_allocate_pmem64	../pci/pcialloc.c	/^pci_allocate_pmem64(Pci_addresses *addrs, uInt sizehi, uInt sizelo,$/
+pci_assign_address_space	../pci/pci.c	/^pci_assign_address_space(Environ *e, Package *cpkg, Int hbridge, Int bus,$/
+pci_assign_package_address	../pci/pci.c	/^C(f_pci_assign_package_address)	/
+pci_bar_size	../pci/pci.c	/^pci_bar_size(Environ *e, Pci_device_info *devinfo, Int reg, Int *ptype,$/
+pci_bus_package	../pci/fakepci.c	/^pci_bus_package(Environ *e, Int hbridge, Package **pkg)$/
+pci_close	../pci/pci.c	/^C(f_pci_close)			/
+pci_config_getbyte	../pci/pci.c	/^C(f_pci_config_getbyte)		/
+pci_config_getdoub	../pci/pci.c	/^C(f_pci_config_getdoub)		/
+pci_config_getquad	../pci/pci.c	/^C(f_pci_config_getquad)		/
+pci_config_map_intr	../pci/fakepci.c	/^pci_config_map_intr(Int hbridge, Int bus, Int dev, Int pin, Int *intr)$/
+pci_config_read	../pci/fakepci.c	/^pci_config_read(Int hbridge, Int bus, Int dev, Int func, Int addr)$/
+pci_config_setbyte	../pci/pci.c	/^C(f_pci_config_setbyte)		/
+pci_config_setdoub	../pci/pci.c	/^C(f_pci_config_setdoub)		/
+pci_config_setquad	../pci/pci.c	/^C(f_pci_config_setquad)		/
+pci_config_write	../pci/fakepci.c	/^pci_config_write(Int hbridge, Int bus, Int dev, Int func, Int addr, Int value)$/
+pci_decode_reg_prop	../pci/pci.c	/^pci_decode_reg_prop(Byte **arr, Int *len, Int *physhi, Int *physmid,$/
+pci_decode_unit	../pci/pci.c	/^C(f_pci_decode_unit)	/
+pci_destroy_blocks	../pci/pcialloc.c	/^pci_destroy_blocks(Pci_address_block *blocks)$/
+pci_destroy_pool	../pci/pcialloc.c	/^pci_destroy_pool(Pci_addresses *pool)$/
+pci_device_info	../pci/pci.h	/^struct pci_device_info$/
+pci_dma_alloc	../pci/fakepci.c	/^pci_dma_alloc(Int hbridge, Cell size, Cell *virt)$/
+pci_dma_alloc	../pci/pci.c	/^C(f_pci_dma_alloc)		/
+pci_dma_free	../pci/fakepci.c	/^pci_dma_free(Int hbridge, Cell virt, Cell size)$/
+pci_dma_free	../pci/pci.c	/^C(f_pci_dma_free)		/
+pci_dma_map_in	../pci/fakepci.c	/^pci_dma_map_in(Int hbridge, Cell virt, Cell size, Int cacheable,$/
+pci_dma_map_in	../pci/pci.c	/^C(f_pci_dma_map_in)		/
+pci_dma_map_out	../pci/fakepci.c	/^pci_dma_map_out(Int hbridge, Cell virt, Cell devaddr, Cell size)$/
+pci_dma_map_out	../pci/pci.c	/^C(f_pci_dma_map_out)	/
+pci_dma_sync	../pci/fakepci.c	/^pci_dma_sync(Int hbridge, Cell virt, Cell devaddr, Cell size)$/
+pci_dma_sync	../pci/pci.c	/^C(f_pci_dma_sync)		/
+pci_driver	../pci/pci.h	/^struct pci_driver$/
+pci_dump_addresses	../pci/pci.c	/^pci_dump_addresses(Environ *e, Pci_addresses *addrs)$/
+pci_dump_blocks	../pci/pci.c	/^pci_dump_blocks(Environ *e, Pci_address_block *b)$/
+pci_dump_config	../pci/pci.c	/^pci_dump_config(Environ *e, Package *pkg, Pci_device_info *devinfo)$/
+pci_dump_rom_header	../pci/pci.c	/^pci_dump_rom_header(int hbridge, uInt addr)$/
+pci_encode_range_prop	../pci/ppb.c	/^pci_encode_range_prop(Byte *arr, Int *len,$/
+pci_encode_reg_prop	../pci/pci.c	/^pci_encode_reg_prop(Byte *arr, Int *len, Cell physhi, Cell physmid, Cell physlo,$/
+pci_encode_unit	../pci/pci.c	/^C(f_pci_encode_unit)	/
+pci_find_host_bridge_number	../pci/pci.c	/^pci_find_host_bridge_number(Environ *e, Package *pkg)$/
+pci_find_largest_block	../pci/pcialloc.c	/^pci_find_largest_block(Pci_address_block **blocks, $/
+pci_format_csr	../pci/pci.c	/^pci_format_csr(char *buf, int buflen, uInt csr)$/
+pci_format_csr_add	../pci/pci.c	/^pci_format_csr_add(char **buf, int *len, char *str)$/
+pci_free_block	../pci/pcialloc.c	/^pci_free_block(Pci_address_block **blocks, uInt basehi, uInt baselo,$/
+pci_free_bus_range	../pci/pcialloc.c	/^pci_free_bus_range(Pci_addresses *addrs, int base, int size)$/
+pci_free_io_range	../pci/pcialloc.c	/^pci_free_io_range(Pci_addresses *addrs, uInt base, uInt size)$/
+pci_free_mem_range	../pci/pcialloc.c	/^pci_free_mem_range(Pci_addresses *addrs, uInt basehi, uInt baselo,$/
+pci_free_pmem_range	../pci/pcialloc.c	/^pci_free_pmem_range(Pci_addresses *addrs, uInt basehi, uInt baselo,$/
+pci_get_busnumber	../pci/pci.c	/^pci_get_busnumber(Environ *e, Package *pkg)$/
+pci_get_device_info	../pci/pci.c	/^pci_get_device_info(Environ *e, Pci_device_info *devinfo)$/
+pci_header	../pci/pci.h	/^struct pci_header$/
+pci_header_methods	../pci/pci.h	/^struct pci_header_methods$/
+pci_header_type0	../pci/pci.h	/^struct pci_header_type0$/
+pci_header_type1	../pci/pci.h	/^struct pci_header_type1$/
+pci_header_type2	../pci/pci.h	/^struct pci_header_type2$/
+pci_init_addresses	../pci/fakepci.c	/^pci_init_addresses(Int hbridge, Pci_addresses *addrs)$/
+pci_init_pool	../pci/pcialloc.c	/^pci_init_pool(Pci_addresses *pool)$/
+pci_interp_fcode	../pci/pci.c	/^pci_interp_fcode(Environ *e, Byte *fcode)$/
+pci_intr_ack	../pci/fakepci.c	/^pci_intr_ack(Int hbridge)$/
+pci_intr_ack	../pci/pci.c	/^C(f_pci_intr_ack)		/
+pci_io_read	../pci/fakepci.c	/^pci_io_read(Int hbridge, uInt addr, void *value, int size)$/
+pci_io_write	../pci/fakepci.c	/^pci_io_write(Int hbridge, uInt addr, Int value, int size)$/
+pci_load_builtin_driver	../pci/pci.c	/^pci_load_builtin_driver(Environ *e, Package *pkg, Pci_device_info *devinfo,$/
+pci_load_expansion_rom	../pci/pci.c	/^pci_load_expansion_rom(Environ *e, Package *pkg, Pci_device_info *devinfo,$/
+pci_load_reg_and_name_props	../pci/pci.c	/^pci_load_reg_and_name_props(Environ *e, Package *pkg, Pci_device_info *devinfo)$/
+pci_load_standard_properties	../pci/pci.c	/^pci_load_standard_properties(Environ *e, Package *pkg, Pci_device_info *devinfo)$/
+pci_lookup_assigned_address	../pci/pci.c	/^pci_lookup_assigned_address(Package *pkg, uInt hi, uInt *mid, uInt *lo)$/
+pci_map_in	../pci/fakepci.c	/^pci_map_in(Int hbridge, Int phys_hi, Int phys_mid, Int phys_low,$/
+pci_map_in	../pci/pci.c	/^C(f_pci_map_in)			/
+pci_map_out	../pci/fakepci.c	/^pci_map_out(Int hbridge, Cell virt, Cell size)$/
+pci_map_out	../pci/pci.c	/^C(f_pci_map_out)		/
+pci_mem_read	../pci/fakepci.c	/^pci_mem_read(Int hbridge, uInt addr, void *value, int size)$/
+pci_mem_read64	../pci/fakepci.c	/^pci_mem_read64(Int hbridge, uInt addrhi, uInt addrlo, void *value, int size)$/
+pci_mem_write	../pci/fakepci.c	/^pci_mem_write(Int hbridge, uInt addr, Int value, int size)$/
+pci_mem_write64	../pci/fakepci.c	/^pci_mem_write64(Int hbridge, uInt addrhi, uInt addrlo, Int value, int size)$/
+pci_num_host_bridges	../pci/fakepci.c	/^pci_num_host_bridges()$/
+pci_open	../pci/pci.c	/^C(f_pci_open)			/
+pci_print_addresses	../pci/pci.c	/^pci_print_addresses(Environ *e, Pci_addresses *addrs)$/
+pci_print_blocks	../pci/pci.c	/^pci_print_blocks(Environ *e, Pci_address_block *b)$/
+pci_probe_bus	../pci/pci.c	/^pci_probe_bus(Environ *e, Package *buspkg, Int hbridge, Int bus,$/
+pci_probe_self	../pci/pci.c	/^C(f_pci_probe_self)$/
+pci_rlget	../pci/pci.c	/^C(f_pci_rlget)			/
+pci_rlset	../pci/pci.c	/^C(f_pci_rlset)			/
+pci_rwget	../pci/pci.c	/^C(f_pci_rwget)			/
+pci_rwset	../pci/pci.c	/^C(f_pci_rwset)			/
+pci_special_cycle	../pci/fakepci.c	/^pci_special_cycle(Int hbridge, Int bus, Int data)$/
+pci_special_set	../pci/pci.c	/^C(f_pci_special_set)	/
+pcidev_address_offset_list	../pci/pcidev.c	/^pcidev_address_offset_list(Environ *e, Package *pkg, Pci_device_info *devinfo,$/
+pcidev_get_address_info	../pci/pcidev.c	/^pcidev_get_address_info(Environ *e, Package *pkg, Pci_device_info *devinfo,$/
+pcidev_get_extended_device_info	../pci/pcidev.c	/^pcidev_get_extended_device_info(Environ *e, Pci_device_info *devinfo)$/
+pcidev_probe	../pci/pcidev.c	/^pcidev_probe(Environ *e, Package *cpkg, Pci_device_info *devinfo,$/
+pcidev_rom_size	../pci/pcidev.c	/^pcidev_rom_size(Environ *e, Package *pkg, Pci_device_info *devinfo, $/
+pcidev_write_address	../pci/pcidev.c	/^pcidev_write_address(Environ *e, Package *pkg, Pci_device_info *devinfo,$/
+pcidev_write_rom_address	../pci/pcidev.c	/^pcidev_write_rom_address(Environ *e, Package *pkg, Pci_device_info *devinfo,$/
+pcidiskdev_barsize	../pci/pcidiskdev.c	/^pcidiskdev_barsize(Fake_pci_dev *self, int bar)$/
+pcidiskdev_bartype	../pci/pcidiskdev.c	/^pcidiskdev_bartype(Fake_pci_dev *self, int bar)$/
+pcidiskdev_configread	../pci/pcidiskdev.c	/^pcidiskdev_configread(Fake_pci_dev *self, int reg)$/
+pcidiskdev_configwrite	../pci/pcidiskdev.c	/^pcidiskdev_configwrite(Fake_pci_dev *self, int reg, Int val)$/
+pcidiskdev_csr_read	../pci/pcidiskdev.c	/^pcidiskdev_csr_read(Fake_pci_dev *self, Int offset, void *val, int size)$/
+pcidiskdev_csr_write	../pci/pcidiskdev.c	/^pcidiskdev_csr_write(Fake_pci_dev *self, Int offset, Int val, int size)$/
+pcidiskdev_data	../pci/pcidiskdev.c	/^struct pcidiskdev_data$/
+pcidiskdev_enable_mem_csr	../pci/pcidiskdev.c	/^pcidiskdev_enable_mem_csr(Fake_pci_dev *self, Bool enable, Int old, Int new)$/
+pcidiskdev_enable_rom	../pci/pcidiskdev.c	/^pcidiskdev_enable_rom(Fake_pci_dev *self, Bool enable, Int old, Int new)$/
+pcidiskdev_execute_cmd	../pci/pcidiskdev.c	/^pcidiskdev_execute_cmd(Fake_pci_dev *self)$/
+pcidiskdev_init	../pci/pcidiskdev.c	/^pcidiskdev_init(Fake_pci_dev *self)$/
+pcidiskdev_ioread	../pci/pcidiskdev.c	/^pcidiskdev_ioread(Fake_pci_dev *self, int bar, Int offset, void *val, int size)$/
+pcidiskdev_iowrite	../pci/pcidiskdev.c	/^pcidiskdev_iowrite(Fake_pci_dev *self, int bar, Int offset, Int val, int size)$/
+pcidiskdev_memread	../pci/pcidiskdev.c	/^pcidiskdev_memread(Fake_pci_dev *self, int bar, Int offset, void *val, int size)$/
+pcidiskdev_memwrite	../pci/pcidiskdev.c	/^pcidiskdev_memwrite(Fake_pci_dev *self, int bar, Int offset, Int val, int size)$/
+pcidiskdev_udpate_regs	../pci/pcidiskdev.c	/^pcidiskdev_udpate_regs(Fake_pci_dev *self)$/
+pciisa_dma_alloc	../pci/pciisa.c	/^pciisa_dma_alloc(Cell size, Cell *virt)$/
+pciisa_dma_free	../pci/pciisa.c	/^pciisa_dma_free(Cell virt, Cell size)$/
+pciisa_dma_map_in	../pci/pciisa.c	/^pciisa_dma_map_in(Cell virt, Cell size, Int cacheable, Cell *devaddr)$/
+pciisa_dma_map_out	../pci/pciisa.c	/^pciisa_dma_map_out(Cell virt, Cell devaddr, Cell size)$/
+pciisa_dma_sync	../pci/pciisa.c	/^pciisa_dma_sync(Cell virt, Cell devaddr, Cell size)$/
+pciisa_io_read	../pci/pciisa.c	/^pciisa_io_read(uInt addr, void *value, int size)$/
+pciisa_io_write	../pci/pciisa.c	/^pciisa_io_write(uInt addr, Int value, int size)$/
+pciisa_map_in	../pci/pciisa.c	/^pciisa_map_in(Int physhi, Int physlo, Cell size, Cell *virt)$/
+pciisa_map_out	../pci/pciisa.c	/^pciisa_map_out(Cell virt, Cell size)$/
+pciisa_mem_read	../pci/pciisa.c	/^pciisa_mem_read(uInt addr, void *value, int size)$/
+pciisa_mem_write	../pci/pciisa.c	/^pciisa_mem_write(uInt addr, Int value, int size)$/
+peek	../other.c	/^peek(Environ *e, int size)$/
+peer	../packages.c	/^CC(f_peer)			/
+pick	../funcs.c	/^C(f_pick)			/
+ping	../obptftp.c	/^C(f_ping)	/
+ping_packet	../obptftp.c	/^struct ping_packet$/
+pio_read	../isa/ne2000.c	/^pio_read(Self *s, Int src, uByte *dst, Int len)$/
+pio_write	../isa/ne2000.c	/^pio_write(Self *s, uByte *src, Int dst, Int len)$/
+pixcopy	../fb.c	/^pixcopy(int pixsize, void *src, int sstride, int sx, int sy, $/
+pixexpand	../fb.c	/^pixexpand(int pixsize, void *src, int sstride, int sx, int sy, $/
+pixfill	../fb.c	/^pixfill(int pixsize, void *dst, int stride, int x, int y,$/
+pixinvert	../fb.c	/^pixinvert(int pixsize, void *dst, int stride, int x, int y,$/
+ploop	../forth.c	/^C(f_ploop)			/
+plus	../funcs.c	/^C(f_plus)			/
+plusdoub	../funcs.c	/^C(f_plusdoub)		/
+plusoct	../funcs64.c	/^C(f_plusoct)		/
+plusquad	../funcs.c	/^C(f_plusquad)		/
+plusset	../funcs.c	/^C(f_plusset)		/
+poke	../other.c	/^poke(Environ *e, int size)$/
+pop_input	../table.c	/^pop_input(Environ *e)$/
+pop_package	../packages.c	/^C(f_pop_package)$/
+pop_rstk	../funcs.c	/^C(f_pop_rstk)		/
+ppatchp	../debug.c	/^C(f_ppatchp)		/
+ppb_address_offset_list	../pci/ppb.c	/^ppb_address_offset_list(Environ *e, Package *pkg, Pci_device_info *devinfo,$/
+ppb_allocate_window	../pci/ppb.c	/^ppb_allocate_window(Pci_address_block **blocks, Pci_address_window *window)$/
+ppb_allocate_windows	../pci/ppb.c	/^ppb_allocate_windows(Pci_addresses *addrs, Pci_address_window *windows)$/
+ppb_dump_regs	../pci/ppb.c	/^ppb_dump_regs(Environ *e, Package *cpkg, Pci_device_info *devinfo)$/
+ppb_get_address_info	../pci/ppb.c	/^ppb_get_address_info(Environ *e, Package *pkg, Pci_device_info *devinfo,$/
+ppb_get_bridge_address_space	../pci/ppb.c	/^ppb_get_bridge_address_space(Environ *e, int decoders, Pci_addresses *avail,$/
+ppb_get_extended_device_info	../pci/ppb.c	/^ppb_get_extended_device_info(Environ *e, Pci_device_info *devinfo)$/
+ppb_load_bridge_properties	../pci/ppb.c	/^ppb_load_bridge_properties(Environ *e, Package *pkg)$/
+ppb_probe	../pci/ppb.c	/^ppb_probe(Environ *e, Package *cpkg, Pci_device_info *devinfo,$/
+ppb_probe_address_decoders	../pci/ppb.c	/^ppb_probe_address_decoders(Environ *e, Package *pkg, Pci_device_info *devinfo)$/
+ppb_probe_pci_bridge	../pci/ppb.c	/^ppb_probe_pci_bridge(Environ *e, Package *pkg, Pci_device_info *devinfo,$/
+ppb_program_windows	../pci/ppb.c	/^ppb_program_windows(Pci_device_info *devinfo, int decoders,$/
+ppb_rom_size	../pci/ppb.c	/^ppb_rom_size(Environ *e, Package *pkg, Pci_device_info *devinfo, $/
+ppb_set_window	../pci/ppb.c	/^ppb_set_window(Pci_address_window *window, uInt basehi, uInt baselo,$/
+ppb_set_window_size	../pci/ppb.c	/^ppb_set_window_size(Pci_address_window *window, uInt align)$/
+ppb_update_windows	../pci/ppb.c	/^ppb_update_windows(Pci_addresses *addrs, Pci_address_window *windows)$/
+ppb_write_address	../pci/ppb.c	/^ppb_write_address(Environ *e, Package *pkg, Pci_device_info *devinfo,$/
+ppb_write_rom_address	../pci/ppb.c	/^ppb_write_rom_address(Environ *e, Package *pkg, Pci_device_info *devinfo,$/
+prep_block	../alloc.c	/^prep_block(Test_block *b, int n, Test_allocator *a)$/
+print_block	../alloc.c	/^print_block(Test_block *b, Test_allocator *a, char *label)$/
+print_cells	../alloc.c	/^print_cells(uInt x[], int cells)$/
+print_nvramrc	../admin.c	/^print_nvramrc(Environ *e, Byte *str)$/
+printenv	../admin.c	/^C(f_printenv)		/
+probe_all	../admin.c	/^CC(f_probe_all)		/
+probe_ata_disk	../isa/atadisk.c	/^probe_ata_disk(Environ *e, uInt reg, uInt reg2, Package *pkg, int ctlr, int id,$/
+probe_ata_disks	../isa/atadisk.c	/^probe_ata_disks(Environ *e, uInt reg[4], Package *pkg,$/
+probe_isa	../isa/isa.c	/^C(f_probe_isa)				/
+probe_pci	../pci/pci.c	/^CC(f_probe_pci)				/
+probe_scsi	../sun.c	/^C(f_probe_scsi)			/
+probe_scsi_all	../sun.c	/^C(f_probe_scsi_all)		/
+process_arp	../obptftp.c	/^process_arp(Environ *e, Self *s, uByte *packet, int *len)$/
+program_flash	../gflash.c	/^program_flash(Environ *e, Self *s, int offset, uByte *data, int len)$/
+program_word	../gflash.c	/^program_word(Environ *e, Self *s, int offset, uByte *data)$/
+prom_field	../pci/amdlance.c	/^struct prom_field$/
+prompt	../cmdio.c	/^prompt(Environ *e)$/
+prop_alloc	../table.c	/^prop_alloc(Environ *e, Int len)$/
+prop_decode_int	../table.c	/^prop_decode_int(Byte **arr, Int *len, Int *val)$/
+prop_decode_str	../table.c	/^prop_decode_str(Byte **arr, Int *len, Byte **str, Int *slen)$/
+prop_encode_int	../table.c	/^prop_encode_int(Byte *arr, Int *len, Int val)$/
+prop_encode_str	../table.c	/^prop_encode_str(Byte *arr, Int *alen, Byte *str, Int slen)$/
+prop_get_int	../table.c	/^prop_get_int(Table *props, Byte *name, Int len, Int *val)$/
+prop_get_ptr	../table.c	/^prop_get_ptr(Table *props, Byte *name, Int len, uPtr *val)$/
+prop_get_str	../table.c	/^prop_get_str(Table *props, Byte *name, Int len, Byte **str, Int *slen)$/
+prop_set_int	../table.c	/^prop_set_int(Table *props, Byte *name, Int len, Int val)$/
+prop_set_ptr	../table.c	/^prop_set_ptr(Table *props, Byte *name, Int len, uPtr val)$/
+prop_set_str	../table.c	/^prop_set_str(Table *props, Byte *name, Int len, Byte *str, Int slen)$/
+property	../packages.c	/^CC(f_property)$/
+prtf	../debug.c	/^prtf(Environ *e, const char *fmt, ...)$/
+psee_chainp	../debug.c	/^C(f_psee_chainp)		/
+pseep	../debug.c	/^C(f_pseep)				/
+pself	../isa/atadisk.c	/^struct pself$/
+pstrcpy	../defs.h	/^#define pstrcpy/
+pstrdup	../defs.h	/^#define pstrdup/
+push_config_bool	../admin.c	/^CC(f_push_config_bool)$/
+push_config_bool	../admin.c	/^push_config_bool(Environ *e, char *param)$/
+push_config_int	../admin.c	/^CC(f_push_config_int)$/
+push_config_int	../admin.c	/^push_config_int(Environ *e, char *param)$/
+push_config_str	../admin.c	/^CC(f_push_config_str)$/
+push_config_str	../admin.c	/^push_config_str(Environ *e, char *param)$/
+push_input	../table.c	/^push_input(Environ *e, Input *in)$/
+push_package	../packages.c	/^C(f_push_package)$/
+push_pointer	../exec.c	/^push_pointer(Environ *e, Byte *addr, Bool fcode32)$/
+push_rstk	../funcs.c	/^C(f_push_rstk)		/
+pushstr	../packages.c	/^pushstr(Environ *e, char *str)$/
+pwd	../device.c	/^C(f_pwd)				/
+qdo	../forth.c	/^C(f_qdo)			/
+qdup	../funcs.c	/^C(f_qdup)			/
+quit	../forth.c	/^C(f_quit)			/
+rand	../stdlib.c	/^rand(void)$/
+rbget	../other.c	/^CC(f_rbget)			/
+rbprintf	../stdlib.c	/^rbprintf(const char *fmt, ...)$/
+rbracket	../forth.c	/^C(f_rbracket)		/
+rbset	../other.c	/^CC(f_rbset)			/
+read1	../isa/atadisk.c	/^read1(Self *s, uInt reg)$/
+read2	../isa/atadisk.c	/^read2(Self *s, uInt reg)$/
+read_char	../cmdio.c	/^read_char(Environ *e)$/
+read_eeprom	../pci/ethexpro.c	/^read_eeprom(Environ *e, Self *s, uShort *data, int offset, int words)$/
+read_file	../token.c	/^read_file(Environ *e, const char *file, Byte **ebuf, Int *elen)$/
+read_flash	../gflash.c	/^read_flash(Environ *e, Self *s, int offset, uByte *data, int len)$/
+read_mac_addr	../isa/ne2000.c	/^read_mac_addr(Environ *e, Package *pkg, Self *s)$/
+read_mac_addr	../pci/amdlance.c	/^read_mac_addr(Environ *e, Package *pkg, Self *s, Pci_device_info *devinfo)$/
+read_mac_addr	../pci/decether.c	/^read_mac_addr(Environ *e, Package *pkg, Self *s, Pci_device_info *devinfo)$/
+read_mac_addr	../pci/ethexpro.c	/^read_mac_addr(Environ *e, Package *pkg, Self *s, Pci_device_info *devinfo)$/
+read_net_info	fakenet.c	/^read_net_info(Environ *e, Package *pkg, Self *s)$/
+read_net_info	fakenet2.c	/^read_net_info(Environ *e, Package *pkg, Self *s)$/
+read_word	../gflash.c	/^read_word(Environ *e, Self *s, int offset, uByte *data)$/
+realloc	../stdlib.c	/^#	define realloc/
+realloc	../stdlib.c	/^realloc(void *p, size_t nsz)$/
+realloc	../stdlib.c	/^realloc(void *ptr, size_t size)$/
+realloc	mw-malloc.c	/^realloc(void *ptr, size_t sz)$/
+recurse	../forth.c	/^C(f_recurse)		/
+recurse_method_all	../sun.c	/^recurse_method_all(Environ *e, Package *node, Byte *type, Byte *method)$/
+recursive	../forth.c	/^C(f_recursive)		/
+recvbyte	../pci/ncrscsi.c	/^recvbyte(Environ *e, Self *s)$/
+redraw_after	../nvedit.c	/^redraw_after(Environ *e, Int line, Int col)$/
+redraw_edit_buf	../nvedit.c	/^redraw_edit_buf(Environ *e, Int line, Int col)$/
+reg	../packages.c	/^CC(f_reg)			/
+rel2abs	../disklbl.c	/^rel2abs(Environ *e, Self *s, Int *relhi, Int *rello)$/
+repeat	../forth.c	/^C(f_repeat)			/
+reset	../pci/ncrscsi.c	/^reset(Environ *e, Self *s)$/
+reset_all	../admin.c	/^C(f_reset_all)		/
+reset_flash	../gflash.c	/^reset_flash(Environ *e, Self *s, int offset)$/
+reset_lance	../pci/amdlance.c	/^reset_lance(Environ *e, Self *s)$/
+reset_nvram	../nvram.c	/^reset_nvram(Environ *e)$/
+reset_nvram	machdep.c	/^reset_nvram(Environ *e)$/
+resize_allocators	../alloc.c	/^resize_allocators(Test_allocator **pallocators, int *num, int n)$/
+resize_test_blocks	../alloc.c	/^resize_test_blocks(Test_block **ptestblocks, int *num, int n)$/
+resolve_branch	../exec.c	/^resolve_branch(Environ *e)$/
+resolve_path	../device.c	/^resolve_path(Environ *e, enum context context, Byte *path, Int plen,$/
+resolve_temp_compile	../exec.c	/^resolve_temp_compile(Environ *e)$/
+resume	../debug.c	/^C(f_resume)			/
+rfa	../pci/ethexpro.c	/^struct rfa$/
+rget	../other.c	/^rget(Environ *e, int size)$/
+rlget	../other.c	/^CC(f_rlget)			/
+rlset	../other.c	/^CC(f_rlset)			/
+roll	../funcs.c	/^C(f_roll)			/
+root_close	../root.c	/^C(f_root_close)			/
+root_decode_unit	../root.c	/^C(f_root_decode_unit)		/
+root_dma_alloc	../root.c	/^C(f_root_dma_alloc)		/
+root_dma_free	../root.c	/^C(f_root_dma_free)			/
+root_dma_map_in	../root.c	/^C(f_root_dma_map_in)	/
+root_dma_map_out	../root.c	/^C(f_root_dma_map_out)	/
+root_dma_sync	../root.c	/^C(f_root_dma_sync)		/
+root_encode_unit	../root.c	/^C(f_root_encode_unit)		/
+root_map_in	../root.c	/^C(f_root_map_in)		/
+root_map_out	../root.c	/^C(f_root_map_out)		/
+root_open	../root.c	/^C(f_root_open)			/
+root_probe_self	../root.c	/^C(f_root_probe_self)$/
+rot	../funcs.c	/^C(f_rot)			/
+rset	../other.c	/^rset(Environ *e, int size)$/
+rshift	../funcs.c	/^C(f_rshift)			/
+run_sequence	../gflash.c	/^run_sequence(Environ *e, Self *s, const Sequence *seq, int offset, $/
+run_test	../alloc.c	/^run_test(char *filename)$/
+rwget	../other.c	/^CC(f_rwget)			/
+rwset	../other.c	/^CC(f_rwset)			/
+rxget	../funcs64.c	/^C(f_rxget)			/
+rxset	../funcs64.c	/^C(f_rxset)			/
+safe_execute_method	../cmdio.c	/^safe_execute_method(Environ *e, Instance *inst, Byte *str, Int len)$/
+save_config	../table.c	/^save_config(Environ *e, Byte *param, Int plen, Byte *value, Int vlen,$/
+save_edit_buf	../nvedit.c	/^save_edit_buf(Environ *e)$/
+sbus2cpu	../sun.c	/^C(f_sbus2cpu)		/
+scb_wait	../pci/ethexpro.c	/^scb_wait(Self *s)$/
+screen_close	../pci/pcidisp.c	/^C(f_screen_close)			/
+screen_open	../pci/pcidisp.c	/^C(f_screen_open)			/
+screen_selftest	../pci/pcidisp.c	/^C(f_screen_selftest)		/
+scroll_down	../nvedit.c	/^scroll_down(Environ *e, Int line, Int col)$/
+scroll_up	../nvedit.c	/^scroll_up(Environ *e, Int line, Int col)$/
+sdquote	../forth.c	/^C(f_sdquote)		/
+search_dhcp	../obptftp.c	/^search_dhcp(uByte *p, int option)$/
+search_mem	../debug.c	/^C(f_search_mem)$/
+secondary_diag	../admin.c	/^CC(f_secondary_diag)	/
+sector	../flash.h	/^struct sector$/
+sector_erase	../gflash.c	/^sector_erase(Environ *e, Self *s, int offset)$/
+security_mode	../admin.c	/^C(f_security_mode)			/
+security_mode	../admin.c	/^security_mode(Environ *e)$/
+security_password	../admin.c	/^C(f_security_password)		/
+see	../debug.c	/^C(f_see)				/
+see_chain	../debug.c	/^C(f_see_chain)			/
+see_entry	../debug.c	/^see_entry(Environ *e, Entry *ent, Look_for what)$/
+select_dev	../sun.c	/^C(f_select_dev)				/
+select_input	../cmdio.c	/^select_input(Environ *e, Bool refill)$/
+self	../deblock.c	/^struct self$/
+self	../disklbl.c	/^struct self$/
+self	../gflash.c	/^struct self$/
+self	../isa/atadisk.c	/^struct self$/
+self	../isa/ne2000.c	/^struct self$/
+self	../obptftp.c	/^struct self$/
+self	../pci/amdlance.c	/^struct self$/
+self	../pci/decether.c	/^struct self$/
+self	../pci/ethexpro.c	/^struct self$/
+self	../pci/ncrscsi.c	/^struct self$/
+self	fakedisk.c	/^struct self$/
+self	fakenet.c	/^struct self$/
+self	fakenet2.c	/^struct self$/
+semicolon	../forth.c	/^C(f_semicolon)		/
+send_arp	../obptftp.c	/^send_arp(Environ *e, Self *s, uByte *buf, uByte op)$/
+send_bootp_request	../obptftp.c	/^send_bootp_request(Environ *e, Self *s, uByte *packet)$/
+send_dhcp_request	../obptftp.c	/^send_dhcp_request(Environ *e, Self *s, uByte *packet, struct bootp_packet *hdr)$/
+send_icmp_pkt	../obptftp.c	/^send_icmp_pkt(Environ *e, Self *s, uByte *packet, int len, int type, int code)$/
+send_ip_pkt	../obptftp.c	/^send_ip_pkt(Environ *e, Self *s, uByte *packet, int len, int protocol)$/
+send_mac_pkt	../obptftp.c	/^send_mac_pkt(Environ *e, Self *s, uByte *packet, int len, enum Pkt_type pkt)$/
+send_ping_pkt	../obptftp.c	/^send_ping_pkt(Environ *e, Self *s, uByte *packet, int seq)$/
+send_udp_pkt	../obptftp.c	/^send_udp_pkt(Environ *e, Self *s, uByte *packet, int src_port, int dest_port,$/
+sendbyte	../pci/ncrscsi.c	/^sendbyte(Environ *e, Self *s, uChar data, Bool atn)$/
+sequence	../flash.h	/^struct sequence$/
+set	../funcs.c	/^CC(f_set)			/
+set_args	../packages.c	/^CC(f_set_args)		/
+set_default	../admin.c	/^C(f_set_default)	/
+set_defaults	../admin.c	/^C(f_set_defaults)		/
+set_defer	../exec.c	/^set_defer(Environ *e, char *name, char *func)$/
+set_defname	../forth.c	/^set_defname(Environ *e, Int fcode)$/
+set_font	../display.c	/^CC(f_set_font)	/
+set_lcr	../isa/ns16550.c	/^#define set_lcr/
+set_mac_address	../admin.c	/^C(f_set_mac_address)		/
+set_nvram	../nvram.c	/^set_nvram(Environ *e, Byte *param, Int plen, Byte *val, Int vlen)$/
+set_nvram	machdep.c	/^set_nvram(Environ *e, Byte *param, Int plen, Byte *val, Int vlen)$/
+set_property	../table.c	/^set_property(Table *props, Byte *name, Int len, Byte *paddr, Int plen)$/
+set_xtok	../table.c	/^set_xtok(Environ *e, Entry *tok)$/
+setdoub	../funcs.c	/^CC(f_setdoub)		/
+setenv	../admin.c	/^C(f_setenv)			/
+setoct	../funcs64.c	/^CC(f_setoct)		/
+setquad	../funcs.c	/^CC(f_setquad)		/
+setstrlen	../table.c	/^setstrlen(Byte **str, Int *len)$/
+settoken	../control.c	/^C(f_settoken)		/
+setup_buffers	../pci/amdlance.c	/^setup_buffers(Self *s)$/
+setup_is_methods	../display.c	/^setup_is_methods(Environ *e, const Initentry methods[])$/
+show_devices	../device.c	/^show_devices(Environ *e, Package *pkg)$/
+show_devs	../device.c	/^C(f_show_devs)		/
+show_entry	../device.c	/^show_entry(Environ *e, Package *pkg, Entry *ent, char *leadin, Bool tag)$/
+show_instance	../debug.c	/^show_instance(Environ *e, Instance *inst)$/
+show_name	../debug.c	/^show_name(Environ *e, Package *pkg, Entry *ent, Bool nl)$/
+show_package	../debug.c	/^show_package(Environ *e, Package *p, char *name, Bool recurse)$/
+show_pci	../pci/pci.c	/^C(f_show_pci)			/
+show_pci	../pci/pci.c	/^show_pci(Environ *e, int full)$/
+show_pci_full	../pci/pci.c	/^C(f_show_pci_full)			/
+show_pci_mem	../pci/pci.c	/^show_pci_mem(Environ *e, char *leadin, Pci_device_info *devinfo)$/
+show_property_entry	../device.c	/^show_property_entry(Environ *e, Package *pkg, Entry *ent, char *leadin)$/
+show_table	../device.c	/^show_table(Environ *e, Package *p, Table *t, int type, char *leadin)$/
+showstack	../debug.c	/^C(f_showstack)		/
+sifting	../debug.c	/^C(f_sifting)		/
+sign	../funcs.c	/^C(f_sign)			/
+slashn	../funcs.c	/^C(f_slashn)			/
+source	../forth.c	/^C(f_source)			/
+spin_cursor	../other.c	/^spin_cursor(Environ *e)$/
+split_after	../device.c	/^split_after(char *str, int ch, char *head, char *tail)$/
+split_before	../device.c	/^split_before(char *str, int ch, char *head, char *tail)$/
+squote	../forth.c	/^C(f_squote)			/
+srand	../stdlib.c	/^srand(unsigned s)$/
+srom_crc32	../pci/decether.c	/^srom_crc32(const uByte *databuf, Int datalen)$/
+srom_crc_ok	../pci/decether.c	/^#define	srom_crc_ok/
+srom_delay	../pci/decether.c	/^srom_delay(Self *s)$/
+srom_idle	../pci/decether.c	/^srom_idle(Self *s)$/
+srom_read	../pci/decether.c	/^srom_read(Self *s, uByte *rom)$/
+stacksnapshot	../stdlib.c	/^stacksnapshot(int size, unsigned long *stack, int skip)$/
+start0	../control.c	/^C(f_start0)			/
+start1	../control.c	/^C(f_start1)			/
+start2	../control.c	/^C(f_start2)			/
+start4	../control.c	/^C(f_start4)			/
+stdio_close	../stdio.c	/^C(f_stdio_close)$/
+stdio_install_abort	../stdio.c	/^C(f_stdio_install_abort)$/
+stdio_is_tty	../stdio.c	/^C(f_stdio_is_tty)$/
+stdio_open	../stdio.c	/^C(f_stdio_open)$/
+stdio_read	../stdio.c	/^C(f_stdio_read)$/
+stdio_remove_abort	../stdio.c	/^C(f_stdio_remove_abort)$/
+stdio_write	../stdio.c	/^C(f_stdio_write)$/
+step_all	../debug.c	/^C(f_step_all)		/
+stepping	../debug.c	/^C(f_stepping)		/
+stod	../forth.c	/^C(f_stod)			/
+store_nvram	../nvram.c	/^store_nvram(void)$/
+strcat	../stdlib.c	/^strcat(char *str, const char *append)$/
+strchr	../stdlib.c	/^strchr(const char *str, int chr)$/
+strcmp	../stdlib.c	/^strcmp(const char *s1, const char *s2)$/
+strcpy	../stdlib.c	/^strcpy(char *dst, const char *src)$/
+strlen	../stdlib.c	/^strlen(const char *str)$/
+strncat	../stdlib.c	/^strncat(char *str, const char *append, size_t count)$/
+strncmp	../stdlib.c	/^strncmp(const char *s1, const char *s2, size_t len)$/
+strncpy	../stdlib.c	/^strncpy(char *dst, const char *src, size_t len)$/
+strrchr	../stdlib.c	/^strrchr(const char *str, int chr)$/
+struct	../forth.c	/^C(f_struct)			/
+sub	../alloc.c	/^sub(uInt a[], uInt b[], uInt d[], int acells, int bcells)$/
+suppress_banner	../admin.c	/^C(f_suppress_banner)	/
+suspend_fcode	../control.c	/^C(f_suspend_fcode)	/
+swap	../funcs.c	/^C(f_swap)			/
+swap2	../table.c	/^swap2(uShort v)$/
+swap4	../table.c	/^swap4(uInt v)$/
+sym	../debug.c	/^C(f_sym)			/
+sym2value	../debug.c	/^CC(f_sym2value)			/
+sync	../admin.c	/^C(f_sync)$/
+table	../defs.h	/^struct table$/
+tap_open	fakenet.c	/^tap_open(char *netname)$/
+terminal	../display.c	/^C(f_terminal)				/
+test	../admin.c	/^C(f_test)			/
+test_all	../admin.c	/^C(f_test_all)		/
+test_allocator	../alloc.c	/^struct test_allocator$/
+test_allocator	../alloc.c	/^test_allocator(int acells, int scells)$/
+test_block	../alloc.c	/^struct test_block$/
+tftp_get_reply	../obptftp.c	/^tftp_get_reply(Environ *e, Self *s, uByte *packet, int *len, uLong timeout)$/
+tftp_packet	../obptftp.c	/^struct tftp_packet$/
+tftp_rwrq_packet	../obptftp.c	/^struct tftp_rwrq_packet$/
+tftp_send_ack	../obptftp.c	/^tftp_send_ack(Environ *e, Self *s, int block, uByte *packet, int *len)$/
+tftp_send_rrq	../obptftp.c	/^tftp_send_rrq(Environ *e, Self *s, uByte *packet, int *len)$/
+then	../forth.c	/^C(f_then)			/
+throw	../control.c	/^C(f_throw)			/
+time_value	../defs.h	/^struct time_value$/
+times	../funcs.c	/^C(f_times)			/
+times2	../funcs.c	/^C(f_times2)			/
+timeval	mac.c	/^struct timeval$/
+timezone	mac.c	/^struct timezone$/
+to	../forth.c	/^C(f_to)				/
+tobody	../control.c	/^C(f_tobody)			/
+tofont	../display.c	/^CC(f_tofont)			/
+tokenize	../token.c	/^C(f_tokenize)$/
+tokenize	../token.c	/^tokenize(Environ *e, const char *source, const char *target)$/
+tokenize_file	../token.c	/^tokenize_file(Environ *e, const char *file)$/
+tokenizerb	../token.c	/^C(f_tokenizerb)		/
+tolower	../ctype.h	/^#define	tolower/
+tonumber	../forth.c	/^C(f_tonumber)		/
+top_rstk	../funcs.c	/^C(f_top_rstk)		/
+toupper	../ctype.h	/^#define	toupper/
+trace_all	../debug.c	/^C(f_trace_all)		/
+tracing	../debug.c	/^C(f_tracing)		/
+try_load	../admin.c	/^try_load(Environ *e, Int diag, Byte *dev, Int dlen,$/
+try_number	../debug.c	/^try_number(Environ *e, Byte *word)$/
+tuck	../funcs.c	/^C(f_tuck)			/
+type	../funcs.c	/^C(f_type)			/
+u2div	../funcs.c	/^C(f_u2div)			/
+uByte	machdep.h	/^typedef uChar uByte;	/
+uCell	machdep.h	/^typedef uInt uCell;		/
+uCell	machdep.h	/^typedef uLong uCell;	/
+uChar	machdep.h	/^typedef unsigned char uChar;	/
+uDoublet	machdep.h	/^typedef uShort uDoublet;	/
+uInt	machdep.h	/^typedef unsigned int uInt;		/
+uLong	machdep.h	/^typedef unsigned __LONGLONG uLong;	/
+uLong	machdep.h	/^typedef unsigned long uLong;	/
+uOctlet	machdep.h	/^typedef uLong uOctlet;		/
+uPtr	machdep.h	/^typedef uLong uPtr;				/
+uPtr	machdep.h	/^typedef unsigned long uPtr;		/
+uQuadlet	machdep.h	/^typedef uInt uQuadlet;		/
+uShort	machdep.h	/^typedef unsigned short uShort;	/
+u_int16_t	../isa/atadisk.c	/^typedef unsigned short u_int16_t;$/
+u_int8_t	../isa/atadisk.c	/^typedef unsigned char u_int8_t;$/
+u_sleep	machdep.c	/^u_sleep(uInt us)$/
+udivmod	../funcs.c	/^C(f_udivmod)		/
+udot	../funcs.c	/^C(f_udot)			/
+udotr	../funcs.c	/^C(f_udotr)			/
+udp_checksum	../obptftp.c	/^udp_checksum(uByte *packet, int len, uByte ip_addr[], uByte server_ip[])$/
+udp_header	../obptftp.c	/^struct udp_header$/
+ugt	../funcs.c	/^C(f_ugt)			/
+ugteq	../funcs.c	/^C(f_ugteq)			/
+uhash	../funcs.c	/^C(f_uhash)			/
+uhashgt	../funcs.c	/^C(f_uhashgt)		/
+uhashs	../funcs.c	/^C(f_uhashs)			/
+ult	../funcs.c	/^C(f_ult)			/
+ulteq	../funcs.c	/^C(f_ulteq)			/
+umddivmod	../funcs.c	/^CC(f_umddivmod)		/
+umdivmod	../funcs.c	/^CC(f_umdivmod)		/
+umtimes	../funcs.c	/^CC(f_umtimes)		/
+unalign_get	../other.c	/^unalign_get(Environ *e, int size)$/
+unalign_lget	../other.c	/^C(f_unalign_lget)	/
+unalign_lset	../other.c	/^C(f_unalign_lset)	/
+unalign_set	../other.c	/^unalign_set(Environ *e, int size)$/
+unalign_wget	../other.c	/^C(f_unalign_wget)	/
+unalign_wset	../other.c	/^C(f_unalign_wset)	/
+unhashent_table	../table.c	/^unhashent_table(Table *tab, Entry *ent)$/
+unix	machdep.h	/^#		define unix/
+unloop	../control.c	/^C(f_unloop)			/
+unparse_char	../cmdio.c	/^unparse_char(Environ *e)$/
+unselect_dev	../sun.c	/^C(f_unselect_dev)		/
+until	../forth.c	/^C(f_until)			/
+upc	../funcs.c	/^C(f_upc)			/
+update_leds	../isa/kbd.c	/^update_leds(uInt lock)$/
+urand	../stdlib.c	/^urand(void)$/
+user_abort	../other.c	/^C(f_user_abort)		/
+utimes	../forth.c	/^C(f_utimes)			/
+uwire_in	../pci/amdlance.c	/^uwire_in(void *device)$/
+uwire_out	../pci/amdlance.c	/^uwire_out(void *device, unsigned int value)$/
+value	../forth.c	/^C(f_value)			/
+value2sym	../debug.c	/^CC(f_value2sym)			/
+variable	../forth.c	/^C(f_variable)		/
+vbprintf	../stdlib.c	/^vbprintf(char *buf, const char *fmt, va_list args)$/
+vendname	../pci/pci.c	/^vendname(int id, int null)$/
+version1	../control.c	/^C(f_version1)			/
+wait_notbusy	../isa/atadisk.c	/^wait_notbusy(Self *s)$/
+wait_ready	../isa/atadisk.c	/^wait_ready(Self *s, uInt mask)$/
+waitfail	../pci/ncrscsi.c	/^waitfail(Environ *e, Self *s, char *message)$/
+watch_net	../sun.c	/^C(f_watch_net)			/
+watch_net_all	../sun.c	/^C(f_watch_net_all)		/
+wbflip	../funcs.c	/^C(f_wbflip)			/
+wbflips	../funcs.c	/^C(f_wbflips)		/
+wbsplit	../funcs.c	/^C(f_wbsplit)		/
+while	../forth.c	/^C(f_while)			/
+wildcard_match	../device.c	/^wildcard_match(Environ *e, Package *pkg, char *name, char *unit)$/
+within	../funcs.c	/^C(f_within)			/
+wljoin	../funcs.c	/^C(f_wljoin)			/
+word	../forth.c	/^C(f_word)			/
+words	../debug.c	/^C(f_words)			/
+wpeek	../other.c	/^C(f_wpeek)			/
+wpoke	../other.c	/^C(f_wpoke)			/
+write1	../isa/atadisk.c	/^write1(Self *s, uInt reg, uByte b)$/
+write2	../isa/atadisk.c	/^write2(Self *s, uInt reg, uShort val)$/
+wxjoin	../funcs64.c	/^C(f_wxjoin)			/
+x11_close	x11.c	/^C(f_x11_close)			/
+x11_color_get	x11.c	/^C(f_x11_color_get)		/
+x11_color_set	x11.c	/^C(f_x11_color_set)		/
+x11_dimensions	x11.c	/^C(f_x11_dimensions)		/
+x11_get_colors	x11.c	/^C(f_x11_get_colors)		/
+x11_in_open	x11.c	/^C(f_x11_in_open)				/
+x11_install_abort	x11.c	/^C(f_x11_install_abort)			/
+x11_open	x11.c	/^C(f_x11_open)			/
+x11_read	x11.c	/^C(f_x11_read)			/
+x11_remove_abort	x11.c	/^C(f_x11_remove_abort)			/
+x11_set_colors	x11.c	/^C(f_x11_set_colors)		/
+x11_write	x11.c	/^C(f_x11_write)			/
+xbflip	../funcs64.c	/^C(f_xbflip)			/
+xbflips	../funcs64.c	/^C(f_xbflips)		/
+xbsplit	../funcs64.c	/^C(f_xbsplit)		/
+xcomma	../funcs64.c	/^C(f_xcomma)			/
+xlflip	../funcs64.c	/^C(f_xlflip)			/
+xlflips	../funcs64.c	/^C(f_xlflips)		/
+xlsplit	../funcs64.c	/^C(f_xlsplit)		/
+xor	../funcs.c	/^C(f_xor)			/
+xwflip	../funcs64.c	/^C(f_xwflip)			/
+xwflips	../funcs64.c	/^C(f_xwflips)		/
+xwsplit	../funcs64.c	/^C(f_xwsplit)		/
+zero	../alloc.c	/^zero(uInt a[], int cells)$/

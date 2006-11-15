@@ -1,0 +1,154 @@
+cc-fcode.gz is a gzipped Solaris Sparc executable
+ccfcode.exe.gz is a gzipped WindowsNT command-shell executable
+
+usage: cc-fcode [-options] input-file
+options: --strict_iso --no_warnings
+	--const_strings --syntax_only --sloppy_args --warn2error
+	--verbose -v --clear_includes --debug_syms -g
+	-I include-dir
+	-D macro[=value]
+	-U macro
+
+This compiler is limited to generating only about 500 lines of Forth.
+Please contact us to purchase a fully functional version.
+
+This compiler is still under development and is likely to still have bugs.
+
+
+
+COMMAND-LINE OPTIONS
+====================
+input-file
+	- complete C source file - may be composed of "#include" directives
+	  to work around the lack of a linker
+
+--debug
+	- turns on internal compiler debug output - very verbose
+
+--strict_iso
+	- turn on strict ISO-C standard compliance (likely useless for Forth)
+
+--warn2error
+	- turn all warnings into fatal errors
+
+--no_warnings
+	- turn off warnings altogether
+
+--syntax_only
+	- check C syntax of the input-file but do not generate any output
+
+--const_strings
+	- make all strings into "const char[]" types instead of "char[]"
+
+--sloppy_args
+	- much more lax checking of function argument types against prototypes
+
+--verbose -v
+	- generates lots of output, including file dependancies
+
+--debug_syms -g
+	- generate "headers" instead of "headerless" for debugging Fcode
+	- output binary size in ROM is a lot larger hence this option
+	- fcode-debug? nvram parameter controls loading of these names
+
+--clear_includes
+	- clear all include search paths (including any defaults)
+
+-I include-dir
+	- append include-dir to the list of search paths
+
+-D macro[=value]
+	- define a macro with either a specific value or the default "1"
+
+-U macro
+	- un-define (clear) a macro definition
+
+
+
+LIMITATIONS
+===========
+no linking so all input must be in a single file
+no floating-point support
+case statements *must* end with a break - no fall-throughs are supported
+break and continue inside loops are not supported
+gotos and labels are not supported
+ANSI wide-character strings are not supported
+alloca() is not supported
+classes are not supported (C++ style but suitable for embedded apps)
+the standard C library is not supported (stdio, etc.)
+neither <stdarg.h> nor any sort of var-args are supported
+
+
+
+FCODE-SPECIFIC FEATURES
+=======================
+underscores are converted to hyphens in the generated names, except enums
+	- names like "install_abort" are converted to "install-abort" unless
+	aliased using a #pragma (below)
+asm("Forth code") embeds arbitrary Fcode in the output
+function stack frames are allocated and referenced using the return stack
+	- local variable and function parameter access is performed using
+		Forth fields referenced off of the top of the stack-frame
+		(which is stored in the global value "$frame")
+	- local vars and parameters are named "func:var"
+	- a constant "func:$size" for the frame-size is also defined
+void func() { ... } does not generate any stack frame push/pop code
+	if func has no parameters and no local variables
+static vars in functions are declared static (headers) and named "func$var"
+global static words are declared with "headers", and non-statics with "external"
+	  if the -g or --debug_syms flag is specified - otherwise only
+	  "external" and "headerless" are generated to minimize output size
+	- "fcode-debug?" can turn static name visibility on/off as desired
+"volatile" uses r{bwl}{!@} instead of {cwl}{!@} to read/write vars
+"const" does nothing
+enums (that are actually used) are defined as Forth "constant" words
+	- enums with underscores are NOT converted to hyphens
+use Forth-style strings "\$str" to create a Forth str+len combo on stack
+	- otherwise C string's length is not on the Forth stack
+	- Forth-style strings are not null-terminated, but C strings are
+	- these are typically only useful to call certain Forth words
+	- the type "struct $fstr { char *str; int len; };" MUST be defined in
+	  some header file before using any "\$str" string (usually in fcode.h)
+bitfields may work but should be avoided since the generated code is horrible
+	and has not really been tested
+structs and arrays are initialized/copied by placing each element on
+	the Forth stack one-by-one rather than as a C packed chunk-o-memory
+	- this should not ordinarily affect any C or Forth code
+	- access to a struct field or array object is reasonably efficient
+struct member names are converted to Forth fields for readability
+	- bitfields still have to be accessed the hard way and so are not named
+	- fields are named "struct.field"
+	- an additional constant "struct.$size" is also defined to aid debugging
+if a function named "main" exists, its body is inserted just before the
+	  end of the Fcode
+	- main() will be automatically invoked when the Fcode image is loaded
+	  and not retained in memory after it is done
+"inline" functions are only partially supported to call existing Forth words
+	- no stack parameters are copied/allocated/etc
+	- the function body must only be a single "asm" statement
+the address of a function is the execution-token (xtok) of the Forth word
+	- thus "foo" is just an xtok, whereas "foo()" is a function-call
+
+
+SUPPORTED PRAGMAS
+=================
+#pragma dev "/device/path"		
+	generates: " dev /device/path" evaluate
+#pragma new_device ["name" ["type"]]
+	generates: new-device " name" device-name " type" device-type
+#pragma finish_device
+	generates: finish-device
+#pragma instance
+	generates: instance
+#pragma expand_inline
+	expands the following function inline rather than as a forth word
+	- the default operation for any function called "main"
+#pragma alias "newname"
+	generate "newname" for the following function definition instead of
+	its C name - useful for words such as "color@" or to force an
+	underscore to be generated in the output "new_name"
+#pragma recursive
+	Declare the following function as recursive, and allocate and use a
+	proper C stack-frame.  Otherwise all funcs, their parameters, and their
+	local vars are considered "static" and declared as forth words, and
+	the funcs are not recursive

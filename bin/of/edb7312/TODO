@@ -1,0 +1,72 @@
+x	Change ethernet driver to use serial EEPROM
+x	Write map-in map-out methods for root node.
+x	Write dma-map-in and dma-map-out methods for root node.
+x	Change drivers to use map-in rather than assuming a one-one 
+	mapping table.
+x	Add memalign to stdlib.c
+x	Create an L2 page table for section 0 so that the vectors can be
+	modified.
+x	Get timer interrupts to work
+x	Flash driver needs to use map-in to get virtual address.
+x	Other drivers need to use correct VA.
+x	Timer interrupt should call callback "tick".
+x	Write driver for IDE port
+x	Write nvram driver that uses flash or serial eeprom.
+-	Modify nvram driver to use 128 Serial eeprom and 8K flash
+x	Resolve OBP/TFTP failure with client-ip set.  No ARP replies.
+x	Resolve flash programming hang.
+x	Add checksum and size to flash image
+x	Turn off backlight when display is not opened.
+x	Verify flash checksum at startup and in flash selftest
+x	Verify eeprom checksums in ethernet selftest
+x	Add 256 bytes of interrupt vector @256	
+x	Timer interrupt should create intsave array before calling "tick"
+x	Implement /mmu methods map, unmap, modify, and translate
+x	Maintain translations property of cpu node and mmu node if different
+
+x	Implement mode setting/query for PTE's
+x	Add cleint interface words restart and call-static-method
+x	Write driver for boot-rom and sram
+x	Make USER4 at power up prompt for MAC, and IP addresses.
+x	Unmap unused portions of the load area and add them to the available
+	list of the mmu node.
+x	claim/release client interface words should allocate page aligned 
+	pieces of physical memory.
+x	physical-mappings? virtual address space as well as load area should
+	be accounted for in /cpus/cpu#available
+x	Context switch on client interfaces calls since stack may not be
+	valid.
+x	ELF intelligent relocating
+x	Get Linux port to work
+x	Speed up PS/2 probing when no keyboard is present.
+x	Verify image checksum before flashing
+x	Minimize flash erases in NVRAM functions
+x	f_mmu_of_claim needs to use f_mmu_claim for large blocks
+x	f_mmu_of_release needs to use f_mmu_release for large blocks
+o	Add ARM a.out format support
+o	Add AIF format support
+o	Setup up initial program state
+o	restart client interface word needs to set command in NVRAM.
+	Need new API for setting and getting the restart command.
+o	Test driver for IDE port
+o	Write driver for parallel
+o	Write driver for keyboard
+o	Write driver for touch screen
+o	Write driver for audio in/out
+o	Write ATAPI driver so that IDE CD-ROM drives work.
+o	Port NetBSD
+o	Add assembly level debug words
+o	Write disassembler
+o	Write assembler
+o	Improve trap handling
+o	fdisk command
+o	dos-format command
+o	dos-store command
+o	f_mmu_modify needs to check and use callback
+o	f_memory_claim needs to check and use callback
+o	f_memory_release needs to check and use callback
+o	Add JFFS2 filesystem
+o	Write /spi and /dai drivers
+o	Write drivers for codecs
+o	Write driver for touch screen
+o	Add IPv6 support to OBPTFTP

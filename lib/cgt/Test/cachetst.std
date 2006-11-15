@@ -1,0 +1,111 @@
+Testing...
+new char[8] = 0x0
+Usage = 8
+maxsize = 7
+size = 0
+new char[20] = 0x10
+Usage = 28
+new char[6] = 0x30
+Usage = 34
+insert(word1) = 1
+new char[20] = 0x40
+Usage = 54
+new char[6] = 0x60
+Usage = 60
+insert(word2) = 1
+new char[20] = 0x70
+Usage = 80
+new char[6] = 0x90
+Usage = 86
+insert(word3) = 1
+new char[20] = 0xA0
+Usage = 106
+new char[6] = 0xC0
+Usage = 112
+new char[20] = 0xD0
+Usage = 132
+delete 0x0
+insert(word4) = 1
+new char[20] = 0xF0
+Usage = 152
+new char[6] = 0x0
+Usage = 158
+insert(word5) = 1
+new char[20] = 0x110
+Usage = 178
+new char[6] = 0x130
+Usage = 184
+insert(word6) = 1
+new char[20] = 0x140
+Usage = 204
+new char[6] = 0x160
+Usage = 210
+insert(word7) = 1
+delete 0x30
+delete 0x10
+new char[20] = 0x10
+Usage = 230
+new char[6] = 0x30
+Usage = 236
+insert(word8) = 1
+delete 0x60
+delete 0x40
+new char[20] = 0x40
+Usage = 256
+new char[6] = 0x60
+Usage = 262
+insert(word9) = 1
+delete 0x90
+delete 0x70
+new char[20] = 0x70
+Usage = 282
+new char[7] = 0x90
+Usage = 289
+insert(word10) = 1
+delete 0xC0
+delete 0xA0
+new char[20] = 0xA0
+Usage = 309
+new char[7] = 0xC0
+Usage = 316
+insert(word11) = 1
+size = 7
+find(word1) = 0
+find(word2) = 0
+find(word3) = 0
+find(word4) = 0
+find(word5) = 1, name = word5
+find(word6) = 1, name = word6
+find(word7) = 1, name = word7
+find(word8) = 1, name = word8
+find(word9) = 1, name = word9
+find(word10) = 1, name = word10
+find(word11) = 1, name = word11
+size = 7
+remove(word1) = 0
+remove(word2) = 0
+remove(word3) = 0
+remove(word4) = 0
+delete 0x0
+delete 0xF0
+remove(word5) = 1
+delete 0x130
+delete 0x110
+remove(word6) = 1
+delete 0x160
+delete 0x140
+remove(word7) = 1
+delete 0x30
+delete 0x10
+remove(word8) = 1
+delete 0x60
+delete 0x40
+remove(word9) = 1
+delete 0x90
+delete 0x70
+remove(word10) = 1
+delete 0xC0
+delete 0xA0
+remove(word11) = 1
+size = 0
+delete 0xD0

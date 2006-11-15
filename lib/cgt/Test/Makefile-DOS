@@ -1,0 +1,55 @@
+
+INCLUDES=-I/tjm/include -I.
+LIBOPTS=-L/tjm/lib
+CFLAGS=$(INCLUDES)
+CC=gcc
+LIBS=-ltj
+
+all:		hashtest.exe bitset.exe pooltest.exe buftest.exe qtest.exe cachetst.exe
+
+test:		all
+	sh test.sh
+
+hashtest.exe:	hashtest.o stub.exe
+	$(CC) -ohashtest $(CFLAGS) $(LIBOPTS) hashtest.o $(LIBS)
+	aout2exe hashtest
+
+hashtest.o:	hashtest.cc /tjm/lib/libtj.a
+
+bitset.exe:	bitset.o stub.exe
+	$(CC) -obitset $(CFLAGS) $(LIBOPTS) bitset.o $(LIBS)
+	aout2exe bitset
+
+bitset.o:	bitset.cc /tjm/lib/libtj.a
+
+pooltest.exe:	pooltest.o stub.exe
+	$(CC) -opooltest $(CFLAGS) $(LIBOPTS) pooltest.o $(LIBS)
+	aout2exe pooltest
+
+pooltest.o:	pooltest.cc /tjm/lib/libtj.a
+
+buftest.exe:	buftest.o stub.exe
+	$(CC) -obuftest $(CFLAGS) $(LIBOPTS) buftest.o $(LIBS)
+	aout2exe buftest
+
+buftest.o:	buftest.cc /tjm/lib/libtj.a
+
+qtest.exe:	qtest.o stub.exe
+	$(CC) -oqtest $(CFLAGS) $(LIBOPTS) qtest.o $(LIBS)
+	aout2exe qtest
+
+qtest.o:	qtest.cc /tjm/lib/libtj.a
+
+cachetst.exe:	cachetst.o stub.exe
+	$(CC) -ocachetst $(CFLAGS) $(LIBOPTS) cachetst.o $(LIBS)
+	aout2exe cachetst
+
+cachetst.o:	cachetst.cc /tjm/lib/libtj.a
+
+stub.exe:	/gnu/bin/stub.exe
+	cp /gnu/bin/stub.exe .
+
+.SUFFIXES:	.cc .o
+
+.cc.o:
+	$(CC) -c $(CFLAGS) $<

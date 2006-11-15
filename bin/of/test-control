@@ -1,0 +1,52 @@
+\ (c) Copyright 1996 by CodeGen, Inc.  All Rights Reserved.
+\
+\ test routines in "control.c"
+\
+
+\ display and evaluate a test string
+: test ( eval-str strlen ) 2dup cr " test: " type type cr ' evaluate catch drop .s clear ;
+
+\ test non-existent symbol
+\ " nosym" test
+
+" "(22) 1 2 3 * +"(22) evaluate" test	\ 22 is ASCII for double-quote (")
+
+" 1 2 3 ' . execute" test
+
+" exit" test	\ do not expect any output from "test"
+.rs
+
+\ test exception-handling and "evaluate" - 22 is ASCII for double-quote (")
+" "(22) nosym"(22) ' evaluate catch" test
+" "(22) noop"(22) ' evaluate catch" test
+: test-abort -7 abort ;
+" "(22) test-abort"(22) ' evaluate catch" test
+: test-throw 17 throw ;
+: test-throw1 1 test-throw ;
+: test-throw2 2 test-throw1 ;
+: test-throw3 3 test-throw2 ;
+" "(22) test-throw3"(22) ' evaluate catch" test
+
+\ test basic compilation
+" 1234 align here aligned dup @" test
+" 12 c, here aligned dup /c - c@" test
+" 5678 align 987654321 , here aligned dup /n - @" test
+" 9012 align ' noop compile, here aligned dup /c - c@" test
+
+" ' noop >body" test
+" ' noop >body body>" test
+" noop" test
+
+
+\ test if statement
+" 1 if 3 then" test
+" -1 0 if 4 then" test
+" 1 if 3 else -5 then" test
+" 0 if 4 else -6 then" test
+
+
+\ test loops
+" 0 10 0 do 100 + loop" test
+
+
+cr " END OF TESTS" type cr

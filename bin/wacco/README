@@ -1,0 +1,131 @@
+Copyright (c) 1991-2002 by Parag Patel and Thomas J. Merritt.
+All Rights Reserved.
+
+You can do what you wish with this as long as
+    (1) you do not claim it or any part of it as yours and
+    (2) you do not remove or alter the copyright in any file.
+This software is provided "AS IS" without any implied or express warranty
+as to its performance or to the results that may be obtained by using this
+software.  It is completely unsupported.  You're on your own.
+
+
+This is Wacco, which is basically an LL(1) parser generator.
+Why Another Compiler COmpiler?  Why not?!?
+
+Wacco generates recursive-descent C++ code from an input file.  The
+wacco file.w looks a lot like a yacc(1) input file, but with a lot more
+syntactic sugar added.  Since it the parser generated recurses, you can
+do attribute-driven parsing easily and even pass information into rules
+which could alter the parse.
+
+I wrote wacco to give me a platform for experiment with various error
+recovery schemes.  A fairly cheesy first/follow set scheme is currently
+implemented.  Wacco turned out to be useful in its own right and I never
+did get around to serious experimenting.
+
+Wacco is written in itself.  The file "wacco.w" describes its own format
+and was used to manually generate "parse.cc" and "toks.h".  (The original
+bootstrap version no longer exists.  Wacco has evolved considerably from
+a much simpler version to the current implementation, so the old code
+would be useless anyway.)  The files "parse.cc" and "toks.h" are always
+shipped since there's no other way to build a working wacco.
+
+The file "wacco.doc" describes the wacco file format in ASCII.
+Unfortunately, I don't have a prettier document available at the moment.
+
+There are few comments and lots of ugly non-OO code throughout wacco.
+It had evolved from a straight C implementation and I never got around
+to cleaning it up.  Sorry.
+
+Wacco should port and run easily on most C++ systems.  It does need C++
+2.0 or newer, or G++ of some flavor.  It's been successfully built on
+HP-UX s300 and s800 systems, Sparc, 4.3BSD running on HP hardware, A/UX
+2.0, BSDI 1.1, MS-DOS, and MacOS using MPW.  You may need to tweak some
+-D defines in the Makefile.  If sizeof(long) is NOT 32 bits, you may
+have to perform major surgery on bitset.h and bitset.cc.
+
+All you should need to do is modify CFLAGS in the Makefile, then type
+"make".  Type "make tst" to build a simple test program using "tgram.w".
+The files to be installed wherever you prefer are "wacco" and "wacco.1".
+
+The code is somewhat commented.  Feel free to hack away, add new
+features, or fix my screwups.  If you make mods you feel are useful, or
+fix some bug, please send me the cdiffs so I can make them available to
+others too.
+
+
+	-- Parag Patel <parag@codegen.com>
+
+
+
+--------------------REVISION-INFO----------------------
+
+1.0	released on HP INTERX Contrib Tape
+
+1.1	first version released to comp.sources.misc
+	files modified: Makefile README defs.h table.h version.C
+	ported to Sparc, added -Dstuff in Makefile
+	fixed problem with macro names in table.h
+
+1.2	first bug-fix release
+	files modified: gen.C wacco.doc
+	bug in gen.C fixed where the string "(null)" was generated on Sparc
+		because I was passing NULL to printf()
+	some typos fixed in wacco.doc example but NOT in wacco.doc.{iw,ps}
+
+1.3	fixed bug in gen.C which wouldn't dump user code bigger than 1024 bytes
+
+1.4	forgot some diffs in 1.3 - this version fixes all the missing bits
+	extern for yylex() in io.C is removed
+	a few typos are fixed
+	minor fix in defs.h for strfree() so it works with C++ 3.0
+
+1.5	ported to MPW - does not use getopt() now
+	fix for 1.3 bugfix in gen.C which broke #line counting in 
+		wacco-generated code
+	last public release
+
+2.0	numerous small changes and tweaks to use -lcgt
+		- wacco is no longer standalone
+	added * and + for zero-or-more and one-or-more in rules, which
+		essentially generates while-do or do-while loops
+	auto-generated code is very nicely formatted now
+	bugfix to not generate unused resync sets
+	added option to not generate any resync code or sets
+	added %noresync and %inline
+	all stuff in header file has w_ W_ or __ prepending identifiers
+	changed w_scanerr calls to w_err_expected, w_err_illegal, and
+		w_err_skip to allow overriding errors easily
+	generates code which can be compiled by C++, ANSI C, or K&R C
+		- all C++ funcs are also C-linkable, mainly for debugging
+	code may be inserted before ':' in rule to declare variables
+	added <void> type to force rules to not have return values
+	bugfixes so $? works better, even with inlined rules
+	generated code is neatly formatted, with either Mac or Unix
+		standard tab vs tab+4-spaces indentation
+
+2.1 moved key parts of -lcgt into subdirectory
+		- wacco is once again standalone
+	formatting tweaks and general cleanup
+	package for release as free kit once again
+
+3.0 2000 June 6
+	new class-based back-end code-generators - just C for now
+	added -V option to print version string
+
+3.1 2000 July 16
+	add Java back-end code-generator and -l option
+
+3.2 2001 April 16
+	add Modula-3 code-generator and option
+	bugfix so %opt is parsed to select a language
+
+3.3 2001 September 23
+	port to Mac OS-X
+
+3.4 2001 November 24
+	added -P option to generate minimal parser for experts
+
+3.5b1 2002 April 27
+	select default generated filenames based on language
+	added support for %exitcode

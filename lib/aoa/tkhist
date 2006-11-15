@@ -1,0 +1,173 @@
+#!/bin/sh
+# the next line restarts using wish \
+exec wish8.0 "$0" "$@"
+
+# Copyright 1994 by Parag Patel.  All Rights Reserved.
+# $Header: /u/cgt/cvs/lib/aoa/tkhist,v 1.9 1999/02/23 20:18:52 parag Exp $
+
+proc get_value {file check} {
+    if [expr {[gets $file line] < 0}] {
+	tkerror "Unexpected end-of-file"
+	exit 0
+    }
+
+    scan $line "%s %s %d" name equal value
+
+    if [expr {[string compare $name $check] != 0}] {
+	tkerror "Expected string \"$check\" instead of \"$name\""
+	exit 0
+    }
+
+    global $name
+    set $name $value
+}
+
+proc load_data {filename} {
+    set file [open $filename "r"]
+
+    get_value $file allocs
+    get_value $file frees
+    get_value $file reallocs
+    get_value $file memallocated
+    get_value $file memfreed
+    get_value $file meminuse
+    get_value $file maxmeminuse
+    get_value $file numsizes
+    get_value $file maxsize
+    global numsizes blocks
+
+    for {set i 0} {$i < $numsizes} {incr i} {
+	if [expr {[gets $file line] < 0}] {
+	    tkerror "Unexpected end-of-file"
+	    exit 0
+	}
+
+	scan $line "%d %d" bsize bcount
+	set blocks($bsize) $bcount
+    }
+
+    get_value $file numbuckets
+    get_value $file maxcount
+    global numbuckets buckets
+
+    for {set i 0} {$i < $numbuckets} {incr i} {
+	if [expr {[gets $file line] < 0}] {
+	    tkerror "Unexpected end-of-file"
+	    exit 0
+	}
+
+	scan $line "%d" hash
+	set buckets($i) $hash
+    }
+
+    close $file
+}
+
+proc do_blocks {c} {
+    global font labelfont top left bottom right width height
+    global numsizes maxsize blocks maxcount
+
+    set i 2
+    foreach block [lsort -integer [array names blocks]] {
+	set x [expr $left + ($blocks($block)*$width/$maxcount)]
+	set y [expr $top + $i*13]
+	$c create rectangle [expr $left-1] [expr $y+2] \
+		[expr $x] [expr $y-6] -width 1 -outline black \
+		-fill SkyBlue2
+	$c create text [expr $left-7] [expr $y-2] -text $block -anchor e
+	$c create text [expr $x+3] [expr $y-2] -text $blocks($block) -anchor w
+	incr i
+    }
+
+    $c create text [expr $left-4] $top -text "Size" -anchor e -font $labelfont
+    $c create text [expr $left+4] $top -text "Count" -anchor w -font $labelfont
+    $c create line [expr $left-40] [expr $top+10] \
+	    [expr $right] [expr $top+10] -width 1
+    $c create line [expr $left-1] [expr $top+($numsizes+1)*13+5] \
+	    [expr $left-1] [expr $top-6] \
+	    -width 1
+
+    $c create text [expr $width/2+$left] [expr $top-20] \
+	    -text "Block list" -font $font
+}
+
+proc do_loghist {c} {
+    global font labelfont top left bottom right width height
+    global maxcount numbuckets buckets
+
+    for {set i 0} {$i < $numbuckets} {incr i} {
+	set x [expr $left + ($i*$width/$numbuckets)]
+	set y [expr $bottom - ($buckets($i)*$height/$maxcount)]
+	$c create rectangle [expr $x-1] [expr $y] \
+		[expr $x+6] [expr $bottom] -width 1 -outline black \
+		-fill SkyBlue2
+    }
+
+    for {set i 0} {$i <= 4} {incr i} {
+	set x [expr {$left + ($i*$width/4.3)}]
+	$c create line $x $bottom $x [expr $bottom+5] -width 2
+	$c create text $x [expr $bottom+6] -text [expr int(pow(10,$i))] \
+		-anchor n
+    }
+
+    for {set i 0} {$i <= 10} {incr i} {
+	set y [expr {$bottom - ($i*$height/10)}]
+	$c create line $left $y [expr $left-5] $y -width 2
+	$c create text [expr $left-7] $y -text [expr $maxcount*$i/10] -anchor e
+    }
+
+    $c create line $left $bottom $right $bottom -width 2
+    $c create line $left [expr $bottom+1] $left [expr $top-5] -width 2
+    $c create text [expr $width/2+$left] [expr $bottom+30] \
+	    -text "Approx. Size" -font $labelfont
+    $c create text [expr $left-25] [expr $top-20] -text "Count" \
+	    -anchor e -font $labelfont
+    $c create text [expr $right] [expr $top-30] \
+	    -text "Compressed-log view" -font $font -anchor e
+}
+
+
+# this also handles munged files on stdin
+load_data "|hist -dump $argv"
+
+set top 50
+set left 75
+set width 400
+set height 300
+set bottom [expr $top+$height]
+set right [expr $left+$width]
+set fullheight [expr $height*2+$numsizes*13]
+set font -*-helvetica-medium-r-normal--*-180-*
+set labelfont -*-helvetica-medium-r-normal--*-140-*
+
+# create the main window
+wm title . "SmartAlloc Histogram Viewer"
+wm minsize . 300 200
+frame .menu -relief raised -borderwidth 1
+frame .frame -relief sunken -borderwidth 1
+set c .frame.c
+pack .menu -side top -fill x
+pack .frame -side top -expand yes -fill both
+
+# create the scrolling canvas for drawing
+canvas $c -scrollregion [list 0 0 525 $fullheight] \
+	-width [expr $width+125] -height [expr $height+100] \
+	-yscrollcommand ".frame.vscroll set"
+scrollbar .frame.vscroll -relief sunken -command "$c yview"
+pack .frame.vscroll -side right -fill y
+pack $c -expand yes -fill both
+
+# create the menus
+menubutton .menu.file -text "File" -menu .menu.file.m
+menu .menu.file.m
+#.menu.file.m add command -label "Print View" -command \
+#	"$c postscript -file $argv.ps -colormode gray -rotate 1"
+.menu.file.m add command -label "Quit" -command "destroy ."
+pack .menu.file -side left
+tk_menuBar .menu .menu.file
+
+# finally draw the data
+do_loghist $c
+set top [expr $bottom+$height/2]
+set bottom [expr $top+$height]
+do_blocks $c

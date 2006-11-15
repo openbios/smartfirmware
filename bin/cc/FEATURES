@@ -1,0 +1,43 @@
+ANSI C preprocessor
+-------------------
+__FUNC__ predefined macro for current function name (Gnu, others)
+strips // comments (BCPL, C++)
+allow '$' in identifiers (many others)
+old-style line directives "# line-number [file]" (many others)
+ignore #include files which are wrapped with any #if* directive and
+	then #included again (Gnu, others)
+#pragma unused(var) for handling unused vars (MPW)
+
+ANSI C parser
+-------------
+"asm" and "__asm__" for assembly statements and global declarations (many)
+"fortran" and "__fortran__" keywords (common extension)
+"pascal" and "__pascal__" keywords (MPW)
+functions may be initialised with list of integers (MPW inline assembly)
+strings may begin with "\p" or "\P" for Pascal strings (MPW, Think C)
+"long long" integer constants 123LL 123ULL (Gnu, others)
+"short double" floating point constants 1.23S (Think C)
+ranged case statement (Gnu)
+optional comma at end of enum list (Plan 9, Gnu, others)
+unnamed unions (Plan 9, C++)
+unnamed structs (Plan 9)
+auto-cast struct pointer into substruct pointer (Plan 9)
+structure displays (Plan 9, NCEG proposal)
+initialisation indexes for arrays (Plan 9, partial NCEG proposal)
+old-style K&R function definitions (common extension)
+bitfields may be of any integral type (C++, common extension)
+"inline" and "__inline__" keywords (C++, gcc)
+comma before "..." is optional in parameter declarations (C++)
+declarations may be mixed with statements (C++)
+function overloading (partial C++)
+default arguments to function parameters (C++)
+classes - simple inheritance only (C++)
+operator overloading including new and delete (C++)
+declaration allowed in 1st portion of "for" statement (C++)
+references to objects (C++)
+
+Known limitations
+-----------------
+upto local host's MAX_SHORT sizes of bitfields (Storage_thing)
+upto local host's MAX_INT number of statements, initializers, etc. (dynarrays)
+wchar_t must fit in one of (unsigned) char, short, or long on localhost

@@ -1,0 +1,532 @@
+Device 0x91011 found @0,7,0
+Device 0x91011 found @0,8,0
+Device 0x91011 found @0,9,0
+CodeGenInc alpha64 1.00
+SmartFirmware(tm) Copyright 1996 by CodeGen, Inc.  All Rights Reserved.
+
+test: 1 2 3 4 3dup
+STACK: 
+[0x00000004] 4
+[0x00000003] 3
+[0x00000002] 2
+[0x00000004] 4
+[0x00000003] 3
+[0x00000002] 2
+[0x00000001] 1
+
+test: 1 clear
+STACK: 
+
+test: 1 2 3 4 3drop
+STACK: 
+[0x00000001] 1
+
+test: 2 3 u*
+STACK: 
+[0x00000006] 6
+
+test: -2 3 u*
+STACK: 
+[0xFFFFFFFA] -6
+
+test: 2 3 4 */
+STACK: 
+[0x00000001] 1
+
+test: 2 3 4 */mod
+STACK: 
+[0x00000001] 1
+[0x00000002] 2
+
+test: 2 1+
+STACK: 
+[0x00000003] 3
+
+test: 2 1-
+STACK: 
+[0x00000001] 1
+
+test: 2 2+
+STACK: 
+[0x00000004] 4
+
+test: 2 2-
+STACK: 
+[0x00000000] 0
+
+test: 2 even
+STACK: 
+[0x00000002] 2
+
+test: 3 even
+STACK: 
+[0x00000004] 4
+
+test: 1 s>d
+STACK: 
+[0x00000000] 0
+[0x00000001] 1
+
+test: -1 s>d
+STACK: 
+[0xFFFFFFFF] -1
+[0xFFFFFFFF] -1
+
+test: here 12 dump
+[0x000400BF] = 0x00
+[0x000400C0] = 0x00
+[0x000400C1] = 0x00
+[0x000400C2] = 0x00
+[0x000400C3] = 0x00
+[0x000400C4] = 0x00
+[0x000400C5] = 0x00
+[0x000400C6] = 0x00
+[0x000400C7] = 0x00
+[0x000400C8] = 0x00
+[0x000400C9] = 0x00
+[0x000400CA] = 0x00
+STACK: 
+
+test: here 12 blank here 12 dump
+[0x000400BF] = 0x20 ( )
+[0x000400C0] = 0x20 ( )
+[0x000400C1] = 0x20 ( )
+[0x000400C2] = 0x20 ( )
+[0x000400C3] = 0x20 ( )
+[0x000400C4] = 0x20 ( )
+[0x000400C5] = 0x20 ( )
+[0x000400C6] = 0x20 ( )
+[0x000400C7] = 0x20 ( )
+[0x000400C8] = 0x20 ( )
+[0x000400C9] = 0x20 ( )
+[0x000400CA] = 0x20 ( )
+STACK: 
+
+test: here 12 erase here 12 dump
+[0x000400BF] = 0x00
+[0x000400C0] = 0x00
+[0x000400C1] = 0x00
+[0x000400C2] = 0x00
+[0x000400C3] = 0x00
+[0x000400C4] = 0x00
+[0x000400C5] = 0x00
+[0x000400C6] = 0x00
+[0x000400C7] = 0x00
+[0x000400C8] = 0x00
+[0x000400C9] = 0x00
+[0x000400CA] = 0x00
+STACK: 
+
+test: >in
+STACK: 
+[0x00EFED84] 15723908
+
+test: 33 parse foobar! type cr
+foobar
+STACK: 
+
+test: parse-word barfoo type cr
+barfoo
+STACK: 
+
+test: source type cr
+source type cr
+STACK: 
+
+test: 33 word !!!boofar! count type cr
+boofar
+STACK: 
+
+test: here dup 50 accept 1- type cr
+This is only a test.
+STACK: 
+RETURN STACK: 
+.rs
+
+test: ascii !
+STACK: 
+[0x00000021] 33
+
+test: char !
+STACK: 
+[0x00000021] 33
+
+test: test-[char]
+STACK: 
+[0x00000021] 33
+
+test: control a
+STACK: 
+[0x00000001] 1
+
+test: ." test str" cr
+test str
+STACK: 
+
+test: .( test str) cr
+test str
+STACK: 
+
+test: .( space->)space .( <-here) cr
+space-> <-here
+STACK: 
+
+test: .( spaces->)5 spaces .( <-here) cr
+spaces->     <-here
+STACK: 
+
+test: 1 2 +
+STACK: 
+[0x00000003] 3
+
+test: " begin end   " .( <) type .( >) cr
+<begin end   >
+STACK: 
+
+test: " begin end   " -trailing .( <) type .( >) cr
+<begin end>
+STACK: 
+
+test: hex 35 octal 35 decimal 35
+STACK: 
+[0x00000023] 35
+[0x0000001D] 29
+[0x00000035] 53
+
+test: 3 " 5end" >number type cr
+end
+STACK: 
+[0x00000008] 8
+
+test: d# 35 h# 35 o# 35
+STACK: 
+[0x0000001D] 29
+[0x00000035] 53
+[0x00000023] 35
+
+test: 35 hex s. space decimal 35 octal s. space decimal 35 s. cr
+23  43  35 
+STACK: 
+
+test: 35 .d space 35 .h cr
+35  23 
+STACK: 
+
+test: here ? cr
+1931505518 
+STACK: 
+
+test: 1 if 3 then
+STACK: 
+[0x00000003] 3
+
+test: -1 0 if 4 then
+STACK: 
+[0xFFFFFFFF] -1
+
+test: 1 if 3 else -5 then
+STACK: 
+[0x00000003] 3
+
+test: 0 if 4 else -6 then
+STACK: 
+[0xFFFFFFFA] -6
+
+test: 0 case 0 of 10 endof 1 of 20 endof 2 of 30 endof endcase
+STACK: 
+[0x0000000A] 10
+
+test: 1 case 0 of 10 endof 1 of 20 endof 2 of 30 endof endcase
+STACK: 
+[0x00000014] 20
+
+test: 2 case 0 of 10 endof 1 of 20 endof 2 of 30 endof endcase
+STACK: 
+[0x0000001E] 30
+
+test: 3 case 0 of 10 endof 1 of 20 endof 2 of 30 endof endcase
+STACK: 
+[0x00000003] 3
+
+test: 0 10 0 do 100 + loop
+STACK: 
+[0x000003E8] 1000
+
+test: 0 10 10 do 100 + loop
+STACK: 
+[0x00000064] 100
+
+test: 0 10 0 ?do 100 + loop
+STACK: 
+[0x000003E8] 1000
+
+test: 0 10 10 ?do 100 + loop
+STACK: 
+[0x00000000] 0
+
+test: 0 10 0 do 100 + 2 +loop
+STACK: 
+[0x000001F4] 500
+
+test: 0 10 10 do 100 + 2 +loop
+STACK: 
+[0x00000064] 100
+
+test: 0 10 0 do i + loop
+STACK: 
+[0x0000002D] 45
+
+test: 0 10 0 do   5 0 do j + loop   loop
+STACK: 
+[0x000001F4] 500
+
+test: 0 10 0 do 100 + dup 300 > if leave then loop
+STACK: 
+[0x00000190] 400
+
+test: 0 10 0 do 100 + dup 300 > ?leave loop
+STACK: 
+[0x00000190] 400
+
+test: 0 begin 1+ .( x) dup 5 > until cr
+xxxxxx
+STACK: 
+[0x00000006] 6
+
+test: 0 begin dup 5 < while 1+ .( x) repeat cr
+xxxxx
+STACK: 
+[0x00000005] 5
+
+test: 0 begin 1+ .( x) dup 5 > if exit then again cr
+xxxxxx
+STACK: 
+[0x00000006] 6
+
+test: quit
+error: quit
+
+test: 0 abort" test"
+STACK: 
+
+test: 1 abort" test"
+test
+error: abort
+
+test: 23 constant fc
+STACK: 
+
+test: fc
+STACK: 
+[0x00000017] 23
+
+test: 23 -46 2constant fc2
+STACK: 
+
+test: fc2
+STACK: 
+[0xFFFFFFD2] -46
+[0x00000017] 23
+
+test: -12 to fc
+error: attempt to set non-defer/value word
+
+test: 43 value fv
+STACK: 
+
+test: fv
+STACK: 
+[0x0000002B] 43
+
+test: -12 to fv
+STACK: 
+
+test: fv
+STACK: 
+[0xFFFFFFF4] -12
+
+test: variable fvar
+STACK: 
+
+test: 74 fvar .s !
+STACK: 
+[0x00E37060] 14905440
+[0x0000004A] 74
+STACK: 
+
+test: fvar @
+STACK: 
+[0x0000004A] 74
+
+test: 9 buffer: fbuf
+STACK: 
+
+test: fbuf 9 112 fill fbuf 9 dump
+[0x0002EE30] = 0x70 (p)
+[0x0002EE31] = 0x70 (p)
+[0x0002EE32] = 0x70 (p)
+[0x0002EE33] = 0x70 (p)
+[0x0002EE34] = 0x70 (p)
+[0x0002EE35] = 0x70 (p)
+[0x0002EE36] = 0x70 (p)
+[0x0002EE37] = 0x70 (p)
+[0x0002EE38] = 0x70 (p)
+STACK: 
+
+test: alias foo fv
+STACK: 
+
+test: foo
+STACK: 
+[0xFFFFFFF4] -12
+
+test: defer bar
+STACK: 
+
+test: bar
+error: invalid execution-token value - undefined?
+
+test: ' 1 to bar
+STACK: 
+
+test: bar
+STACK: 
+[0x00000001] 1
+
+test: struct 4 field >name 4 field >val 1 field >flag dup constant /data
+STACK: 
+[0x00000009] 9
+
+test: /data buffer: buf
+STACK: 
+
+test: 1045 buf >val !
+STACK: 
+
+test: buf >val @
+STACK: 
+[0x00000415] 1045
+
+test: : boo create does> 12 + ;
+STACK: 
+
+test: boo hoo
+STACK: 
+
+test: 34 hoo
+STACK: 
+[0x0000002E] 46
+
+test: 22 coo
+STACK: 
+[0x00000022] 34
+
+test: forget coo 22 coo
+error: no such symbol in tables
+
+test: here 7 allot here
+STACK: 
+[0x00E482AB] 14975659
+[0x00E482A4] 14975652
+
+test: here 1 allot align here 1 allot align here
+STACK: 
+[0x00E482B0] 14975664
+[0x00E482AC] 14975660
+[0x00E482AB] 14975659
+
+test: : test-imm 3 4 + ; immediate
+STACK: 
+
+test: test-imm
+STACK: 
+[0x00000007] 7
+
+test: : t test-imm ;
+STACK: 
+[0x00000007] 7
+
+test: : test-brackets 1 [ .rs ] 2 + ;
+RETURN STACK: 
+.rs
+evaluate
+test
+STACK: 
+
+test: test-brackets
+STACK: 
+[0x00000003] 3
+
+test: : test-compile compile 1 2 ;
+STACK: 
+
+test: : test-c [ test-compile ] ;
+STACK: 
+[0x00000002] 2
+
+test: test-c
+STACK: 
+[0x00000001] 1
+
+test: : test-bcompileb [compile] 1 ;
+STACK: 
+
+test: test-bcompileb
+STACK: 
+[0x00000001] 1
+
+test: 17 : test-literal literal ;
+STACK: 
+
+test: test-literal
+STACK: 
+[0x00000011] 17
+
+test: : test-bquoteb ['] noop ;
+STACK: 
+
+test: test-bquoteb
+STACK: 
+[0x0000007B] 123
+
+test: ' noop
+STACK: 
+[0x0000007B] 123
+
+test: find
+STACK: 
+[0xFFFFFFFF] -1
+[0x0000007B] 123
+
+test: find
+STACK: 
+[0x00000000] 0
+[0x00E482D0] 14975696
+
+test: : test-recursive recursive dup 0<= if exit then 1- test-recursive ;
+STACK: 
+
+test: 11 test-recursive
+STACK: 
+[0x00000000] 0
+
+test: : test-recurse dup 0<= if exit then 1- recurse ;
+STACK: 
+
+test: 7 test-recurse
+STACK: 
+[0x00000000] 0
+
+test: forth
+STACK: 
+
+test: " boot-command" environment?
+STACK: 
+[0xFFFFFFFF] -1
+[0x00E06251] 14705233
+
+test: " eat-me" environment?
+STACK: 
+[0x00000000] 0
+
+END OF TESTS

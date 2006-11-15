@@ -1,0 +1,33 @@
+Copyright (c) 1990,1999 by Parag Patel.  All Rights Reserved.
+
+You can do what you wish with this as long as
+    (1) you do not claim it or any part of it as yours and
+    (2) you do not remove or alter the copyright in any file.
+This software is provided "AS IS" without any implied or express warranty
+as to its performance or to the results that may be obtained by using this
+software.  It is completely unsupported.  You're on your own.
+
+
+This is a small text-editor library I'd written quite some time ago.
+
+There's no documentation other than the code, and it is as yet still
+incomplete.  A few files are from an older version but are left here as
+an outline for a future replacement.
+
+The Makefile builds "tst" from tst2.cc and "tgrep" from tst3.cc which
+exercise the editor code.  tst2.cc shows how to bind keys, and how
+windows, displays, and buffers are created and connected.  tst3.cc shows
+how to use the Rex class.  All tst*.cc were written to test the library
+and are not intended to be full-blown editors or replacements for grep.
+
+The Buffer class was designed to operate independently of Displays and
+Windows, allowing C++ programs to easily edit and manipulate text.  Undo
+currently handle text only, but is intended to someday undo/redo Marks.
+Bufvars are just a class outline at the moment.  Multiple Windows can be
+opened on the same buffer.  Terminals provide the lowest-level access to
+termcap data as well as setting/clearing raw-mode.  The DLD stuff was to
+support an old version of a dynamic linker before such things were
+common.
+
+
+	-- Parag Patel <parag@codegen.com>

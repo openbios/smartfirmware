@@ -1,0 +1,19 @@
+program test(input);
+
+var
+	x, a: integer;
+	ara: array [1..10] of integer;
+
+procedure try(a:integer);
+	var u,v:integer;
+	begin
+		if not a then try:=u+3 else try:=a;
+	end;
+
+begin
+	while a do
+	begin
+		x := a-1;
+		a:=5*a;
+	end;
+end.

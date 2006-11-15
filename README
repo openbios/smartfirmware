@@ -1,0 +1,45 @@
+Welcome to the CodeGen, Inc. source-code tree.  We're releasing a bunch
+of our stuff under a license described in the file COPYRIGHT.
+
+
+To quickly build most of the code, first create a symlink /cgt to
+someplace such as /usr/local/cgt or wherever you'd like.  The Makefiles
+and scripts expect to install binaries, headers, and libs under /cgt.
+
+Then run makeworld.sh in the top directory.  This makes everything
+execpt SmartFirmware (see below for how to build this).
+
+
+Some of the stuff under the source-tree:
+
+lib/aoa         SmartAlloc - fast, efficient malloc() replacement
+bin/of          SmartFirmware - Open Firmware IEEE-1275 in C
+                (you'll also need zlib-1.1.4, which is not included)
+bin/cc          cc-fcode - C-to-Fcode compiler - see README-Fcode
+                (it needs a bunch of libs to build - use makeworld.sh)
+bin/wacco       wacco - why another compiler compiler
+bin/domail      mh-style command-line Bayesian spam filtering tools
+
+
+Other misc libraries:
+
+lib/integer     arbitrary-precision integer C++ class library
+lib/floatc      arbitrary-precision IEEE floating point C++ class library
+lib/cgt         basic C++ funcs, generics (hashtables, dynarrays, etc)
+lib/edit        text-editor library
+lib/*malloc     different malloc algorithms - aoa is probably the best
+
+
+Build SmartFirmware (bin/of) standalone/test version by:
+    cd bin/of/unix
+    make
+This makes "of", which can be used to test, tokenize, and detokenize
+Fcode.  Build cc-fcode under bin/cc and copy both to /cgt/bin, then cd
+to bin/of/fcode to build test and ethernet Fcode PCI ROM images there.
+
+Standalone verions of SmartFirmware can also be built for x86 under
+bin/of/i386 and AMD64 "Hammer" under bin/of/amd64.  The amd64 build can
+run from ROM only on the AMD Clawhammer evaluation board.
+
+
+As for the rest, no warrantee is expressed nor implied.  Good luck.

@@ -1,0 +1,113 @@
+Testing...
+new char[8] = 0x0
+Usage = 8
+size = 0
+new char[8] = 0x10
+Usage = 16
+new char[6] = 0x20
+Usage = 22
+insert(word1) = 1
+new char[8] = 0x30
+Usage = 30
+new char[6] = 0x40
+Usage = 36
+insert(word2) = 1
+new char[8] = 0x50
+Usage = 44
+new char[6] = 0x60
+Usage = 50
+insert(word3) = 1
+new char[8] = 0x70
+Usage = 58
+new char[6] = 0x80
+Usage = 64
+new char[20] = 0x90
+Usage = 84
+delete 0x0
+insert(word4) = 1
+new char[8] = 0x0
+Usage = 92
+new char[6] = 0xB0
+Usage = 98
+insert(word5) = 1
+new char[8] = 0xC0
+Usage = 106
+new char[6] = 0xD0
+Usage = 112
+insert(word6) = 1
+new char[8] = 0xE0
+Usage = 120
+new char[6] = 0xF0
+Usage = 126
+insert(word7) = 1
+new char[8] = 0x100
+Usage = 134
+new char[6] = 0x110
+Usage = 140
+new char[44] = 0x120
+Usage = 184
+delete 0x90
+insert(word8) = 1
+new char[8] = 0x90
+Usage = 192
+new char[6] = 0xA0
+Usage = 198
+insert(word9) = 1
+new char[8] = 0x158
+Usage = 206
+new char[7] = 0x168
+Usage = 213
+insert(word10) = 1
+new char[8] = 0x178
+Usage = 221
+new char[7] = 0x188
+Usage = 228
+insert(word11) = 1
+size = 11
+find(word1) = 1, name = word1
+find(word2) = 1, name = word2
+find(word3) = 1, name = word3
+find(word4) = 1, name = word4
+find(word5) = 1, name = word5
+find(word6) = 1, name = word6
+find(word7) = 1, name = word7
+find(word8) = 1, name = word8
+find(word9) = 1, name = word9
+find(word10) = 1, name = word10
+find(word11) = 1, name = word11
+size = 11
+delete 0x20
+delete 0x10
+remove(word1) = 1
+delete 0x40
+delete 0x30
+remove(word2) = 1
+delete 0x60
+delete 0x50
+remove(word3) = 1
+delete 0x80
+delete 0x70
+remove(word4) = 1
+delete 0xB0
+delete 0x0
+remove(word5) = 1
+delete 0xD0
+delete 0xC0
+remove(word6) = 1
+delete 0xF0
+delete 0xE0
+remove(word7) = 1
+delete 0x110
+delete 0x100
+remove(word8) = 1
+delete 0xA0
+delete 0x90
+remove(word9) = 1
+delete 0x168
+delete 0x158
+remove(word10) = 1
+delete 0x188
+delete 0x178
+remove(word11) = 1
+size = 0
+delete 0x120

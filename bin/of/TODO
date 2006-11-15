@@ -1,0 +1,76 @@
+TODO/WIBNI list (in no particular order):
+
+multi-threaded support, esp for probing big systems
+	move all C global vars into Environ
+	split Environ into Forth and Thread environs
+		perhaps two global environs - one protected by a lock
+	change stack to be per-thread
+	need per-thread memory region for "here" and creating new Forth words
+		new words and device nodes should be globally visible
+		implies large per-thread memory chunks (say 1+Mb?)
+		put a lock so only one thread is in compilation-mode at a time?
+
+IPv6 support for DHCPv6
+more documentation, esp. intro to OpenFirmware
+more debugging of SCSI code, disk/CD driver, NCR driver
+add 8042 controller below isa and above keyboard
+probe for ISA keyboard and mouse
+VGA needs proper initialization code
+pcidisp should detect if VGA-compatible mode and use vga driver
+floppy driver
+rlogin/telnet module ala term - requires TCP module, which will be a pain
+set USB keyboard extended-keyboard flag?
+USB support for mass-storage devices
+USB support for UHCI host controller
+dnum parsing from command line - just a hack right now
+
+A few of TODO's for the PCI code.
+-	VGA and IDE class devices need to have the legacy I/O addresses
+	in addition to whatever is probed in the BARs are part of their
+	reg property (and assigned-addresses)
+-	All devices except VGA and IDE class devices should be have their
+	I/O and MEM enable bits set in the PCI config CSR for the
+	device.
+-	VGA and IDE class devices should be completely disabled and
+	the I/O and/or MEM enable bits set in the open method.
+
+spiffy menu-driven user-friendly front-end:
+    1) see and set nvram parameters
+    2) see devices
+    3) see files under disks
+    4) boot devices or files
+    5) run user-interface (Forth prompt)
+    6) reset-all
+    7) probe-all?
+
+
+(DONE) nvedit no longer limited to just one screen of text
+(DONE) read actual hardware addr from decether ROM
+(DONE) auto-netotiation/sensing in decether driver
+(DONE) PCI devices should be disabled by close methods
+(DONE) SCSI-bus layer that is board/chip independent + SCSI disk drivers
+(DONE) ncrscsi driver should at least read blocks - write is too dangerous
+(DONE) 8-bit graphics extension to fb.c
+(DONE) 16-color text extension to display.c and fb.c
+(DONE) new filesystem sypport for DOS, BSD - list-files and load
+(DONE) plug-in machine-independent binary-format launchers
+(DONE) display-window version for X11 and BeOS as for Mac
+(DONE) new output-capture buffer to catch tail of large dumps
+(DONE) command-line editing
+(DONE) backward/forward-word for cmd-line and nvedit
+(DONE) support Fcode spread value of 0 correctly for loop/branch constructs
+       - we now compile Fcode constructs instead of running them directly,
+       so this should just work
+(DONE) added 16 and 32-bits-per-pixel modes to fb.c and mac.c
+(DONE) command-line completion
+(DONE) iso9660 filesystem plug-in
+(DONE) detailed help system scaffold
+(DONE) DHCP support in obp-tftp
+(DONE) external/headers/headerless support now complete
+(DONE) basic USB support for keyboards (boot protocol) and hubs
+
+For Peritek:
+(DONE) make dl handle binaries - figure out length of images to dl
+(DONE) make elf2tekhex program to generate PROM image from ELF binary
+(DONE) convert tokenizer output into PCI FCode PROM image format
+(DONE) a.out exe loader

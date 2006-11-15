@@ -1,0 +1,30 @@
+OUTPUT_FORMAT("coff-m68k")
+ SEARCH_DIR(/usr/local/m68k-rom68k-coff/lib);
+PROVIDE (__stack = 0xFF000); 
+SECTIONS
+{
+  .text  0x10000 : {
+    *(.text)
+     . = ALIGN(4);
+     etext  =  .;
+  }
+  .data : {
+    *(.data)
+     edata  =  .;
+  }
+  .bss : { 					
+     __bss_start = .;
+    *(.bss)
+    *(COMMON)
+      end = ALIGN(0x8);
+      _end = ALIGN(0x8);
+  }
+  .stab  (NOLOAD) : 
+  {
+    [ .stab ]
+  }
+  .stabstr  (NOLOAD) :
+  {
+    [ .stabstr ]
+  }
+}

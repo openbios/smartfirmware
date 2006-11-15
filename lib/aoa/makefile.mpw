@@ -1,0 +1,175 @@
+# MPW Makefile
+
+CFLAGS = -model far -sym on -mf
+# debug options: -mbg on -opt on -sym on
+# optional CFLAGS: -D_DJGPP_SOURCE -DGETTIMEOFDAY -DBACKTRACE -I../cgt
+
+RUNLOGOBJS_AOA  = runlogc.c.o
+RUNLOGOBJS = {RUNLOGOBJS_AOA} memalign.c.o
+GCOBJS = gcbase.c.o gcms.c.o gcext.c.o gclist.c.o
+
+OBJS = aoa.c.o
+OBJS_I = aoa_i.c.o
+
+HDRS = gcbase.h gcext.h aoa.h
+FILES = makefile.dos makefile.bsd makefile.sol tkhist ¶
+	{HDRS} aoa.c memtest.cc memt.c memt2.c ¶
+	hist.cc munge.cc runlogc.c memalign.c tables.cc ¶
+	stopwch.h stopwch.cc stopwcha.s example.cc ¶
+	aoa.h gcbase.h gcbase.c gcms.c gcext.c gclist.c gctest.c
+
+LIB = libaoa.o
+LIB_I = libaoa_i.o
+GCLIB = libaoagc.o
+LIBS = ::cgt:libcgt.o
+
+{LIB}	ÄÄ	{OBJS}
+	Delete -i {LIB}
+	Lib -sym on -mf -o {LIB} {OBJS}
+
+{LIB_I}	ÄÄ	{OBJS_I}
+	Delete -i {LIB_I}
+	Lib -sym on -mf -o {LIB_I} {OBJS_I}
+
+aoa.c.o Ä aoa.c aoa.h
+	C -r {CFLAGS} aoa.c
+
+aoa_i.c.o Ä aoa.c aoa.h
+	C -r {CFLAGS} -d INSTRUMENT aoa.c -o aoa_i.c.o
+#aoa_i.c	Ä	aoa.c
+#	Duplicate -y aoa.c aoa_i.c
+
+gctest ÄÄ {LIB} {GCOBJS} gctest.c.o
+	Link -d -c 'MPS ' -t MPST {CFLAGS} ¶
+		{GCOBJS} gctest.c.o {LIB} ¶
+		#"{CLibraries}"CSANELib.o ¶
+		#"{CLibraries}"Math.o ¶
+		#"{CLibraries}"Complex.o ¶
+		"{CLibraries}"StdClib.o ¶
+		"{Libraries}"Stubs.o ¶
+		"{Libraries}"Runtime.o ¶
+		"{Libraries}"Interface.o ¶
+		#"{Libraries}"ToolLibs.o ¶
+		-o gctest
+gctest.c.o Ä gctest.c gcext.h
+	C -r {CFLAGS} gctest.c
+
+gcbase.c.o Ä gcbase.c aoa.h gcbase.h
+	C -r {CFLAGS} gcbase.c
+gcext.c.o Ä gcext.c aoa.h gcbase.h gcext.h
+	C -r {CFLAGS} gcext.c
+gclist.c.o Ä gclist.c aoa.h gcbase.h gcext.h
+	C -r {CFLAGS} gclist.c
+gcms.c.o Ä gcms.c aoa.h gcbase.h gcext.h
+	C -r {CFLAGS} gcms.c
+
+memtest	ÄÄ	memtest.cc.o {LIB}
+	Link -d -c 'MPS ' -t MPST {CFLAGS} ¶
+		memtest.cc.o ¶
+		{LIB} ¶
+		#"{CLibraries}"CSANELib.o ¶
+		#"{CLibraries}"Math.o ¶
+		#"{CLibraries}"Complex.o ¶
+		"{CLibraries}"StdClib.o ¶
+		"{Libraries}"Stubs.o ¶
+		"{Libraries}"Runtime.o ¶
+		"{Libraries}"Interface.o ¶
+		#"{Libraries}"ToolLibs.o ¶
+		-o memtest
+memtest.cc.o Ä memtest.cc
+	CPlus -r {CFLAGS} memtest.cc
+
+memt	ÄÄ	memt.c.o {LIB}
+	Link -d -c 'MPS ' -t MPST {CFLAGS} ¶
+		memt.c.o ¶
+		{LIB} ¶
+		#"{CLibraries}"CSANELib.o ¶
+		#"{CLibraries}"Math.o ¶
+		#"{CLibraries}"Complex.o ¶
+		"{CLibraries}"StdClib.o ¶
+		"{Libraries}"Stubs.o ¶
+		"{Libraries}"Runtime.o ¶
+		"{Libraries}"Interface.o ¶
+		#"{Libraries}"ToolLibs.o ¶
+		-o memt
+memt.c.o Ä memt.c
+	C -r {CFLAGS} memt.c
+
+memt2	ÄÄ	memt2.c.o {LIB}
+	Link -d -c 'MPS ' -t MPST {CFLAGS} ¶
+		memt2.c.o ¶
+		{LIB} ¶
+		#"{CLibraries}"CSANELib.o ¶
+		#"{CLibraries}"Math.o ¶
+		#"{CLibraries}"Complex.o ¶
+		"{CLibraries}"StdClib.o ¶
+		"{Libraries}"Stubs.o ¶
+		"{Libraries}"Runtime.o ¶
+		"{Libraries}"Interface.o ¶
+		#"{Libraries}"ToolLibs.o ¶
+		-o memt2
+memt2.c.o Ä memt2.c
+	C -r {CFLAGS} memt2.c
+
+munge	ÄÄ	munge.cc.o
+	Link -d -c 'MPS ' -t MPST {CFLAGS} ¶
+		munge.cc.o ¶
+		#"{CLibraries}"CSANELib.o ¶
+		#"{CLibraries}"Math.o ¶
+		#"{CLibraries}"Complex.o ¶
+		"{CLibraries}"StdClib.o ¶
+		"{Libraries}"Stubs.o ¶
+		"{Libraries}"Runtime.o ¶
+		"{Libraries}"Interface.o ¶
+		#"{Libraries}"ToolLibs.o ¶
+		-o munge
+munge.cc.o Ä munge.cc
+	CPlus -r {CFLAGS} munge.cc
+
+hist	ÄÄ	hist.cc.o
+	Link -d -c 'MPS ' -t MPST {CFLAGS} ¶
+		hist.cc.o ¶
+		#"{CLibraries}"CSANELib.o ¶
+		#"{CLibraries}"Math.o ¶
+		#"{CLibraries}"Complex.o ¶
+		"{CLibraries}"StdClib.o ¶
+		"{Libraries}"Stubs.o ¶
+		"{Libraries}"Runtime.o ¶
+		"{Libraries}"Interface.o ¶
+		#"{Libraries}"ToolLibs.o ¶
+		-o hist
+hist.cc.o Ä hist.cc
+	CPlus -r {CFLAGS} hist.cc
+
+memalign.c.o Ä memalign.c
+	C -r {CFLAGS} memalign.c
+runlogc.c.o Ä runlogc.c
+	C -r {CFLAGS} runlogc.c
+stopwch.cc.o Ä stopwch.cc stopwch.h
+	CPlus -r {CFLAGS} stopwch.cc
+
+runloga	ÄÄ	{RUNLOGOBJS_AOA} {LIB}
+	Link -d -c 'MPS ' -t MPST {CFLAGS} ¶
+		{RUNLOGOBJS} {LIB} ¶
+		#"{CLibraries}"CSANELib.o ¶
+		#"{CLibraries}"Math.o ¶
+		#"{CLibraries}"Complex.o ¶
+		"{CLibraries}"StdClib.o ¶
+		"{Libraries}"Stubs.o ¶
+		"{Libraries}"Runtime.o ¶
+		"{Libraries}"Interface.o ¶
+		#"{Libraries}"ToolLibs.o ¶
+		-o runloga
+
+runlogm	ÄÄ	{RUNLOGOBJS}
+	Link -d -c 'MPS ' -t MPST {CFLAGS} ¶
+		{RUNLOGOBJS} ¶
+		#"{CLibraries}"CSANELib.o ¶
+		#"{CLibraries}"Math.o ¶
+		#"{CLibraries}"Complex.o ¶
+		"{CLibraries}"StdClib.o ¶
+		"{Libraries}"Stubs.o ¶
+		"{Libraries}"Runtime.o ¶
+		"{Libraries}"Interface.o ¶
+		#"{Libraries}"ToolLibs.o ¶
+		-o runlogm

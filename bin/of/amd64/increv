@@ -1,0 +1,15 @@
+#!/bin/sh
+
+[ ! -f revision ] && echo '0.1b0' >revision
+rev="`sed -e 's/b.*//' revision`"
+build="`sed -e 's/.*b//' revision`"
+
+if [ "$rev" = "$build" ]; then
+    echo ${rev}b0 >revision
+    echo ${rev}
+else
+    build="`expr $build + 1`"
+    echo ${rev}b${build} >revision
+    cat revision
+fi
+
